@@ -1,0 +1,34 @@
+{
+  "name": "structural-intelligence-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "seed:sources": "tsx scripts/seed-sources.ts"
+  },
+  "dependencies": {
+    "@mozilla/readability": "^0.5.0",
+    "@supabase/supabase-js": "^2.45.4",
+    "cheerio": "^1.0.0",
+    "jsdom": "^25.0.1",
+    "lucide-react": "^0.468.0",
+    "next": "^15.1.0",
+    "openai": "^4.76.0",
+    "rss-parser": "^3.13.0",
+    "typescript": "^5.7.2",
+    "tsx": "^4.19.2",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
