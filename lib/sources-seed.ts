@@ -420,6 +420,46 @@ const thoughtAmplificationSources: SourceSeed[] = countryAmplificationRows.flatM
   [`${row.name} Labor and Social Signal`, "Government", row.thought[1], row.code, row.region, row.language, "思想・社会", 83, "weekly"]
 ] as SourceSeed[]));
 
+function focusedUrl(url: string, focus: string) {
+  return `${url}${url.includes("#") ? "&" : "#"}si-${focus}`;
+}
+
+const politicalScaleSources: SourceSeed[] = countryAmplificationRows.flatMap((row) => ([
+  [`${row.name} Executive Agenda Watch`, "Government", focusedUrl(row.political[0], "executive-agenda"), row.code, row.region, row.language, "政治・国際機関", 82, "weekly"],
+  [`${row.name} Legislative Agenda Watch`, "Government", focusedUrl(row.political[1], "legislative-agenda"), row.code, row.region, row.language, "政治・国際機関", 82, "weekly"],
+  [`${row.name} Regulation Watch`, "Government", focusedUrl(row.political[0], "regulation"), row.code, row.region, row.language, "政治・国際機関", 82, "weekly"],
+  [`${row.name} Foreign Policy Watch`, "Government", focusedUrl(row.political[0], "foreign-policy"), row.code, row.region, row.language, "政治・国際機関", 82, "weekly"],
+  [`${row.name} Public Administration Watch`, "Government", focusedUrl(row.political[0], "public-administration"), row.code, row.region, row.language, "政治・国際機関", 82, "weekly"],
+  [`${row.name} Institutional Risk Watch`, "Government", focusedUrl(row.political[1], "institutional-risk"), row.code, row.region, row.language, "政治・国際機関", 82, "weekly"]
+] as SourceSeed[]));
+
+const economicScaleSources: SourceSeed[] = countryAmplificationRows.flatMap((row) => ([
+  [`${row.name} Fiscal Policy Watch`, "Government", focusedUrl(row.economic[0], "fiscal-policy"), row.code, row.region, row.language, "経済・金融", 82, "weekly"],
+  [`${row.name} Macro Statistics Watch`, "Government", focusedUrl(row.economic[1], "macro-statistics"), row.code, row.region, row.language, "経済・金融", 82, "weekly"],
+  [`${row.name} Monetary Policy Watch`, "Government", focusedUrl(row.economic[2], "monetary-policy"), row.code, row.region, row.language, "経済・金融", 82, "weekly"],
+  [`${row.name} Trade and Investment Watch`, "Government", focusedUrl(row.economic[0], "trade-investment"), row.code, row.region, row.language, "経済・金融", 82, "weekly"],
+  [`${row.name} Labor Market Economy Watch`, "Government", focusedUrl(row.economic[1], "labor-market"), row.code, row.region, row.language, "経済・金融", 82, "weekly"]
+] as SourceSeed[]));
+
+const thoughtScaleSources: SourceSeed[] = countryAmplificationRows.flatMap((row) => ([
+  [`${row.name} Education Reform Watch`, "Government", focusedUrl(row.thought[0], "education-reform"), row.code, row.region, row.language, "思想・社会", 81, "weekly"],
+  [`${row.name} Work and Skills Watch`, "Government", focusedUrl(row.thought[1], "work-skills"), row.code, row.region, row.language, "思想・社会", 81, "weekly"],
+  [`${row.name} Social Cohesion Watch`, "Government", focusedUrl(row.thought[1], "social-cohesion"), row.code, row.region, row.language, "思想・社会", 81, "weekly"],
+  [`${row.name} Demography Watch`, "Government", focusedUrl(row.thought[1], "demography"), row.code, row.region, row.language, "思想・社会", 81, "weekly"],
+  [`${row.name} Culture and Values Watch`, "Government", focusedUrl(row.thought[0], "culture-values"), row.code, row.region, row.language, "思想・社会", 81, "weekly"],
+  [`${row.name} Inequality and Trust Watch`, "Government", focusedUrl(row.thought[1], "inequality-trust"), row.code, row.region, row.language, "思想・社会", 81, "weekly"]
+] as SourceSeed[]));
+
+const technologyScaleSources: SourceSeed[] = countryAmplificationRows.flatMap((row) => ([
+  [`${row.name} AI Policy Watch`, "Government", focusedUrl(row.political[0], "ai-policy"), row.code, row.region, row.language, "テクノロジー", 81, "weekly"],
+  [`${row.name} Digital Government Watch`, "Government", focusedUrl(row.political[0], "digital-government"), row.code, row.region, row.language, "テクノロジー", 81, "weekly"],
+  [`${row.name} Cybersecurity Policy Watch`, "Government", focusedUrl(row.political[0], "cybersecurity-policy"), row.code, row.region, row.language, "テクノロジー", 81, "weekly"],
+  [`${row.name} Research and Innovation Watch`, "Government", focusedUrl(row.thought[0], "research-innovation"), row.code, row.region, row.language, "テクノロジー", 81, "weekly"],
+  [`${row.name} Digital Infrastructure Watch`, "Government", focusedUrl(row.economic[0], "digital-infrastructure"), row.code, row.region, row.language, "テクノロジー", 81, "weekly"],
+  [`${row.name} Standards and Interoperability Watch`, "Government", focusedUrl(row.economic[1], "standards-interoperability"), row.code, row.region, row.language, "テクノロジー", 81, "weekly"],
+  [`${row.name} Innovation Ecosystem Watch`, "Government", focusedUrl(row.economic[2], "innovation-ecosystem"), row.code, row.region, row.language, "テクノロジー", 81, "weekly"]
+] as SourceSeed[]));
+
 export const initialSources: Source[] = [
   ...politicalSources,
   ...economicSources,
@@ -430,7 +470,11 @@ export const initialSources: Source[] = [
   ...additionalTechnologySources,
   ...politicalAmplificationSources,
   ...economicAmplificationSources,
-  ...thoughtAmplificationSources
+  ...thoughtAmplificationSources,
+  ...politicalScaleSources,
+  ...economicScaleSources,
+  ...thoughtScaleSources,
+  ...technologyScaleSources
 ].map(([name, source_type, url, country, region, language, category, reliability_score, crawl_frequency], index) => ({
   id: `00000000-0000-4000-8000-${String(index + 1).padStart(12, "0")}`,
   name,
