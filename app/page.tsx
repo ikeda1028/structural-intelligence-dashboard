@@ -99,47 +99,6 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
                     </div>
                   </div>
                 </div>
-                <div className="wilber-power-map" aria-label="外側の四つのパワーが団体と個人に作用する構造図">
-                  {intelligenceResearch.powerMap.fields.map((field) => (
-                    <article
-                      className={`power-node power-${field.key}`}
-                      key={field.key}
-                      style={{ "--power": field.score } as React.CSSProperties}
-                    >
-                      <div className="power-node-title">
-                        <strong>{field.label}</strong>
-                        <b>{field.score}</b>
-                      </div>
-                      <p>{field.pressure}</p>
-                    </article>
-                  ))}
-                  <div className="power-rail rail-top" />
-                  <div className="power-rail rail-left" />
-                  <div className="power-rail rail-right" />
-                  <div className="power-rail rail-bottom" />
-                  <div className="collective-node">
-                    <span>集団</span>
-                    <strong>{intelligenceResearch.target}</strong>
-                    <p>{intelligenceResearch.powerMap.collectiveWill}</p>
-                    <div className="person-node">
-                      <span>個人</span>
-                      <small>任意・強制</small>
-                    </div>
-                  </div>
-                </div>
-                <div className="power-detail-grid">
-                  {intelligenceResearch.powerMap.fields.map((field) => (
-                    <article key={`${field.key}-detail`}>
-                      <div>
-                        <strong>{field.label}</strong>
-                        <span>{field.sourceQuadrant}</span>
-                      </div>
-                      <p>{field.organizationEffect}</p>
-                      <small>{field.individualEffect}</small>
-                    </article>
-                  ))}
-                </div>
-                <p className="coercive-note">{intelligenceResearch.powerMap.coercivePressure}</p>
                 <div className="relation-research">
                   <div className="relation-head">
                     <div>
@@ -245,6 +204,19 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
                     ))}
                   </div>
                 </div>
+                <div className="power-detail-grid">
+                  {intelligenceResearch.powerMap.fields.map((field) => (
+                    <article key={`${field.key}-detail`}>
+                      <div>
+                        <strong>{field.label}</strong>
+                        <span>{field.sourceQuadrant}</span>
+                      </div>
+                      <p>{field.organizationEffect}</p>
+                      <small>{field.individualEffect}</small>
+                    </article>
+                  ))}
+                </div>
+                <p className="coercive-note">{intelligenceResearch.powerMap.coercivePressure}</p>
                 <div className="internal-power">
                   <div className="relation-head">
                     <div>
