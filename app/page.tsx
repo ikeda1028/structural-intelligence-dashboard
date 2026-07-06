@@ -28,6 +28,22 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
     sources: sources.filter((source) => source.category === entry.category),
     signals: (dashboardItems as any[]).filter((item) => item.category === entry.category)
   }));
+  const overviewItems = [
+    { href: "#research", label: "1. 対象分析", title: "組織・個人の構造を見る", detail: "詳細四象限、社会圧力、社内権力、個人への作用を一枚で読む" },
+    { href: "#era", label: "2. 時代構造", title: "世界がどちらへ動くか", detail: "強まる力・弱まる力と、領域ごとの変化速度を見る" },
+    { href: "#future-runtime", label: "3. 未来仮説", title: "仮説を時間軸で検証する", detail: "3か月・1年・3年の分岐、トリガー、観測指標を追う" },
+    { href: "#country-layer", label: "4. 国別レイヤー", title: "国ごとの四象限を見る", detail: "東南アジア、アフリカ、中南米を含む地域差を比較する" },
+    { href: "#sources", label: "5. 根拠データ", title: "情報源とクロール状況を見る", detail: "どの根拠から分析しているか、どこを増やすべきか確認する" }
+  ];
+  const futureRuntime = eraMovements.slice(0, 4).map((movement, index) => ({
+    ...movement,
+    trigger: `${movement.signal}状態が続き、${movement.domain}の意思決定が他領域へ波及する`,
+    branch: index % 2 === 0
+      ? "導入が速い組織と遅い組織の差が開き、先行者が標準を握る"
+      : "政策・資金・社会的納得のズレが表面化し、再調整コストが増える",
+    indicator: `${movement.sourceCount}情報源 / ${movement.itemCount}シグナル / 速度${movement.observedVelocity}`,
+    decision: movement.tlaAction
+  }));
 
   return (
     <div className="shell">
@@ -41,6 +57,22 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
           </p>
         </section>
 
+        <section className="overview-nav" aria-label="全体構成">
+          <div className="overview-copy">
+            <span>全体構成</span>
+            <h2>読みたい観点へすぐ移動できます</h2>
+          </div>
+          <div className="overview-grid">
+            {overviewItems.map((item) => (
+              <a className="overview-item" href={item.href} key={item.href}>
+                <span>{item.label}</span>
+                <strong>{item.title}</strong>
+                <small>{item.detail}</small>
+              </a>
+            ))}
+          </div>
+        </section>
+
         <section className="metrics">
           <Metric label="登録情報源" value={sources.length} icon={<Globe2 size={18} />} />
           <Metric label="稼働中" value={activeSources.length} icon={<Radio size={18} />} />
@@ -48,7 +80,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
           <Metric label="最大変化速度" value={leadMovement.observedVelocity} icon={<TrendingUp size={18} />} />
         </section>
 
-        <section className="intelligence-research card section">
+        <section className="intelligence-research card section" id="research">
           <div className="section-head">
             <h2>インテリジェンスリサーチ</h2>
             <span className="pill">組織・個人の影響構造</span>
@@ -377,7 +409,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
           )}
         </section>
 
-        <section className="evidence-coverage card section">
+        <section className="evidence-coverage card section" id="sources">
           <div className="section-head">
             <h2>根拠ソース網</h2>
             <form action="/api/crawl" method="post">
@@ -402,7 +434,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
           </div>
         </section>
 
-        <section className="country-layer card section">
+        <section className="country-layer card section" id="country-layer">
           <div className="section-head">
             <h2>第二レイヤー: 国別四象限</h2>
             <form action="/api/crawl?layer=country" method="post">
@@ -437,7 +469,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
           </div>
         </section>
 
-        <section className="era-grid">
+        <section className="era-grid" id="era">
           <div className="era-map card section">
             <div className="section-head">
               <h2>時代の重心</h2>
@@ -483,10 +515,42 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
           </div>
         </section>
 
-        <section className="card section horizon-section">
+        <section className="card section horizon-section" id="future-runtime">
           <div className="section-head">
-            <h2>未来仮説タイムライン</h2>
+            <div>
+              <h2>未来仮説ランタイム</h2>
+              <p>仮説を固定予測にせず、時間軸・分岐・観測指標で更新していくための実行盤です。</p>
+            </div>
             <Layers3 size={18} />
+          </div>
+          <div className="runtime-grid">
+            {futureRuntime.map((runtime) => (
+              <article className="runtime-card" key={runtime.domain}>
+                <div className="runtime-head">
+                  <span>{runtime.domain}</span>
+                  <strong>{runtime.observedVelocity}</strong>
+                </div>
+                <h3>{runtime.direction}</h3>
+                <div className="runtime-lanes">
+                  <div>
+                    <span>現在の構造変化</span>
+                    <p>{runtime.structuralShift}</p>
+                  </div>
+                  <div>
+                    <span>発火トリガー</span>
+                    <p>{runtime.trigger}</p>
+                  </div>
+                  <div>
+                    <span>分岐シナリオ</span>
+                    <p>{runtime.branch}</p>
+                  </div>
+                </div>
+                <div className="runtime-watch">
+                  <span>{runtime.indicator}</span>
+                  <p>{runtime.decision}</p>
+                </div>
+              </article>
+            ))}
           </div>
           <div className="horizon-grid">
             {[
@@ -517,7 +581,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
           ))}
         </section>
 
-        <section className="card section quadrant-section">
+        <section className="card section quadrant-section" id="quadrants">
           <div className="section-head">
             <h2>四象限サマリー</h2>
             <span className="pill">政治・経済・思想・テクノロジー</span>
