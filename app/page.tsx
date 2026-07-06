@@ -148,49 +148,63 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
                     </div>
                     <small>国・政党・規制機関・市場・社内部門を、追加調査すべき関係仮説として表示</small>
                   </div>
-                  <div className="mind-map" aria-label="四象限の関係性を枝分かれで見るマインドマップ">
-                    <div className="mind-center">
-                      <span>対象</span>
+                  <div className="scheme-map" aria-label="image2のような精緻な四象限関係スキーム">
+                    <svg className="scheme-lines" viewBox="0 0 1200 760" role="img" aria-hidden="true">
+                      <path className="scheme-link main-link" d="M600 128 L600 330" />
+                      <path className="scheme-link main-link" d="M250 380 L486 380" />
+                      <path className="scheme-link main-link" d="M950 380 L714 380" />
+                      <path className="scheme-link main-link" d="M600 632 L600 468" />
+                      <path className="scheme-link faint-link" d="M600 128 L250 380" />
+                      <path className="scheme-link faint-link" d="M600 128 L950 380" />
+                      <path className="scheme-link faint-link" d="M250 380 L600 632" />
+                      <path className="scheme-link faint-link" d="M950 380 L600 632" />
+                    </svg>
+                    <div className="scheme-core">
+                      <span>集団</span>
                       <strong>{intelligenceResearch.target}</strong>
-                      <small>外部圧力と社内権限の交点</small>
+                      <div className="scheme-person">
+                        <b>個人</b>
+                        <small>任意・強制</small>
+                      </div>
                     </div>
-                    {intelligenceResearch.powerMap.relationLayers.map((layer) => (
-                      <section className={`mind-branch mind-${layer.quadrant}`} key={`mind-${layer.quadrant}`}>
-                        <div className="mind-branch-head">
-                          <span>{layer.quadrant}</span>
-                          <strong>{layer.title.replace("の詳細関係図", "")}</strong>
-                        </div>
-                        <div className="mind-leaves">
-                          {layer.nodes.filter((node) => node.id !== "target").slice(0, 5).map((node) => (
-                            <div className="mind-leaf" key={`mind-${layer.quadrant}-${node.id}`} style={{ "--leaf-power": node.score } as React.CSSProperties}>
-                              <b>{node.label}</b>
-                              <span>{node.kind}</span>
-                              <small>{node.score}</small>
-                            </div>
-                          ))}
-                        </div>
-                      </section>
-                    ))}
-                    <section className="mind-branch mind-internal">
-                      <div className="mind-branch-head">
+                    {intelligenceResearch.powerMap.fields.map((field) => {
+                      const layer = intelligenceResearch.powerMap.relationLayers.find((entry) => entry.quadrant === field.sourceQuadrant);
+                      return (
+                        <section className={`scheme-power scheme-${field.key}`} key={`scheme-${field.key}`} style={{ "--scheme-power": field.score } as React.CSSProperties}>
+                          <div className="scheme-power-head">
+                            <span>{field.sourceQuadrant}</span>
+                            <strong>{field.label}</strong>
+                            <b>{field.score}</b>
+                          </div>
+                          <p>{field.pressure}</p>
+                          <div className="scheme-children">
+                            {(layer?.nodes ?? []).filter((node) => node.id !== "target").slice(0, 5).map((node) => (
+                              <div className="scheme-child" key={`scheme-child-${field.key}-${node.id}`} style={{ "--child-power": node.score } as React.CSSProperties}>
+                                <strong>{node.label}</strong>
+                                <span>{node.kind}</span>
+                                <small>{node.score}</small>
+                              </div>
+                            ))}
+                          </div>
+                        </section>
+                      );
+                    })}
+                    <section className="scheme-internal">
+                      <div className="scheme-power-head">
                         <span>社内</span>
                         <strong>部門権力</strong>
+                        <b>{intelligenceResearch.powerMap.organizationPower}</b>
                       </div>
-                      <div className="mind-leaves">
+                      <div className="scheme-children internal-children">
                         {intelligenceResearch.powerMap.internalPowerCenters.slice(0, 6).map((center) => (
-                          <div className="mind-leaf" key={`mind-internal-${center.department}`} style={{ "--leaf-power": center.power } as React.CSSProperties}>
-                            <b>{center.department}</b>
+                          <div className="scheme-child" key={`scheme-internal-${center.department}`} style={{ "--child-power": center.power } as React.CSSProperties}>
+                            <strong>{center.department}</strong>
                             <span>{center.dominantField}</span>
                             <small>{center.power}</small>
                           </div>
                         ))}
                       </div>
                     </section>
-                    <div className="mind-line mind-line-politics" />
-                    <div className="mind-line mind-line-economy" />
-                    <div className="mind-line mind-line-thought" />
-                    <div className="mind-line mind-line-tech" />
-                    <div className="mind-line mind-line-internal" />
                   </div>
                   <div className="relation-layer-grid">
                     {intelligenceResearch.powerMap.relationLayers.map((layer) => (
