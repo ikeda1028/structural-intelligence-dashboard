@@ -140,6 +140,78 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
                   ))}
                 </div>
                 <p className="coercive-note">{intelligenceResearch.powerMap.coercivePressure}</p>
+                <div className="relation-research">
+                  <div className="relation-head">
+                    <div>
+                      <span>詳細リサーチ層</span>
+                      <h4>外部関係と社内権力の解析</h4>
+                    </div>
+                    <small>国・政党・規制機関・市場・社内部門を、追加調査すべき関係仮説として表示</small>
+                  </div>
+                  <div className="relation-layer-grid">
+                    {intelligenceResearch.powerMap.relationLayers.map((layer) => (
+                      <article className={`relation-layer relation-${layer.quadrant}`} key={layer.quadrant}>
+                        <div className="relation-layer-head">
+                          <span>{layer.quadrant}</span>
+                          <h5>{layer.title}</h5>
+                        </div>
+                        <p>{layer.summary}</p>
+                        <div className="relation-network">
+                          {layer.nodes.slice(0, 7).map((node) => (
+                            <div
+                              className={`relation-node ${node.id === "target" ? "relation-target" : ""}`}
+                              key={node.id}
+                              style={{ "--node-power": node.score } as React.CSSProperties}
+                            >
+                              <strong>{node.label}</strong>
+                              <span>{node.kind}</span>
+                              <b>{node.score}</b>
+                              <small>{node.role}</small>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="relation-links">
+                          {layer.links.slice(0, 5).map((link) => (
+                            <div key={`${layer.quadrant}-${link.from}-${link.to}`} style={{ "--link-power": link.score } as React.CSSProperties}>
+                              <span>{link.label}</span>
+                              <strong>{link.score}</strong>
+                            </div>
+                          ))}
+                        </div>
+                        <ul>
+                          {layer.watchQuestions.map((question) => (
+                            <li key={question}>{question}</li>
+                          ))}
+                        </ul>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+                <div className="internal-power">
+                  <div className="relation-head">
+                    <div>
+                      <span>社内関係図</span>
+                      <h4>どの部門がどの力を持つか</h4>
+                    </div>
+                    <small>外圧が社内の意思決定権限へどう変換されるかを見る</small>
+                  </div>
+                  <div className="internal-power-grid">
+                    {intelligenceResearch.powerMap.internalPowerCenters.map((center) => (
+                      <article key={center.department}>
+                        <div>
+                          <strong>{center.department}</strong>
+                          <span>{center.dominantField}</span>
+                        </div>
+                        <div className="internal-power-meter">
+                          <div style={{ width: `${center.power}%` }} />
+                        </div>
+                        <b>{center.power}</b>
+                        <p>{center.influence}</p>
+                        <small>{center.risk}</small>
+                      </article>
+                    ))}
+                  </div>
+                </div>
               </section>
               <article className="research-report">
                 <div className="report-head">
