@@ -148,6 +148,50 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
                     </div>
                     <small>国・政党・規制機関・市場・社内部門を、追加調査すべき関係仮説として表示</small>
                   </div>
+                  <div className="mind-map" aria-label="四象限の関係性を枝分かれで見るマインドマップ">
+                    <div className="mind-center">
+                      <span>対象</span>
+                      <strong>{intelligenceResearch.target}</strong>
+                      <small>外部圧力と社内権限の交点</small>
+                    </div>
+                    {intelligenceResearch.powerMap.relationLayers.map((layer) => (
+                      <section className={`mind-branch mind-${layer.quadrant}`} key={`mind-${layer.quadrant}`}>
+                        <div className="mind-branch-head">
+                          <span>{layer.quadrant}</span>
+                          <strong>{layer.title.replace("の詳細関係図", "")}</strong>
+                        </div>
+                        <div className="mind-leaves">
+                          {layer.nodes.filter((node) => node.id !== "target").slice(0, 5).map((node) => (
+                            <div className="mind-leaf" key={`mind-${layer.quadrant}-${node.id}`} style={{ "--leaf-power": node.score } as React.CSSProperties}>
+                              <b>{node.label}</b>
+                              <span>{node.kind}</span>
+                              <small>{node.score}</small>
+                            </div>
+                          ))}
+                        </div>
+                      </section>
+                    ))}
+                    <section className="mind-branch mind-internal">
+                      <div className="mind-branch-head">
+                        <span>社内</span>
+                        <strong>部門権力</strong>
+                      </div>
+                      <div className="mind-leaves">
+                        {intelligenceResearch.powerMap.internalPowerCenters.slice(0, 6).map((center) => (
+                          <div className="mind-leaf" key={`mind-internal-${center.department}`} style={{ "--leaf-power": center.power } as React.CSSProperties}>
+                            <b>{center.department}</b>
+                            <span>{center.dominantField}</span>
+                            <small>{center.power}</small>
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                    <div className="mind-line mind-line-politics" />
+                    <div className="mind-line mind-line-economy" />
+                    <div className="mind-line mind-line-thought" />
+                    <div className="mind-line mind-line-tech" />
+                    <div className="mind-line mind-line-internal" />
+                  </div>
                   <div className="relation-layer-grid">
                     {intelligenceResearch.powerMap.relationLayers.map((layer) => (
                       <article className={`relation-layer relation-${layer.quadrant}`} key={layer.quadrant}>
