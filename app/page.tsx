@@ -44,6 +44,19 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
     indicator: `${movement.sourceCount}情報源 / ${movement.itemCount}シグナル / 速度${movement.observedVelocity}`,
     decision: movement.tlaAction
   }));
+  const hotspotNodes = eraMovements.map((movement, index) => {
+    const heat = Math.max(0, Math.min(100, movement.observedVelocity));
+    const hue = Math.round(220 - heat * 1.45);
+    const temperature = heat >= 88 ? "hot" : heat >= 78 ? "warm" : "cool";
+
+    return {
+      ...movement,
+      heat,
+      hue,
+      temperature,
+      lane: index % 2 === 0 ? "upper" : "lower"
+    };
+  });
 
   return (
     <div className="shell">
@@ -80,6 +93,49 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
           <Metric label="稼働中" value={activeSources.length} icon={<Radio size={18} />} />
           <Metric label="領域カテゴリ" value={categories.size} icon={<Database size={18} />} />
           <Metric label="最大変化速度" value={leadMovement.observedVelocity} icon={<TrendingUp size={18} />} />
+        </section>
+
+        <section className="hotspot-card card section" aria-label="インテリジェンスホットスポット">
+          <div className="section-head hotspot-head">
+            <div>
+              <span>INTELLIGENCE HOTSPOT</span>
+              <h2>インテリジェンスホットスポット</h2>
+              <p>世界の構造変化を、速度の遅い領域は青、速い領域は赤で表示します。赤い領域ほど、対象分析で最初に疑うべき外圧です。</p>
+            </div>
+            <div className="heat-legend" aria-label="変化速度の凡例">
+              <span>遅い</span>
+              <div />
+              <span>速い</span>
+            </div>
+          </div>
+          <div className="hotspot-map">
+            <svg className="hotspot-lines" viewBox="0 0 1200 520" role="img" aria-hidden="true">
+              <path d="M170 260 C330 95 500 95 600 260 C710 420 870 420 1030 260" />
+              <path d="M170 260 C335 420 500 420 600 260 C710 95 870 95 1030 260" />
+              <path d="M170 260 L1030 260" />
+            </svg>
+            <div className="hotspot-core">
+              <span>時代の重心</span>
+              <strong>{leadMovement.domain}</strong>
+              <small>{leadMovement.observedVelocity}</small>
+            </div>
+            <div className="hotspot-node-grid">
+              {hotspotNodes.map((node) => (
+                <article
+                  className={`hotspot-node hotspot-${node.temperature} hotspot-${node.lane}`}
+                  key={node.domain}
+                  style={{ "--heat": node.heat, "--hotspot-color": `hsl(${node.hue} 72% 48%)` } as React.CSSProperties}
+                >
+                  <div>
+                    <span>{node.domain}</span>
+                    <strong>{node.observedVelocity}</strong>
+                  </div>
+                  <p>{node.direction}</p>
+                  <small>{node.sourceCount} sources / {node.itemCount} signals</small>
+                </article>
+              ))}
+            </div>
+          </div>
         </section>
 
         <section className="intelligence-research card section" id="research">

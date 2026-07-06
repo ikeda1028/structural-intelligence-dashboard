@@ -233,6 +233,185 @@ select {
   font-size: 28px;
 }
 
+.hotspot-card {
+  margin-top: 18px;
+}
+
+.hotspot-head > div:first-child {
+  display: grid;
+  gap: 6px;
+}
+
+.hotspot-head span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 820;
+  letter-spacing: 0.08em;
+}
+
+.heat-legend {
+  display: grid;
+  grid-template-columns: auto 150px auto;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 760;
+}
+
+.heat-legend div {
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2666b8, #f2b84b 48%, #c72e2e);
+}
+
+.hotspot-map {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  background:
+    linear-gradient(#e8edf4 1px, transparent 1px),
+    linear-gradient(90deg, #e8edf4 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(21, 108, 114, 0.08), transparent 34%),
+    #fbfcfe;
+  background-size: 34px 34px, 34px 34px, auto, auto;
+}
+
+.hotspot-lines {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hotspot-lines path {
+  fill: none;
+  stroke: rgba(23, 32, 51, 0.2);
+  stroke-linecap: round;
+  stroke-width: 2.2;
+}
+
+.hotspot-core {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  gap: 7px;
+  width: min(220px, 42vw);
+  min-height: 150px;
+  padding: 18px;
+  border: 4px solid var(--ink);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 22px 54px rgba(31, 41, 55, 0.16);
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.hotspot-core span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 820;
+}
+
+.hotspot-core strong {
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.hotspot-core small {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 38px;
+  border-radius: 8px;
+  background: #c72e2e;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 840;
+}
+
+.hotspot-node-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  min-height: 520px;
+  padding: 22px;
+}
+
+.hotspot-node {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-height: 174px;
+  padding: 16px;
+  border: 2px solid color-mix(in srgb, var(--hotspot-color), #172033 18%);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--hotspot-color), #ffffff 80%), #ffffff 62%),
+    #ffffff;
+  box-shadow: 0 16px 34px color-mix(in srgb, var(--hotspot-color), transparent 78%);
+}
+
+.hotspot-node:nth-child(1),
+.hotspot-node:nth-child(3),
+.hotspot-node:nth-child(5) {
+  align-self: start;
+}
+
+.hotspot-node:nth-child(2),
+.hotspot-node:nth-child(4),
+.hotspot-node:nth-child(6) {
+  align-self: end;
+}
+
+.hotspot-node div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hotspot-node span {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 840;
+  line-height: 1.35;
+}
+
+.hotspot-node strong {
+  display: grid;
+  flex: 0 0 48px;
+  place-items: center;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--hotspot-color);
+  color: #fff;
+  font-size: 18px;
+}
+
+.hotspot-node p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 690;
+  line-height: 1.55;
+}
+
+.hotspot-node small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 720;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -2995,6 +3174,7 @@ select {
 
   .overview-nav,
   .metrics,
+  .hotspot-node-grid,
   .coverage-grid,
   .country-layer-grid,
   .research-input-row,
@@ -3017,6 +3197,38 @@ select {
   .grid,
   .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .heat-legend {
+    grid-template-columns: auto minmax(90px, 1fr) auto;
+    width: 100%;
+  }
+
+  .hotspot-map {
+    min-height: auto;
+  }
+
+  .hotspot-lines {
+    display: none;
+  }
+
+  .hotspot-core {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    min-height: 124px;
+    margin: 14px;
+    transform: none;
+  }
+
+  .hotspot-node-grid {
+    min-height: auto;
+    padding: 14px;
+  }
+
+  .hotspot-node:nth-child(n) {
+    align-self: auto;
   }
 
   .overview-grid {
