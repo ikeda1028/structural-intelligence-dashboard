@@ -1,4 +1,4 @@
-# Structural Intelligence Dashboard MVP
+# 牧山式インテリジェンスリサーチ MVP
 
 世界規模の政治・経済・思想・テクノロジー・社会・安全保障・教育・環境情報を収集し、構造分析、未来仮説、TLA事業示唆まで生成するためのNext.js MVPです。
 

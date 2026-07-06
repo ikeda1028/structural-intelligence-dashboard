@@ -15,7 +15,7 @@ export default async function SourcesPage() {
         <div className="topbar-inner">
           <Link className="brand" href="/">
             <span className="brand-mark"><Activity size={19} /></span>
-            <span>Structural Intelligence Dashboard</span>
+            <span>牧山式インテリジェンスリサーチ</span>
           </Link>
           <nav className="nav">
             <Link href="/">ダッシュボード</Link>

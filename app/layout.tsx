@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Structural Intelligence Dashboard",
-  description: "世界の重要情報を構造分析し、未来仮説とTLA事業示唆を生成するMVP"
+  title: "牧山式インテリジェンスリサーチ",
+  description: "政治・経済・思想・テクノロジーの構造から、組織と個人への影響を可視化するリサーチダッシュボード"
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

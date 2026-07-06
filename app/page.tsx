@@ -34,7 +34,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
       <Header />
       <main className="main">
         <section className="hero">
-          <h1>時代がどちらへ動くのかを、構造で見る。</h1>
+          <h1>牧山式インテリジェンスリサーチ</h1>
           <p>
             政治・経済・思想・テクノロジー・社会・安全保障・教育の情報を、
             点のニュースではなく、強まる力、弱まる力、未来仮説、TLAの打ち手として可視化します。
@@ -659,7 +659,7 @@ function Header() {
       <div className="topbar-inner">
         <Link className="brand" href="/">
           <span className="brand-mark"><Activity size={19} /></span>
-          <span>Structural Intelligence Dashboard</span>
+          <span>牧山式インテリジェンスリサーチ</span>
         </Link>
         <nav className="nav">
           <Link href="/">ダッシュボード</Link>
