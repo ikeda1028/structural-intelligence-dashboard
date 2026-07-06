@@ -52,6 +52,29 @@ type ReportQuadrant = {
   relevance: number;
 };
 
+type PowerField = {
+  key: "ideology" | "economic" | "political" | "technology";
+  label: string;
+  sourceQuadrant: string;
+  score: number;
+  pressure: string;
+  organizationEffect: string;
+  individualEffect: string;
+  degradation: string;
+};
+
+type PowerMap = {
+  title: string;
+  degradationFirst: string;
+  organizationPower: number;
+  organizationPowerLabel: string;
+  individualExposure: number;
+  individualExposureLabel: string;
+  collectiveWill: string;
+  coercivePressure: string;
+  fields: PowerField[];
+};
+
 const flexibleString = z.union([z.string(), z.record(z.unknown())]).transform((value) => {
   if (typeof value === "string") return value;
   return Object.values(value)
@@ -84,6 +107,7 @@ type IntelligenceResearchResult = {
   target: string;
   headline: string;
   report: ResearchReport;
+  powerMap: PowerMap;
   analysisMode: { label: string; detail: string };
   quadrants: Array<ReportQuadrant & {
     category: string;
@@ -153,6 +177,7 @@ export async function buildIntelligenceResearch(query: string, sources: Source[]
     `${strongestCountries.map((country) => country.name).join("・") || "主要国"}の動きが、外部環境の制約条件になる`
   ];
   const localReport = buildReport(target, primary, secondary, quadrants, strongestCountries, sector);
+  const powerMap = buildPowerMap(target, quadrants, sector);
   const chatGptResult = await buildChatGptReport({
     target,
     localReport,
@@ -183,6 +208,7 @@ export async function buildIntelligenceResearch(query: string, sources: Source[]
     target,
     headline: `${target}は「${primary.structure}」という構造の中で、${primary.label}と${secondary.label}の影響を強く受けます。`,
     report,
+    powerMap,
     analysisMode: chatGptResult.result
       ? { label: "ChatGPT生成", detail: chatGptResult.result.model }
       : { label: "ローカル推定", detail: getOpenAiKeyStatus() ? `ChatGPT生成に失敗: ${sanitizeError(chatGptResult.error)}` : "OPENAI_SI_API_KEY未設定" },
@@ -300,6 +326,89 @@ function buildReport(
   };
 }
 
+function buildPowerMap(
+  target: string,
+  quadrants: ReportQuadrant[],
+  sector?: (typeof sectorProfiles)[number]
+): PowerMap {
+  const byLabel = new Map(quadrants.map((quadrant) => [quadrant.label, quadrant]));
+  const getQuadrant = (label: string) => byLabel.get(label) ?? quadrants[0];
+  const sortedQuadrants = [...quadrants].sort((a, b) => b.relevance - a.relevance);
+  const topPressure = sortedQuadrants[0];
+  const secondPressure = sortedQuadrants[1] ?? topPressure;
+  const organizationPower = clampScore(Math.round(
+    quadrants.reduce((sum, quadrant) => sum + quadrant.relevance, 0) / Math.max(1, quadrants.length) + (sector ? 6 : 0)
+  ));
+  const individualExposure = clampScore(Math.round((getQuadrant("思想").relevance + getQuadrant("政治").relevance + organizationPower) / 3));
+
+  const fields: PowerField[] = [
+    {
+      key: "ideology",
+      label: "イデオロギーパワー",
+      sourceQuadrant: "思想",
+      score: getQuadrant("思想").relevance,
+      pressure: `${target}が社会から何を正当と見なされるかを決める圧力`,
+      organizationEffect: "ブランド、採用、信頼、世論、説明責任に作用する",
+      individualEffect: "所属する個人の誇り、不安、発言しやすさ、離職意向に影響する",
+      degradation: "共通の物語が弱まると、現場の納得感と心理的安全性が劣化する"
+    },
+    {
+      key: "economic",
+      label: "エコノミックパワー",
+      sourceQuadrant: "経済",
+      score: getQuadrant("経済").relevance,
+      pressure: `${target}の資金、価格、需要、投資余力を左右する圧力`,
+      organizationEffect: "収益性、調達、設備投資、提携、雇用計画に作用する",
+      individualEffect: "賃金、評価、配置転換、学び直しの必要性として個人に届く",
+      degradation: "資本効率だけが強まると、長期投資と人材育成が細る"
+    },
+    {
+      key: "political",
+      label: "ポリティカルパワー",
+      sourceQuadrant: "政治",
+      score: getQuadrant("政治").relevance,
+      pressure: `${target}の許認可、規制、補助金、安全保障、行政関係を動かす圧力`,
+      organizationEffect: "参入条件、国別戦略、調達先、対外説明、危機管理に作用する",
+      individualEffect: "働き方のルール、コンプライアンス、発言制約、責任範囲に影響する",
+      degradation: "ルール対応が後手に回ると、意思決定が萎縮し現場裁量が劣化する"
+    },
+    {
+      key: "technology",
+      label: "サイエンス & テクノロジーパワー",
+      sourceQuadrant: "テクノロジー",
+      score: getQuadrant("テクノロジー").relevance,
+      pressure: `${target}の実装速度、AI活用、データ、研究開発を変える圧力`,
+      organizationEffect: "競争優位、業務プロセス、製品設計、知識生産の速度に作用する",
+      individualEffect: "必要スキル、学習負荷、生産性格差、役割の再定義として現れる",
+      degradation: "技術更新に学習が追いつかないと、専門性と自己効力感が劣化する"
+    }
+  ];
+  const strongestField = [...fields].sort((a, b) => b.score - a.score)[0];
+
+  return {
+    title: `${target} 牧山版四象限パワーマップ`,
+    degradationFirst: `最初に見る劣化: ${strongestField.degradation}。特に${topPressure.label}と${secondPressure.label}の圧力が同時に強まると、団体の意思決定と個人の任意・強制の感覚がずれやすくなります。`,
+    organizationPower,
+    organizationPowerLabel: scoreLabel(organizationPower),
+    individualExposure,
+    individualExposureLabel: scoreLabel(individualExposure),
+    collectiveWill: `${target}の団体としての力は、${topPressure.label}の外圧を戦略へ翻訳し、${secondPressure.label}の制約を現場の実行に落とせるかで決まります。`,
+    coercivePressure: "個人には、任意の挑戦として届く力と、規制・評価・市場変化による強制として届く力が混在します。",
+    fields
+  };
+}
+
+function clampScore(score: number) {
+  return Math.max(0, Math.min(99, score));
+}
+
+function scoreLabel(score: number) {
+  if (score >= 75) return "非常に強い";
+  if (score >= 55) return "強い";
+  if (score >= 35) return "中程度";
+  return "まだ弱い";
+}
+
 function scoreTextMatch(query: string, ...values: Array<string | undefined>) {
   const tokens = query.split(/[\s\u3000,、。・/]+/).filter(Boolean);
   const text = values.filter(Boolean).join(" ").toLowerCase();
@@ -366,7 +475,7 @@ async function persistIntelligenceResearch(research: IntelligenceResearchResult)
       target: research.target,
       query: research.target,
       headline: research.headline,
-      report: research.report,
+      report: { ...research.report, powerMap: research.powerMap },
       analysis_mode: research.analysisMode,
       quadrants: research.quadrants,
       countries: research.countries,

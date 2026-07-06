@@ -76,6 +76,71 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
                 <h3>{intelligenceResearch.target}</h3>
                 <p>{intelligenceResearch.headline}</p>
               </div>
+              <section className="power-map-card">
+                <div className="degradation-first">
+                  <span>最初に見る劣化</span>
+                  <p>{intelligenceResearch.powerMap.degradationFirst}</p>
+                </div>
+                <div className="power-map-head">
+                  <div>
+                    <span>牧山版四象限</span>
+                    <h3>{intelligenceResearch.powerMap.title}</h3>
+                  </div>
+                  <div className="power-map-scores">
+                    <div>
+                      <span>団体の力</span>
+                      <strong>{intelligenceResearch.powerMap.organizationPower}</strong>
+                      <small>{intelligenceResearch.powerMap.organizationPowerLabel}</small>
+                    </div>
+                    <div>
+                      <span>個人への作用</span>
+                      <strong>{intelligenceResearch.powerMap.individualExposure}</strong>
+                      <small>{intelligenceResearch.powerMap.individualExposureLabel}</small>
+                    </div>
+                  </div>
+                </div>
+                <div className="wilber-power-map" aria-label="外側の四つのパワーが団体と個人に作用する構造図">
+                  {intelligenceResearch.powerMap.fields.map((field) => (
+                    <article
+                      className={`power-node power-${field.key}`}
+                      key={field.key}
+                      style={{ "--power": field.score } as React.CSSProperties}
+                    >
+                      <div className="power-node-title">
+                        <strong>{field.label}</strong>
+                        <b>{field.score}</b>
+                      </div>
+                      <p>{field.pressure}</p>
+                    </article>
+                  ))}
+                  <div className="power-rail rail-top" />
+                  <div className="power-rail rail-left" />
+                  <div className="power-rail rail-right" />
+                  <div className="power-rail rail-bottom" />
+                  <div className="collective-node">
+                    <span>集団</span>
+                    <strong>{intelligenceResearch.target}</strong>
+                    <p>{intelligenceResearch.powerMap.collectiveWill}</p>
+                    <div className="person-node">
+                      <span>個人</span>
+                      <small>任意・強制</small>
+                    </div>
+                  </div>
+                </div>
+                <div className="power-detail-grid">
+                  {intelligenceResearch.powerMap.fields.map((field) => (
+                    <article key={`${field.key}-detail`}>
+                      <div>
+                        <strong>{field.label}</strong>
+                        <span>{field.sourceQuadrant}</span>
+                      </div>
+                      <p>{field.organizationEffect}</p>
+                      <small>{field.individualEffect}</small>
+                    </article>
+                  ))}
+                </div>
+                <p className="coercive-note">{intelligenceResearch.powerMap.coercivePressure}</p>
+              </section>
               <article className="research-report">
                 <div className="report-head">
                   <span>レポート</span>
