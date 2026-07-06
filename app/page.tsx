@@ -54,6 +54,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
           <p>
             政治・経済・思想・テクノロジー・社会・安全保障・教育の情報を、
             点のニュースではなく、強まる力、弱まる力、未来仮説、TLAの打ち手として可視化します。
+            対象となる企業・団体・個人が、どの社会構造の中で圧力を受け、どこに機会とリスクが生まれるかを読むための画面です。
           </p>
         </section>
 
@@ -61,6 +62,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
           <div className="overview-copy">
             <span>全体構成</span>
             <h2>読みたい観点へすぐ移動できます</h2>
+            <p>最初に対象分析で力学をつかみ、次に時代構造と未来仮説で流れを読み、最後に国別・根拠データで裏取りします。</p>
           </div>
           <div className="overview-grid">
             {overviewItems.map((item) => (
@@ -82,7 +84,10 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
 
         <section className="intelligence-research card section" id="research">
           <div className="section-head">
-            <h2>インテリジェンスリサーチ</h2>
+            <div>
+              <h2>インテリジェンスリサーチ</h2>
+              <p>組織名や個人名を入力すると、その対象が政治・経済・思想・テクノロジーのどの力に強く影響されているかを整理します。</p>
+            </div>
             <span className="pill">組織・個人の影響構造</span>
           </div>
           <form className="research-form" action="/" method="get">
@@ -117,6 +122,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
                   <div>
                     <span>牧山版四象限</span>
                     <h3>{intelligenceResearch.powerMap.title}</h3>
+                    <p className="power-map-guide">外側の四つの力が社会から対象へ入り、団体内部の意思決定を経由して、最終的に個人の行動や選択に作用する流れとして読んでください。</p>
                   </div>
                   <div className="power-map-scores">
                     <div>
@@ -136,6 +142,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
                     <div>
                       <span>詳細リサーチ層</span>
                       <h4>外部関係と社内権力の解析</h4>
+                      <p>国、政党、規制機関、市場、社内部門をつなぎ、どの関係が圧力源になっているかを仮説として展開します。</p>
                     </div>
                     <small>国・政党・規制機関・市場・社内部門を、追加調査すべき関係仮説として表示</small>
                   </div>
@@ -254,6 +261,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
                     <div>
                       <span>社内関係図</span>
                       <h4>どの部門がどの力を持つか</h4>
+                      <p>外部から来た圧力が、社内のどの部門に権限や責任として集まるかを見ます。</p>
                     </div>
                     <small>外圧が社内の意思決定権限へどう変換されるかを見る</small>
                   </div>
@@ -279,6 +287,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
                 <div className="report-head">
                   <span>レポート</span>
                   <h3>{intelligenceResearch.report.title}</h3>
+                  <p>図で見えた構造を文章に戻し、意思決定者が読める形で影響、機会、リスク、推奨アクションへ変換します。</p>
                   <div className="report-head-actions">
                     <div className="report-mode">
                       <BadgeCheck size={14} />
@@ -411,7 +420,10 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
 
         <section className="evidence-coverage card section" id="sources">
           <div className="section-head">
-            <h2>根拠ソース網</h2>
+            <div>
+              <h2>根拠ソース網</h2>
+              <p>分析の根拠になる情報源を四象限ごとに確認します。ソース数と取得シグナルが増えるほど、仮説の検証材料が厚くなります。</p>
+            </div>
             <form action="/api/crawl" method="post">
               <button className="button primary" type="submit">
                 <Zap size={16} />
@@ -436,7 +448,10 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
 
         <section className="country-layer card section" id="country-layer">
           <div className="section-head">
-            <h2>第二レイヤー: 国別四象限</h2>
+            <div>
+              <h2>第二レイヤー: 国別四象限</h2>
+              <p>同じ政治・経済・思想・テクノロジーでも、国や地域によって圧力の出方は変わります。地域差を見て、対象に近い外部環境を読みます。</p>
+            </div>
             <form action="/api/crawl?layer=country" method="post">
               <button className="button primary" type="submit">
                 <Globe2 size={16} />
@@ -472,7 +487,10 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
         <section className="era-grid" id="era">
           <div className="era-map card section">
             <div className="section-head">
-              <h2>時代の重心</h2>
+              <div>
+                <h2>時代の重心</h2>
+                <p>世界全体でどの領域の変化速度が上がっているかを見ます。数字は「注目度」ではなく、構造変化として強まっている度合いです。</p>
+              </div>
               <span className="pill">構造変化マップ</span>
             </div>
             <p className="thesis">{eraThesis}</p>
@@ -500,7 +518,10 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
 
           <div className="card section">
             <div className="section-head">
-              <h2>読み筋</h2>
+              <div>
+                <h2>読み筋</h2>
+                <p>いま最も速く動く領域から、強まる力と弱まる力を分けて読みます。打ち手を考える時は、強まる力に乗り、弱まる前提から離れることが重要です。</p>
+              </div>
               <Telescope size={18} />
             </div>
             <div className="era-focus">
@@ -519,7 +540,7 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
           <div className="section-head">
             <div>
               <h2>未来仮説ランタイム</h2>
-              <p>仮説を固定予測にせず、時間軸・分岐・観測指標で更新していくための実行盤です。</p>
+              <p>仮説を固定予測にせず、時間軸・分岐・観測指標で更新していくための実行盤です。どの条件が揃うと未来が動き出すのか、どの数字やニュースを見れば検証できるのかを明確にします。</p>
             </div>
             <Layers3 size={18} />
           </div>
@@ -583,7 +604,10 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
 
         <section className="card section quadrant-section" id="quadrants">
           <div className="section-head">
-            <h2>四象限サマリー</h2>
+            <div>
+              <h2>四象限サマリー</h2>
+              <p>政治はルール、経済は資本、思想は納得、テクノロジーは実装能力を表します。四つを分けて見ることで、ひとつのニュースの背後にある構造を読みやすくします。</p>
+            </div>
             <span className="pill">政治・経済・思想・テクノロジー</span>
           </div>
           <div className="quadrant-visual" aria-label="政治・経済・思想・テクノロジーの四象限マップ">
@@ -640,7 +664,10 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
         <section className="grid">
           <div className="card section">
             <div className="section-head">
-              <h2>最新インテリジェンス</h2>
+              <div>
+                <h2>最新インテリジェンス</h2>
+                <p>クロールされた情報を、重要度とカテゴリ付きで並べます。ここが増えるほど、未来仮説や対象分析に使える材料が増えていきます。</p>
+              </div>
               <Link className="button" href="/sources">情報源管理</Link>
             </div>
             <div className="list">
@@ -662,7 +689,10 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
 
           <div className="card section">
             <div className="section-head">
-              <h2>監視中の情報源</h2>
+              <div>
+                <h2>監視中の情報源</h2>
+                <p>どの媒体や機関を継続監視しているかを確認します。信頼度の高い一次情報を増やすほど、分析の根拠が強くなります。</p>
+              </div>
               <form action="/api/crawl" method="post">
                 <button className="button primary" type="submit">
                   <Zap size={16} />
