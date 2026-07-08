@@ -2995,6 +2995,48 @@ select {
   font-weight: 650;
 }
 
+.source-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.source-summary-grid article {
+  display: grid;
+  gap: 6px;
+  min-height: 92px;
+  padding: 12px;
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  background: #fbfcfe;
+}
+
+.source-summary-grid span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 760;
+}
+
+.source-summary-grid strong {
+  color: var(--ink);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.source-summary-grid small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.source-limit-note {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 720;
+}
+
 .source-table {
   width: 100%;
   border-collapse: collapse;
@@ -3189,6 +3231,7 @@ select {
   .runtime-lanes,
   .competitor-grid,
   .competitor-points,
+  .source-summary-grid,
   .next-question-grid,
   .history-grid,
   .era-grid,

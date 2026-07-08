@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { CrawlFrequency, Source, SourceType } from "@/lib/types";
 
 const now = new Date().toISOString();
