@@ -24,7 +24,16 @@ export async function listSources() {
 
   const { data, error } = await supabase.from("sources").select("*").order("created_at", { ascending: false });
   if (error) throw error;
-  return data as Source[];
+  const sources = data as Source[];
+  const existingIds = new Set(sources.map((source) => source.id));
+  const missingSources = initialSources.filter((source) => !existingIds.has(source.id));
+
+  if (missingSources.length === 0) return sources;
+
+  const { error: seedError } = await supabase.from("sources").upsert(missingSources, { onConflict: "id" });
+  if (seedError) throw seedError;
+
+  return [...missingSources, ...sources];
 }
 
 export async function upsertSource(input: Partial<Source>) {
