@@ -3037,6 +3037,18 @@ select {
   font-weight: 720;
 }
 
+.source-filter-form {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(180px, 0.34fr) auto auto;
+  align-items: end;
+  gap: 10px;
+  margin: 14px 0 12px;
+  padding: 12px;
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  background: #fbfcfe;
+}
+
 .source-table {
   width: 100%;
   border-collapse: collapse;
@@ -3231,6 +3243,7 @@ select {
   .runtime-lanes,
   .competitor-grid,
   .competitor-points,
+  .source-filter-form,
   .source-summary-grid,
   .next-question-grid,
   .history-grid,
