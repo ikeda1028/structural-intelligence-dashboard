@@ -25,15 +25,31 @@ export async function listSources() {
   const { data, error } = await supabase.from("sources").select("*").order("created_at", { ascending: false });
   if (error) throw error;
   const sources = data as Source[];
-  const existingIds = new Set(sources.map((source) => source.id));
-  const missingSources = initialSources.filter((source) => !existingIds.has(source.id));
+  const existingSources = new Map(sources.map((source) => [source.id, source]));
+  const seedUpdates = initialSources.filter((source) => {
+    const existing = existingSources.get(source.id);
+    return !existing
+      || existing.name !== source.name
+      || existing.url !== source.url
+      || existing.source_type !== source.source_type
+      || existing.country !== source.country
+      || existing.region !== source.region
+      || existing.language !== source.language
+      || existing.category !== source.category
+      || existing.reliability_score !== source.reliability_score
+      || existing.crawl_frequency !== source.crawl_frequency;
+  });
 
-  if (missingSources.length === 0) return sources;
+  if (seedUpdates.length === 0) return sources;
 
-  const { error: seedError } = await supabase.from("sources").upsert(missingSources, { onConflict: "id" });
+  const { error: seedError } = await supabase.from("sources").upsert(seedUpdates, { onConflict: "id" });
   if (seedError) throw seedError;
 
-  return [...missingSources, ...sources];
+  const sourceUpdates = new Map(seedUpdates.map((source) => [source.id, source]));
+  return [
+    ...seedUpdates.filter((source) => !existingSources.has(source.id)),
+    ...sources.map((source) => sourceUpdates.get(source.id) ?? source)
+  ];
 }
 
 export async function upsertSource(input: Partial<Source>) {
