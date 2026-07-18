@@ -59,6 +59,10 @@ export type CrawlLog = {
   error_message?: string;
 };
 
+export type CrawlLogWithSource = CrawlLog & {
+  sources?: Pick<Source, "name" | "url" | "country" | "region" | "category"> | null;
+};
+
 export type FutureHypothesis = {
   title: string;
   description: string;

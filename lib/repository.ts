@@ -1,6 +1,6 @@
 import { initialSources } from "@/lib/sources-seed";
 import { getSupabaseAdmin } from "@/lib/supabase";
-import type { CrawledItem, CrawlLog, IntelligenceResearchRecord, RiskResponseResearchRecord, Source } from "@/lib/types";
+import type { CrawledItem, CrawlLog, CrawlLogWithSource, IntelligenceResearchRecord, RiskResponseResearchRecord, Source } from "@/lib/types";
 
 const demoState: {
   sources: Source[];
@@ -98,6 +98,24 @@ export async function insertCrawlLog(log: CrawlLog) {
   const { error } = await supabase.from("crawl_logs").insert(log);
   if (error) throw error;
   return log;
+}
+
+export async function listCrawlLogs(limit = 40) {
+  const supabase = getSupabaseAdmin();
+  if (!supabase) {
+    return demoState.logs.slice(0, limit).map((log) => ({
+      ...log,
+      sources: demoState.sources.find((source) => source.id === log.source_id) ?? null
+    })) satisfies CrawlLogWithSource[];
+  }
+
+  const { data, error } = await supabase
+    .from("crawl_logs")
+    .select("*, sources(name, url, country, region, category)")
+    .order("started_at", { ascending: false })
+    .limit(limit);
+  if (error) throw error;
+  return data as CrawlLogWithSource[];
 }
 
 export async function insertCrawledItems(items: CrawledItem[]) {

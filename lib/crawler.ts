@@ -8,6 +8,27 @@ import type { CrawledItem, Source } from "@/lib/types";
 
 const parser = new Parser();
 
+type CrawlFailureDiagnosis = {
+  message: string;
+  failureType: string;
+  blocked: boolean;
+  httpStatus?: number;
+  targetUrl: string;
+  mitigation: string;
+};
+
+class CrawlHttpError extends Error {
+  status: number;
+  url: string;
+
+  constructor(status: number, statusText: string, url: string) {
+    super(`HTTP ${status}${statusText ? ` ${statusText}` : ""}`);
+    this.name = "CrawlHttpError";
+    this.status = status;
+    this.url = url;
+  }
+}
+
 function normalizeUrl(url: string) {
   const parsed = new URL(url);
   parsed.hash = "";
@@ -31,7 +52,7 @@ async function extractArticle(url: string) {
     }
   });
 
-  if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);
+  if (!response.ok) throw new CrawlHttpError(response.status, response.statusText, response.url || url);
   const html = await response.text();
   const dom = new JSDOM(html, { url });
   const article = new Readability(dom.window.document).parse();
@@ -43,6 +64,60 @@ async function extractArticle(url: string) {
     raw_text: rawText.slice(0, 60000),
     extracted_text: (article?.textContent || rawText).replace(/\s+/g, " ").trim().slice(0, 60000)
   };
+}
+
+function diagnoseCrawlFailure(error: unknown, source: Source): CrawlFailureDiagnosis {
+  const message = error instanceof Error ? error.message : "Unknown error";
+  const httpStatus = error instanceof CrawlHttpError ? error.status : parseHttpStatus(message);
+  const targetUrl = error instanceof CrawlHttpError ? error.url : source.url;
+  const failureType = classifyFailure(message, httpStatus);
+  const blocked = ["access_denied", "rate_limited", "legal_or_geo_block", "bot_protection"].includes(failureType);
+
+  return {
+    message,
+    failureType,
+    blocked,
+    httpStatus,
+    targetUrl,
+    mitigation: mitigationForFailure(failureType)
+  };
+}
+
+function parseHttpStatus(message: string) {
+  const match = message.match(/\b(?:HTTP|status|failed:)\s*(\d{3})\b/i);
+  return match ? Number(match[1]) : undefined;
+}
+
+function classifyFailure(message: string, status?: number) {
+  const normalized = message.toLowerCase();
+  if (status === 401 || status === 403) return "access_denied";
+  if (status === 429) return "rate_limited";
+  if (status === 451) return "legal_or_geo_block";
+  if (status === 404 || status === 410) return "not_found";
+  if (status && status >= 500) return "server_error";
+  if (normalized.includes("cloudflare") || normalized.includes("captcha") || normalized.includes("forbidden")) return "bot_protection";
+  if (normalized.includes("timeout") || normalized.includes("timed out")) return "timeout";
+  if (normalized.includes("enotfound") || normalized.includes("dns") || normalized.includes("getaddrinfo")) return "dns_error";
+  if (normalized.includes("certificate") || normalized.includes("tls") || normalized.includes("ssl")) return "tls_error";
+  if (normalized.includes("invalid character") || normalized.includes("non-whitespace before first tag")) return "feed_parse_error";
+  return "fetch_error";
+}
+
+function mitigationForFailure(failureType: string) {
+  const hints: Record<string, string> = {
+    access_denied: "公式RSS/API/プレスリリースページへの差し替え、User-Agent連絡先の明記、robots.txtと利用規約の確認を行う。",
+    rate_limited: "巡回頻度を下げ、同一ドメインの同時取得を避け、指数バックオフを入れる。",
+    legal_or_geo_block: "利用条件を確認し、許可された地域・API・代替公式ページへ切り替える。",
+    bot_protection: "HTML直クロールを避け、RSS/API/サイトマップ/公式ニュース一覧に差し替える。",
+    not_found: "URL変更の可能性が高いため、公式サイト内のニュース・プレスページを再探索して差し替える。",
+    server_error: "一時障害の可能性があるため再試行し、継続する場合は軽量な一覧ページへ差し替える。",
+    timeout: "タイムアウトが続く場合は取得対象を軽いページへ変更し、巡回頻度を下げる。",
+    dns_error: "ドメイン変更または停止の可能性があるため、公式ドメインを再確認する。",
+    tls_error: "証明書や古いTLS設定の可能性があるため、代替の公式ページやHTTPS設定を確認する。",
+    feed_parse_error: "RSSではないページをRSS扱いしている可能性があるため、種別をWebsiteに変更するかRSS URLを再探索する。",
+    fetch_error: "エラー文を確認し、RSS/API/軽量ニュース一覧への差し替えを検討する。"
+  };
+  return hints[failureType] ?? hints.fetch_error;
 }
 
 async function crawlRss(source: Source) {
@@ -142,6 +217,7 @@ export async function crawlSource(source: Source) {
     });
     return { source: source.name, itemsFound: items.length, itemsSaved: saved.length };
   } catch (error) {
+    const diagnosis = diagnoseCrawlFailure(error, source);
     await insertCrawlLog({
       id: crypto.randomUUID(),
       source_id: source.id,
@@ -150,7 +226,7 @@ export async function crawlSource(source: Source) {
       status: "failed",
       items_found: 0,
       items_saved: 0,
-      error_message: error instanceof Error ? error.message : "Unknown error"
+      error_message: JSON.stringify(diagnosis)
     });
     throw error;
   }

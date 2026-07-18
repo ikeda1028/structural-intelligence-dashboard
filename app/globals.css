@@ -3069,6 +3069,54 @@ select {
   font-weight: 700;
 }
 
+.crawl-history-section {
+  margin-top: 18px;
+}
+
+.crawl-history-table td {
+  vertical-align: top;
+}
+
+.crawl-history-table td small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.crawl-history-table td strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 26px;
+  padding: 0 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 760;
+  white-space: nowrap;
+}
+
+.status-pill.success {
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.status-pill.warning {
+  background: var(--amber-soft);
+  color: var(--warning);
+}
+
+.status-pill.danger {
+  background: #fff1f0;
+  color: var(--danger);
+}
+
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

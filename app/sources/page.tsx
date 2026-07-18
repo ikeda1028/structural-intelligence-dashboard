@@ -1,7 +1,7 @@
-import { Activity, PauseCircle, Plus, Save, Search } from "lucide-react";
+import { Activity, AlertTriangle, CheckCircle2, PauseCircle, Plus, Save, Search, ShieldAlert } from "lucide-react";
 import Link from "next/link";
-import { listSources } from "@/lib/repository";
-import type { CrawlFrequency, SourceType } from "@/lib/types";
+import { listCrawlLogs, listSources } from "@/lib/repository";
+import type { CrawlFrequency, CrawlLogWithSource, SourceType } from "@/lib/types";
 
 const sourceTypes: SourceType[] = ["RSS", "Website", "API", "ThinkTank", "Government", "InternationalOrganization", "Academic", "NewsMedia"];
 const frequencies: CrawlFrequency[] = ["hourly", "every_6_hours", "daily", "weekly"];
@@ -21,6 +21,7 @@ export default async function SourcesPage({ searchParams }: { searchParams?: Pro
   const query = typeof params?.q === "string" ? params.q.trim() : "";
   const selectedCategory = typeof params?.category === "string" ? params.category : "";
   const sources = await listSources();
+  const crawlLogs = await listCrawlLogs(50);
   const totalSources = sources.length;
   const sourceSummary = sourceCategories.map((category) => ({
     category,
@@ -161,9 +162,158 @@ export default async function SourcesPage({ searchParams }: { searchParams?: Pro
             </form>
           </div>
         </section>
+
+        <section className="card section crawl-history-section">
+          <div className="section-head">
+            <div>
+              <h2>クロール履歴とブロック診断</h2>
+              <p>取得成功、取得失敗、アクセス拒否・レート制限などの弾かれ疑いを残し、次に打つ対策を判断します。</p>
+            </div>
+            <span className="pill">{crawlLogs.length} logs</span>
+          </div>
+          {crawlLogs.length === 0 ? (
+            <p className="empty-note">まだクロール履歴はありません。手動クロールまたはcron実行後に、ここへ結果が蓄積されます。</p>
+          ) : (
+            <table className="source-table crawl-history-table">
+              <thead>
+                <tr>
+                  <th>時刻</th>
+                  <th>情報源</th>
+                  <th>状態</th>
+                  <th>弾かれ判定</th>
+                  <th>詳細</th>
+                  <th>対策案</th>
+                </tr>
+              </thead>
+              <tbody>
+                {crawlLogs.map((log) => {
+                  const diagnosis = parseCrawlDiagnosis(log);
+                  return (
+                    <tr key={log.id}>
+                      <td>{formatDateTime(log.started_at)}</td>
+                      <td>
+                        {log.sources?.url ? (
+                          <a href={log.sources.url} target="_blank" rel="noreferrer">{log.sources.name}</a>
+                        ) : (
+                          log.source_id
+                        )}
+                        <small>{log.sources ? `${log.sources.category} / ${log.sources.country}` : "source未取得"}</small>
+                      </td>
+                      <td>{renderStatus(log)}</td>
+                      <td>{renderBlockedState(diagnosis.blocked, log.status)}</td>
+                      <td>
+                        <strong>{diagnosis.label}</strong>
+                        <small>{diagnosis.detail}</small>
+                      </td>
+                      <td>{diagnosis.mitigation}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          )}
+        </section>
       </main>
     </div>
   );
+}
+
+type CrawlDiagnosisView = {
+  label: string;
+  detail: string;
+  blocked: boolean;
+  mitigation: string;
+};
+
+function parseCrawlDiagnosis(log: CrawlLogWithSource): CrawlDiagnosisView {
+  if (log.status === "success") {
+    return {
+      label: "取得成功",
+      detail: `${log.items_found}件検出 / ${log.items_saved}件保存`,
+      blocked: false,
+      mitigation: "現状維持。保存0件が続く場合は重複または一覧ページの構造を確認する。"
+    };
+  }
+
+  if (!log.error_message) {
+    return {
+      label: "失敗詳細なし",
+      detail: "エラー本文が保存されていません。",
+      blocked: false,
+      mitigation: "再クロールして診断情報を蓄積する。"
+    };
+  }
+
+  try {
+    const parsed = JSON.parse(log.error_message) as Partial<{
+      message: string;
+      failureType: string;
+      blocked: boolean;
+      httpStatus: number;
+      targetUrl: string;
+      mitigation: string;
+    }>;
+    const label = [
+      parsed.failureType ? failureTypeLabel(parsed.failureType) : "取得失敗",
+      parsed.httpStatus ? `HTTP ${parsed.httpStatus}` : ""
+    ].filter(Boolean).join(" / ");
+
+    return {
+      label,
+      detail: [parsed.message, parsed.targetUrl].filter(Boolean).join(" - "),
+      blocked: Boolean(parsed.blocked),
+      mitigation: parsed.mitigation || "エラー文を確認し、公式RSS/API/軽量ページへの差し替えを検討する。"
+    };
+  } catch {
+    return {
+      label: "取得失敗",
+      detail: log.error_message,
+      blocked: /403|401|429|451|forbidden|rate/i.test(log.error_message),
+      mitigation: "HTTPステータスと公式サイト構造を確認し、RSS/API/プレス一覧への差し替えを検討する。"
+    };
+  }
+}
+
+function failureTypeLabel(type: string) {
+  const labels: Record<string, string> = {
+    access_denied: "アクセス拒否",
+    rate_limited: "レート制限",
+    legal_or_geo_block: "法務・地域ブロック",
+    bot_protection: "bot対策",
+    not_found: "URL不明",
+    server_error: "サーバー障害",
+    timeout: "タイムアウト",
+    dns_error: "DNSエラー",
+    tls_error: "TLSエラー",
+    feed_parse_error: "RSS解析失敗",
+    fetch_error: "取得失敗"
+  };
+  return labels[type] ?? type;
+}
+
+function formatDateTime(value: string) {
+  return new Intl.DateTimeFormat("ja-JP", {
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit"
+  }).format(new Date(value));
+}
+
+function renderStatus(log: CrawlLogWithSource) {
+  if (log.status === "success") {
+    return <span className="status-pill success"><CheckCircle2 size={14} />成功</span>;
+  }
+  if (log.status === "partial") {
+    return <span className="status-pill warning"><AlertTriangle size={14} />一部</span>;
+  }
+  return <span className="status-pill danger"><AlertTriangle size={14} />失敗</span>;
+}
+
+function renderBlockedState(blocked: boolean, status: CrawlLogWithSource["status"]) {
+  if (blocked) return <span className="status-pill danger"><ShieldAlert size={14} />弾かれ疑い</span>;
+  if (status === "success") return <span className="status-pill success">問題なし</span>;
+  return <span className="status-pill warning">要確認</span>;
 }
 
 function Field(props: React.InputHTMLAttributes<HTMLInputElement> & { label: string; name: string }) {
