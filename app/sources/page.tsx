@@ -1,6 +1,7 @@
 import { Activity, AlertTriangle, CheckCircle2, PauseCircle, Plus, Save, Search, ShieldAlert } from "lucide-react";
 import Link from "next/link";
 import { listCrawlLogs, listSources } from "@/lib/repository";
+import { isSupabaseAdminConfigured } from "@/lib/supabase";
 import type { CrawlFrequency, CrawlLogWithSource, SourceType } from "@/lib/types";
 
 const sourceTypes: SourceType[] = ["RSS", "Website", "API", "ThinkTank", "Government", "InternationalOrganization", "Academic", "NewsMedia"];
@@ -66,6 +67,23 @@ export default async function SourcesPage({ searchParams }: { searchParams?: Pro
         <section className="hero">
           <h1>情報源管理</h1>
           <p>信頼性、領域、地域、巡回頻度を管理し、不要な情報源は停止できます。</p>
+        </section>
+
+        <section className="card section crawl-status-card">
+          <div className="section-head">
+            <div>
+              <h2>自動クロール設定</h2>
+              <p>Vercel Cronで毎日03:00（日本時間）に `/api/cron/crawl` を自動実行します。</p>
+            </div>
+            <span className={`status-pill ${isSupabaseAdminConfigured ? "success" : "warning"}`}>
+              {isSupabaseAdminConfigured ? "DB永続化 有効" : "DB永続化 未設定"}
+            </span>
+          </div>
+          {!isSupabaseAdminConfigured && (
+            <p className="source-limit-note">
+              本番環境に `NEXT_PUBLIC_SUPABASE_URL` と `SUPABASE_SERVICE_ROLE_KEY` が揃っていないため、クロールはデモメモリ実行になり、履歴や取得結果が永続保存されません。
+            </p>
+          )}
         </section>
 
         <section className="grid">

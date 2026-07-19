@@ -3,7 +3,7 @@ import * as cheerio from "cheerio";
 import { JSDOM } from "jsdom";
 import Parser from "rss-parser";
 import { insertCrawledItems, insertCrawlLog, markSourceCrawled } from "@/lib/repository";
-import { isSupabaseConfigured } from "@/lib/supabase";
+import { isSupabaseAdminConfigured } from "@/lib/supabase";
 import type { CrawledItem, Source } from "@/lib/types";
 
 const parser = new Parser();
@@ -199,7 +199,7 @@ function crawlDemo(source: Source) {
 export async function crawlSource(source: Source) {
   const startedAt = new Date().toISOString();
   try {
-    const items = !isSupabaseConfigured
+    const items = !isSupabaseAdminConfigured
       ? crawlDemo(source)
       : source.source_type === "RSS" || source.url.includes("rss") || source.url.includes("feed")
       ? await crawlRss(source)

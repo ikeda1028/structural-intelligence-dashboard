@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { crawlSource, shouldCrawl } from "@/lib/crawler";
 import { listSources } from "@/lib/repository";
+import { isSupabaseAdminConfigured } from "@/lib/supabase";
 import type { Source } from "@/lib/types";
 
 const evidenceCategories = ["政治・国際機関", "経済・金融", "思想・社会", "テクノロジー"];
@@ -19,6 +20,10 @@ export async function GET(request: Request) {
   const results = await Promise.allSettled(targets.map((source) => crawlSource(source)));
 
   return NextResponse.json({
+    ranAt: new Date().toISOString(),
+    storageMode: isSupabaseAdminConfigured ? "supabase" : "demo-memory",
+    persistent: isSupabaseAdminConfigured,
+    schedule: "0 18 * * *",
     targets: targets.length,
     results: results.map((result) => result.status === "fulfilled" ? result.value : {
       error: result.reason instanceof Error ? result.reason.message : "Unknown error"

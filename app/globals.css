@@ -3073,6 +3073,10 @@ select {
   margin-top: 18px;
 }
 
+.crawl-status-card {
+  margin-bottom: 18px;
+}
+
 .crawl-history-table td {
   vertical-align: top;
 }
