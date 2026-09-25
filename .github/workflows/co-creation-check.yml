@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [main]
   push:
-    branches: [feat/tla-co-creation-public-20260926]
+    branches: [main, feat/tla-co-creation-public-20260926]
 permissions:
   contents: read
 concurrency:
@@ -23,16 +23,14 @@ jobs:
         with:
           node-version: '22'
       - run: npm install --global pnpm@10.34.5
-      - run: pnpm install --no-frozen-lockfile
+      - run: pnpm install --frozen-lockfile
       - run: node --test tests/co-creation*.test.mjs
       - run: pnpm build
-  prepare-public-snapshots:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/feat/tla-co-creation-public-20260926'
+  public-smoke:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: verify
     runs-on: ubuntu-latest
     timeout-minutes: 6
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -40,23 +38,4 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '22'
-      - run: npm install --global pnpm@10.34.5
-      - run: pnpm install --lockfile-only --no-frozen-lockfile --ignore-scripts
-      - name: Prepare reviewed public-data and lockfile blobs only
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          node --input-type=module <<'JS'
-          import {writeFile} from 'node:fs/promises';
-          import {parseGsi} from './public/co-creation-assets/core.mjs';
-          const url='https://raw.githubusercontent.com/gsi-cyberjapan/gsimaps/gh-pages/js/muni.js';
-          const response=await fetch(url,{signal:AbortSignal.timeout(20000)});
-          if(!response.ok)throw Error('GSI source unavailable');
-          const text=await response.text();if(text.length>500000)throw Error('Unexpected source size');
-          const rows=parseGsi(text);
-          await writeFile('/tmp/tla-registry.mjs','// GSI name-code snapshot, fetched '+new Date().toISOString()+'\n// Source: '+url+'\nexport default '+JSON.stringify(rows)+';\n');
-          console.log('REGISTRY_COUNT='+rows.length);
-          console.log('REGISTRY_PREFECTURES='+new Set(rows.map(r=>r.pref_code)).size);
-          JS
-          echo "LOCKFILE_BLOB_SHA=$(gh api -X POST repos/$GITHUB_REPOSITORY/git/blobs -f encoding=utf-8 -F content=@pnpm-lock.yaml --jq .sha)"
-          echo "REGISTRY_BLOB_SHA=$(gh api -X POST repos/$GITHUB_REPOSITORY/git/blobs -f encoding=utf-8 -F content=@/tmp/tla-registry.mjs --jq .sha)"
+      - run: node scripts/check-co-creation-public.mjs
