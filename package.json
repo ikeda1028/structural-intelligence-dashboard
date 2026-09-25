@@ -2,12 +2,14 @@
   "name": "structural-intelligence-dashboard",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.34.5",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed:sources": "tsx scripts/seed-sources.ts"
+    "seed:sources": "tsx scripts/seed-sources.ts",
+    "test:co-creation": "node --test tests/co-creation*.test.mjs"
   },
   "dependencies": {
     "@mozilla/readability": "^0.5.0",
@@ -15,7 +17,7 @@
     "cheerio": "^1.0.0",
     "jsdom": "^25.0.1",
     "lucide-react": "^0.468.0",
-    "next": "^15.1.0",
+    "next": "15.5.26",
     "openai": "^4.76.0",
     "rss-parser": "^3.13.0",
     "typescript": "^5.7.2",
@@ -27,7 +29,7 @@
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
     "eslint": "^9.17.0",
-    "eslint-config-next": "^15.1.0",
+    "eslint-config-next": "15.5.26",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   }

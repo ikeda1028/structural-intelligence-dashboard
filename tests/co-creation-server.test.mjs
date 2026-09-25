@@ -1,0 +1,13 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {getPublicData,runResearch} from '../lib/co-creation/server.mjs';
+const env={OPENAI_SI_API_KEY:'TEST_FAKE_NOT_SECRET',SUPABASE_SERVICE_ROLE_KEY:'TEST_DB_FAKE',NEXT_PUBLIC_SUPABASE_URL:'https://db.example.com',TLA_PUBLIC_RESEARCH_ENABLED:'1',VERCEL:'1'};
+const req=(body={name:'テスト企業',consent:true},headers={})=>new Request('https://site.example.com/api/co-creation',{method:'POST',headers:{'content-type':'application/json',origin:'https://site.example.com',...headers},body:JSON.stringify(body)});
+const forbidden=async()=>{throw Error('external call must not happen');};
+test('missing configuration stops before external requests',async()=>assert.equal((await runResearch(req(),{env:{},fetcher:forbidden})).status,503));
+test('consent required before external requests',async()=>assert.equal((await runResearch(req({name:'テスト企業',consent:false}),{env,fetcher:forbidden})).status,400));
+test('cross-site origin rejected',async()=>assert.equal((await runResearch(req(undefined,{origin:'https://other.example.com'}),{env,fetcher:forbidden})).status,403));
+test('large streaming body rejected',async()=>assert.equal((await runResearch(req({name:'テスト企業',consent:true,x:'x'.repeat(5000)}),{env,fetcher:forbidden})).status,400));
+test('quota outage refuses AI',async()=>{let n=0;const r=await runResearch(req(),{env,fetcher:async()=>{n++;return new Response('error',{status:500});}});assert.equal(r.status,503);assert.equal(n,1);});
+test('quota limit refuses AI',async()=>{let n=0;const r=await runResearch(req(),{env,fetcher:async()=>{n++;return Response.json(false);}});assert.equal(r.status,429);assert.equal(n,1);});
+test('GET fallback never reveals credentials',async()=>{const r=await getPublicData(null,{env,fetcher:forbidden});const raw=await r.text();const j=JSON.parse(raw);assert.equal(j.municipalities.length,3);assert.equal(j.registryAvailable,false);assert.ok(j.registryError);assert.ok(!raw.includes(env.OPENAI_SI_API_KEY));assert.ok(!raw.includes(env.SUPABASE_SERVICE_ROLE_KEY));});
+test('AI call follows successful quota and keeps fixed limits',async()=>{const calls=[];const r=await runResearch(req(undefined,{'x-vercel-forwarded-for':'203.0.113.1'}),{env,fetcher:async(url,init)=>{calls.push({url:String(url),body:JSON.parse(init.body)});if(calls.length===1)return Response.json(true);return new Response('fail',{status:500});}});assert.equal(r.status,502);assert.equal(calls.length,2);assert.match(calls[0].body.p_visitor,/^[a-f0-9]{64}$/);assert.ok(!JSON.stringify(calls[0]).includes('203.0.113.1'));assert.equal(calls[1].body.max_tool_calls,2);assert.equal(calls[1].body.max_output_tokens,2000);assert.equal(calls[1].body.store,false);});
