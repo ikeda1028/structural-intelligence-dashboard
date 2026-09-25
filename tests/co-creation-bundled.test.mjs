@@ -1,0 +1,7 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {getBundledPublicData} from '../lib/co-creation/public-data.mjs';
+import {lookup,match} from '../lib/co-creation/core.mjs';
+test('public snapshot covers 1741 unique codes and 47 prefectures without network',async()=>{const d=await getBundledPublicData({env:{}}).json();assert.equal(d.municipalities.length,1741);assert.equal(new Set(d.municipalities.map(x=>x.code)).size,1741);assert.equal(new Set(d.municipalities.map(x=>x.pref_code)).size,47);assert.equal(d.registryMode,'bundled-snapshot');assert.equal(d.researchConfigured,false);});
+test('public snapshot exposes no supplied secrets',async()=>{const env={OPENAI_SI_API_KEY:'test-fake-key-never-real',SUPABASE_SERVICE_ROLE_KEY:'test-fake-service-never-real',NEXT_PUBLIC_SUPABASE_URL:'https://test.example.org',TLA_PUBLIC_RESEARCH_ENABLED:'1'};const text=await getBundledPublicData({env}).text();assert.ok(!text.includes(env.OPENAI_SI_API_KEY));assert.ok(!text.includes(env.SUPABASE_SERVICE_ROLE_KEY));assert.equal(JSON.parse(text).researchConfigured,true);});
+test('national names do not inflate researched municipality coverage',async()=>{const d=await getBundledPublicData({env:{}}).json();assert.equal(new Set(d.evidence.map(x=>x.municipality_code)).size,3);assert.equal(d.evidence.length,9);assert.equal(d.companies.length,6);assert.ok(match(d,lookup(d,'フォーバル')[0],d.municipalities).length>0);assert.ok(match(d,lookup(d,'フォーバル')[0],d.municipalities).every(x=>x.evidence.status!=='closed'));});

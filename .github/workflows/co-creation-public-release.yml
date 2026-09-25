@@ -1,0 +1,48 @@
+name: Co-creation public release verification
+on:
+  push:
+    branches: [main, feat/tla-public-registry-reconcile-20260926]
+    paths:
+      - 'lib/co-creation/**'
+      - 'app/co-creation/**'
+      - 'app/api/co-creation/**'
+      - 'tests/co-creation*'
+      - 'scripts/check-co-creation-public.mjs'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/co-creation-public-release.yml'
+permissions:
+  contents: read
+concurrency:
+  group: tla-public-release-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - run: npm install --global pnpm@10.34.5
+      - run: pnpm install --frozen-lockfile
+      - run: node --test tests/co-creation*.test.mjs
+      - run: pnpm build
+  public-smoke:
+    if: github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - run: node scripts/check-co-creation-public.mjs
