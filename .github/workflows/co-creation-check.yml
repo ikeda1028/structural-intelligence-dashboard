@@ -1,0 +1,55 @@
+name: Co-creation build check
+on:
+  push:
+    branches: [feat/tla-co-creation-public-tested-20260926]
+  pull_request:
+    paths:
+      - 'app/co-creation/**'
+      - 'app/api/co-creation/**'
+      - 'lib/co-creation/**'
+      - 'tests/co-creation.test.mjs'
+      - 'package.json'
+      - '.github/workflows/co-creation-check.yml'
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Check out exact public commit
+        env:
+          TARGET_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          TARGET_REPO: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
+        run: |
+          git init .
+          git remote add origin "https://github.com/${TARGET_REPO}.git"
+          git fetch --depth=1 origin "$TARGET_SHA"
+          git checkout --detach FETCH_HEAD
+      - name: Install pnpm
+        run: npm install -g pnpm@10
+      - name: Install, test and compile without production keys
+        shell: bash
+        run: |
+          set +e
+          pnpm install --no-frozen-lockfile > install.log 2>&1
+          RESULT=$?
+          if [ "$RESULT" = 0 ]; then
+            pnpm run test:co-creation > build.log 2>&1
+            RESULT=$?
+          fi
+          if [ "$RESULT" = 0 ]; then
+            pnpm run build >> build.log 2>&1
+            RESULT=$?
+          fi
+          tail -n 60 install.log
+          test ! -f build.log || tail -n 100 build.log
+          if [ "$RESULT" != 0 ]; then
+            python3 - <<'PY'
+          from pathlib import Path
+          log = Path('build.log') if Path('build.log').exists() else Path('install.log')
+          text = log.read_text(errors='replace')[-6000:]
+          print('::error::' + text.replace('%','%25').replace('\r','%0D').replace('\n','%0A'))
+          PY
+          fi
+          exit "$RESULT"
