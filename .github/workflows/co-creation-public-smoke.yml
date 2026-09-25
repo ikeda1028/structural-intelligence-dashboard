@@ -1,0 +1,44 @@
+name: Co-creation public smoke test
+on:
+  push:
+    branches: [feat/tla-co-creation-public-tested-20260926]
+    paths: ['.github/workflows/co-creation-public-smoke.yml']
+permissions:
+  contents: read
+jobs:
+  public-http:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Verify unauthenticated production page and public data
+        run: |
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          const base='https://structural-intelligence-dashboard.vercel.app';
+          const page=await fetch(base+'/co-creation',{redirect:'manual',signal:AbortSignal.timeout(30000)});
+          console.log('PUBLIC_PAGE_HTTP_STATUS',page.status);
+          assert.equal(page.status,200,'Public page should not redirect to a login');
+          const html=await page.text();
+          assert.ok(html.includes('TLA')&&html.includes('共創OS'),'Expected public app HTML');
+          const api=await fetch(base+'/api/co-creation',{redirect:'manual',signal:AbortSignal.timeout(30000)});
+          console.log('PUBLIC_API_HTTP_STATUS',api.status);
+          assert.equal(api.status,200);
+          const data=await api.json();
+          console.log('MUNICIPALITIES',data.municipalities?.length);
+          console.log('PREFECTURES',new Set(data.municipalities?.map(m=>m.pref_code)).size);
+          console.log('COMPANIES',data.companies?.length);
+          console.log('EVIDENCE',data.evidence?.length);
+          console.log('RESEARCH_CONFIGURED',data.researchConfigured);
+          console.log('REGISTRY_AVAILABLE',data.registryAvailable);
+          assert.ok(data.registryAvailable&&data.municipalities.length>=1700);
+          assert.equal(new Set(data.municipalities.map(m=>m.pref_code)).size,47);
+          assert.equal(data.companies.length,6);
+          assert.equal(data.evidence.length,9);
+          const company=data.companies.find(c=>c.id==='forval');
+          const tags=new Set(company.resources.map(r=>r.tag));
+          const matches=data.evidence.filter(e=>e.status!=='closed'&&e.tags.some(t=>tags.has(t)));
+          console.log('FORVAL_PUBLIC_EVIDENCE_CONTACTS',matches.length);
+          assert.ok(matches.length>0);
+          assert.ok(!Object.hasOwn(data,'OPENAI_API_KEY')&&!Object.hasOwn(data,'SUPABASE_SERVICE_ROLE_KEY'));
+          console.log('PASS: Unauthenticated production HTTP checks passed. No paid AI endpoint called.');
+          JS
