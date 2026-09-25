@@ -1,0 +1,36 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import seed from '../lib/co-creation/seed.mjs';
+import {normalize,safeUrl,lookup,parseGsi,match,validateInput,parseResearch} from '../lib/co-creation/core.mjs';
+import {getPublicData,runResearch} from '../lib/co-creation/server.mjs';
+const input={name:'テスト企業',officialUrl:'https://sample.example.org/',consent:true};
+const env={TLA_PUBLIC_RESEARCH_ENABLED:'1',OPENAI_SI_API_KEY:'test-not-a-key',NEXT_PUBLIC_SUPABASE_URL:'https://project.example.org',SUPABASE_SERVICE_ROLE_KEY:'test-service',VERCEL:'1'};
+function request(body=input,origin='https://app.example.org',headers={}){return new Request('https://app.example.org/api/co-creation',{method:'POST',headers:{origin,'content-type':'application/json',...headers},body:JSON.stringify(body)});}
+function model(data={name:'テスト企業',official_url:input.officialUrl,ambiguous:false,resources:[{tag:'digital',description:'公開情報にある技術',source_url:'https://sample.example.org/services'}]}){return {status:'completed',output:[{type:'web_search_call',action:{sources:[{url:input.officialUrl},{url:'https://sample.example.org/services'}]}},{type:'message',content:[{type:'output_text',text:JSON.stringify(data)}]}]};}
+test('normalization and exact company identity',()=>{assert.equal(normalize(' 株式会社ＦＯＲＶＡＬ '),'forval');assert.equal(lookup(seed,'フォーバル')[0].id,'forval');assert.equal(lookup(seed,'ソフトバンクグループ').length,0);assert.equal(lookup(seed,'').length,0);});
+for(const value of ['http://example.org','javascript:alert(1)','https://127.0.0.1/','https://[::1]/','https://user:pass@example.org/','https://foo.internal/','https://example.org:1234/','https://localhost/'])test(`unsafe display URL: ${value}`,()=>assert.equal(safeUrl(value),null));
+test('public URL strips fragments',()=>assert.equal(safeUrl('https://example.org/a#b'),'https://example.org/a'));
+test('closed calls omitted and existing context retained',()=>{const r=match(seed,lookup(seed,'フォーバル')[0],seed.fallbackMunicipalities);assert.ok(r.length>0);assert.ok(r.every(x=>x.evidence.status!=='closed'));assert.ok(r.some(x=>x.evidence.status==='existing'));assert.ok(r.every(x=>x.source.url&&x.roles.length));assert.deepEqual(r.map(x=>x.municipality.code),r.map(x=>x.municipality.code).sort());});
+test('unknown evidence is not presented as a confirmed absence',()=>assert.deepEqual(match(seed,{id:'none',name:'未収録分野',resources:[{tag:'transport'}]},seed.fallbackMunicipalities),[]));
+test('complement partners exclude the same company',()=>{for(const c of seed.companies)for(const r of match(seed,c,seed.fallbackMunicipalities))assert.ok(r.partners.every(p=>p.id!==c.id));});
+test('missing evidence source not matched',()=>assert.equal(match({...seed,sources:[]},seed.companies[0],seed.fallbackMunicipalities).length,0));
+test('refuse malformed registry rather than invent rows',()=>assert.throws(()=>parseGsi('GSI.MUNI_ARRAY={};')));
+for(const body of [null,{}, {name:'x',consent:true},{name:'a\nb',consent:true},{name:'<script>',consent:true},{name:'テスト',consent:false},{name:'テスト',consent:true,officialUrl:'http://example.org'}])test(`input validation ${JSON.stringify(body)}`,()=>assert.throws(()=>validateInput(body)));
+test('valid request input',()=>assert.equal(validateInput(input).name,input.name));
+test('cited model output remains explicitly unverified',()=>{const p=parseResearch(model(),seed,input);assert.equal(p.company.mode,'ai-unverified');assert.equal(p.company.resources.length,1);});
+test('uncited result rejected',()=>{const r=model();r.output[0].action.sources=[];assert.throws(()=>parseResearch(r,seed,input));});
+test('ambiguous identity rejected',()=>{const r=model({ambiguous:true,official_url:input.officialUrl});assert.throws(()=>parseResearch(r,seed,input));});
+test('null model output rejected',()=>assert.throws(()=>parseResearch(model(null),seed,input)));
+test('completed status required',()=>assert.throws(()=>parseResearch({...model(),status:'incomplete'},seed,input)));
+test('supplied domain must agree',()=>assert.throws(()=>parseResearch(model(),seed,{...input,officialUrl:'https://different.example.org/'})));
+test('no environment credentials in public payload',async()=>{const r=await getPublicData(undefined,{env,fetcher:async()=>{throw Error('offline')}});const text=await r.text();assert.ok(!text.includes('test-not-a-key'));assert.ok(!text.includes('test-service'));const d=JSON.parse(text);assert.equal(d.registryAvailable,false);assert.equal(d.municipalities.length,3);assert.ok(d.registryError);});
+test('cross-origin request rejected before network',async()=>{let calls=0;const r=await runResearch(request(input,'https://other.example.org'),{env,fetcher:async()=>{calls++;}});assert.equal(r.status,403);assert.equal(calls,0);});
+test('disabled live research performs no network',async()=>{let calls=0;const r=await runResearch(request(),{env:{...env,TLA_PUBLIC_RESEARCH_ENABLED:'0'},fetcher:async()=>{calls++;}});assert.equal(r.status,503);assert.equal(calls,0);});
+test('consent required at server',async()=>{const r=await runResearch(request({...input,consent:false}),{env});assert.equal(r.status,400);});
+test('oversized request rejected',async()=>{const r=await runResearch(request({...input,name:'a'.repeat(5000)}),{env});assert.equal(r.status,400);});
+test('JSON content type required',async()=>{const r=await runResearch(request(input,undefined,{'content-type':'text/plain'}),{env});assert.equal(r.status,400);});
+test('missing quota migration fails closed',async()=>{let calls=0;const r=await runResearch(request(),{env,fetcher:async()=>{calls++;return new Response('missing',{status:404});}});assert.equal(r.status,503);assert.equal(calls,1);});
+test('quota exhaustion prevents AI calls',async()=>{let calls=0;const r=await runResearch(request(),{env,fetcher:async()=>{calls++;return Response.json(false);}});assert.equal(r.status,429);assert.equal(calls,1);});
+test('quota and citation checked research path',async()=>{const calls=[];const r=await runResearch(request(input,undefined,{'x-vercel-forwarded-for':'203.0.113.10'}),{env,fetcher:async(url,options)=>{calls.push({url:String(url),body:JSON.parse(options.body)});return calls.length===1?Response.json(true):Response.json(model());}});assert.equal(r.status,200);assert.equal(calls.length,2);assert.match(calls[0].body.p_visitor,/^[a-f0-9]{64}$/);assert.ok(!JSON.stringify(calls[0].body).includes('203.0.113.10'));assert.equal(calls[1].body.store,false);assert.equal(calls[1].body.max_tool_calls,2);assert.equal(calls[1].body.max_output_tokens,2000);});
+test('AI errors do not return raw upstream response',async()=>{let count=0;const r=await runResearch(request(),{env,fetcher:async()=>++count===1?Response.json(true):new Response('secret-debug',{status:500})});assert.equal(r.status,502);assert.ok(!(await r.text()).includes('secret-debug'));});
+test('unsupported source output fails instead of saving',async()=>{let count=0;const r=await runResearch(request(),{env,fetcher:async()=>++count===1?Response.json(true):Response.json(model({ambiguous:false,official_url:input.officialUrl,resources:[]}))});assert.equal(r.status,422);});
