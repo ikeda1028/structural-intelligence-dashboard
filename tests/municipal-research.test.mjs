@@ -28,7 +28,7 @@ test('every reviewed document has bounded review scope, source locators and expl
       for (const f of doc.findings) assert.ok(f.state && f.text && f.locator);
       for (const b of doc.budgets) {
         assert.ok(Number.isFinite(b.amount) && b.amount >= 0);
-        assert.ok(['千円','万円','百万円'].includes(b.unit));
+        assert.ok(['円','千円','万円','百万円'].includes(b.unit));
         assert.ok(b.stage && b.scope && b.locator && b.fiscal_year);
       }
     }
@@ -43,6 +43,46 @@ test('Osaka corrected allocations sum to the total and remain mapped to the righ
   assert.equal(values['行政DX'], 635700);
   assert.equal(values['都市・まちDX'], 42500);
   assert.equal(values['DX推進事業総額'], values['サービスDX'] + values['行政DX'] + values['都市・まちDX']);
+});
+
+test('next ten population-ranked municipalities have 20 bounded primary reviews', () => {
+  const next = cohort.municipalities.slice(5, 15);
+  assert.deepEqual(next.map(m => m.code), ['14130','28100','26100','11100','34100','04100','12100','13112','40100','27140']);
+  assert.equal(next.reduce((n,m) => n + data.municipalities[m.code].documents.length, 0), 20);
+  for (const m of next) {
+    const city = data.municipalities[m.code];
+    assert.equal(city.name, m.name);
+    assert.equal(m.research_status, 'partial');
+    assert.ok(city.documents.every(d => d.checked_at === '2026-09-27'));
+    assert.ok(m.tasks.filter(t => ['council','ordinance'].includes(t.domain)).every(t => t.status === 'not_started'));
+  }
+});
+
+test('budget scopes, units and selected procurements cannot be conflated', () => {
+  const docs = cities.flatMap(c => c.documents);
+  const doc = id => docs.find(d => d.id === id);
+  const amount = (id,label) => doc(id).budgets.find(b => b.label === label).amount;
+  assert.equal(amount('saitama-dx-budget-r8','デジタル人材の育成'), 522);
+  assert.equal(127263 + 52056 + 522 + 4680, amount('saitama-dx-budget-r8','DX推進事業'));
+  assert.equal(amount('hiroshima-budget-r8-dx','生成AIの利活用促進'),1596);
+  assert.equal(amount('setagaya-budget-r8-overview','一般会計当初予算・全体'),431353);
+  const sakai = doc('sakai-budget-r8-reform');
+  assert.equal(amount(sakai.id,'定型業務の集約化・単年度予算'),127507);
+  assert.ok(sakai.budgets.every(b => b.amount !== 864507));
+  assert.match(sakai.findings.find(f => f.state === '予算期間の違い').text,/737,000/);
+  for (const code of ['04100','12100']) assert.match(data.municipalities[code].opportunity.status,/^E：/);
+  assert.match(data.municipalities['14130'].opportunity.status,/締切済み/);
+  assert.equal(doc('sendai-ai-proposal-result-r8').budgets[0].unit,'円');
+  assert.equal(doc('sendai-ai-proposal-result-r8').budgets[0].amount,5896000);
+  assert.match(doc('setagaya-dx-roadmap-r8').findings[0].text,/実際にオンラインで申請された割合でも/);
+  assert.match(doc('hiroshima-dx-progress-r6').findings[1].text,/削減時間ではありません/);
+});
+
+test('cohort status agrees with published partial reviews without marking remaining cities complete', () => {
+  for (const m of cohort.municipalities) {
+    assert.equal(m.research_status, data.municipalities[m.code] ? 'partial' : 'not_started');
+    assert.ok(m.tasks.every(t => t.status !== 'verified'));
+  }
 });
 
 async function page(mode, {fail = false, research = data} = {}) {
@@ -64,11 +104,12 @@ test('reports render all reviewed documents, source links and explicit partial s
     const d = dom.window.document;
     assert.equal(d.querySelectorAll('.city').length, cities.length);
     assert.equal(d.querySelectorAll('.document').length, cities.reduce((n,c) => n + c.documents.length, 0));
-    assert.match(d.getElementById('review-status').textContent, /100自治体中 5市/);
+    assert.ok(d.getElementById('review-status').textContent.includes('100自治体中 ' + cities.length + '自治体'));
     for (const [code, city] of Object.entries(data.municipalities)) {
       const section = d.getElementById('city-' + code);
       assert.ok(section.textContent.includes(city.documents[0].summary));
       assert.ok(section.querySelector('a[href*="#page="]'));
+      assert.ok(section.querySelector('a[href$="/co-creation?municipality=' + code + '"]'));
     }
   } finally { dom.window.close(); }
 });

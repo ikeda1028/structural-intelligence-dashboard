@@ -51,7 +51,7 @@
     });
     detail.append(facts);
     if (doc.budgets.length) {
-      detail.append(el('h4', '資料に記載された予算（原表の単位）'));
+      detail.append(el('h4', '資料に記載された金額（単位・対象範囲・予算段階を併記）'));
       const wrapper = el('div', undefined, 'table-scroll');
       const table = el('table');
       const head = el('thead');
@@ -83,6 +83,9 @@
     article.append(el('p', city.summary));
     article.append(el('p', city.dx_stage.basis, 'small'));
     article.append(link('この自治体のレポートURL', base + 'major100-research.html#city-' + code));
+    const statistics = el('p');
+    statistics.append(link('人口・産業・財政などの基礎統計と比較を見る', '/co-creation?municipality=' + code));
+    article.append(statistics);
     city.documents.forEach(doc => article.append(sourceReport(doc)));
     const opportunity = el('section', undefined, 'hypothesis');
     opportunity.append(el('h3', '民間企業が関われる可能性：仮説'));
@@ -100,16 +103,19 @@
       });
       leads.append(ul); article.append(leads);
     }
-    const corrections = el('details');
-    corrections.append(el('summary', '以前の掲載からの訂正'), list(city.corrections));
-    article.append(corrections, el('h3', '未確認・次に読む資料'), list(city.next_tasks));
+    if (city.corrections.length) {
+      const corrections = el('details');
+      corrections.append(el('summary', '以前の掲載からの訂正'), list(city.corrections));
+      article.append(corrections);
+    }
+    article.append(el('h3', '未確認・次に読む資料'), list(city.next_tasks));
     return article;
   }
   function stats(research, total) {
     const cities = Object.values(research.municipalities);
     const docs = cities.reduce((count, city) => count + city.documents.length, 0);
     const container = document.getElementById('review-status');
-    container.append(el('p', total + '自治体中 ' + cities.length + '市を一部確認・' + docs + '資料を本文レビュー。調査完了ではありません。', 'tag'));
+    container.append(el('p', total + '自治体中 ' + cities.length + '自治体を一部確認・' + docs + '資料を本文レビュー。調査完了ではありません。', 'tag'));
     container.append(el('p', research.scope_note), el('p', research.corrections_note, 'note'));
     container.append(el('p', '更新：' + research.updated_at + ' ／ ' + research.method, 'small'));
   }
