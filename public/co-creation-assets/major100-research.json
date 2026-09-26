@@ -14,6 +14,45 @@
         {"domain":"council","label":"議会資料","value":"市会の会議録・速報版・議案関連資料を公開。DX・AI施策の質疑と議決結果を継続確認する。","status":"partial","source_url":"https://www.city.yokohama.lg.jp/shikai/kiroku/kaigiroku.html"}
       ],
       "next_tasks": ["令和8年度予算書からDX・AI関連事業費を特定", "最新会議録からAI・データ・行政手続の質疑を抽出", "契約期間・次回公募時期を個別案件ごとに確認", "オンライン手続・オープンデータ/APIの利用実績を確認"]
+    },
+    "27100": {
+      "name": "大阪市", "research_status": "partial",
+      "dx_stage": {"overall": 4, "basis": "DX戦略、AI活用基本方針、令和8年度の具体的なDX予算・検証案件を確認。"},
+      "facts": [
+        {"domain":"budget","label":"DX推進予算","value":"令和8年度DX推進事業は104億200万円。サービスDX63億5,700万円、行政DX4億2,500万円、都市・まちDX36億2,000万円。","status":"verified","source_url":"https://www.city.osaka.lg.jp/seisakukikakushitsu/cmsfiles/contents/0000650/650699/flip01.pdf"},
+        {"domain":"dx","label":"区役所DX","value":"区役所DX推進事業6億7,400万円。モデル2区への窓口支援システム導入、窓口改革、庁舎空間最適化を実施。","status":"verified","source_url":"https://www.city.osaka.lg.jp/hodoshiryo/ictsenryakushitsu/0000669431.html"},
+        {"domain":"dx","label":"AI活用","value":"令和8年度に審査領域でAIエージェントを2業務検証。AI活用基本方針も策定。","status":"verified","source_url":"https://www.city.osaka.lg.jp/ictsenryakushitsu/cmsfiles/contents/0000677/677188/r8houshin.pdf"},
+        {"domain":"budget","label":"予算編成上のDX","value":"所要一般財源ベースのDX推進経費は105億円で、前年度61億円から44億円増。","status":"verified","source_url":"https://www.city.osaka.lg.jp/zaisei/page/0000660724.html"}
+      ],
+      "next_tasks": ["最新市会会議録・条例を確認", "DX事業の契約・公募状況を確認", "AIエージェント2業務の対象と効果指標を確認"]
+    },
+    "23100": {
+      "name": "名古屋市", "research_status": "partial",
+      "dx_stage": {"overall": 2, "basis": "令和8年度予算と予算編成過程を確認。具体的なDX・AI事業の詳細は継続調査。"},
+      "facts": [
+        {"domain":"budget","label":"令和8年度予算","value":"令和8年度予算の概要と、新規・拡充事業、廃止・縮小事業を公開。","status":"verified","source_url":"https://www.city.nagoya.jp/houdou/pressr7/3002889/3003893.html"},
+        {"domain":"budget","label":"予算編成過程","value":"一般会計、款別予算、重点化、新規・拡充事業を含む予算編成過程を公開。","status":"verified","source_url":"https://www.city.nagoya.jp/shisei/zaisei/1002655/1042582/1042583/1043831.html"}
+      ],
+      "next_tasks": ["予算PDFからDX・AI事業と金額を抽出", "名古屋市のDX計画・生成AI方針を確認", "議会会議録と公募・契約を確認"]
+    },
+    "01100": {
+      "name": "札幌市", "research_status": "partial",
+      "dx_stage": {"overall": 2, "basis": "令和8年度予算と予算編成過程の公開を確認。DXの分野別実装は継続調査。"},
+      "facts": [
+        {"domain":"budget","label":"令和8年度一般会計","value":"一般会計当初予算は1兆3,185億円、前年度比519億円・4.1%増。予算編成過程と主要事業一覧を公開。","status":"verified","source_url":"https://www.city.sapporo.jp/zaisei/kohyo/yosan-kessan/r8/reiwa8nendo_yosan.html"},
+        {"domain":"dx","label":"AI・半導体関連","value":"議会資料でAI・半導体関連産業の集積、スタートアップによる地域実証・実装支援を要望。","status":"partial","source_url":"https://www.city.sapporo.jp/gikai/html/documents/11_daitoshi_070529_siryou2.pdf"}
+      ],
+      "next_tasks": ["DX・AI関連の主要事業と金額を予算資料から抽出", "行政手続・オープンデータ・AI方針を確認", "スタートアップ実証支援と公募を確認"]
+    },
+    "40130": {
+      "name": "福岡市", "research_status": "partial",
+      "dx_stage": {"overall": 4, "basis": "DX戦略、AI活用、オンライン行政、システム刷新、具体的な令和8年度予算を確認。"},
+      "facts": [
+        {"domain":"budget","label":"DX関連予算","value":"総務企画局所管のDX関連事業として3,554,318千円を掲載。システム刷新等を含む情報化施策を推進。","status":"verified","source_url":"https://www.city.fukuoka.lg.jp/gikaizimukyoku/giji/shisei/documents/260310-sohmu.pdf"},
+        {"domain":"dx","label":"AI・市民サービス","value":"市情報サイトへの生成AIチャットボット、AI電話、高校生・高齢者向け生成AI活用講座を実施。AI活用推進は6,372万円。","status":"verified","source_url":"https://www.city.fukuoka.lg.jp/zaisei/zaisei/shisei/documents/03_R8_gaiyou.pdf"},
+        {"domain":"dx","label":"行政手続・システム刷新","value":"オンライン化、データ利活用、システム刷新、ノンストップ行政を推進。システム刷新1,994,177千円、ノンストップ行政75,100千円。","status":"verified","source_url":"https://www.city.fukuoka.lg.jp/gikaizimukyoku/giji/shisei/documents/260310-sohmu.pdf"}
+      ],
+      "next_tasks": ["福岡市DX戦略実行項目のKPIを確認", "議会のAI・DX質疑を確認", "契約・公募・既存システム更新時期を確認"]
     }
   }
 }
