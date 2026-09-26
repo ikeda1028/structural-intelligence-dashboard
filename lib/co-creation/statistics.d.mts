@@ -1,0 +1,11 @@
+export const DEFINITION_URL: string;
+export const GROUPS: [string,string,number][];
+export function isBaselineStat(row:any):boolean;
+export function num(n:number,digits?:number):string;
+export function unitLabel(unit?:string):string;
+export function tableUrl(code:string):string|null;
+export function definitionUrl(code:string):string;
+export function analyzeMunicipality(m:any):any;
+export function buildPeerIndex(dataset:any):any[];
+export function benchmarkFor(index:any[],code:string,metric:any):any;
+export function readingPoints(analysis:any,index:any[],code:string):{title:string;text:string;implication:string}[];
