@@ -10,6 +10,7 @@ nav{padding:16px 0;line-height:2.5}
 .note,.scope{background:#fff8e6;border-left:4px solid #d7a933;padding:12px}
 .small{color:#536174;font-size:.9rem}
 .hypothesis{background:#f1f5fb;border:1px dashed #98aed1;padding:16px;margin:20px 0}
+.indicators{margin:24px 0}.indicator{border:1px solid #b9d8cf;background:#f5fbf8;border-radius:8px;padding:16px;margin:12px 0}.indicator h4{margin:0}.indicator-values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.indicator-values dt{font-size:.9rem;color:#536174}.indicator-values dd{margin:0;font-weight:600;overflow-wrap:anywhere}.indicator-values dd span{display:block;font-weight:400}
 details{margin:16px 0}summary{cursor:pointer;color:#1456b8;font-weight:600;padding:8px 0}
 li{margin:8px 0}li p{margin:4px 0}
 .table-scroll{overflow-x:auto}

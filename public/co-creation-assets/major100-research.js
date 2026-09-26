@@ -27,7 +27,7 @@
     return response.json();
   }
   function citation(doc, locator) {
-    const page = locator.match(/PDF(\d+)/)?.[1];
+    const page = locator.match(/PDF\s*(\d+)/)?.[1];
     const p = el('p', undefined, 'small');
     p.append(link('該当箇所：' + locator, doc.source_url + (page ? '#page=' + page : '')));
     return p;
@@ -75,6 +75,39 @@
     section.append(detail);
     return section;
   }
+  function nonFinancialIndicators(city) {
+    const section = el('section', undefined, 'indicators');
+    section.append(el('h3', '金額以外で見る成果・評価指標'));
+    const indicators = city.non_financial_indicators || [];
+    if (!indicators.length) {
+      section.append(el('p', '今回の確認範囲では、自治体が設定した金額以外の指標を数値・年度付きで整理できていません。指標が存在しないという意味ではありません。', 'small'));
+      return section;
+    }
+    section.append(el('p', '自治体の原資料にある指標です。基準値・目標・実績を分け、利用量と効果、主観評価と実測を区別します。下の企業提案の仮説とは別です。', 'small'));
+    indicators.forEach(indicator => {
+      const item = el('section', undefined, 'indicator');
+      item.append(el('h4', indicator.name), el('p', indicator.definition));
+      const values = el('dl', undefined, 'indicator-values');
+      [['baseline', '基準値'], ['target', '目標値'], ['actual', '実績値']].forEach(([key, label]) => {
+        const group = el('div');
+        const value = indicator[key];
+        group.append(el('dt', value?.label || label));
+        if (value && value.value !== null && value.value !== undefined) {
+          const formatted = typeof value.value === 'number' ? value.value.toLocaleString('ja-JP') : String(value.value);
+          const dd = el('dd', (value.approximate ? '約' : '') + formatted + ' ' + indicator.unit + (value.bound || ''));
+          dd.append(el('span', value.period, 'small'));
+          group.append(dd);
+        } else group.append(el('dd', '未確認', 'small'));
+        values.append(group);
+      });
+      item.append(values);
+      const source = city.documents.find(doc => doc.id === indicator.source_document_id);
+      if (source) item.append(el('p', '出典：' + source.title, 'small'), citation(source, indicator.locator));
+      if (indicator.limitations?.length) item.append(list(indicator.limitations));
+      section.append(item);
+    });
+    return section;
+  }
   function cityReport(code, city) {
     const article = el('article', undefined, 'city');
     article.id = 'city-' + code;
@@ -86,6 +119,7 @@
     const statistics = el('p');
     statistics.append(link('人口・産業・財政などの基礎統計と比較を見る', '/co-creation?municipality=' + code));
     article.append(statistics);
+    article.append(nonFinancialIndicators(city));
     city.documents.forEach(doc => article.append(sourceReport(doc)));
     const opportunity = el('section', undefined, 'hypothesis');
     opportunity.append(el('h3', '民間企業が関われる可能性：仮説'));
@@ -114,8 +148,11 @@
   function stats(research, total) {
     const cities = Object.values(research.municipalities);
     const docs = cities.reduce((count, city) => count + city.documents.length, 0);
+    const withIndicators = cities.filter(city => city.non_financial_indicators?.length);
+    const indicatorCount = withIndicators.reduce((count, city) => count + city.non_financial_indicators.length, 0);
     const container = document.getElementById('review-status');
     container.append(el('p', total + '自治体中 ' + cities.length + '自治体を一部確認・' + docs + '資料を本文レビュー。調査完了ではありません。', 'tag'));
+    if (indicatorCount) container.append(el('p', '金額以外の評価指標：' + withIndicators.length + '自治体・' + indicatorCount + '指標。数値の年度・定義が異なるため、単純な自治体ランキングには使いません。', 'tag'));
     container.append(el('p', research.scope_note), el('p', research.corrections_note, 'note'));
     container.append(el('p', '更新：' + research.updated_at + ' ／ ' + research.method, 'small'));
   }
@@ -155,7 +192,7 @@
     const caption = el('caption', '自治体名を選ぶと資料別の要約を表示します');
     table.append(caption);
     const head = el('thead'), hr = el('tr');
-    ['順位', '自治体', 'コード', '人口', '調査状況'].forEach(text => hr.append(el('th', text)));
+    ['順位', '自治体', 'コード', '人口', '調査状況', '金額以外の指標'].forEach(text => hr.append(el('th', text)));
     head.append(hr); table.append(head);
     const tbody = el('tbody');
     cohort.municipalities.forEach(m => {
@@ -176,6 +213,8 @@
       });
       name.append(button);
       row.append(el('td', String(m.rank)), name, el('td', m.code), el('td', m.population.toLocaleString('ja-JP') + '人', 'num'), el('td', city ? '一部確認・' + city.documents.length + '資料' : '未着手'));
+      const indicators = city?.non_financial_indicators || [];
+      row.append(el('td', indicators.length ? indicators.map(i => i.name).join(' ／ ') : '未確認', 'small'));
       tbody.append(row);
     });
     table.append(tbody);
