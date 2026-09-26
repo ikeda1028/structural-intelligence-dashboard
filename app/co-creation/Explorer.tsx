@@ -58,7 +58,7 @@ export default function Explorer() {
     <section className={styles.metrics} aria-label="データ収録状況">
       {[[data?Number(data.municipalities.length).toLocaleString():'—','名称・コード台帳'],[data?new Set(data.evidence.map((e:RecordData)=>e.municipality_code)).size:'—','資料を収録した自治体'],[data?.companies.length??'—','企業・NPO'],['未取得','人口・予算の数値']].map(([n,label])=><div key={String(label)}><strong>{n}</strong><span>{label}</span></div>)}
     </section>
-    <div className={styles.scope}>全国を対象にしているのは名称・コード台帳です。全国の議事録・予算・課題を調査済みという意味ではありません。{data?.registryError&&<strong>{data.registryError}</strong>}</div>
+    <div className={styles.scope}>全国を対象にしているのは名称・コード台帳です。全国の議事録・予算・課題を調査済みという意味ではありません。{data?.registryError&&<strong>{data.registryError}</strong>} <a href="/co-creation-assets/major-municipalities-100.html">主要100自治体の調査を見る →</a></div>
     <nav className={styles.tabs} aria-label="共創OSの機能">{[['match','企業から探す'],['municipalities','自治体台帳'],['saved',`保存した構想 (${saved.length})`],['about','データ・利用上の注意']].map(([id,label])=><button key={id} type="button" onClick={()=>setTab(id)} aria-current={tab===id?'page':undefined}>{label}</button>)}</nav>
     {error&&<div className={styles.error} role="alert">{error}</div>}{notice&&<div className={styles.notice} role="status">{notice}</div>}
     {!data&&<section className={styles.panel} role="status">{error?'取得に失敗しました。ページを再読込してください。':'公開データを読み込んでいます…'}</section>}
