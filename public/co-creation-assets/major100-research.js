@@ -2,6 +2,7 @@
 (() => {
   'use strict';
   const base = '/co-creation-assets/';
+  let dxMethod;
   const el = (tag, text, className) => {
     const node = document.createElement(tag);
     if (text !== undefined) node.textContent = text;
@@ -111,10 +112,58 @@
     });
     return section;
   }
+  function dxReport(city) {
+    const section = el('section', undefined, 'dx-classification');
+    section.append(el('h3', 'DXの確認段階：対象業務に限定した分類'));
+    const result = city.dx_evidence;
+    const stage = dxMethod?.stages.find(s => s.code === result?.stage);
+    if (!result || !stage) {
+      section.append(el('p', '分類は未確認です。未導入という意味ではありません。', 'small'));
+      return section;
+    }
+    section.append(el('p', stage.label, 'tag'), el('p', '対象業務・範囲：' + result.scope), el('p', result.reason));
+    section.append(el('p', '収録資料からの分析であり、自治体全体の成熟度・最新状態・公式格付けではありません。', 'small'));
+    const evidence = el('details');
+    evidence.append(el('summary', '分類の根拠・確認時点を見る'));
+    result.evidence.forEach(ref => {
+      const doc = city.documents.find(d => d.id === ref.document_id);
+      const finding = doc?.findings[ref.finding_index];
+      if (!finding) return;
+      const item = el('div', undefined, 'dx-evidence');
+      item.append(el('strong', ref.role === 'stage' ? '判定根拠：' : '補足・別段階：'), el('span', finding.text));
+      item.append(el('p', doc.title + ' ／ 対象：' + doc.source_period + ' ／ 資料確認日：' + doc.checked_at, 'small'), citation(doc, finding.locator));
+      evidence.append(item);
+    });
+    section.append(evidence, el('h4', 'この分類で断定しないこと'), list(result.limitations));
+    section.append(el('p', '企業の検討課題（一般的な仮説）：' + stage.business_hint, 'small'));
+    return section;
+  }
+  function dxOverview(research, total) {
+    const section = el('section', undefined, 'dx-overview');
+    section.append(el('h2', '100自治体のDX確認段階'));
+    section.append(el('p', dxMethod.scope_note, 'note'));
+    const table = el('table');
+    table.append(el('caption', '収録資料で裏付けられた到達点。自治体の優劣ランキングではありません。'));
+    const head = el('thead'), row = el('tr');
+    ['確認段階', '自治体数', '判定に必要な証拠'].forEach(t => row.append(el('th', t)));
+    head.append(row); table.append(head);
+    const body = el('tbody');
+    dxMethod.stages.forEach(stage => {
+      const n = Object.values(research.municipalities).filter(c => c.dx_evidence?.stage === stage.code).length;
+      const tr = el('tr'); tr.dataset.stage = stage.code;
+      tr.append(el('th', stage.label), el('td', n + '自治体', 'num'), el('td', stage.definition));
+      body.append(tr);
+    });
+    table.append(body);
+    const wrapper = el('div', undefined, 'table-scroll'); wrapper.append(table); section.append(wrapper);
+    section.append(el('p', '分類対象：' + total + '自治体 ／ 分類日：' + dxMethod.classified_at + ' ／ 収録資料の対象年度・確認日は各根拠を参照。0件は、この調査で確認できた例がないという意味です。', 'small'));
+    return section;
+  }
   function cityReport(code, city) {
     const article = el('article', undefined, 'city');
     article.id = 'city-' + code;
     article.append(el('h2', city.name + 'の資料レビュー'));
+    if (document.body.dataset.mode === 'cohort' && dxMethod) article.append(link('段階別一覧・絞り込みに戻る', '#dx-filter'));
     article.append(el('p', '一部確認：本文レビュー ' + city.documents.length + '資料 ／ DX総合評価は保留', 'tag'));
     article.append(el('p', city.summary));
     article.append(el('p', city.dx_stage.basis, 'small'));
@@ -122,6 +171,7 @@
     const statistics = el('p');
     statistics.append(link('人口・産業・財政などの基礎統計と比較を見る', '/co-creation?municipality=' + code));
     article.append(statistics);
+    article.append(dxReport(city));
     article.append(nonFinancialIndicators(city));
     city.documents.forEach(doc => article.append(sourceReport(doc)));
     const opportunity = el('section', undefined, 'hypothesis');
@@ -175,7 +225,9 @@
   async function start() {
     const mode = document.body.dataset.mode;
     const [research, cohort] = await Promise.all([json('major100-research.json'), json('major-municipalities-100.json')]);
+    dxMethod = research.dx_classification;
     stats(research, cohort.municipalities.length);
+    if (dxMethod) document.getElementById('review-status').append(dxOverview(research, cohort.municipalities.length));
     const root = document.getElementById('app');
     root.replaceChildren();
     if (mode === 'reports') {
@@ -197,12 +249,13 @@
     const caption = el('caption', '自治体名を選ぶと資料別の要約を表示します');
     table.append(caption);
     const head = el('thead'), hr = el('tr');
-    ['順位', '自治体', 'コード', '人口', '調査状況', '金額以外の指標'].forEach(text => hr.append(el('th', text)));
+    ['人口順', '自治体', 'コード', '人口', '調査状況', 'DX確認段階・対象業務', '金額以外の指標'].forEach(text => hr.append(el('th', text)));
     head.append(hr); table.append(head);
     const tbody = el('tbody');
     cohort.municipalities.forEach(m => {
       const city = research.municipalities[m.code];
       const row = el('tr'), name = el('td');
+      row.dataset.dxStage = city?.dx_evidence?.stage || 'U';
       const button = el('button', m.name);
       button.type = 'button';
       button.setAttribute('aria-controls', 'detail');
@@ -218,11 +271,30 @@
       });
       name.append(button);
       row.append(el('td', String(m.rank)), name, el('td', m.code), el('td', m.population.toLocaleString('ja-JP') + '人', 'num'), el('td', city ? '一部確認・' + city.documents.length + '資料' : '未着手'));
+      const stage = dxMethod?.stages.find(s => s.code === city?.dx_evidence?.stage);
+      const dx = el('td', undefined, 'dx-cell');
+      dx.append(el('strong', stage?.label || '判定保留'), el('p', city?.dx_evidence?.scope || '分類未確認', 'small'));
+      row.append(dx);
       const indicators = city?.non_financial_indicators || [];
       row.append(el('td', indicators.length ? indicators.map(i => i.name).join(' ／ ') : '未確認', 'small'));
       tbody.append(row);
     });
     table.append(tbody);
+    if (dxMethod) {
+      const filters = el('div', undefined, 'dx-filter');
+      const label = el('label', 'DX確認段階で絞り込む'); label.htmlFor = 'dx-filter';
+      const select = el('select'); select.id = 'dx-filter';
+      const all = el('option', 'すべての自治体'); all.value = ''; select.append(all);
+      dxMethod.stages.forEach(stage => { const option = el('option', stage.label); option.value = stage.code; select.append(option); });
+      const count = el('p', cohort.municipalities.length + '自治体を表示', 'small'); count.id = 'dx-filter-count'; count.setAttribute('aria-live', 'polite');
+      select.addEventListener('change', () => {
+        let visible = 0;
+        [...tbody.children].forEach(row => { row.hidden = Boolean(select.value && row.dataset.dxStage !== select.value); if (!row.hidden) visible++; });
+        count.textContent = visible + '自治体を表示';
+        detail.replaceChildren();
+      });
+      filters.append(label, select, count); root.append(filters);
+    }
     const wrapper = el('div', undefined, 'table-scroll');
     wrapper.append(table); root.append(wrapper);
   }

@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "revision": "2026-09-27-final35-primary-review-kpi-1",
+  "revision": "2026-09-27-major100-dx-evidence-classification-1",
   "updated_at": "2026-09-27",
   "scope_note": "対象100自治体すべてに部分レビューを掲載（累計214資料）。今回、人口順66〜100位の35自治体・84資料を追加しました。金額以外の指標は36自治体・87項目（うち7項目は測定項目の指定のみ確認）。全資料の全文確認や、予算・議会・条例等の全分野の調査完了ではありません。募集・選定状況は各資料の確認日時点です。",
   "method": "原資料の本文と表を確認し、PDFページ・年度・単位・確認範囲を記録。案内ページのみ、予算案、計画、目標、実績、議決を区別。未確認は未確認のまま残し、提案仮説は事実と分離します。 金額以外の指標は自治体の正式KPI・実証評価・利用実績・推計を区別し、基準／比較年度・目標・実績・定義・出典・限界を併記。未掲載は指標の不存在を意味しません。 測定項目のみ指定され数値未確認の場合はdefinition_onlyとし、基準・目標・実績に数値を補いません。",
@@ -178,7 +178,33 @@
             "延べ人数か実人数か、年度内の集計範囲、最新実績は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "庁内文書の生成AI検索・要約と権限別データ提供基盤（2026年度予算案・2026年3月改定計画）",
+        "reason": "有償生成AIと庁内データ活用基盤の段階導入を予算案に計上し、分散するマニュアル等の検索・要約を計画している。計画の将来像から基盤の稼働や効果を認定しない。",
+        "evidence": [
+          {
+            "document_id": "maebashi-r8-budget",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "maebashi-dx2-202603",
+            "finding_index": 0,
+            "role": "context"
+          },
+          {
+            "document_id": "maebashi-dx2-202603",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "導入契約、実証開始、基盤完成及び権限別データ提供の実運用は未確認。",
+          "端末環境満足度2.59等の2025年度基準値は、対象DX施策の実施・効果との対応や調査設計が未確認であり、生成AI基盤の本番効果としない。2026年度以降の実績も未確認。"
+        ]
+      }
     },
     "10202": {
       "name": "高崎市",
@@ -285,7 +311,33 @@
         "dx",
         "procurement"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "窓口DXSaaSによる届出記入支援と窓口業務設計（2026年6月選定）",
+        "reason": "窓口支援システムの優先交渉権者選定と稼働環境整備・業務設計の委託範囲を確認できる。契約予定月の経過から契約締結や窓口稼働を認定しない。",
+        "evidence": [
+          {
+            "document_id": "takasaki-counter-selection-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "takasaki-counter-selection-r8",
+            "finding_index": 1,
+            "role": "context"
+          },
+          {
+            "document_id": "takasaki-counter-selection-r8",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "契約締結及び対象窓口別の稼働開始は未確認。",
+          "待ち時間や記入負担の軽減は目的であり、測定済みの成果ではない。"
+        ]
+      }
     },
     "11100": {
       "name": "さいたま市",
@@ -396,7 +448,28 @@
         "区別の窓口利用・待ち時間の測定結果",
         "施設予約更新の仕様、発注時期、既存契約",
         "議決後予算とデータ連携の対象手続き"
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "全区の「書かない窓口」による窓口申請支援（2026年1月導入）",
+        "reason": "2026年施政方針で、同年1月から全ての区に「書かない窓口」を導入したと説明されている。区別の利用率や待ち時間・転記削減効果は未確認のためOとする。",
+        "evidence": [
+          {
+            "document_id": "saitama-policy-r8-dx",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "saitama-policy-r8-dx",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "導入状況は市長の実績説明に基づき、区ごとの利用実績や運用品質は独立検証していない。",
+          "関連業務システムとのデータ連携強化は今後の方針であり、連携完了や効果測定済みとは扱わない。"
+        ]
+      }
     },
     "11201": {
       "name": "川越市",
@@ -501,7 +574,23 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "eL-QR納付書発行・eLTAX連携による公金収納のデジタル化（2026年度予算）",
+        "reason": "公金収納デジタル化対応の予算を確認できる。財務会計システム改修の開始・稼働・利用実績は収録範囲で確認できない。",
+        "evidence": [
+          {
+            "document_id": "kawagoe-budget-r8-payments",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "契約・開始日・利用率・収納照合業務の削減実績は未確認。",
+          "行財政改革計画の財政目標は、個別DX業務の効果実績に読み替えない。"
+        ]
+      }
     },
     "11203": {
       "name": "川口市",
@@ -614,7 +703,33 @@
         "dx",
         "procurement"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "市県民税・確定申告の予約受付と税務問い合わせのAI電話対応（2026年度予算・同年8月選定）",
+        "reason": "AI電話対応の当初予算と2026年8月までの優先交渉権者決定を確認できる。実証開始や本番運用の実績は収録されていないためPとする。",
+        "evidence": [
+          {
+            "document_id": "kawaguchi-budget-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "kawaguchi-ai-phone-proposal-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "kawaguchi-ai-phone-proposal-r8",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "優先交渉権者の決定は契約締結・稼働開始を意味せず、契約日・契約額・利用実績は未確認。",
+          "2026年度火災予防分野DXも予算記載の範囲であり、未導入と断定しない。"
+        ]
+      }
     },
     "11208": {
       "name": "所沢市",
@@ -758,7 +873,33 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "申請書のAI-OCR読取・会議文字起こし・RPA反復操作支援（2026年度予算資料）",
+        "reason": "AI-OCR・音声テキスト化・RPA等の対象業務と使用料の予算内訳を確認できる。使用料や共同利用の説明だけでは実際の業務利用を確認できず、組織目標の達成実績欄も空欄である。",
+        "evidence": [
+          {
+            "document_id": "tokorozawa-budget-r8-ai",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "tokorozawa-budget-r8-ai",
+            "finding_index": 1,
+            "role": "context"
+          },
+          {
+            "document_id": "tokorozawa-goals-r8-dx",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "収録根拠には対象業務の利用開始日や実施報告がなく、利用業務数・削減時間・正確性も未確認。",
+          "達成実績欄の空欄を未実施・失敗と断定しない。予算総額を生成AI単独費としない。"
+        ]
+      }
     },
     "11222": {
       "name": "越谷市",
@@ -930,7 +1071,28 @@
         "dx",
         "procurement"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "収納課のLGWAN経由によるオンライン預貯金調査（2026年4月計画策定時の現状）",
+        "reason": "計画の現状欄に、収納課が預貯金調査をLGWAN経由の電子照会へ切り替えた取組が記載されている。収納課の実施済み業務を根拠に本番運用とし、他課への拡大計画と区別する。",
+        "evidence": [
+          {
+            "document_id": "koshigaya-action-2026",
+            "finding_index": 1,
+            "role": "stage"
+          },
+          {
+            "document_id": "koshigaya-action-2026",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "電子照会の正確な開始日・件数・処理時間削減は未確認。確認は計画策定時の現状に限定する。",
+          "学校生成AIは2025年度のパイロット実施までで、全校導入や児童生徒の学習利用開始は認定しない。"
+        ]
+      }
     },
     "12100": {
       "name": "千葉市",
@@ -1050,7 +1212,28 @@
         "契約結果と現行の企業連携・採用募集の入口",
         "受講者数、修了・就職実績、継続就業の定義",
         "予算確定前注記の確認と議決原文の照合"
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "女性向けデジタル技能講座・就労支援の委託（2026年度優先交渉権者選定）",
+        "reason": "女性デジタル人材育成事業で優先交渉権者の選定と、講座・就労支援・効果検証を含む委託範囲を確認できる。講座の実施や効果検証結果は未確認のためPとする。",
+        "evidence": [
+          {
+            "document_id": "chiba-workforce-selection-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "chiba-workforce-proposal-r8",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "対象は地域のデジタル人材・就労支援政策であり、庁内業務のDX運用を示す分類ではない。",
+          "優先交渉権者決定は契約・講座実施・就職成果の確認と異なり、効果検証は業務条件に留まる。"
+        ]
+      }
     },
     "12203": {
       "name": "市川市",
@@ -1158,7 +1341,24 @@
         "dx",
         "infrastructure"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "道路台帳平面図・境界確定図等のデジタル管理と公開（2025年3月運用開始）",
+        "reason": "年度別取組一覧に、令和6年度3月の道路台帳管理システム運用開始と図面のデジタル管理・公開が記載されている。検索・閲覧時間等の効果は未確認のためOとする。",
+        "evidence": [
+          {
+            "document_id": "ichikawa-dx-history",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "令和6年度3月は2025年3月であり、過年度の運用開始履歴に限定した判定。",
+          "現時点の更新頻度・利用率・作業時間短縮・契約状況は未確認。",
+          "2026年度被災者支援システムは予算案・共同調達計画で、道路台帳の運用実績と混同しない。"
+        ]
+      }
     },
     "12204": {
       "name": "船橋市",
@@ -1270,7 +1470,29 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "重層的支援の相談記録作成に用いる音声マイニング（2024年度決算の導入実績）",
+        "reason": "2024年度決算資料に、重層的支援体制整備事業の相談記録作成用の音声マイニングシステムを導入した実績がある。記録作成時間等の成果は未確認のためOとする。",
+        "evidence": [
+          {
+            "document_id": "funabashi-results-r6",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "funabashi-results-r6",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "2024年度の導入報告に限る判定で、2026年現在の継続利用・利用件数・契約状況は未確認。",
+          "記録作成時間やAI要約の正確性は未確認で、導入経費を効果額として扱わない。",
+          "2026年度の窓口支援・災害情報共有・消防団アプリは導入方針であり、このOの対象に含めない。"
+        ]
+      }
     },
     "12207": {
       "name": "松戸市",
@@ -1375,7 +1597,29 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "行政手続のオンライン受付・公共施設予約時のカード決済（2026年2月の完了実績説明）",
+        "reason": "2026年2月の施政方針に、オンライン化可能な約1,800手続のうち1,370超のオンライン化と公共施設予約時のカード決済等が完了したとある。提供範囲の実績であり住民の時間短縮等の効果は未確認のためOとする。",
+        "evidence": [
+          {
+            "document_id": "matsudo-policy-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "matsudo-nec-agreement-2026",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "76％はオンライン化可能手続に対する整備割合であり、全行政手続の利用率や効果指標ではない。",
+          "2026年2月の完了説明で、確認日現在の個別サービスの稼働状況・実利用件数は未照合。",
+          "共創協定締結やポータル・EBPM・AIアバターの予定は個別サービスの運用開始を裏付けない。"
+        ]
+      }
     },
     "12217": {
       "name": "柏市",
@@ -1526,7 +1770,24 @@
             "利用時間・削減時間・精度・正式KPIの目標値は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "住民の悩み相談AIチャット（2024年4月運用開始・2024年度利用実績）",
+        "reason": "2024年4月の運用開始と同年度約8,500件の相談利用実績が報告されている。営業時間外利用約65％も利用状況の内訳であり、相談解決や時間削減の効果測定ではないためOとする。",
+        "evidence": [
+          {
+            "document_id": "kashiwa-dx-progress-2024",
+            "finding_index": 1,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "約8,500件は概数の利用件数で、実人数・重複利用の扱いは未確認。",
+          "2024年度の実績で、2026年の継続利用・相談解決率・有人接続の成果は未確認。",
+          "庁内生成AI活用率や議事録システム利用回数の増加も、本番効果測定や改善後の再測定とはしない。"
+        ]
+      }
     },
     "12219": {
       "name": "市原市",
@@ -1724,7 +1985,22 @@
             "基準年度・値は「-」。読み放題パックの利用は当該指標に含まれない。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "オンライン申請・電子書籍貸出（2024・2025年度実績）",
+        "reason": "オンライン利用638,610件（2024年度）と電子書籍貸出11,279冊（2025年度）を確認。利用量の計測であり、処理時間や満足度などの効果測定とは分けます。",
+        "evidence": [
+          {
+            "document_id": "ichihara-reform-results-2025",
+            "finding_index": 1,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "2025年度オンライン件数は未確定。スマホ市役所・コンタクトセンターは別の導入計画です。"
+        ]
+      }
     },
     "13103": {
       "name": "港区",
@@ -1886,7 +2162,22 @@
         "dx",
         "procurement"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "住民向けLINE生成AI（2024年10月本格運用公表、2026年更新）",
+        "reason": "実証を経た本格運用開始を区が公表。別の実証公募制度の存在だけでは、効果測定・継続改善段階へ上げません。",
+        "evidence": [
+          {
+            "document_id": "minato-line-ai-operation",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "本文末尾に試行中の注意も残るため、個別機能の現在の確定状態は要確認。利用率・正答率は未確認。"
+        ]
+      }
     },
     "13104": {
       "name": "新宿区",
@@ -2004,7 +2295,28 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "住民票・税・保険・子育て・ごみ等の生成AIチャットボット案内（2026年9月1日更新）",
+        "reason": "公式利用案内が9月1日の生成AIサービスへの更新を公表し、対象の問い合わせ分野を明記している。住民向け提供開始を確認できるため本番運用とする。",
+        "evidence": [
+          {
+            "document_id": "shinjuku-chatbot-live-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "shinjuku-chatbot-live-r8",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "利用者数、正答率、職員対応の削減実績は未確認。",
+          "24時間利用可能との案内を稼働率100％の実測値としない。"
+        ]
+      }
     },
     "13107": {
       "name": "墨田区",
@@ -2181,7 +2493,22 @@
             "現に提供中の業務数とは一致しない。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "庁内AI・RPA、財務会計・文書管理等（2025年度報告）",
+        "reason": "AIによる要約、税・国保等のRPA利用と基幹的庁内システムの本格稼働を区が報告。手続数等は導入・利用の規模であり、削減効果とは区別します。",
+        "evidence": [
+          {
+            "document_id": "sumida-dx-results-202603",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "R7指標は2025年12月時点。電子決裁率は集計中で、効果測定や全庁連携の達成は未確認。"
+        ]
+      }
     },
     "13108": {
       "name": "江東区",
@@ -2287,7 +2614,34 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "職員のTeams連携Copilotチャット利用（2025年9月導入・2026年1月利用率調査）",
+        "reason": "2025年9月のCopilotチャット導入と2026年1月調査の利用率58％が措置欄に報告され、業務利用の実績を確認できる。利用率のみで本番の成果を測定したとはいえないためOとする。",
+        "evidence": [
+          {
+            "document_id": "koto-audit-measures-r7",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "koto-audit-measures-r7",
+            "finding_index": 1,
+            "role": "context"
+          },
+          {
+            "document_id": "koto-audit-measures-r7",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "以前のNICMA利用率25％とはツール・時点が異なり、33ポイントの因果的改善と解釈しない。",
+          "調査母数・設問・回答率、作業時間や回答品質の効果測定は収録されたfindingsでは未確認。",
+          "2026年度の追加ツール導入・比較検証・ガイドライン改定は予定で、実施済み改善と再測定を確認できない。"
+        ]
+      }
     },
     "13109": {
       "name": "品川区",
@@ -2387,7 +2741,28 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "T",
+        "scope": "転入届の問い合わせに対するAI電話応答（2026年8月24日～9月25日の実証）",
+        "reason": "転入届に対象を限定したAI電話実証について、開始日と当初終了日から9月25日への延長を確認できる。実施済みの試行と判定し、恒久運用は認定しない。",
+        "evidence": [
+          {
+            "document_id": "shinagawa-ai-phone-pilot",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "shinagawa-ai-phone-pilot",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "2026年9月27日の確認日は掲載終了日より後であり、現在も実証継続中とはしない。",
+          "実証結果、恒久導入の決定、予算査定AIの実施は未確認。"
+        ]
+      }
     },
     "13110": {
       "name": "目黒区",
@@ -2573,7 +2948,22 @@
             "算定方法・実測値・対象業務は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "M",
+        "scope": "庁内の印刷枚数削減（2025年度成果）",
+        "reason": "区のDX戦略が前年の成果として印刷枚数15％減を報告。これに限定して結果測定ありとし、RAG活用5件や144時間削減は2026年度目標として除外します。",
+        "evidence": [
+          {
+            "document_id": "meguro-digital-r8",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "比較対象年・削減への個別施策の寄与は未確認。印刷減少をAI効果や財政削減と読み替えず、改善後の再測定も未確認。"
+        ]
+      }
     },
     "13111": {
       "name": "大田区",
@@ -2701,7 +3091,29 @@
             "2028年度目標は70%。回答者数・調査設計は今回の確認範囲にない。実測作業時間とは別。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "うぐいすネットの区民施設利用におけるオンラインキャッシュレス決済（2025年10月導入）",
+        "reason": "2025年10月にオンラインキャッシュレスを導入したとの記載から、施設利用の決済サービスをOとする。職員の効率化実感51％はDX取組全体の自己申告で、特定の本番業務との対応を確認できないためMの根拠としない。",
+        "evidence": [
+          {
+            "document_id": "ota-budget-dx-r8",
+            "finding_index": 1,
+            "role": "stage"
+          },
+          {
+            "document_id": "ota-dx-plan-v2",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "決済の利用件数・処理時間・利用者満足度は未確認。",
+          "職員アンケート51％は2025年度の主観的実感で、母数・回収率が不明であり、決済サービスや生成AI単独の効果に帰属できない。",
+          "2026年度下半期の登録・カード電子化・コールセンターと窓口2.0の実証は予定であり、開始済みとは扱わない。"
+        ]
+      }
     },
     "13112": {
       "name": "世田谷区",
@@ -2804,7 +3216,34 @@
         "個別DX事業の予算明細と発注・契約",
         "オンライン申請の実利用率、完了率、内部転記の工数",
         "職員AIアンケートの設問・母数と業務別効果"
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "オンラインで申請可能な行政手続きの提供（2025年基準のロードマップ現状欄）",
+        "reason": "2025年基準の現状欄にオンライン申請可能な受付件数のカバー率92.8％が示され、申請サービスの提供を確認できる。対応可能範囲の指標は実際の利用率や改善効果ではないためOとする。",
+        "evidence": [
+          {
+            "document_id": "setagaya-dx-roadmap-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "setagaya-dx-roadmap-r8",
+            "finding_index": 1,
+            "role": "context"
+          },
+          {
+            "document_id": "setagaya-dx-roadmap-r8",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "92.8％は年間受付件数に占めるオンライン申請可能な件数の割合で、オンライン利用実績・手続き種類数の割合ではない。",
+          "個別の申請手続き名・提供開始日・処理時間短縮は未収録で、確認範囲はロードマップの2025年現状欄に限る。",
+          "生成AI活用度1.93は利用定着のアンケート指標で、業務効率化の効果測定とは扱わない。"
+        ]
+      }
     },
     "13114": {
       "name": "中野区",
@@ -2971,7 +3410,28 @@
             "基準欄は［未実施］であり0ではない。事例の採否基準と実績は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "AI-OCRによる読取・AIチャットボットによる問い合わせ応答（2026年3月計画策定時の活用開始）",
+        "reason": "DX推進計画の現状説明に、生成AI・AI-OCR・AIチャットボットの活用は開始済みと記載されている。既存ツールの業務利用に限って本番運用とし、コンタクトセンター等の将来整備を含めない。",
+        "evidence": [
+          {
+            "document_id": "nakano-dx-plan-2026",
+            "finding_index": 1,
+            "role": "stage"
+          },
+          {
+            "document_id": "nakano-dx-plan-2026",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "活用開始の正確な日付、対象帳票・問い合わせ分野、利用量及び効果実績は未確認。",
+          "解決率32.5％・満足度80％・改善事例25件は2030年度までの目標であり、本番効果や継続改善の実績ではない。"
+        ]
+      }
     },
     "13115": {
       "name": "杉並区",
@@ -3084,7 +3544,23 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "T",
+        "scope": "堀ノ内・松ノ木地区のAIオンデマンド乗合タクシー（2026年1月号で実証実施中と確認）",
+        "reason": "2026年1月の広報に、当該地区で実施している実証運行の期間を同年12月31日まで延長すると記載されている。実施済みの実証を確認できるが本格運行決定は未確認のためTとする。",
+        "evidence": [
+          {
+            "document_id": "suginami-ai-transport-extension-2026",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "延長告知時点の実証確認であり、2026年9月27日の運行状況や本格運行移行は未照合。",
+          "利用人数・乗合率・収支・満足度は未確認で、2026年度ポータル等の予算案を運用実績に含めない。"
+        ]
+      }
     },
     "13116": {
       "name": "豊島区",
@@ -3269,7 +3745,22 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "区公式LINEの生成AIチャット（2026年6月案内）",
+        "reason": "住民が利用できる生成AIチャットの提供案内・操作方法を確認。中小企業向け補助制度とは別のサービスとして判定します。",
+        "evidence": [
+          {
+            "document_id": "toshima-line-ai-202606",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "利用件数・正答率・効果は未確認。独自のサービス品質試験はしていません。"
+        ]
+      }
     },
     "13117": {
       "name": "北区",
@@ -3371,7 +3862,28 @@
         "dx",
         "procurement"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "職員の庁内文章生成AI利用（2025年度導入、2026年4月の実績説明）",
+        "reason": "区のRFI本文が2025年度の文章生成AI全庁導入を実績として説明している。併記された個別実証や予算化件数と分け、既存の文章生成AI利用について本番運用と判定する。",
+        "evidence": [
+          {
+            "document_id": "kita-ai-rfi-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "kita-ai-rfi-r8",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "全庁導入は全職員の利用やデータ連携を示さず、利用率・削減効果は未確認。",
+          "実証2件の予算化だけでは本番移行を認定しない。2026年度のツール拡充の完了も未確認。"
+        ]
+      }
     },
     "13119": {
       "name": "板橋区",
@@ -3487,7 +3999,28 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "職員の文書生成AI利用（2024年3月1日の利用開始）",
+        "reason": "2024年3月1日から職員の文書生成AI利用を開始したという公表実績がある。40超の部署・200人以上という数は応募数で、効果測定の根拠にはならないためOとする。",
+        "evidence": [
+          {
+            "document_id": "itabashi-genai-start-2024",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "itabashi-genai-start-2024",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "導入時点の説明に限り、2026年の実利用者数・削減時間・継続利用は未確認。",
+          "区独自データを使う実証は当時の検討方針であり、2026年度の住民向けチャットボットやデータ基盤の稼働もこの判定に含めない。"
+        ]
+      }
     },
     "13120": {
       "name": "練馬区",
@@ -3609,7 +4142,23 @@
             "会議用資料の数値。母数がなく利用率は算出しない。利用量とサービス品質は異なる。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "行政手続きのオンライン申請受付（2023・2024年度実績）",
+        "reason": "オンライン申請の受付実績として2023年度56万7,000件、2024年度68万8,454件が記載され、本番利用を確認できる。件数は利用量であり、処理時間やサービス品質の改善測定ではないためOとする。",
+        "evidence": [
+          {
+            "document_id": "nerima-kpi-r6",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "会議資料には調整中の表示があり、最終確定版との照合は未了。",
+          "個別手続き名、総受付件数の分母、重複申請、完了率・待ち時間は未確認で、2026年度82万件は目標。"
+        ]
+      }
     },
     "13121": {
       "name": "足立区",
@@ -3723,7 +4272,28 @@
             "実績や達成済みKPIではない。算定条件・実測値の詳しい検証は今後。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "既存行政事務の標準化・生成AIやRPAによる効率化（2026年度行財政運営・予算編成方針）",
+        "reason": "生成AIやRPAを既存事業見直しに用いる方針を確認できる。継続要求時の効果検証は制度上の要求であり、個別業務での導入・測定・改善実績を示さないためPとする。",
+        "evidence": [
+          {
+            "document_id": "adachi-administration-policy-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "adachi-administration-policy-r8",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "対象となる個別事務名、AI事業費、受託者、試行・運用・効果の実績は未収録。",
+          "学校ICTの前年度比39億円増額は運用効果ではなく、プラスチック回収のCO2削減推計もDX業務の実測効果に用いない。"
+        ]
+      }
     },
     "13122": {
       "name": "葛飾区",
@@ -3831,7 +4401,29 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "職員向けChatGPT・かつしかChatの庁内提供（2024年4・6月導入、2025年7月拡大）",
+        "reason": "予算案資料の導入履歴に、2024年のChatGPT・かつしかChat導入と2025年7月の拡大が記載されている。既存の庁内提供に限ってOとし、約3,600人へのID付与を実利用や効果測定には読み替えない。",
+        "evidence": [
+          {
+            "document_id": "katsushika-r8-ai-budget",
+            "finding_index": 1,
+            "role": "stage"
+          },
+          {
+            "document_id": "katsushika-r8-ai-budget",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "ID付与対象者数はアクティブ利用者数ではなく、用途別の継続利用・削減時間・精度は未確認。",
+          "2026年度の窓口AIエージェント・Copilot・来庁予測は計画で、設計やデモを本番実績に含めない。",
+          "この判定は導入・拡大履歴に限定し、2026年9月のサービス状態を別途確認したものではない。"
+        ]
+      }
     },
     "13123": {
       "name": "江戸川区",
@@ -3925,7 +4517,34 @@
         "次回募集の確定、グループ条件・対象経費を確認。1業務で人が結果を点検し、継続利用・時間・ミス・保守負担を検証する。",
         "議会での質疑・議決、条例との対応、最新補正・決算との照合は未確認。"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "DX導入助成のGビズIDプライムによる電子申請受付（2026年度、9月4日更新本文）",
+        "reason": "2026年度からGビズIDプライムを使う電子申請が可能と明記され、助成申請サービスの提供を確認できる。申請の処理時間・負担軽減等の効果実績は収録されていないためOとする。",
+        "evidence": [
+          {
+            "document_id": "edogawa-dx-grant-r8",
+            "finding_index": 2,
+            "role": "stage"
+          },
+          {
+            "document_id": "edogawa-dx-grant-r8",
+            "finding_index": 1,
+            "role": "context"
+          },
+          {
+            "document_id": "edogawa-reform-r8-ai",
+            "finding_index": 0,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "電子申請の提供可能性を確認した範囲であり、電子申請件数・完了率・処理時間は未確認。",
+          "第2回は締切済みで第3回も実施未確定のため、現在申請受付中とは意味しない。",
+          "既存チャットボットの廃止・生成AI活用の見直し記載だけでは、代替サービスの稼働、効果測定、改善後の再測定を確認できずIとはしない。"
+        ]
+      }
     },
     "13201": {
       "name": "八王子市",
@@ -4046,7 +4665,29 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "市の業務・手続を案内する総合案内チャットボット（2021年9月更新のサービス案内）",
+        "reason": "公式ホームページやLINEから利用できる対話型の総合案内サービスが、既存サービスとして説明されている。利用者フィードバックの仕組みはあるが、測定結果は未確認のためOとする。",
+        "evidence": [
+          {
+            "document_id": "hachioji-chatbot-service",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "hachioji-chatbot-service",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "案内更新は2021年で、2026年9月の資料確認は現時点の動作・継続稼働の検証ではない。",
+          "24時間365日は提供仕様であり、稼働率・自己解決率・時間削減の実測値ではない。",
+          "2026年度の申請管理連携・検索拡張生成AI・生活保護判断支援は予算上の計画であり、このOに含めない。"
+        ]
+      }
     },
     "13206": {
       "name": "府中市",
@@ -4153,7 +4794,22 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "生成AI拡大・デジタル技術協働（2026年度）",
+        "reason": "ライセンス拡大の予算と協働協定を確認。契約・実証開始・本番の実利用を直接示す報告は今回の収録範囲にはありません。",
+        "evidence": [
+          {
+            "document_id": "fuchu-tokyo-budget-r8",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "協定締結をシステム稼働や契約先確定としません。既存利用がないという意味ではありません。"
+        ]
+      }
     },
     "13209": {
       "name": "町田市",
@@ -4285,7 +4941,29 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "オンライン手続・市ホームページ情報のAIナビゲーター案内（2025年4月掲載の提供説明）",
+        "reason": "公式まちドアに、オンライン手続・市ホームページ・子育てサイトの情報を案内するAIナビゲーターがサービスとして説明されている。既存の案内提供に限ってOとし、利用・品質の効果測定は未確認とする。",
+        "evidence": [
+          {
+            "document_id": "machida-ai-navigation",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "machida-ai-navigation",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "掲載日は2025年4月1日だが本文に後年の予定も含み、正確なサービス開始日や更新履歴は確定できない。",
+          "実際の操作・回答精度・利用件数は未検証で、2026年9月の資料確認を独立した稼働検証とは扱わない。",
+          "オープンデータファクトリーは別サービスのプレオープンであり、正式公開済みとは判定しない。最大5分という注意事項も効果指標ではない。"
+        ]
+      }
     },
     "14100": {
       "name": "横浜市",
@@ -4437,7 +5115,34 @@
         "道路・河川DXの2025〜2026年度の実施報告と契約を照合",
         "会議録本文から質問者・行政答弁・議決を記録",
         "事業ごとの最新公募・選定結果と当年度補正を確認"
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "YOKOHAMA Hack!による行政課題の公開・企業提案受付（2025年11月末時点、2022〜2025年度累計）",
+        "reason": "共創プラットフォームで公開課題27件、企業からの提案・連携196件等の実績があり、課題公開・提案受付の運用を確認できる。件数は活動量であり、業務削減24万時間は2026年度目標のためMとはしない。",
+        "evidence": [
+          {
+            "document_id": "yokohama-digital-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "yokohama-digital-r8",
+            "finding_index": 2,
+            "role": "context"
+          },
+          {
+            "document_id": "yokohama-road-dx",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "Oは共創プラットフォームの課題公開・提案受付に限定し、提案・連携件数を契約や提案技術の本番実装件数と扱わない。",
+          "河川土砂堆積量のAI等による把握は2024年3月戦略に記載された実証結果で、本格実装と定量的効果は未確認。",
+          "2025年11月末以降の運用実績、生成AI・RPAの2026年度効果目標の達成状況は未確認。"
+        ]
+      }
     },
     "14130": {
       "name": "川崎市",
@@ -4547,7 +5252,28 @@
         "AI試行の基本仕様書、選定結果、契約・運用範囲",
         "新行政情報システムの契約範囲と連携仕様",
         "公共施設最適化の対象4地域・施設別台帳・更新費見通し"
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "市ホームページ・市LINEの既存AIチャットボットによる問い合わせ対応（2026年8月更新の公募本文）",
+        "reason": "公募本文がホームページと市LINEで既存AIチャットボットを運用中と明記しているため、その問い合わせ対応をOとする。生成AIによる高度化は構築・試行の公募段階であり、開始実績とは扱わない。",
+        "evidence": [
+          {
+            "document_id": "kawasaki-ai-proposal-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "kawasaki-ai-proposal-r8",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "既存運用は公募本文時点の確認で、運用開始日、利用件数、回答精度・対応時間の効果は未確認。",
+          "選定・契約の日程は予定であり、生成AI版の試行開始や本番稼働を示さない。"
+        ]
+      }
     },
     "14150": {
       "name": "相模原市",
@@ -4660,7 +5386,28 @@
             "文字数は成果・時間削減そのものではなく、増加だけを成功と判定しない。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "「書かない窓口」の申請書記入補助・帳票発行（2026〜2029年度計画の2026年度目標）",
+        "reason": "2026年度の帳票発行5万件以上・手続き時間短縮1分以上は計画上の成果目標であり、実績欄は空欄である。開始済み試行や本番提供を裏付ける実績が収録されていないためPとする。",
+        "evidence": [
+          {
+            "document_id": "sagamihara-dx-projects-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "sagamihara-dx-projects-r8",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "時間短縮・生成AI改善実感度は目標のみで、測定方法、実績、対象業務別の運用状況は未確認。",
+          "生成AI利用文字数も目標であり、達成済み活動量や効果ではない。"
+        ]
+      }
     },
     "14201": {
       "name": "横須賀市",
@@ -4817,7 +5564,33 @@
             "全利用者の満足度を代表すると断定しない。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "T",
+        "scope": "「ほっとAI相談」の福祉・児童生徒・職員相談（2025年10月9日～12月31日の実証）",
+        "reason": "実証結果として相談1,000件超と福祉系18件の担当部署支援への接続を市が報告している。満足度の自己申告結果もあるが、本格導入は将来方針のため試行段階とする。",
+        "evidence": [
+          {
+            "document_id": "yokosuka-hot-ai-results-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "yokosuka-hot-ai-results-r8",
+            "finding_index": 1,
+            "role": "context"
+          },
+          {
+            "document_id": "yokosuka-hot-ai-results-r8",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "2026年度本格導入の完了・本番の効果測定は未確認。",
+          "満足度は実証アンケート回答者の自己申告で、回答者数・回収率・設問は未確認。福祉上の因果効果は示さない。"
+        ]
+      }
     },
     "14205": {
       "name": "藤沢市",
@@ -4927,7 +5700,34 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "ふじまど等のオンライン手続・予約拡充と紙工程の見直し（2026年度予算・4月改定計画）",
+        "reason": "2026年度予算と4月改定計画に、ふじまど拡充・紙提出等のルール見直し・オンライン利用促進が示されている。収録findingには特定手続の提供開始時期や実利用実績の直接根拠がないためPとする。",
+        "evidence": [
+          {
+            "document_id": "fujisawa-r8-digital-budget",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "fujisawa-dxplan-202604",
+            "finding_index": 1,
+            "role": "stage"
+          },
+          {
+            "document_id": "fujisawa-dxplan-202604",
+            "finding_index": 0,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "既存オンライン環境への言及はあるが、拡充方針や周知不足の記述のみから特定業務の本番提供を認定しない。未導入を意味しない。",
+          "最新の手続数・利用率・処理時間・改定後の成果は未確認。",
+          "紙提出に関する記述は計画上の課題認識で、個別条例や手続の法的要件を検証したものではない。"
+        ]
+      }
     },
     "15100": {
       "name": "新潟市",
@@ -5042,7 +5842,28 @@
         "契約・知的財産・企業データの扱いを確認し、合成回答を実測調査と比較。AIだけで採用判断しない。",
         "議会での質疑・議決、条例との対応、最新補正・決算との照合は未確認。"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "企業の採用支援に用いる生成AIビジネスリサーチ・システム構築（2026年9月8日現在の案内）",
+        "reason": "2026年5月の候補者選定後も、9月8日更新の本文はシステムを構築中と説明している。開発の進行は確認できるが、実施済み試行・一般提供・利用実績は確認できないためPとする。",
+        "evidence": [
+          {
+            "document_id": "niigata-ai-construction-september",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "niigata-ai-selection-r8",
+            "finding_index": 0,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "構築中・候補者選定を検収済みや試行開始と扱わず、一般提供開始日・契約実額は未確認。",
+          "仮想Z世代の合成回答の妥当性と企業の採用・生産性への効果は未確認。"
+        ]
+      }
     },
     "16201": {
       "name": "富山市",
@@ -5129,7 +5950,28 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "大山地域のAIオンデマンド交通「あいのり大山」の予約・配車（2026年7月22日更新案内）",
+        "reason": "現行サービスの利用案内に、予約に応じたAI最適配車と会員登録・都度予約の利用方法が記載されている。大山地域のサービス提供に限って本番運用を確認する。",
+        "evidence": [
+          {
+            "document_id": "toyama-ainori-oyama-service",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "toyama-ainori-oyama-service",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "利用率・配車成立率・待ち時間等の効果は未確認。",
+          "大山の運用から水橋地域の2026年度拡充完了を推定しない。開始日及び利用件数は収録範囲で未確認。"
+        ]
+      }
     },
     "17201": {
       "name": "金沢市",
@@ -5301,7 +6143,29 @@
             "公開の対象範囲、更新頻度、基準値と実績は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "職員による生成AI自動応答システム構築と庁内AI活用（2026年6月増補の2026〜2029年度計画）",
+        "reason": "DXアクションプランは2026年度の生成AI自動応答システム構築を検討・試行とし、庁内AI活用の継続・拡大を計画している。実施時期を伴う試行・本番の実績は収録されていないためPとする。",
+        "evidence": [
+          {
+            "document_id": "kanazawa-dx-202606",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "kanazawa-dx-202606",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "計画表の「検討・試行」「継続・拡大」は実施報告ではなく、既存サービスの未導入も断定しない。",
+          "生成AI利用者1,600人等は2029年度末目標で、最新実績・利用定義・効果測定は未確認。",
+          "個別施策の導入完了・契約・予算内訳も確認範囲にない。"
+        ]
+      }
     },
     "20201": {
       "name": "長野市",
@@ -5429,7 +6293,33 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "支所・本庁をつなぐリモート行政窓口の調査研究・試験運用（2026年度予算案）",
+        "reason": "リモート行政窓口の調査研究・試験運用は予算案の計画として確認できる。別資料の開庁時間短縮も試行開始前の案内であり、予定日が過ぎたことだけで実施済みのデジタル業務試行とはしない。",
+        "evidence": [
+          {
+            "document_id": "nagano-budget-dx-r8",
+            "finding_index": 2,
+            "role": "stage"
+          },
+          {
+            "document_id": "nagano-counter-hours-r8",
+            "finding_index": 0,
+            "role": "context"
+          },
+          {
+            "document_id": "nagano-counter-hours-r8",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "リモート窓口の試験実施結果、対象業務、利用実績は未確認。",
+          "2026年8月6日更新の開庁時間短縮案内は9月1日からの予定期間を示す。朝夕の来庁者約8.6％は事前調査であり、短縮後の効果ではない。"
+        ]
+      }
     },
     "21201": {
       "name": "岐阜市",
@@ -5531,7 +6421,28 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "行政データのBI可視化とAIによる業務自動化（2026年度予算案の方針）",
+        "reason": "2026年度予算案の提案説明でAIによる効率化とBIによる課題・成果把握を進める方針を確認できる。生成AIの利用ルールはあるが、具体的な稼働・業務利用の実績は収録されていない。",
+        "evidence": [
+          {
+            "document_id": "gifu-budget-r8-policy",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "gifu-generative-ai-guideline-html",
+            "finding_index": 0,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "利用ルールの公表や想定利用環境を、試行開始・本番稼働の事実に読み替えない。",
+          "個別業務の導入時期、利用数、削減時間は未確認。"
+        ]
+      }
     },
     "22100": {
       "name": "静岡市",
@@ -5673,7 +6584,29 @@
             "計測方法・自己申告の有無・再配分先の実測は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "M",
+        "scope": "職員300人の庁内業務でのMicrosoft 365 Copilot利用（2025年度本導入・年間削減効果）",
+        "reason": "2025年度に職員300人へ本導入したCopilotで年間約35,000時間の削減を達成したと市が報告しており、当該利用範囲をMとする。2026年7月からの別サービス展開は予告で、改善実施後の再測定も確認できないためIとはしない。",
+        "evidence": [
+          {
+            "document_id": "shizuoka-ai-rollout-june",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "shizuoka-ai-rollout-june",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "約35,000時間は市の報告値で、計測・推計方法や自己申告の有無は未確認であり、現金支出削減や因果効果には読み替えない。",
+          "職員300人の個別業務名・測定期間内訳は未収録で、全職員・全庁業務の効果を示さない。",
+          "2024年のデジタルツール全体38,751時間とは期間・範囲が異なり合算しない。2026年7月以降の実稼働・効果は未確認。"
+        ]
+      }
     },
     "22130": {
       "name": "浜松市",
@@ -5845,7 +6778,29 @@
             "2025年度実績欄は確定予定との表記で、今回数値を確認できていない。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "T",
+        "scope": "学校の外国語授業での生成AI活用実証（2025年度実証、2026年3月公表資料の背景欄）",
+        "reason": "前年度の実証で児童生徒が意欲的に取り組んだとの観察と、授業デザイン上の課題が報告され、2025年度の実証実施を確認できる。2026年度の3校でのモデル検証は計画で、本番移行や英語力の改善実績は未確認のためTとする。",
+        "evidence": [
+          {
+            "document_id": "hamamatsu-ai-english-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "hamamatsu-ai-english-r8",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "児童生徒の意欲に関する記述は定性的な観察であり、英語力の測定方法・改善幅・対象人数は未確認。",
+          "職員のデジタル変革人材育成113人という別指標は活動量であり、特定業務の本番運用や効果を示さない。",
+          "2026年度の対象校数や検証内容を2025年度の実証範囲に遡って適用しない。"
+        ]
+      }
     },
     "23100": {
       "name": "名古屋市",
@@ -5928,7 +6883,28 @@
         "可決後の予算書と該当事業の契約を確認",
         "生成AI項目の採否・利用実績を確認",
         "議会質疑・答弁本文を確認"
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "庁内業務フローの可視化・分析と庁内ナレッジを用いる生成AI導入検討（2026年度予算案）",
+        "reason": "業務フロー可視化・分析調査の予算案計上と生成AI導入の要求概要を確認できる。生成AIの最終採用額・契約や試行・稼働実績は収録資料から特定できないためPとする。",
+        "evidence": [
+          {
+            "document_id": "nagoya-budget-process-r8",
+            "finding_index": 1,
+            "role": "stage"
+          },
+          {
+            "document_id": "nagoya-budget-process-r8",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "要求額、査定額、予算案を区別し、要求概要の生成AIを採用・導入済みと扱わない。",
+          "議決後予算、補正、契約、業務改善効果は未確認。"
+        ]
+      }
     },
     "23201": {
       "name": "豊橋市",
@@ -6029,7 +7005,33 @@
         "dx",
         "procurement"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "建築確認台帳・概要書のデータ化と照合（2026年度の建築行政DX調達）",
+        "reason": "台帳スキャン・照合等の仕様と、アジア航測を契約候補者とする選定結果を確認できる。約1.3万枚は発注対象の概数であり、データ化の完了件数ではない。",
+        "evidence": [
+          {
+            "document_id": "toyohashi-building-selection-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "toyohashi-building-dx-spec-r8",
+            "finding_index": 0,
+            "role": "context"
+          },
+          {
+            "document_id": "toyohashi-building-dx-spec-r8",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "契約締結日、作業開始・完了、データの業務利用と効果は未確認。",
+          "2027年3月19日の履行期限は予定であり、実施の証拠にしない。"
+        ]
+      }
     },
     "23202": {
       "name": "岡崎市",
@@ -6153,7 +7155,33 @@
         "dx",
         "procurement"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "統合ナレッジを使う総合コンタクトセンターの問い合わせ対応（2026年7月選定）",
+        "reason": "総合コンタクトセンター導入の予算案と優先交渉権者の決定を確認できる。選定資料の運営目的や複数年度の提案額だけではセンターの稼働を確認できない。",
+        "evidence": [
+          {
+            "document_id": "okazaki-contact-selection-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "okazaki-contact-selection-r8",
+            "finding_index": 2,
+            "role": "context"
+          },
+          {
+            "document_id": "okazaki-budget-r8",
+            "finding_index": 0,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "契約締結、稼働開始、応答品質及び効果実績は未確認。",
+          "既存ナレッジの存在だけでは、その業務利用やセンターとの連携完了を認定しない。"
+        ]
+      }
     },
     "23203": {
       "name": "一宮市",
@@ -6259,7 +7287,28 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "住民税申告受付予約のAI電話自動応答（2023年導入、2026年5月の活用状況）",
+        "reason": "2026年5月の市の活用状況説明に、住民税申告受付予約へのAI電話自動応答を2023年から導入したと記載されている。窓口案内AIアバターの実証とは区別して、税申告予約の本番運用を確認する。",
+        "evidence": [
+          {
+            "document_id": "ichinomiya-ai-use-r8",
+            "finding_index": 1,
+            "role": "stage"
+          },
+          {
+            "document_id": "ichinomiya-ai-use-r8",
+            "finding_index": 0,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "予約件数、応答精度、職員対応時間の削減は未掲載。",
+          "庁内生成AIの使用説明もあるが、全庁的な効果測定やアバターの本番移行は未確認。"
+        ]
+      }
     },
     "23206": {
       "name": "春日井市",
@@ -6374,7 +7423,22 @@
         "dx",
         "procurement"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "電子契約・オンライン手続拡充（2026年度）",
+        "reason": "電子契約サービスの採用と2026年10月1日以降の開始を公表。調査基準日9月27日では将来開始であり、説明会の終了を実稼働とはしません。",
+        "evidence": [
+          {
+            "document_id": "kasugai-econtract-20260917",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "オンライン化予定の約100手続も確定実績ではありません。電子契約の利用件数・効果は未確認。"
+        ]
+      }
     },
     "23211": {
       "name": "豊田市",
@@ -6466,7 +7530,28 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "市公式ホームページ内の生成AI検索による情報案内（2026年7月1日導入）",
+        "reason": "2026年8月更新の公式説明に、7月1日のサイト刷新に伴いサイト内検索へ生成AIを導入したと記載されている。検索精度や自己解決率等の結果は未確認のためOとする。",
+        "evidence": [
+          {
+            "document_id": "toyota-ai-search-transition",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "toyota-ai-search-transition",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "利用率・検索精度・自己解決率・アクセシビリティの検証結果は未確認。",
+          "旧チャットボットの2027年3月終了は予定であり、移行完了や測定結果に基づく改善・再測定の根拠にはしない。"
+        ]
+      }
     },
     "24201": {
       "name": "津市",
@@ -6596,7 +7681,22 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "生成AI・AI議事録・AI-OCR/RPA（2026年2月市報告）",
+        "reason": "AI議事録・AI-OCR/RPAの業務利用と、検証を経た2026年1月の生成AI正式業務利用開始を確認。利用範囲や効果数値は今回の本文にはありません。",
+        "evidence": [
+          {
+            "document_id": "tsu-dx-status-202602",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "標準化の移行予定や部会日程を完了実績としません。AI契約・削減時間は未確認。"
+        ]
+      }
     },
     "24202": {
       "name": "四日市市",
@@ -6735,7 +7835,22 @@
             "業務の切り分けや廃止業務を含む累計かどうかの定義は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "RPAによる庁内PC操作自動化（2026年3月計画の現状記述）",
+        "reason": "計画本文に従来からのRPA利用と継続利用を記載。年度別業務数や導入前後評価は将来の目標・計画なので、効果測定段階には上げません。",
+        "evidence": [
+          {
+            "document_id": "yokkaichi-dx-plan2-r8",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "業務別の実利用・削減時間、評価結果は未確認。75業務は2029年度目標。"
+        ]
+      }
     },
     "25201": {
       "name": "大津市",
@@ -6866,7 +7981,34 @@
         "dx",
         "procurement"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "中小企業向け生成AI等の体験セミナー開催支援（2026年度補助制度）",
+        "reason": "デジタル技術の体験講習を支援する年度予算と補助制度の受付・交付条件を確認できる。講習開催・採択・支出の実績や個別DX業務の運用実績は収録範囲で未確認である。",
+        "evidence": [
+          {
+            "document_id": "otsu-industry-budget-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "otsu-digital-seminar-grant-r8",
+            "finding_index": 1,
+            "role": "context"
+          },
+          {
+            "document_id": "otsu-dx-evaluation-framework-r6",
+            "finding_index": 0,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "企業向け支援制度の計画・予算確認に限定し、市役所内のAI稼働を示すものではない。",
+          "2024年の評価・翌年度見直しの方針は、効果測定・改善実施・再測定の実績ではない。",
+          "年度事業概要の対象ページは収録済み本文抽出による確認で、画像照合は未実施。"
+        ]
+      }
     },
     "26100": {
       "name": "京都市",
@@ -6991,7 +8133,28 @@
         "スマート区役所の議決後予算、仕様書、契約一覧",
         "生活保護データの権限・保管・委託範囲",
         "電話AIの2026年度運用状況と実利用評価"
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "T",
+        "scope": "持込ごみの電話問い合わせを想定したAIボイスボット検証（2025年6〜7月）",
+        "reason": "職員が想定シナリオで検証した実証の実施と正答率97.8％の結果を確認できる。住民対応への導入は今後検討とされているため、試行効果があってもTに留める。",
+        "evidence": [
+          {
+            "document_id": "kyoto-voice-ai-poc",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "kyoto-voice-ai-poc",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "正答率は職員による想定シナリオの実証結果であり、住民による本番利用時の回答品質を示さない。",
+          "検証総件数、質問の難易度分布、本番運用開始・効率化実績は未確認。"
+        ]
+      }
     },
     "27100": {
       "name": "大阪市",
@@ -7158,7 +8321,33 @@
         "AI検証の実施報告・成果を確認",
         "区役所DXの個別契約・選定結果を確認",
         "最新会議録と附帯決議本文を精読"
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "審査業務へのAIエージェント検証・ノーコードによる庁内業務改善（2026年度計画）",
+        "reason": "審査領域2業務でのAI検証とノーコードアプリ20業務の運用開始は2026年度目標で、実績欄は空欄である。当初予算の可決は確認できるが、試行開始や本番運用を示す収録根拠はない。",
+        "evidence": [
+          {
+            "document_id": "osaka-digital-policy-r8",
+            "finding_index": 1,
+            "role": "stage"
+          },
+          {
+            "document_id": "osaka-digital-policy-r8",
+            "finding_index": 2,
+            "role": "context"
+          },
+          {
+            "document_id": "osaka-budget-decision",
+            "finding_index": 0,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "オンライン利用率40％も対象手続きを限定した目標であり、運用・効果実績ではない。",
+          "予算議決後の執行・契約・実施状況は未確認で、市全体の未導入を意味しない。"
+        ]
+      }
     },
     "27140": {
       "name": "堺市",
@@ -7267,7 +8456,33 @@
         "新規債務の期間と年度別配分",
         "集約対象事務の件数・現状工数・個人情報管理",
         "通話分析と建築GISの契約先・運用成果"
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "申請等の定型業務を集約するスマート事務オフィス整備（2026年度予算案）",
+        "reason": "定型業務集約拠点の設置計画と単年度予算案を確認できる。業務量削減8.40人工は計画上の見込みであり、実施後の効果実績ではないためPとする。",
+        "evidence": [
+          {
+            "document_id": "sakai-budget-r8-reform",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "sakai-budget-r8-reform",
+            "finding_index": 1,
+            "role": "context"
+          },
+          {
+            "document_id": "sakai-budget-r8-reform",
+            "finding_index": 4,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "予算案の議決後変更・執行、拠点開設、処理実績は未確認。",
+          "8.40人工を実測削減時間や職員削減実績と解釈せず、複数年度の債務負担を当年度支出に合算しない。"
+        ]
+      }
     },
     "27203": {
       "name": "豊中市",
@@ -7368,7 +8583,33 @@
         "dx",
         "procurement"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "生成AIと有人対応を組み合わせる子育て相談（2026年7月の受託候補者選定）",
+        "reason": "子育て相談チャットボットの受託候補者選定を確認できるが、資料は今後の契約交渉を明記する。2027年度の運営に係る債務負担限度額も、稼働の証拠にはならない。",
+        "evidence": [
+          {
+            "document_id": "toyonaka-ai-proposal-result-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "toyonaka-ai-proposal-result-r8",
+            "finding_index": 1,
+            "role": "context"
+          },
+          {
+            "document_id": "toyonaka-budget-r8-obligation",
+            "finding_index": 0,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "契約締結、運用開始、利用実績及び効果測定は未確認。",
+          "選定理由にある事業者の実績を豊中市での運用実績としない。"
+        ]
+      }
     },
     "27205": {
       "name": "吹田市",
@@ -7465,7 +8706,23 @@
         "dx",
         "procurement"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "国保被保険者へのICTを用いた睡眠改善支援（2026年度予算案）",
+        "reason": "血圧・血糖値・睡眠に課題のある国保被保険者へのICT活用事業を予算案で確認できる。募集・実施・効果の記録がないため計画段階に留める。",
+        "evidence": [
+          {
+            "document_id": "suita-budget-r8",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "参加者、実施者、開始日、効果実績及び議決後予算は未確認。",
+          "別案件の庁内情報基盤RFIは情報収集段階であり、再構築の実施実績とはしない。"
+        ]
+      }
     },
     "27207": {
       "name": "高槻市",
@@ -7630,7 +8887,24 @@
             "市の見積値。詳細な測定条件・人件費支出減への対応は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "M",
+        "scope": "庁内業務のRPA自動化（2024年度、削減時間は市の推計）",
+        "reason": "前ロードマップの振り返りに、2024年度のRPA活用による約1,400時間の業務削減見積値が記載されている。年度実績に対する推計による効果測定としてMとする。",
+        "evidence": [
+          {
+            "document_id": "takatsuki-dx-roadmap-r8",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "約1,400時間は市の推計であり、直接実測・人件費支出減・生成AIの効果を意味しない。対象業務別内訳と算定条件は未確認。",
+          "オンライン手続数・利用件数だけではMとせず、RPAの削減時間を判定根拠とした。",
+          "効果に基づく具体的改善とその後の再測定、2026年時点の継続効果は未確認。"
+        ]
+      }
     },
     "27210": {
       "name": "枚方市",
@@ -7771,7 +9045,33 @@
             "実績・件数の重複計数ルールは未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "生活保護受給者宅の訪問面談記録を生成AIで作成する業務（2026年度計画）",
+        "reason": "生成AI搭載タブレットによる訪問記録作成の予算と年度計画を確認できる。削減1,200時間と訪問13,800件は目標であり、導入・利用実績や削減実績ではない。",
+        "evidence": [
+          {
+            "document_id": "hirakata-budget-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "hirakata-department-r8",
+            "finding_index": 0,
+            "role": "context"
+          },
+          {
+            "document_id": "hirakata-department-r8",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "導入開始日、契約、実施済み試行及び本番利用は未確認。",
+          "前年度実績欄のダッシュは新規指標による欠測であり、ゼロや削減達成と扱わない。"
+        ]
+      }
     },
     "27211": {
       "name": "茨木市",
@@ -7962,7 +9262,27 @@
             "コンビニ交付等との集計範囲の関係は未確認。全証明交付のデジタル利用率とはしない。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "施設予約・転出届等のオンライン申請（2025年度実績）",
+        "reason": "手続別にオンライン利用件数と分母が報告され、本番利用を確認。利用率だけを時間短縮や住民満足の成果とはみなしません。",
+        "evidence": [
+          {
+            "document_id": "ibaraki-online-results-r7",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "ibaraki-chatbot-ended-202604",
+            "finding_index": 0,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "旧問い合わせチャットボットは2026年3月末終了。オンライン手続の運用をAIの稼働判定に流用しません。"
+        ]
+      }
     },
     "27212": {
       "name": "八尾市",
@@ -8113,7 +9433,22 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "窓口BPR・相談アプリ・AI等（2026～2028年度工程）",
+        "reason": "予算とDX工程表を確認。計画上の『実施』は予定なので、実証開始・本番稼働の実績に置き換えません。",
+        "evidence": [
+          {
+            "document_id": "yao-dx-plan-r8-r10",
+            "finding_index": 1,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "対象20システムを移行済みとせず、個別の契約・本番利用・成果は未確認。"
+        ]
+      }
     },
     "27227": {
       "name": "東大阪市",
@@ -8206,7 +9541,29 @@
         "dx",
         "infrastructure"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "AIオンデマンド乗合ライドシェアの拡充（2026年度交通戦略推進事業の予算）",
+        "reason": "2026年度予算にAIオンデマンド乗合ライドシェアの拡充が掲載されている。拡充という表現だけでは実施時期・運行実績を確定できず、別事業の通常バス実験も計画のためPとする。",
+        "evidence": [
+          {
+            "document_id": "higashiosaka-r8-mobility-budget",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "higashiosaka-policy-r8",
+            "finding_index": 0,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "個別運行実績・運行区域・契約・利用人数は未確認であり、未導入を意味しない。",
+          "通常バスでの需要・安全性検証計画と、自動運転の2029年度社会実装目標を実施済みと扱わない。",
+          "交通戦略推進事業5,689万円は複数事業の総額で、AIオンデマンド単独額ではない。"
+        ]
+      }
     },
     "28100": {
       "name": "神戸市",
@@ -8307,7 +9664,28 @@
         "防災DX調査の仕様・成果物・選定結果",
         "避難所モデルの対象地域、協力企業、役割分担",
         "KOBE AI PORTの利用・効果指標と個人情報ルール"
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "KOBE AI PORTによる職員向け庁内情報検索・業務用AIアプリ提供（2026年4月運用開始）",
+        "reason": "2026年4月からKOBE AI PORTの運用を開始したとの公表と、庁内情報検索・業務用アプリの提供機能を確認できる。業務別の削減時間や誤回答率等は確認できないためOとする。",
+        "evidence": [
+          {
+            "document_id": "kobe-generative-ai-operation",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "kobe-generative-ai-operation",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "運用開始は確認できるが、部署別の利用者数・継続利用率・個別業務への定着は未確認。",
+          "防災部門での実利用は未確認で、防災DXの実装済み根拠にはしない。"
+        ]
+      }
     },
     "28201": {
       "name": "姫路市",
@@ -8437,7 +9815,29 @@
             "過去年度の実績を算定のbaselineへ転用していない。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "M",
+        "scope": "AI・RPA等による対象定型事務の自動化・省力化（2024年度実績）",
+        "reason": "2024年度実績報告に4課4業務の運用開始と、AI・RPA等による対象定型作業時間の削減率80％が報告されている。本番業務の削減結果としてMとするが、80％の算定対象と4課4業務が一致するとは断定しない。",
+        "evidence": [
+          {
+            "document_id": "himeji-reform-results-r6",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "himeji-reform-results-r6",
+            "finding_index": 1,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "市の実績報告値で、対象業務別内訳・分母時間・実測か推計かを含む算定方法は未確認。",
+          "全庁の労働時間80％削減や費用削減を意味せず、2026年度の効果へ外挿しない。",
+          "測定結果に基づく具体的改善の実施と改善後の再測定までは裏付けられない。"
+        ]
+      }
     },
     "28202": {
       "name": "尼崎市",
@@ -8585,7 +9985,39 @@
             "基準値と最新実績は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "取引事業者の電子請求書等提出と財務会計への転記（2026年6月25日発表、7月1日開始予定）",
+        "reason": "Haratte採用と2026年7月1日からの利用開始が6月25日に事前発表されている。収録資料では開始後の実稼働・利用実績を確認できないため、予定日を過ぎたことだけでは上げずPとする。",
+        "evidence": [
+          {
+            "document_id": "amagasaki-haratte-release-20260625",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "amagasaki-r8-einvoice-budget",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "amagasaki-r8-einvoice-budget",
+            "finding_index": 1,
+            "role": "context"
+          },
+          {
+            "document_id": "amagasaki-r8-einvoice-budget",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "未導入という判定ではなく、開始後の実績が収録されていないことによる確認段階の限定。",
+          "満足度3.5ポイントと帳票51,000枚は2028年度目標で、測定結果ではない。",
+          "契約原文や自動転記の実作動・削減時間も未確認。"
+        ]
+      }
     },
     "28203": {
       "name": "明石市",
@@ -8724,7 +10156,22 @@
             "実行計画の2025年度末492手続は見込のためbaseline/actualに採用していない。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "庁内生成AI活用（2024年度からとの記載）",
+        "reason": "2026年度の事業説明に、庁内生成AI活用の開始年度を2024年度と記載。新たな市民向けAIチャットボットの実証計画とは分けて、既存業務利用の記載に限定して分類します。",
+        "evidence": [
+          {
+            "document_id": "akashi-budget-r8-dx",
+            "finding_index": 1,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "現在の実利用件数・対象職員・効果は未確認。オンライン492手続は見込み値で、確定実績には使いません。"
+        ]
+      }
     },
     "28204": {
       "name": "西宮市",
@@ -8859,7 +10306,34 @@
             "基準値・目標値は記載なし。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "T",
+        "scope": "庶務マニュアルを参照する庶務事務専用AI応答（2024年2月9日〜3月31日の実証）",
+        "reason": "2024年2〜3月の実証で庶務マニュアル参照botを検証し、91人による273質問の回答評価が報告されている。正答評価や効率化への肯定回答は実証内の測定であり、本番運用の効果測定とは認めずTとする。",
+        "evidence": [
+          {
+            "document_id": "nishinomiya-rag-trial-2024",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "nishinomiya-rag-trial-2024",
+            "finding_index": 1,
+            "role": "stage"
+          },
+          {
+            "document_id": "nishinomiya-rag-trial-2024",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "正答約59％と効率化肯定約98％は参加者による評価・自己申告で、第三者検証や実作業時間削減率ではない。",
+          "2024年の限定実証に関する判定で、2026年現在も試行段階であるとは断定しない。",
+          "2026年度のローカルAI等は方針記載で、実証後の本番移行や改善後再測定は未確認。"
+        ]
+      }
     },
     "28210": {
       "name": "加古川市",
@@ -8954,7 +10428,22 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "市民参加Decidim・公共施設予約（2020年開始・2026年公開）",
+        "reason": "Decidimの運用開始・改修と公共施設予約の一般公開を確認。利用者意見の募集はありますが、効果測定と改善後再測定までを裏付ける数値は未確認です。",
+        "evidence": [
+          {
+            "document_id": "kakogawa-decidim-202608",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "意見募集は事業者調達ではありません。生成AIは別の予算計画で、実稼働は未確認。"
+        ]
+      }
     },
     "29201": {
       "name": "奈良市",
@@ -9132,7 +10621,29 @@
             "母数・質問票・調査日未確認。研修単独の因果効果とは断定しない。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "M",
+        "scope": "職員の生成AIサービスによる庁内業務支援（2025年度下半期、削減時間はサービス算定の推計）",
+        "reason": "導入済み生成AIサービスの職員利用実績と、2025年度下半期約17,200時間の削減というサービス算定値を確認できる。直接実測ではない推計による本番業務の効果測定としてMとする。",
+        "evidence": [
+          {
+            "document_id": "nara-ai-results-r7",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "nara-ai-results-r7",
+            "finding_index": 1,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "削減時間は導入サービスの計算値であり、詳細な算定条件・第三者検証は未確認。人件費支出減や因果効果に換算しない。",
+          "半期値に内数の3月単月約4,300時間を加算しない。業務別内訳は収録範囲で未確認。",
+          "管理職の研修前後の利用率上昇は、効果に基づく改善実施後の削減時間再測定を裏付けず、Iの根拠としない。"
+        ]
+      }
     },
     "30201": {
       "name": "和歌山市",
@@ -9268,7 +10779,33 @@
           ],
           "measurement_status": "definition_only"
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "行政HP・FAQの構造化とAI回答品質の検証（2026年度実証補助事業の募集）",
+        "reason": "HP・FAQの構造化と職員によるAI回答レビューを求める実証事業の募集要件を確認できる。採択・実証開始の記録はなく、満足度や職員負担の測定要求だけでは実施・効果測定を認定しない。",
+        "evidence": [
+          {
+            "document_id": "wakayama-ai-pilot-call-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "wakayama-ai-pilot-call-r8",
+            "finding_index": 1,
+            "role": "context"
+          },
+          {
+            "document_id": "wakayama-ai-pilot-call-r8",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "採択結果、実証開始、評価値は未確認で、10月上旬の決定は予定。",
+          "評価点60％以上は事業者選定基準であり、サービス成果や利用者満足度の目標ではない。"
+        ]
+      }
     },
     "33100": {
       "name": "岡山市",
@@ -9395,7 +10932,24 @@
             "2026年度の実績ではない。計測・推計方法、品質維持、他施策との重複は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "M",
+        "scope": "AI・RPA等を適用した庁内業務の削減（2024年度末時点の年間効果、対象業務群の集計）",
+        "reason": "2024年度末時点のAI・RPA等による年間約30,000時間の業務削減が、市の実績説明として収録されている。目標ではなく適用業務群の効果報告としてMとするが、改善実施後の再測定は確認できない。",
+        "evidence": [
+          {
+            "document_id": "okayama-budget-dx-r8",
+            "finding_index": 1,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "約30,000時間は市の報告値であり、実測・推計・自己申告の別や算定方法は未確認で、費用削減・因果効果に読み替えない。",
+          "個別業務名、対象業務数、品質評価、他施策との重複が未収録のため、確認範囲は報告対象の業務群に限り、市全体の成熟度とはしない。",
+          "2026年度の実績ではなく、予算案にあるスマート窓口・窓口混雑マップの稼働や効果には適用しない。"
+        ]
+      }
     },
     "33202": {
       "name": "倉敷市",
@@ -9517,7 +11071,28 @@
         "dx",
         "procurement"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "市政情報の問い合わせに対するAIチャットボット案内（2026年9月3日更新のサービス案内）",
+        "reason": "2026年9月更新の公式問い合わせページにAIチャットボットとFAQの利用案内があり、サービス提供を確認できる。選定結果だけでなく提供案内を根拠にOとし、自己解決率等の成果は未確認とする。",
+        "evidence": [
+          {
+            "document_id": "kurashiki-contact-guide-202609",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "kurashiki-ai-selection-r8",
+            "finding_index": 0,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "応答試験・利用件数・多言語別品質・自己解決率は未確認で、24時間案内を実測稼働率に読み替えない。",
+          "優先交渉権者決定は契約原文の確認ではなく、電話AIの稼働実績も別途未確認。"
+        ]
+      }
     },
     "34100": {
       "name": "広島市",
@@ -9657,7 +11232,29 @@
         "道路AIのその後の採用技術・契約・評価結果",
         "水道センサーの設置数、漏水発見実績、通信・保守費",
         "当年度RPA・生成AIの効果と継続運用費"
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "M",
+        "scope": "導入済み39業務のRPAによる事務処理（2024年度の削減効果）",
+        "reason": "2024年度に5業務へRPAを追加し、導入済み計39業務で従前比5,429時間の削減を市が実績として報告している。本番業務の効果報告に基づきMとするが、効果を受けた改善実施と再測定の連鎖は確認できない。",
+        "evidence": [
+          {
+            "document_id": "hiroshima-dx-progress-r6",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "hiroshima-dx-progress-r6",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "5,429時間は市の報告値であり、実測・推計・担当者自己申告の別、独立再計測、金額換算は確認していない。",
+          "個別39業務の名称・品質指標と2026年度の実績は未収録で、市全体の成熟度とはしない。",
+          "議事録支援AIの1,744時間は処理した音声量であり、削減効果に加算しない。"
+        ]
+      }
     },
     "34207": {
       "name": "福山市",
@@ -9757,7 +11354,34 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "備後圏域企業のAI活用を支援するアドバンスキャンプ（2026年9月募集終了、11月開催予定）",
+        "reason": "企業とエンジニアが協働するAI課題解決ワークショップの募集終了と、2026年11月の開催予定が収録されている。開催・伴走支援の実施や業務へのAI導入実績は未確認のためPとする。",
+        "evidence": [
+          {
+            "document_id": "fukuyama-ai-camp-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "fukuyama-ai-camp-r8",
+            "finding_index": 1,
+            "role": "context"
+          },
+          {
+            "document_id": "fukuyama-ai-camp-r8",
+            "finding_index": 2,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "対象は企業のAI活用支援プログラムであり、市役所内部のAI本番利用を示すものではない。",
+          "参加者募集の終了は事業実施・受託者選定を意味せず、参加企業数・支援効果は未確認。",
+          "一般会計総額や参加費無料から当該事業費を推定しない。"
+        ]
+      }
     },
     "37201": {
       "name": "高松市",
@@ -9883,7 +11507,39 @@
         "dx",
         "procurement"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "市民課への電話用件を解釈して担当部署へ転送するAI電話（2026年8月3日運用開始）",
+        "reason": "8月28日更新の公式案内に、2026年8月3日からAIによる用件解釈・担当部署への転送を提供すると記載されている。9割以上の振分け成功は別事業者による実証の結果で、本番効果の根拠にできないためOとする。",
+        "evidence": [
+          {
+            "document_id": "takamatsu-ai-phone-service",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "takamatsu-ai-phone-service",
+            "finding_index": 1,
+            "role": "context"
+          },
+          {
+            "document_id": "takamatsu-ai-phone-briefing",
+            "finding_index": 0,
+            "role": "context"
+          },
+          {
+            "document_id": "takamatsu-ai-phone-briefing",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "本番の転送件数・精度・待ち時間削減・満足度は未確認で、実際の電話動作も未検証。",
+          "2026年2〜3月実証の9割以上は転送振分けの評価で、全自動回答の正答率でも新事業者の成績でもない。",
+          "生成AIによる自動応答は2026年10月の予定でOの範囲に含めず、担当部署への転送は開庁時間内に限られる。"
+        ]
+      }
     },
     "38201": {
       "name": "松山市",
@@ -10027,7 +11683,24 @@
             "計画上の正式KPI設定・目標値は未照合。自治体全体の削減時間ではない。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "M",
+        "scope": "AI-OCR・RPA等を使う76業務の事務処理（2025年度の削減時間実績）",
+        "reason": "2026年4月の市長会見で、2025年度にAI-OCR・RPA等を用いた76業務で約7,075時間を削減したと報告されている。本番業務の削減結果としてMとし、市の公表値で算定方法が未確認であることを明記する。",
+        "evidence": [
+          {
+            "document_id": "matsuyama-dx-results-20260428",
+            "finding_index": 1,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "約7,075時間は概数で、実測・推計・担当者申告の別、基準時間、計測方法は未確認。",
+          "対象は報告された76業務で、自治体全体の削減時間や費用控除後の効果ではない。",
+          "2026年度の施設予約等の計画や窓口拡大を、この効果の再測定・継続改善の実績として扱わない。"
+        ]
+      }
     },
     "39201": {
       "name": "高知市",
@@ -10227,7 +11900,22 @@
             "全庁利用率ではない。回答者数・回答率・利用定義・正確な調査期間は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "17業務の標準準拠システム（2026年1月運用開始）",
+        "reason": "17業務の運用開始を確認。総務部の生成AI利用率はトライアルの指標であり、本番の全庁成果とはしません。",
+        "evidence": [
+          {
+            "document_id": "kochi-dx-policy-20260224",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "残る3業務は移行目標。既存17業務の安定稼働・費用削減、全庁AI利用の実績は未確認。"
+        ]
+      }
     },
     "40100": {
       "name": "北九州市",
@@ -10359,7 +12047,28 @@
         "議決後予算と税務DX・機材研修の調達情報",
         "税務BPRの現状工数と支援が必要な利用者数",
         "点検対象・撮影データ形式・飛行条件・既存台帳"
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "市税手続きのオンライン化・税務と税外債権徴収の事務改革（2026年度予算案）",
+        "reason": "市税事務所改革と税務DXの対象業務・計画が予算案に記載されている。オンライン手続きの開始や税務処理時間等の実績は未確認のためPとする。",
+        "evidence": [
+          {
+            "document_id": "kitakyushu-tax-budget-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "kitakyushu-construction-budget-r8",
+            "finding_index": 0,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "議決後の配分、調達、契約先、税務の処理時間・誤り率・利用者満足度の改善実績は未確認。",
+          "別分野の点検用ドローンも育成・配備の計画であり、飛行・点検の実施実績は未確認。"
+        ]
+      }
     },
     "40130": {
       "name": "福岡市",
@@ -10509,7 +12218,28 @@
         "AI電話・チャットボットの契約と稼働状況を確認",
         "市議会の質疑・答弁、可決結果と補正を確認",
         "既存DXの利用件数・効果測定を確認"
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "「ふくおかサポート」の情報提供・離島等のリモート窓口（2026年度予算案の既存取組欄）",
+        "reason": "2026年度予算案の「これまでの取組み」に、データ連携基盤による情報提供とリモート窓口の運用が記載されている。これらの既存サービスはOとするが、利用率・削減時間等の効果実績は確認できない。",
+        "evidence": [
+          {
+            "document_id": "fukuoka-general-affairs-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "fukuoka-general-affairs-r8",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "運用の実施時期は予算案作成以前の既存取組として確認できる範囲に限り、個別の開始年月・利用件数は未収録。",
+          "新規のAIチャットボット・AI電話は導入予定であり、既存サービスのOを適用しない。"
+        ]
+      }
     },
     "40203": {
       "name": "久留米市",
@@ -10642,7 +12372,22 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "AI分析・電子申請・標準化等（2026年度本予算、2024年方針）",
+        "reason": "DX推進の本予算と段階導入方針を確認。運用経費の掲載だけから個別システムの移行完了や実稼働を認定しません。",
+        "evidence": [
+          {
+            "document_id": "kurume-budget-r8-dx",
+            "finding_index": 1,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "今回の資料範囲では個別の稼働報告・利用実績・効果が未確認。市全体が計画段階という意味ではありません。"
+        ]
+      }
     },
     "42201": {
       "name": "長崎市",
@@ -10765,7 +12510,28 @@
         "dx",
         "procurement"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "電子入札・電子調達と連携する電子契約（2010年度・2023年度導入、2026年8月の現行系説明）",
+        "reason": "再構築公募の業務目的に、電子入札・調達の2010年度導入と電子契約の2023年度導入が記載され、現行系の利用期限も説明されている。既存業務の本番運用を根拠とし、クラウドへの更新は計画として区別する。",
+        "evidence": [
+          {
+            "document_id": "nagasaki-ebidding-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "nagasaki-ebidding-r8",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "既存系の利用件数・処理時間等の効果測定は未確認。",
+          "再構築の選定・契約・稼働は未確認であり、将来の履行期限を完了実績としない。"
+        ]
+      }
     },
     "43100": {
       "name": "熊本市",
@@ -10874,7 +12640,33 @@
         "選定結果と仕様書を確認し、1所管のマニュアルで誤回答率・検索時間を比較。機微情報のアクセス制御と職員確認を必須にする。",
         "議会での質疑・議決、条例との対応、最新補正・決算との照合は未確認。"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "法令・例規・庁内マニュアルを参照する職員向けRAG導入（2026年3〜5月の調達手続）",
+        "reason": "職員向けRAG等の予算案と、提案上限・履行期間・提出期限を定めた調達要領を確認できる。期限経過だけでは選定・契約・試行開始を確認できないためPとする。",
+        "evidence": [
+          {
+            "document_id": "kumamoto-budget-ai-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "kumamoto-rag-proposal-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "kumamoto-rag-proposal-r8",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "選定結果、契約・検収、職員利用実績は未確認で、住民向けRAG実証も予算案にある計画に留まる。",
+          "収録レビューは抽出本文に基づき原本画像との照合は未実施。"
+        ]
+      }
     },
     "44201": {
       "name": "大分市",
@@ -10973,7 +12765,33 @@
         "dx",
         "procurement"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "庁内文書の作成・検索を支援するOita GENAI（2026年9月18日発表、10月1日開始予定）",
+        "reason": "2026年8月の受託候補者選定と10月1日の稼働予定を確認できる。確認日である9月27日は開始予定日前で、実証・本番の実施実績は未確認のためPとする。",
+        "evidence": [
+          {
+            "document_id": "oita-genai-announcement-20260918",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "oita-genai-announcement-20260918",
+            "finding_index": 1,
+            "role": "stage"
+          },
+          {
+            "document_id": "oita-genai-announcement-20260918",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "契約締結日・契約実額・稼働後の利用実績・業務効果は未確認。",
+          "RAGや安全管理に関するサービス説明は独立した精度・安全性の検証結果ではない。"
+        ]
+      }
     },
     "45201": {
       "name": "宮崎市",
@@ -11154,7 +12972,28 @@
             "目標値・計測方法・重複アクセスの扱いは未確認。人数・満足度・AI成果ではない。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "市版生成AIによる議事録作成・内部規定検索・通知文作成支援（2024年度実績）",
+        "reason": "2024年度成果説明書に、市版生成AIの運用開始と音声テキスト化、内部規定検索・回答案作成等の実施が明記されている。これらの本番業務に対応する効果測定結果は確認できない。",
+        "evidence": [
+          {
+            "document_id": "miyazaki-results-fy2024",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "miyazaki-results-fy2024",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "2024年度実績に限定し、2026年9月の機能・利用量は断定しない。",
+          "別事業のコールセンター完結率95.7％は、収録範囲ではデジタル施策との対応が未確認であり、市版生成AIの効果に転用しない。ホームページ閲覧数も効果測定とはしない。"
+        ]
+      }
     },
     "46201": {
       "name": "鹿児島市",
@@ -11304,7 +13143,29 @@
             "2026年度実績は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "M",
+        "scope": "職員の生成AI業務利用（2024年9月開始・2024年度の職員満足度測定）",
+        "reason": "2024年9月の庁内利用開始に加え、2024年度の職員の生成AI活用満足度74％が実績として報告されている。利用者による主観的・自己申告の満足度測定としてMとし、時間削減率には読み替えない。",
+        "evidence": [
+          {
+            "document_id": "kagoshima-reform-results-r6",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "kagoshima-reform-results-r6",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "満足度の母数・設問・回答率は未確認であり、74％は利用率や生産性改善率ではない。",
+          "2024年度の生成AI活用に限る判定で、具体的な用途別効果・実測削減時間・2026年度実績は未確認。",
+          "プロンプト研修は後年度の計画であり、効果を踏まえた改善実施と再測定までの根拠はない。"
+        ]
+      }
     },
     "47201": {
       "name": "那覇市",
@@ -11490,7 +13351,27 @@
             "基準は実証時の8病院。各病院の利用頻度、2026年度の最新数は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "道路占用申請・RPA連携、救急搬送支援（2024年度報告・2025年追記）",
+        "reason": "道路占用申請の運用・利用率と救急搬送支援の本運用を確認。報告書作成時間の短縮は実証時の値なので、本番運用後の効果測定とは区別します。",
+        "evidence": [
+          {
+            "document_id": "naha-dx-annual-r6",
+            "finding_index": 3,
+            "role": "stage"
+          },
+          {
+            "document_id": "naha-dx-annual-r6",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "特化型生成AIは実証段階。本番移行後の救急DXの効果や2026年の最新実績は未確認。"
+        ]
+      }
     },
     "04100": {
       "name": "仙台市",
@@ -11615,7 +13496,28 @@
         "契約締結・稼働状況・利用部門・仕様書",
         "内部規程の更新責任と検索権限設計",
         "施設予約更新とBPR支援の募集・選定状況"
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "会計・人事給与等の内部事務へのRAG付き生成AI導入（2026年6月受託候補者特定）",
+        "reason": "2026年6月3日の審査を経た受託候補者の特定と、会計・人事給与等に生成AIを導入する業務目的を確認できる。候補者特定から試行開始・本番稼働は確認できないためPとする。",
+        "evidence": [
+          {
+            "document_id": "sendai-ai-proposal-result-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "sendai-ai-proposal-result-r8",
+            "finding_index": 1,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "契約締結、検収、実際の提供開始・利用効果は未確認。",
+          "委託上限額や予定履行期間を契約実額・実施期間の実績と扱わない。"
+        ]
+      }
     },
     "01100": {
       "name": "札幌市",
@@ -11729,7 +13631,28 @@
         "可決後の予算と補正を確認",
         "道路AI点検の仕様・既存契約・成果を確認",
         "議会会議録本文とDX利用実績を確認"
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "窓口申請書の作成支援と道路舗装路面のAI点検（2026年度予算案）",
+        "reason": "職員の聞き取りによる申請書作成システム導入と、舗装路面AI点検等の予算案・計画を確認できる。実証や本番点検の実施実績は収録されていない。",
+        "evidence": [
+          {
+            "document_id": "sapporo-major-projects-r8",
+            "finding_index": 0,
+            "role": "stage"
+          },
+          {
+            "document_id": "sapporo-major-projects-r8",
+            "finding_index": 1,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "募集・契約・実装成果は未確認で、予算案から稼働済みと推定しない。",
+          "道路維持管理計画策定費はAI点検以外を含み、AI部分の費用や効果は分離できない。"
+        ]
+      }
     },
     "09201": {
       "name": "宇都宮市",
@@ -11836,7 +13759,24 @@
         "dx",
         "infrastructure"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "公式LINEからの窓口待ち状況案内・電子申請・施設や図書館の予約（2026年6月の実装説明）",
+        "reason": "2026年6月更新の公式説明に、窓口待ち状況配信・電子申請・予約を提供し、2024年3月に更新した公式LINEから利用できるとある。提供の事実は確認できるが処理時間等の成果は未確認のためOとする。",
+        "evidence": [
+          {
+            "document_id": "utsunomiya-dx-implementation-2026",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "利用率・待ち時間や処理時間の短縮・サービスの動作試験は未確認。",
+          "職員の資格合格者213名や事例集掲載14件は、当該住民サービスの効果測定ではない。",
+          "スマート水道メーター関連改修・校務クラウド等の2026年度方針はこの運用判定に含めない。"
+        ]
+      }
     },
     "01204": {
       "name": "旭川市",
@@ -12028,7 +13968,22 @@
             "円滑な到達の判定、分母、計測方法・期間は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "次世代窓口のAI案内・電子審査・CRM（2026年度公募）",
+        "reason": "受託候補者の特定と構築・実証の仕様を確認。実証開始や本番稼働を裏付ける報告は今回の収録範囲にありません。",
+        "evidence": [
+          {
+            "document_id": "asahikawa-nextwindow-result-202604",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "KPIは設定観点のみで、数値も成果も未確認。候補者特定を契約・履行完了としません。"
+        ]
+      }
     },
     "07203": {
       "name": "郡山市",
@@ -12195,7 +14150,27 @@
             "正確な集計締切、稼働中アプリ数、廃止・試作品の扱いは未確認。単年度新規数ではない。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "M",
+        "scope": "kintone・生成AIの業務利用（2025年度実績、2026年7月報告）",
+        "reason": "kintone約7,000時間は所属照会、生成AI約12,780時間はシステム自動算出による削減効果として報告されています。推計・自己申告を含む効果測定であり、実測の費用削減ではありません。",
+        "evidence": [
+          {
+            "document_id": "koriyama-dx-hq-20260717",
+            "finding_index": 1,
+            "role": "stage"
+          },
+          {
+            "document_id": "koriyama-dx-hq-20260717",
+            "finding_index": 2,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "ライセンス全庁配布は全職員の実利用・全庁データ連携を意味しません。算式・実測との一致、改善後の再測定は未確認。"
+        ]
+      }
     },
     "07204": {
       "name": "いわき市",
@@ -12295,7 +14270,22 @@
         "dx",
         "procurement"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "電子契約（2024年7月先行導入・10月全庁拡大）",
+        "reason": "電子契約の導入済み・全庁的拡大を市が公表。ただし医療センター等の除外があり、全契約の電子化ではありません。",
+        "evidence": [
+          {
+            "document_id": "iwaki-econtract-202604",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "電子契約比率・削減時間・利用件数は未確認。AIや他分野のDXにこの段階を適用しません。"
+        ]
+      }
     },
     "05201": {
       "name": "秋田市",
@@ -12467,7 +14457,22 @@
             "時間・分等の単位、職員の修正・確認時間の包含、集計期間は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "P",
+        "scope": "RPA・生成AI・AI議事録（2026年度予算案・改訂計画）",
+        "reason": "運用拡大方針と『削減した業務時間』等の評価項目を確認。収録した計画・予算の記述では、実稼働の時期や利用・効果の報告を十分に裏付けられないため計画・予算までに留めます。",
+        "evidence": [
+          {
+            "document_id": "akita-digital-plan22-202603",
+            "finding_index": 2,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "評価項目は正式でも数値は未掲載。既存運用がないという判定ではなく、今回の証拠の範囲による分類です。"
+        ]
+      }
     },
     "03201": {
       "name": "盛岡市",
@@ -12651,7 +14656,22 @@
             "単年値か累計値か、算定方法は当該ページで明示されず未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "M",
+        "scope": "AI-OCR・RPA等の作業時間縮減（前計画2021～2025年度）",
+        "reason": "前計画の導入19業務と作業時間縮減11,063時間を評価資料で確認。ただし計画期間中の暫定評価で、確定値でも2026年度単年成果でもありません。",
+        "evidence": [
+          {
+            "document_id": "morioka-dx-plan2-202603",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "算定方法・単年／累計の扱いは未確認。新目標5,000時間との合算や、費用削減への換算はしません。"
+        ]
+      }
     },
     "08201": {
       "name": "水戸市",
@@ -12842,7 +14862,27 @@
             "目標は2028年度で、2025年度の達成基準ではない。登録解除や重複の扱い・有効登録者の定義は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "M",
+        "scope": "RPA・AI議事録の業務削減（2025年度実績）",
+        "reason": "RPA2,739時間、AI議事録223時間の削減を市が報告し、計画目標に対する未達も評価。生成AIやチャットボットの本番利用とは別の実績です。",
+        "evidence": [
+          {
+            "document_id": "mito-reform-results-r7",
+            "finding_index": 1,
+            "role": "stage"
+          },
+          {
+            "document_id": "mito-reform-results-r7",
+            "finding_index": 2,
+            "role": "context"
+          }
+        ],
+        "limitations": [
+          "時間の実測／推計の算定方法は未確認。チャットボットは2025年度実証未実施、生成AIは検討・研修段階。"
+        ]
+      }
     },
     "07201": {
       "name": "福島市",
@@ -13006,7 +15046,22 @@
             "6月以降追加予定220種類とは別。確認日現在の追加完了・利用実績は未確認。"
           ]
         }
-      ]
+      ],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "書かない窓口・基幹標準化（2026年1～2月実績）",
+        "reason": "市長報告で標準化18業務完了と50種類の証明手続の先行運用を確認。今後の追加220種類は稼働実績に含めません。",
+        "evidence": [
+          {
+            "document_id": "fukushima-mayor-dx-202603",
+            "finding_index": 1,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "処理時間・満足度・利用件数は未確認。移行完了数を自治体DX全体の達成率とはしません。"
+        ]
+      }
     },
     "02201": {
       "name": "青森市",
@@ -13115,7 +15170,22 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "書かない窓口（2024年10月開始との記載）",
+        "reason": "予算説明が既存の書かない窓口の2024年10月開始を明記。この過去の開始記述に限り本番運用と分類し、生成AIの2026年2月開始予定を実績にはしません。",
+        "evidence": [
+          {
+            "document_id": "aomori-budget-proposal-r8",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "窓口の現在の利用範囲・件数・効果、生成AIの開始実績・契約は未確認。"
+        ]
+      }
     },
     "08220": {
       "name": "つくば市",
@@ -13273,7 +15343,66 @@
         "budget",
         "dx"
       ],
-      "non_financial_indicators": []
+      "non_financial_indicators": [],
+      "dx_evidence": {
+        "stage": "O",
+        "scope": "住民票スマート申請（2026年9月提供案内）",
+        "reason": "住民票のスマホ請求・オンライン決済を利用できる公式案内を確認。別事業の窓口DXSaaSや生活保護AIの完了を示すものではありません。",
+        "evidence": [
+          {
+            "document_id": "tsukuba-smart-application-202609",
+            "finding_index": 0,
+            "role": "stage"
+          }
+        ],
+        "limitations": [
+          "実際の申請成功や利用件数・満足度は未検証。9月29～30日の切替予定を現在の実績としません。"
+        ]
+      }
     }
+  },
+  "dx_classification": {
+    "version": 1,
+    "classified_at": "2026-09-27",
+    "evidence_revision": "2026-09-27-final35-primary-review-kpi-1",
+    "scope_note": "既存214資料の部分レビューから、特定業務で確認できた最も先の段階を分類しました。自治体全体の成熟度・優劣・最新状態ではありません。計画段階と表示された自治体も、未収録分野で運用している可能性があります。全庁展開の広さと個別業務の効果測定は別軸です。",
+    "stages": [
+      {
+        "code": "P",
+        "label": "計画・予算・調達",
+        "definition": "計画、予算、公募・選定までを確認。実証開始・本番稼働は未確認。",
+        "business_hint": "現行業務・仕様・評価方法の設計支援。ただし選定済み案件の新規参入は別途確認。"
+      },
+      {
+        "code": "T",
+        "label": "実証・試行",
+        "definition": "実施済み・開始済みの試行を確認。本番稼働は未確認。",
+        "business_hint": "精度・安全性・現場負担の検証、本番移行条件の整理。"
+      },
+      {
+        "code": "O",
+        "label": "本番運用",
+        "definition": "サービス提供・業務利用を確認。利用件数だけでは効果測定としない。",
+        "business_hint": "利用定着、業務連携、品質評価。既存製品・契約との整合を先に確認。"
+      },
+      {
+        "code": "M",
+        "label": "本番運用＋効果測定",
+        "definition": "本番業務の時間短縮・満足度等の結果を確認。推計・自己申告を含む場合は明記。",
+        "business_hint": "測定方法の検証、改善対象の特定、効果を検証したうえでの横展開。"
+      },
+      {
+        "code": "I",
+        "label": "効果に基づく継続改善",
+        "definition": "測定結果に基づく改善の実施と、その後の再測定までを確認。",
+        "business_hint": "継続評価や他業務への展開支援。個別の調達入口は別途確認。"
+      },
+      {
+        "code": "U",
+        "label": "判定保留",
+        "definition": "収録資料では段階の根拠が足りない。未導入・低成熟度という意味ではない。",
+        "business_hint": "まず稼働報告・評価資料を追加確認し、課題と既存導入を把握する。"
+      }
+    ]
   }
 }

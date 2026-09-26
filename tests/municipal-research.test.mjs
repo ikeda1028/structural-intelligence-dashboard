@@ -263,3 +263,79 @@ test('untrusted source text and URLs cannot create markup or script links', asyn
     assert.ok(dom.window.document.body.textContent.includes(doc.summary));
   } finally { dom.window.close(); }
 });
+
+test('DX evidence classifications cover exactly 100 cities with resolvable bounded evidence', () => {
+  assert.equal(data.dx_classification.version, 1);
+  const codes = data.dx_classification.stages.map(s => s.code);
+  assert.equal(new Set(codes).size, 6);
+  assert.equal(cities.filter(c => c.dx_evidence).length, 100);
+  for (const city of cities) {
+    assert.equal(city.dx_stage.overall, null);
+    const value = city.dx_evidence;
+    assert.ok(codes.includes(value.stage));
+    assert.ok(value.scope && value.reason && value.limitations.length);
+    assert.ok(value.evidence.some(ref => ref.role === 'stage'));
+    for (const ref of value.evidence) {
+      const doc = city.documents.find(d => d.id === ref.document_id);
+      assert.equal(doc?.review_status, 'body_reviewed');
+      assert.ok(Number.isInteger(ref.finding_index) && ref.finding_index >= 0);
+      assert.ok(doc.findings[ref.finding_index]?.locator);
+      assert.ok(['stage', 'context'].includes(ref.role));
+    }
+  }
+});
+
+test('plans, experimental effects, usage and operating effects remain distinct', () => {
+  const stage = code => data.municipalities[code].dx_evidence.stage;
+  assert.equal(stage('01204'), 'P', 'selected bidder is not production');
+  assert.equal(stage('23206'), 'P', 'October start is future at classification date');
+  assert.equal(stage('05201'), 'P', 'named measurement items are not measured results');
+  assert.equal(stage('47201'), 'O', 'pilot reduction must not become production effect');
+  assert.equal(stage('27211'), 'O', 'online utilization is not an effect outcome');
+  assert.equal(stage('07203'), 'M');
+  assert.match(data.municipalities['07203'].dx_evidence.reason, /推計|自己申告/);
+  assert.equal(stage('08201'), 'M');
+  assert.equal(stage('28210'), 'O', 'improvement alone lacks measured feedback loop');
+});
+
+test('DX summary counts and filters match data, including empty categories and reset', async () => {
+  const dom = await page('cohort');
+  try {
+    const d = dom.window.document, select = d.getElementById('dx-filter');
+    assert.ok(select);
+    for (const stage of data.dx_classification.stages) {
+      const expected = cities.filter(c => c.dx_evidence.stage === stage.code).length;
+      const summary = d.querySelector('.dx-overview tr[data-stage="' + stage.code + '"]');
+      assert.equal(summary.querySelector('td').textContent, expected + '自治体');
+      select.value = stage.code;
+      select.dispatchEvent(new dom.window.Event('change'));
+      const rows = [...d.querySelectorAll('#app tr[data-dx-stage]:not([hidden])')];
+      assert.equal(rows.length, expected);
+      assert.ok(rows.every(row => row.dataset.dxStage === stage.code));
+      assert.equal(d.getElementById('dx-filter-count').textContent, expected + '自治体を表示');
+      if (rows.length) {
+        rows[0].querySelector('button').click();
+        assert.ok(d.querySelector('#detail .dx-classification').textContent.includes(stage.label));
+        assert.ok(d.querySelector('#detail .dx-classification a[href^="https:"]'));
+      }
+    }
+    select.value = ''; select.dispatchEvent(new dom.window.Event('change'));
+    assert.equal(d.querySelectorAll('#app tr[data-dx-stage]:not([hidden])').length, 100);
+    assert.equal(d.getElementById('detail').children.length, 0);
+  } finally { dom.window.close(); }
+});
+
+test('DX report displays source periods and analysis caveat; unknown classification stays unknown', async () => {
+  const copy = structuredClone(data);
+  delete copy.municipalities['14100'].dx_evidence;
+  copy.municipalities['07203'].dx_evidence.reason = '<img src=x onerror=alert(1)>';
+  const dom = await page('reports', { research: copy });
+  try {
+    const d = dom.window.document;
+    assert.equal(d.querySelectorAll('.dx-classification').length, 100);
+    assert.match(d.querySelector('#city-14100 .dx-classification').textContent, /未導入という意味ではありません/);
+    assert.match(d.querySelector('#city-07203 .dx-classification').textContent, /自治体全体の成熟度/);
+    assert.match(d.querySelector('#city-07203 .dx-evidence').textContent, /2025年度/);
+    assert.equal(d.querySelectorAll('img').length, 0);
+  } finally { dom.window.close(); }
+});
