@@ -1,6 +1,18 @@
 <!doctype html>
-<html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>主要100自治体 調査対象</title>
-<style>body{font-family:system-ui,-apple-system,sans-serif;max-width:1000px;margin:0 auto;padding:24px;color:#172033;line-height:1.7}h1{font-size:1.7rem}h2{margin-top:1.8rem;border-left:5px solid #2563eb;padding-left:10px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #d8dee9;padding:8px}th{background:#eef4ff}tbody tr{cursor:pointer}tbody tr:hover{background:#f5f8ff}td.num{text-align:right;white-space:nowrap}.note{background:#fff8e6;border:1px solid #f0d38a;padding:12px;border-radius:8px}.small{color:#536174;font-size:.92rem}.detail{margin:18px 0;padding:18px;border:2px solid #2563eb;border-radius:10px;background:#f8fbff}.fact{border-top:1px solid #d8dee9;padding:9px 0}.fact:first-child{border-top:0}.tag{display:inline-block;background:#eef4ff;color:#1456b8;border-radius:999px;padding:2px 9px;font-size:.85rem}a{color:#1456b8}</style>
-<body><h1>主要100自治体・調査対象</h1><p>人口規模の大きい自治体から、予算・議会・条例・DX・調達・インフラを同じ基準で調査するための対象リストです。</p><div class="note">自治体名をクリックすると、調査済みの自治体は詳細を表示します。未調査の自治体は対象情報のみ表示します。</div><p class="small">選定基準：総務省統計局「統計でみる市区町村のすがた2026」の住民基本台帳人口（2024年）を優先し、欠測時は国勢調査人口（2020年）を使用。人口上位100自治体です。人口順位は重要度や評価順位ではありません。</p><section id="detail"></section><table><thead><tr><th>順位</th><th>自治体</th><th>コード</th><th>人口</th><th>調査状況</th></tr></thead><tbody id="rows"><tr><td colspan="5">読み込み中…</td></tr></tbody></table><p class="small"><a href="/co-creation-assets/major100-research.html">調査データ一覧</a> ／ <a href="/co-creation-assets/major-municipalities-100.json">対象JSON</a> ／ <a href="/co-creation-assets/major100-research.json">調査結果JSON</a></p>
-<script>Promise.all([fetch('/co-creation-assets/major-municipalities-100.json'),fetch('/co-creation-assets/major100-research.json')]).then(async([a,b])=>[await a.json(),await b.json()]).then(([cohort,research])=>{const rows=document.getElementById('rows');rows.innerHTML=cohort.municipalities.map(m=>{const r=research.municipalities[m.code];const s=r?.research_status==='partial'?'一部確認':r?.research_status==='verified'?'主要資料確認':'未着手';return `<tr data-code="${m.code}"><td>${m.rank}</td><td><strong>${m.name}</strong></td><td>${m.code}</td><td class="num">${m.population.toLocaleString('ja-JP')}人</td><td>${s}</td></tr>`}).join('');rows.querySelectorAll('tr').forEach(row=>row.addEventListener('click',()=>{const r=research.municipalities[row.dataset.code];document.getElementById('detail').innerHTML=r?`<article class="detail"><h2>${r.name}の調査結果</h2><p><span class="tag">調査状況：${r.research_status==='partial'?'一部確認':'主要資料確認'}</span> <span class="tag">DX段階：${r.dx_stage?.overall??'—'}</span></p><p>${r.dx_stage?.basis||''}</p><h3>確認済み・確認中のファクト</h3>${r.facts.map(f=>`<div class="fact"><strong>${f.label}</strong><br>${f.value}<br><span class="small">${f.status==='verified'?'確認済み':'一部確認'} · <a href="${f.source_url}" target="_blank" rel="noreferrer">公式出典</a></span></div>`).join('')}<h3>次の調査</h3><ul>${r.next_tasks.map(t=>`<li>${t}</li>`).join('')}</ul></article>`:`<div class="detail"><strong>${row.children[1].textContent}</strong><p>この自治体は対象に登録済みですが、詳細調査は未着手です。</p></div>`;window.scrollTo({top:0,behavior:'smooth'})}))}).catch(()=>document.getElementById('rows').innerHTML='<tr><td colspan="5">データを読み込めませんでした。</td></tr>')</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>主要100自治体・調査対象</title>
+<link rel="stylesheet" href="/co-creation-assets/major100-research.css">
+<script src="/co-creation-assets/major100-research.js" defer></script>
+</head>
+<body data-mode="cohort">
+<header><a href="/co-creation">TLA共創OSへ戻る</a><h1>主要100自治体・調査対象</h1><p>自治体名をクリックすると、その自治体の資料別要約・予算・根拠ページを表示します。未調査の自治体は未着手と表示します。</p></header>
+<div id="review-status" aria-live="polite"></div>
+<p class="small">選定基準：総務省統計局「統計でみる市区町村のすがた2026」の住民基本台帳人口（2024年）を優先し、欠測時は国勢調査人口（2020年）を使用した人口上位100自治体。人口順位は重要度や評価順位ではありません。</p><section id="detail" aria-label="選択した自治体の調査内容"></section>
+<main id="app"><p>読み込み中…</p></main>
+<noscript>このレポートはJavaScriptを使用します。下記の調査結果JSONでも内容を確認できます。</noscript>
+<footer><p><a href="/co-creation-assets/major-municipalities-100.html">対象100自治体一覧</a> ／ <a href="/co-creation-assets/major100-research.html">資料別レポート</a> ／ <a href="/co-creation-assets/major100-research.json">調査結果JSON</a></p></footer>
+</body>
+</html>

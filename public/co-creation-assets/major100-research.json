@@ -1,58 +1,676 @@
 {
+  "schema_version": 2,
+  "revision": "2026-09-26-primary-review-1",
   "updated_at": "2026-09-26",
+  "scope_note": "対象100自治体のうち、掲載済み5市を再確認。全市とも部分調査です。資料ごとに記載した範囲だけを精読しており、100市の調査完了・全資料の全文確認を意味しません。",
+  "method": "原資料の本文と表を確認し、PDFページ・年度・単位・確認範囲を記録。案内ページのみ、予算案、計画、目標、実績、議決を区別。未確認は未確認のまま残し、提案仮説は事実と分離します。",
+  "corrections_note": "従来の一律の『確認済み』とDX総合段階を撤回し、資料別の確認範囲に置き換えました。大阪市の出典・配分、目標と実績の混同等も訂正しています。",
   "municipalities": {
     "14100": {
       "name": "横浜市",
       "research_status": "partial",
-      "dx_stage": {"overall": 3, "basis": "DX戦略、AI活用方針、デジタル人材・実証の公式資料を確認。分野別の網羅判定は継続調査。"},
-      "facts": [
-        {"domain":"dx","label":"横浜DX戦略","value":"令和4年策定、令和6年4月改定。民間人材活用と多様な主体との連携を明記。","status":"verified","source_url":"https://www.city.yokohama.lg.jp/city-info/gyosei-kansa/yokohamadx/dx-strategy/dx-strategy.html"},
-        {"domain":"dx","label":"AI・データ活用","value":"2026〜2029年度の新たな中期計画の基本的方向で、データ経営とAI活用を基本姿勢として掲げる。","status":"verified","source_url":"https://www.city.yokohama.lg.jp/city-info/seisaku/hoshin/4kanen/2026-2029/kihon2026.html"},
-        {"domain":"dx","label":"デジタル人材・実証","value":"令和6年度の研修受講者5,500人、ICT資格取得支援累計206件、DX民間人材活用の短期支援15件、先端技術実証・調査3件。","status":"verified","source_url":"https://www.city.yokohama.lg.jp/city-info/yokohamashi/org/R07izen/digital/jigyokeikaku/r8jigyoukeikaku.files/0004_20260123.pdf"},
-        {"domain":"procurement","label":"民間参入入口","value":"実証実験支援、テック系スタートアップ支援拠点、IT・デジタル技術活用科、中小企業デジタル人材育成・伴走支援等の委託・プロポーザルを確認。","status":"verified","source_url":"https://www.city.yokohama.lg.jp/business/nyusatsu/kakukukyoku/2026/itaku/keizai/"},
-        {"domain":"dx","label":"道路・河川DX","value":"道路・河川行政にデジタル通信技術を実装し、働き方改革を進めるDX戦略を公開。","status":"verified","source_url":"https://www.city.yokohama.lg.jp/kurashi/machizukuri-kankyo/doro/jigyo_kikaku/dxsuishin.html"},
-        {"domain":"council","label":"議会資料","value":"市会の会議録・速報版・議案関連資料を公開。DX・AI施策の質疑と議決結果を継続確認する。","status":"partial","source_url":"https://www.city.yokohama.lg.jp/shikai/kiroku/kaigiroku.html"}
+      "dx_stage": {
+        "overall": null,
+        "basis": "総合段階の判定は保留。計画・予算の存在だけでは、導入状況や利用効果を判定しません。"
+      },
+      "summary": "共創プラットフォームと庁内AI活用の事業計画は具体化しています。一方、道路AI点検は2024年の戦略で将来導入とされており、現在の稼働状況を別途確認する必要があります。",
+      "documents": [
+        {
+          "id": "yokohama-digital-r8",
+          "title": "令和8年度 デジタル統括本部 事業計画書",
+          "source_url": "https://www.city.yokohama.lg.jp/city-info/yokohamashi/org/R07izen/digital/jigyokeikaku/r8jigyoukeikaku.files/0004_20260123.pdf",
+          "source_period": "2026年度計画／実績の基準日は各項目に記載",
+          "checked_at": "2026-09-26",
+          "review_status": "body_reviewed",
+          "review_scope": "全21ページのうちPDF9・10ページを精読。年度列・目標／実績欄・細目の黒塗りを画像で照合。全文精読ではありません。",
+          "pdf_pages": [
+            9,
+            10
+          ],
+          "summary": "行政課題と企業の技術をつなぐYOKOHAMA Hack!の運営と、庁内の生成AI・RPA・ローコード活用を扱う資料です。後者はツール導入だけでなく、職員の知識・ノウハウ不足を課題に挙げ、利用支援を計画しています。",
+          "findings": [
+            {
+              "state": "実績の記載",
+              "text": "YOKOHAMA Hack!は会員1,051人、公開課題27件、企業からの提案・連携196件。課題・提案は2022〜2025年度累計で、いずれも2025年11月末時点。提案件数を契約件数とは扱いません。",
+              "locator": "PDF9ページ「根拠・データ等」"
+            },
+            {
+              "state": "計画",
+              "text": "2026年度は所管課への課題整理支援、企業からの提案募集、対話の場となるサービスの検討を予定しています。",
+              "locator": "PDF9ページ「事業スケジュール」"
+            },
+            {
+              "state": "目標",
+              "text": "汎用生成AI（Copilot）の活用状況100%、先端技術による業務削減24万時間は2026年度の目標値。達成実績ではありません。",
+              "locator": "PDF10ページ「事業指標①・②」の目標欄"
+            }
+          ],
+          "limits": [
+            "当初予算の議決・補正・執行・個別契約はこの確認範囲に含めていません。",
+            "共創事業の細目にある3,200万円・1,000万円は2025年度欄です。2026年度の細目は黒塗りのため転記しません。",
+            "総額は事業予算であり、募集中の契約額や民間に残された予算額ではありません。"
+          ],
+          "budgets": [
+            {
+              "label": "創発・共創によるDX推進事業",
+              "amount": 42000,
+              "unit": "千円",
+              "fiscal_year": 2026,
+              "stage": "事業計画額",
+              "locator": "PDF9ページ・令和8年度欄",
+              "scope": "プラットフォーム運営等の事業全体。2026年度の細目は非表示。"
+            },
+            {
+              "label": "生成AI等の先端技術を活用したバックオフィス推進事業",
+              "amount": 231151,
+              "unit": "千円",
+              "fiscal_year": 2026,
+              "stage": "事業計画額",
+              "locator": "PDF10ページ・令和8年度欄",
+              "scope": "生成AI・RPA・ローコード等を含む。AIだけの金額ではない。"
+            }
+          ]
+        },
+        {
+          "id": "yokohama-road-dx",
+          "title": "道路・河川DX戦略",
+          "source_url": "https://www.city.yokohama.lg.jp/kurashi/machizukuri-kankyo/doro/jigyo_kikaku/dxsuishin.files/0001_20240418.pdf",
+          "source_period": "2024年3月策定",
+          "checked_at": "2026-09-26",
+          "review_status": "body_reviewed",
+          "review_scope": "全58ページのうちPDF26・31〜33ページの本文、現状／将来像、工程表を確認。PDF26ページは画像でも照合。",
+          "pdf_pages": [
+            26,
+            31,
+            32,
+            33
+          ],
+          "summary": "道路の舗装点検、河川の土砂堆積調査、点検台帳の一元化について、現在の負荷と導入したい仕組みが書かれています。舗装AIは将来導入、河川土砂把握は実証で精度を確認した段階という違いがあります。",
+          "findings": [
+            {
+              "state": "資料作成時の現状",
+              "text": "幹線道路約1,100kmは専用車両で調査。生活道路約6,500kmは原則年1回の徒歩パトロール等で把握し、評価のばらつきと現地調査の負荷が課題です。",
+              "locator": "PDF26ページ／冊子24ページ"
+            },
+            {
+              "state": "計画",
+              "text": "生活道路へのAI舗装損傷診断は将来像。2024年当時は必要な性能を有するシステムがないとの記載があり、メーカーへの要求整理やサウンディングを工程に置いています。",
+              "locator": "PDF26ページ／冊子24ページ"
+            },
+            {
+              "state": "実証結果の記載",
+              "text": "河川の土砂堆積量について、航空写真・AI等の実証で実務に支障のない精度を確認したと記載。本格実装は今後の取組として区別されています。",
+              "locator": "PDF31ページ／冊子29ページ"
+            },
+            {
+              "state": "計画",
+              "text": "表計算ソフト・紙の点検情報や補修履歴を一元化し、現地タブレットで確認・更新する構想です。将来像の効果説明を現在の全河川での稼働実績とは扱いません。",
+              "locator": "PDF32〜33ページ／冊子30〜31ページ"
+            }
+          ],
+          "limits": [
+            "2024年資料の記載であり、2026年時点の未導入・導入済みを断定しません。",
+            "精度の数値、対象河川、現在の運用範囲、契約先、当年度事業費は追加調査が必要です。"
+          ],
+          "budgets": []
+        }
       ],
-      "next_tasks": ["令和8年度予算書からDX・AI関連事業費を特定", "最新会議録からAI・データ・行政手続の質疑を抽出", "契約期間・次回公募時期を個別案件ごとに確認", "オンライン手続・オープンデータ/APIの利用実績を確認"]
-    },
-    "27100": {
-      "name": "大阪市", "research_status": "partial",
-      "dx_stage": {"overall": 4, "basis": "DX戦略、AI活用基本方針、令和8年度の具体的なDX予算・検証案件を確認。"},
-      "facts": [
-        {"domain":"budget","label":"DX推進予算","value":"令和8年度DX推進事業は104億200万円。サービスDX63億5,700万円、行政DX4億2,500万円、都市・まちDX36億2,000万円。","status":"verified","source_url":"https://www.city.osaka.lg.jp/seisakukikakushitsu/cmsfiles/contents/0000650/650699/flip01.pdf"},
-        {"domain":"dx","label":"区役所DX","value":"区役所DX推進事業6億7,400万円。モデル2区への窓口支援システム導入、窓口改革、庁舎空間最適化を実施。","status":"verified","source_url":"https://www.city.osaka.lg.jp/hodoshiryo/ictsenryakushitsu/0000669431.html"},
-        {"domain":"dx","label":"AI活用","value":"令和8年度に審査領域でAIエージェントを2業務検証。AI活用基本方針も策定。","status":"verified","source_url":"https://www.city.osaka.lg.jp/ictsenryakushitsu/cmsfiles/contents/0000677/677188/r8houshin.pdf"},
-        {"domain":"budget","label":"予算編成上のDX","value":"所要一般財源ベースのDX推進経費は105億円で、前年度61億円から44億円増。","status":"verified","source_url":"https://www.city.osaka.lg.jp/zaisei/page/0000660724.html"}
+      "source_leads": [
+        {
+          "title": "横浜DX戦略の案内",
+          "source_url": "https://www.city.yokohama.lg.jp/city-info/gyosei-kansa/yokohamadx/dx-strategy/dx-strategy.html",
+          "review_status": "index_only",
+          "note": "案内本文は確認。戦略・アクション編PDFの全文評価は未実施。"
+        },
+        {
+          "title": "中期計画2026〜2029の基本的方向",
+          "source_url": "https://www.city.yokohama.lg.jp/city-info/seisaku/hoshin/4kanen/2026-2029/kihon2026.html",
+          "review_status": "index_only",
+          "note": "基本的方向の案内。最新の確定計画・実施実績の根拠には使いません。"
+        },
+        {
+          "title": "経済局の委託・契約一覧",
+          "source_url": "https://www.city.yokohama.lg.jp/business/nyusatsu/kakukukyoku/2026/itaku/keizai/",
+          "review_status": "index_only",
+          "note": "一覧には契約結果・選定済み案件が掲載。募集要領・締切・契約書の個別照合は未実施。"
+        },
+        {
+          "title": "市会会議録の案内",
+          "source_url": "https://www.city.yokohama.lg.jp/shikai/kiroku/kaigiroku.html",
+          "review_status": "index_only",
+          "note": "会議録本文の質問・答弁・議決は未確認。議会調査済みには数えません。"
+        }
       ],
-      "next_tasks": ["最新市会会議録・条例を確認", "DX事業の契約・公募状況を確認", "AIエージェント2業務の対象と効果指標を確認"]
+      "corrections": [
+        "従来のDX総合段階3を撤回。",
+        "契約一覧の存在を『現在の参入入口あり』とする表示を撤回。",
+        "人材研修実績の短い列挙から、確認範囲を明記した事業計画の要約に差し替え。"
+      ],
+      "opportunity": {
+        "status": "提案仮説／募集状況未確認",
+        "hypothesis": "道路AIの実地精度検証、点検台帳との連携、職員向け利用定着支援は検討候補です。",
+        "basis": "道路戦略の評価ばらつき・紙管理、バックオフィス事業計画の知識・ノウハウ不足。",
+        "next_check": "最新の実装結果、精度要件、既存ベンダー、YOKOHAMA Hack!の現在の募集テーマ・締切を確認する。"
+      },
+      "next_tasks": [
+        "道路・河川DXの2025〜2026年度の実施報告と契約を照合",
+        "会議録本文から質問者・行政答弁・議決を記録",
+        "事業ごとの最新公募・選定結果と当年度補正を確認"
+      ]
     },
     "23100": {
-      "name": "名古屋市", "research_status": "partial",
-      "dx_stage": {"overall": 2, "basis": "令和8年度予算と予算編成過程を確認。具体的なDX・AI事業の詳細は継続調査。"},
-      "facts": [
-        {"domain":"budget","label":"令和8年度予算","value":"令和8年度予算の概要と、新規・拡充事業、廃止・縮小事業を公開。","status":"verified","source_url":"https://www.city.nagoya.jp/houdou/pressr7/3002889/3003893.html"},
-        {"domain":"budget","label":"予算編成過程","value":"一般会計、款別予算、重点化、新規・拡充事業を含む予算編成過程を公開。","status":"verified","source_url":"https://www.city.nagoya.jp/shisei/zaisei/1002655/1042582/1042583/1043831.html"}
+      "name": "名古屋市",
+      "research_status": "partial",
+      "dx_stage": {
+        "overall": null,
+        "basis": "総合段階の判定は保留。計画・予算の存在だけでは、導入状況や利用効果を判定しません。"
+      },
+      "summary": "予算編成資料では、要求されたDX関連施策のすべてが同額で採用されているわけではありません。査定後の予算案と、別表の局経常経費内対応を分けて読む必要があります。",
+      "documents": [
+        {
+          "id": "nagoya-budget-process-r8",
+          "title": "令和8年度予算編成過程の公開",
+          "source_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/043/831/r8hennseikatei.pdf",
+          "source_period": "2026年2月・2026年度予算案",
+          "checked_at": "2026-09-26",
+          "review_status": "body_reviewed",
+          "review_scope": "全146ページのうち表紙・総務局PDF14〜15ページ、局経常経費内対応のPDF17ページを確認。14・17ページの列見出しを画像で照合。",
+          "pdf_pages": [
+            1,
+            14,
+            15,
+            17
+          ],
+          "summary": "DX推進の要求には生成AIや電子申請等が並びますが、査定の説明は全体管理と人事給与業務見直し等の計上を示しています。要求概要にある技術名だけから、その技術に予算が付いたとは判断できません。",
+          "findings": [
+            {
+              "state": "予算案",
+              "text": "『DXの推進』は要求269百万円、財政局案79百万円、予算案157百万円。予算案の一般財源は142百万円です。要求額と予算案を区別します。",
+              "locator": "PDF14ページ／冊子13ページ・総務局事項4"
+            },
+            {
+              "state": "予算案",
+              "text": "同事項の局経常経費内対応は別表に16百万円と掲載。業務フロー可視化・分析調査は要求8百万円に対して、別表で精査後2百万円が計上されています。",
+              "locator": "PDF14・17ページ／冊子13・16ページ"
+            },
+            {
+              "state": "解釈の制限",
+              "text": "『庁内ナレッジを活かした生成AIの導入』は要求概要の項目です。当該AIの最終採用額・契約状況はこの表だけでは特定できません。",
+              "locator": "PDF14ページ・要求概要と予算案概要"
+            }
+          ],
+          "limits": [
+            "予算案段階の資料です。可決額・補正額は追加確認が必要です。",
+            "この『DXの推進』事項を市全体のDX総額とは扱いません。別表との単純合算もしません。"
+          ],
+          "budgets": [
+            {
+              "label": "総務局『DXの推進』・予算案欄",
+              "amount": 157,
+              "unit": "百万円",
+              "fiscal_year": 2026,
+              "stage": "予算案",
+              "locator": "PDF14ページ／冊子13ページ",
+              "scope": "臨時・政策経費の事項4。一般財源142百万円、局経常経費内対応別表を除く。"
+            },
+            {
+              "label": "業務フロー可視化・分析調査・局経常経費内対応",
+              "amount": 2,
+              "unit": "百万円",
+              "fiscal_year": 2026,
+              "stage": "予算案",
+              "locator": "PDF17ページ／冊子16ページ",
+              "scope": "要求額8百万円ではなく、別表の精査後計上額。"
+            }
+          ]
+        }
       ],
-      "next_tasks": ["予算PDFからDX・AI事業と金額を抽出", "名古屋市のDX計画・生成AI方針を確認", "議会会議録と公募・契約を確認"]
+      "source_leads": [],
+      "corrections": [
+        "案内ページを確認しただけの『予算確認済み』から、対象ページを限定した本文要約に変更。DX総合段階2は撤回。"
+      ],
+      "opportunity": {
+        "status": "提案仮説／採用・募集状況未確認",
+        "hypothesis": "業務フロー分析や人事給与業務の見直し支援は候補です。生成AIの導入枠があるとはまだ断定できません。",
+        "basis": "総務局の査定説明と局経常経費内対応一覧。",
+        "next_check": "可決後の事業説明、調達仕様、既存委託先、AI項目の採否を確認する。"
+      },
+      "next_tasks": [
+        "可決後の予算書と該当事業の契約を確認",
+        "生成AI項目の採否・利用実績を確認",
+        "議会質疑・答弁本文を確認"
+      ]
     },
-    "01100": {
-      "name": "札幌市", "research_status": "partial",
-      "dx_stage": {"overall": 2, "basis": "令和8年度予算と予算編成過程の公開を確認。DXの分野別実装は継続調査。"},
-      "facts": [
-        {"domain":"budget","label":"令和8年度一般会計","value":"一般会計当初予算は1兆3,185億円、前年度比519億円・4.1%増。予算編成過程と主要事業一覧を公開。","status":"verified","source_url":"https://www.city.sapporo.jp/zaisei/kohyo/yosan-kessan/r8/reiwa8nendo_yosan.html"},
-        {"domain":"dx","label":"AI・半導体関連","value":"議会資料でAI・半導体関連産業の集積、スタートアップによる地域実証・実装支援を要望。","status":"partial","source_url":"https://www.city.sapporo.jp/gikai/html/documents/11_daitoshi_070529_siryou2.pdf"}
+    "27100": {
+      "name": "大阪市",
+      "research_status": "partial",
+      "dx_stage": {
+        "overall": null,
+        "basis": "総合段階の判定は保留。計画・予算の存在だけでは、導入状況や利用効果を判定しません。"
+      },
+      "summary": "2026年度DX予算はサービス・行政・都市インフラの3区分です。窓口やバックオフィスの具体策は示されていますが、AIエージェントの検証数などは年度目標であり、達成確認はこれからです。",
+      "documents": [
+        {
+          "id": "osaka-dx-budget-r8",
+          "title": "令和8年度予算資料：Re-Designおおさか・DX戦略の推進",
+          "source_url": "https://www.city.osaka.lg.jp/zaisei/cmsfiles/contents/0000671/671888/flip49-53.pdf",
+          "source_period": "2026年度当初予算",
+          "checked_at": "2026-09-26",
+          "review_status": "body_reviewed",
+          "review_scope": "分冊全5ページを確認。PDF2ページの総額・3区分の対応を画像で照合。",
+          "pdf_pages": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "summary": "市民サービスの手続改善、庁内管理業務の改革、都市・インフラへの技術適用を分けた予算です。個別事業は区分の内数なので、区分総額に足してはいけません。",
+          "findings": [
+            {
+              "state": "予算",
+              "text": "DX推進事業総額104億200万円。配分はサービスDX36億2,000万円、行政DX63億5,700万円、都市・まちDX4億2,500万円です。",
+              "locator": "PDF2ページ／冊子50ページ"
+            },
+            {
+              "state": "計画",
+              "text": "次世代行政サービスでは共通ID・データ活用を含む仕組み、区役所DXでは窓口業務の見直しを計画。将来像の図は導入完了の証拠ではありません。",
+              "locator": "PDF3〜4ページ／冊子51〜52ページ"
+            },
+            {
+              "state": "予算・計画",
+              "text": "バックオフィスDXは45億8,000万円、橋梁の異常検知・予測に関するAIカメラ活用は2,000万円。予算の存在と実装効果は別に確認します。",
+              "locator": "PDF5ページ／冊子53ページ"
+            }
+          ],
+          "limits": [
+            "当初予算であり、その後の補正・執行残額・契約額は未確認です。",
+            "当初予算の原案可決は下記の財政局本文で確認しています。附帯決議の内容の精読は未実施。"
+          ],
+          "budgets": [
+            {
+              "label": "DX推進事業総額",
+              "amount": 1040200,
+              "unit": "万円",
+              "fiscal_year": 2026,
+              "stage": "当初予算・原案可決",
+              "locator": "PDF2ページ／冊子50ページ",
+              "scope": "以下3区分の合計。個別事業を加算しない。"
+            },
+            {
+              "label": "サービスDX",
+              "amount": 362000,
+              "unit": "万円",
+              "fiscal_year": 2026,
+              "stage": "当初予算・原案可決",
+              "locator": "PDF2ページ／冊子50ページ",
+              "scope": "総額の内訳"
+            },
+            {
+              "label": "行政DX",
+              "amount": 635700,
+              "unit": "万円",
+              "fiscal_year": 2026,
+              "stage": "当初予算・原案可決",
+              "locator": "PDF2ページ／冊子50ページ",
+              "scope": "総額の内訳"
+            },
+            {
+              "label": "都市・まちDX",
+              "amount": 42500,
+              "unit": "万円",
+              "fiscal_year": 2026,
+              "stage": "当初予算・原案可決",
+              "locator": "PDF2ページ／冊子50ページ",
+              "scope": "総額の内訳"
+            }
+          ]
+        },
+        {
+          "id": "osaka-budget-decision",
+          "title": "財政局：令和8年度当初予算の議決状況",
+          "source_url": "https://www.city.osaka.lg.jp/zaisei/page/0000671888.html",
+          "source_period": "2026年3月27日議決",
+          "checked_at": "2026-09-26",
+          "review_status": "body_reviewed",
+          "review_scope": "HTML本文の冒頭「原案どおり可決」と附帯決議に関する説明を確認。リンク先の全予算書・附帯決議は未精読。",
+          "pdf_pages": [],
+          "summary": "当初予算は2026年3月27日の市会で原案どおり可決されたと財政局が説明しています。一般会計には附帯決議があるため、個別条件はその本文の確認が必要です。",
+          "findings": [
+            {
+              "state": "議決の記載",
+              "text": "2026年3月27日に当初予算が原案どおり可決。一般会計議案第60号には附帯決議あり。",
+              "locator": "HTML本文冒頭"
+            }
+          ],
+          "limits": [
+            "これは議決状況の確認です。議員の質問・行政答弁の分析ではありません。"
+          ],
+          "budgets": []
+        },
+        {
+          "id": "osaka-digital-policy-r8",
+          "title": "令和8年度 デジタル統括室運営方針",
+          "source_url": "https://www.city.osaka.lg.jp/ictsenryakushitsu/cmsfiles/contents/0000677/677188/r8houshin.pdf",
+          "source_period": "2026年度",
+          "checked_at": "2026-09-26",
+          "review_status": "body_reviewed",
+          "review_scope": "全6ページの本文、評価指標、実績欄を確認。",
+          "pdf_pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "summary": "住民が同じ内容を複数の窓口で手続きする負担、庁内の未システム化業務などを課題としています。オンライン利用率・AI検証・内製化の到達目標はありますが、この資料の年度実績欄は空欄です。",
+          "findings": [
+            {
+              "state": "目標",
+              "text": "オンライン利用率40%は『特に高い効果が見込まれる対象手続き』に限定した年度目標。全手続きの実績率ではありません。",
+              "locator": "PDF2ページ"
+            },
+            {
+              "state": "目標",
+              "text": "AIエージェントは審査領域の2業務で検証、統合プラットフォームでのサービス構築開始3件、ノーコードアプリ運用開始20業務が2026年度目標です。",
+              "locator": "PDF3ページ"
+            },
+            {
+              "state": "未確認",
+              "text": "年度実績・達成状況欄が空欄のため、これらの達成有無はこの資料から判断できません。",
+              "locator": "PDF2〜5ページ"
+            }
+          ],
+          "limits": [
+            "市全体のDX予算と統括室の課題別予算は集計範囲が異なります。",
+            "AI活用基本方針の内容・運用実態をこの運営方針だけで確認したとは扱いません。"
+          ],
+          "budgets": []
+        }
       ],
-      "next_tasks": ["DX・AI関連の主要事業と金額を予算資料から抽出", "行政手続・オープンデータ・AI方針を確認", "スタートアップ実証支援と公募を確認"]
+      "source_leads": [],
+      "corrections": [
+        "従来のDX予算の出典PDFが別内容だったため差し替え。",
+        "サービスDX・行政DX・都市・まちDXの金額対応を訂正。",
+        "AIエージェント2業務を『実施実績』ではなく『年度目標』に訂正。",
+        "編成段階の一般財源概算105億円を当初予算総額と同列に置く表示を削除。DX総合段階4も撤回。"
+      ],
+      "opportunity": {
+        "status": "提案仮説／募集状況未確認",
+        "hypothesis": "窓口の重複入力削減やAI審査の検証支援が候補です。",
+        "basis": "運営方針にある重複手続きと未システム化業務、予算資料の窓口・バックオフィス改革。",
+        "next_check": "既存契約、対象2業務、個人情報の扱い、検証指標、未選定の調達枠を確認する。"
+      },
+      "next_tasks": [
+        "AI検証の実施報告・成果を確認",
+        "区役所DXの個別契約・選定結果を確認",
+        "最新会議録と附帯決議本文を精読"
+      ]
     },
     "40130": {
-      "name": "福岡市", "research_status": "partial",
-      "dx_stage": {"overall": 4, "basis": "DX戦略、AI活用、オンライン行政、システム刷新、具体的な令和8年度予算を確認。"},
-      "facts": [
-        {"domain":"budget","label":"DX関連予算","value":"総務企画局所管のDX関連事業として3,554,318千円を掲載。システム刷新等を含む情報化施策を推進。","status":"verified","source_url":"https://www.city.fukuoka.lg.jp/gikaizimukyoku/giji/shisei/documents/260310-sohmu.pdf"},
-        {"domain":"dx","label":"AI・市民サービス","value":"市情報サイトへの生成AIチャットボット、AI電話、高校生・高齢者向け生成AI活用講座を実施。AI活用推進は6,372万円。","status":"verified","source_url":"https://www.city.fukuoka.lg.jp/zaisei/zaisei/shisei/documents/03_R8_gaiyou.pdf"},
-        {"domain":"dx","label":"行政手続・システム刷新","value":"オンライン化、データ利活用、システム刷新、ノンストップ行政を推進。システム刷新1,994,177千円、ノンストップ行政75,100千円。","status":"verified","source_url":"https://www.city.fukuoka.lg.jp/gikaizimukyoku/giji/shisei/documents/260310-sohmu.pdf"}
+      "name": "福岡市",
+      "research_status": "partial",
+      "dx_stage": {
+        "overall": null,
+        "basis": "総合段階の判定は保留。計画・予算の存在だけでは、導入状況や利用効果を判定しません。"
+      },
+      "summary": "予算説明資料は『これまでの取組み』と『8年度の主な取組み』を分けています。既存のRPA・データ連携と、新しいAI電話・チャットボットの計画を分けて把握できます。",
+      "documents": [
+        {
+          "id": "fukuoka-general-affairs-r8",
+          "title": "令和8年度当初予算案等説明資料・総務企画局",
+          "source_url": "https://www.city.fukuoka.lg.jp/gikaizimukyoku/giji/shisei/documents/260310-sohmu.pdf",
+          "source_period": "2026年度当初予算案",
+          "checked_at": "2026-09-26",
+          "review_status": "body_reviewed",
+          "review_scope": "全85ページのうち表紙、PDF18〜19ページ（冊子16〜17ページ）のDX事業表を確認。18ページの過去／当年度の列と金額を画像で照合。",
+          "pdf_pages": [
+            1,
+            18,
+            19
+          ],
+          "summary": "総務企画局のDX関連8事業を列挙した資料です。システム刷新が大きな比重を占めます。既存のオンライン化・データ連携を継続しつつ、AIによる市民対応等を新規事業として計画しています。",
+          "findings": [
+            {
+              "state": "実績の記載",
+              "text": "従来からRPA・AI-OCR・ノーコードを活用。データ連携基盤による『ふくおかサポート』の情報提供や、離島等のリモート窓口の運用も記載されています。利用率や削減時間の数値はこの表にはありません。",
+              "locator": "PDF18ページ／冊子16ページ・これまでの取組み欄"
+            },
+            {
+              "state": "実績の記載",
+              "text": "特別児童扶養手当システムは2026年1月に構築完了と記載。他システムの構築継続や国民健康保険システムの要件定義は当年度計画です。",
+              "locator": "PDF18ページ／冊子16ページ・システム刷新の行"
+            },
+            {
+              "state": "計画",
+              "text": "AI活用推進事業ではAIチャットボットとAI電話の導入等を予定。表の過去欄は『—』であり、この資料で導入完了とは確認できません。",
+              "locator": "PDF18ページ／冊子16ページ・AI活用推進事業の行"
+            }
+          ],
+          "limits": [
+            "議会に提出された説明資料であり、質疑・答弁・可決そのものを確認したものではありません。",
+            "総務企画局のDX総額であり、全市の全局を合算したDX総額ではありません。"
+          ],
+          "budgets": [
+            {
+              "label": "総務企画局『DXの推進』8事業合計",
+              "amount": 3554318,
+              "unit": "千円",
+              "fiscal_year": 2026,
+              "stage": "当初予算案",
+              "locator": "PDF18〜19ページ／冊子16〜17ページ",
+              "scope": "以下の個別事業を含む局所管の合計。内訳との二重加算禁止。"
+            },
+            {
+              "label": "AI活用推進事業",
+              "amount": 55809,
+              "unit": "千円",
+              "fiscal_year": 2026,
+              "stage": "当初予算案",
+              "locator": "PDF18ページ／冊子16ページ",
+              "scope": "総務企画局所管。全市概要の6,372万円とは対象範囲が異なる。"
+            },
+            {
+              "label": "システム刷新",
+              "amount": 1994177,
+              "unit": "千円",
+              "fiscal_year": 2026,
+              "stage": "当初予算案",
+              "locator": "PDF18ページ／冊子16ページ",
+              "scope": "子ども・子育て支援、介護保険、健康管理、税、国保等への対応。"
+            },
+            {
+              "label": "ノンストップ行政の推進",
+              "amount": 75100,
+              "unit": "千円",
+              "fiscal_year": 2026,
+              "stage": "当初予算案",
+              "locator": "PDF18ページ／冊子16ページ",
+              "scope": "結果通知等のデジタル化・オンライン化。"
+            }
+          ]
+        },
+        {
+          "id": "fukuoka-budget-overview-r8",
+          "title": "令和8年度当初予算案の概要・主な事業",
+          "source_url": "https://www.city.fukuoka.lg.jp/zaisei/zaisei/shisei/documents/03_R8_gaiyou.pdf",
+          "source_period": "2026年度当初予算案",
+          "checked_at": "2026-09-26",
+          "review_status": "body_reviewed",
+          "review_scope": "全25ページのうちPDF8ページ／冊子6ページを精読し、AI関連事業と所管局の表示を画像で照合。",
+          "pdf_pages": [
+            8
+          ],
+          "summary": "市全体の概要では、AIによる住民向け対応に加え、高校生・高齢者向け講座をまとめて紹介しています。教員向け研修は別事業として記載され、住民対応・包摂・職員教育を分けて検討できます。",
+          "findings": [
+            {
+              "state": "予算案・計画",
+              "text": "AI活用の推進6,372万円は総務企画・福祉・教育にまたがる記載。チャットボット、AI電話、高校生・高齢者向け講座等を含みます。",
+              "locator": "PDF8ページ／冊子6ページ"
+            },
+            {
+              "state": "予算案・計画",
+              "text": "教員対象の生成AI活用研修968万円は別項目。業務効率化と授業改善が目的です。",
+              "locator": "PDF8ページ／冊子6ページ"
+            }
+          ],
+          "limits": [
+            "総務企画局のAI事業55,809千円と重複を含むため、6,372万円を単純に上乗せしません。",
+            "当初予算案の紹介であり、実施済み・契約募集中とは判定できません。"
+          ],
+          "budgets": [
+            {
+              "label": "AI活用の推進・全市概要掲載額",
+              "amount": 6372,
+              "unit": "万円",
+              "fiscal_year": 2026,
+              "stage": "当初予算案",
+              "locator": "PDF8ページ／冊子6ページ",
+              "scope": "総務企画・福祉・教育。局別説明のAI事業費と二重加算しない。"
+            },
+            {
+              "label": "教員対象の生成AI活用研修",
+              "amount": 968,
+              "unit": "万円",
+              "fiscal_year": 2026,
+              "stage": "当初予算案",
+              "locator": "PDF8ページ／冊子6ページ",
+              "scope": "教育所管の別項目。"
+            }
+          ]
+        }
       ],
-      "next_tasks": ["福岡市DX戦略実行項目のKPIを確認", "議会のAI・DX質疑を確認", "契約・公募・既存システム更新時期を確認"]
+      "source_leads": [],
+      "corrections": [
+        "チャットボット・AI電話・講座を『実施』とした表示を『当初予算案の計画』に訂正。",
+        "総務企画局と全市概要の金額範囲を明記。DX総合段階4は撤回。"
+      ],
+      "opportunity": {
+        "status": "提案仮説／募集状況未確認",
+        "hypothesis": "住民向けAI回答の品質評価、電話と有人窓口の連携、AI利用講座の運営支援が候補です。",
+        "basis": "当初予算案に記載された新規AIサービスと対象者別研修。",
+        "next_check": "可決後の事業内容、契約先、回答精度や有人切替の仕様、個人情報の取扱いを確認する。"
+      },
+      "next_tasks": [
+        "AI電話・チャットボットの契約と稼働状況を確認",
+        "市議会の質疑・答弁、可決結果と補正を確認",
+        "既存DXの利用件数・効果測定を確認"
+      ]
+    },
+    "01100": {
+      "name": "札幌市",
+      "research_status": "partial",
+      "dx_stage": {
+        "overall": null,
+        "basis": "総合段階の判定は保留。計画・予算の存在だけでは、導入状況や利用効果を判定しません。"
+      },
+      "summary": "DXは単独の小規模施策だけではなく、標準化対応、窓口改革、防災、道路点検など複数部署の事業に分かれています。個別事業の総額をAIだけの費用としない整理が必要です。",
+      "documents": [
+        {
+          "id": "sapporo-major-projects-r8",
+          "title": "令和8年度札幌市予算の概要（別冊）主要事業一覧",
+          "source_url": "https://www.city.sapporo.jp/zaisei/kohyo/yosan-kessan/r8/documents/r8_yosan_gaiyou_bessatsu.pdf",
+          "source_period": "2026年度・予算案の説明資料",
+          "checked_at": "2026-09-26",
+          "review_status": "body_reviewed",
+          "review_scope": "全22ページのうち表紙とPDF3・17ページを精読。事業名・金額・事業内容の行対応を画像で照合。",
+          "pdf_pages": [
+            1,
+            3,
+            17
+          ],
+          "summary": "窓口で申請書を書かずに済む仕組み、職員のDX人材育成、官民実証支援、情報システム標準化を掲載しています。道路では舗装路面AI点検を含む維持管理計画策定費があり、用途と担当業務を特定できます。",
+          "findings": [
+            {
+              "state": "予算案・計画",
+              "text": "窓口改善は職員が氏名・住所等を聞き取り申請書を作成するシステム導入等。DX推進費は職員育成と官民実証を支える札幌DXラボの運営です。",
+              "locator": "PDF3ページ／冊子2ページ"
+            },
+            {
+              "state": "予算案・計画",
+              "text": "道路維持管理計画策定費29,000千円の説明は『舗装路面AI点検等』。AI部分だけの金額は分離されていません。",
+              "locator": "PDF17ページ／冊子16ページ"
+            },
+            {
+              "state": "解釈の制限",
+              "text": "持続可能な雪対策推進費1,082,447千円は除雪車両更新、ICT、地域除雪等を含むため、全額をICT予算として数えません。",
+              "locator": "PDF17ページ／冊子16ページ"
+            }
+          ],
+          "limits": [
+            "募集・契約・実装成果、年度中の補正は未確認です。",
+            "一覧の『DX推進費』16,000千円だけを市全体のDX総額とはしません。"
+          ],
+          "budgets": [
+            {
+              "label": "窓口改善推進費",
+              "amount": 82000,
+              "unit": "千円",
+              "fiscal_year": 2026,
+              "stage": "予算案資料",
+              "locator": "PDF3ページ／冊子2ページ",
+              "scope": "書かない窓口のシステム導入等"
+            },
+            {
+              "label": "DX推進費",
+              "amount": 16000,
+              "unit": "千円",
+              "fiscal_year": 2026,
+              "stage": "予算案資料",
+              "locator": "PDF3ページ／冊子2ページ",
+              "scope": "職員育成・札幌DXラボ運営。市全体のDX総額ではない。"
+            },
+            {
+              "label": "情報システム標準化推進費",
+              "amount": 4458000,
+              "unit": "千円",
+              "fiscal_year": 2026,
+              "stage": "予算案資料",
+              "locator": "PDF3ページ／冊子2ページ",
+              "scope": "対象システムの標準化対応"
+            },
+            {
+              "label": "道路維持管理計画策定費",
+              "amount": 29000,
+              "unit": "千円",
+              "fiscal_year": 2026,
+              "stage": "予算案資料",
+              "locator": "PDF17ページ／冊子16ページ",
+              "scope": "舗装路面AI点検等。AI部分の内訳は未確認。"
+            }
+          ]
+        }
+      ],
+      "source_leads": [
+        {
+          "title": "令和8年度予算の案内",
+          "source_url": "https://www.city.sapporo.jp/zaisei/kohyo/yosan-kessan/r8/reiwa8nendo_yosan.html",
+          "review_status": "index_only",
+          "note": "掲載は予算案の説明。今回の詳細確認は別冊の上記ページに限定。"
+        },
+        {
+          "title": "旧掲載：令和8年度国の施策及び予算に関する要望案",
+          "source_url": "https://www.city.sapporo.jp/gikai/html/documents/11_daitoshi_070529_siryou2.pdf",
+          "review_status": "index_only",
+          "note": "2025年5月の国への要望案。市の当年度予算や議会発言の根拠としては扱わず、今回の本文レビュー件数から除外。"
+        }
+      ],
+      "corrections": [
+        "一般会計額を確定予算として示した旧表現を削除し、予算案資料の事業別確認に変更。",
+        "国への要望案を実装実績として受け取れる表示を撤回。DX総合段階2も撤回。"
+      ],
+      "opportunity": {
+        "status": "提案仮説／募集状況未確認",
+        "hypothesis": "舗装点検の精度検証、窓口入力の負担軽減、職員育成が候補です。",
+        "basis": "主要事業一覧で用途が明記された道路・窓口・人材育成の事業。",
+        "next_check": "最新の契約・仕様書、点検対象路線、評価指標、DXラボの募集条件を確認する。"
+      },
+      "next_tasks": [
+        "可決後の予算と補正を確認",
+        "道路AI点検の仕様・既存契約・成果を確認",
+        "議会会議録本文とDX利用実績を確認"
+      ]
     }
   }
 }
