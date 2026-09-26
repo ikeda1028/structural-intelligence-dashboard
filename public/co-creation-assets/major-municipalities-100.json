@@ -2167,11 +2167,11 @@
       "name": "和歌山市",
       "population": 352941,
       "rank": 66,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2183,11 +2183,11 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "infrastructure",
@@ -2200,11 +2200,11 @@
       "name": "川越市",
       "population": 352805,
       "rank": 67,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2216,7 +2216,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2233,11 +2233,11 @@
       "name": "新宿区",
       "population": 352717,
       "rank": 68,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2249,7 +2249,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2266,11 +2266,11 @@
       "name": "奈良市",
       "population": 347187,
       "rank": 69,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2282,7 +2282,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2299,11 +2299,11 @@
       "name": "高槻市",
       "population": 345589,
       "rank": 70,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2315,7 +2315,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2332,11 +2332,11 @@
       "name": "大津市",
       "population": 343600,
       "rank": 71,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2348,11 +2348,11 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "infrastructure",
@@ -2365,11 +2365,11 @@
       "name": "所沢市",
       "population": 342520,
       "rank": 72,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2381,7 +2381,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2398,11 +2398,11 @@
       "name": "越谷市",
       "population": 342327,
       "rank": 73,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2414,11 +2414,11 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "infrastructure",
@@ -2431,11 +2431,11 @@
       "name": "中野区",
       "population": 341322,
       "rank": 74,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2447,7 +2447,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2464,11 +2464,11 @@
       "name": "前橋市",
       "population": 329120,
       "rank": 75,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2480,7 +2480,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2497,11 +2497,11 @@
       "name": "旭川市",
       "population": 316183,
       "rank": 76,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2513,11 +2513,11 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "infrastructure",
@@ -2530,11 +2530,11 @@
       "name": "那覇市",
       "population": 313424,
       "rank": 77,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2546,7 +2546,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2563,11 +2563,11 @@
       "name": "郡山市",
       "population": 312433,
       "rank": 78,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2579,7 +2579,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2596,11 +2596,11 @@
       "name": "高知市",
       "population": 312228,
       "rank": 79,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2612,7 +2612,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2629,11 +2629,11 @@
       "name": "明石市",
       "population": 307235,
       "rank": 80,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2645,7 +2645,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2662,11 +2662,11 @@
       "name": "四日市市",
       "population": 306378,
       "rank": 81,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2678,7 +2678,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2695,11 +2695,11 @@
       "name": "春日井市",
       "population": 305902,
       "rank": 82,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2711,11 +2711,11 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "infrastructure",
@@ -2728,11 +2728,11 @@
       "name": "いわき市",
       "population": 303171,
       "rank": 83,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2744,11 +2744,11 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "infrastructure",
@@ -2761,11 +2761,11 @@
       "name": "久留米市",
       "population": 300199,
       "rank": 84,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2777,7 +2777,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2794,11 +2794,11 @@
       "name": "豊島区",
       "population": 294644,
       "rank": 85,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2810,7 +2810,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2827,11 +2827,11 @@
       "name": "秋田市",
       "population": 293729,
       "rank": 86,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2843,7 +2843,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2860,11 +2860,11 @@
       "name": "墨田区",
       "population": 287302,
       "rank": 87,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2876,7 +2876,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2893,11 +2893,11 @@
       "name": "茨木市",
       "population": 286042,
       "rank": 88,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2909,7 +2909,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2926,11 +2926,11 @@
       "name": "目黒区",
       "population": 281400,
       "rank": 89,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2942,7 +2942,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2959,11 +2959,11 @@
       "name": "盛岡市",
       "population": 277423,
       "rank": 90,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -2975,7 +2975,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -2992,11 +2992,11 @@
       "name": "津市",
       "population": 268388,
       "rank": 91,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -3008,7 +3008,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -3025,11 +3025,11 @@
       "name": "港区",
       "population": 267780,
       "rank": 92,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -3041,11 +3041,11 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "infrastructure",
@@ -3058,11 +3058,11 @@
       "name": "水戸市",
       "population": 267467,
       "rank": 93,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -3074,7 +3074,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -3091,11 +3091,11 @@
       "name": "市原市",
       "population": 266861,
       "rank": 94,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -3107,7 +3107,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -3124,11 +3124,11 @@
       "name": "福島市",
       "population": 264652,
       "rank": 95,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -3140,7 +3140,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -3157,11 +3157,11 @@
       "name": "青森市",
       "population": 263512,
       "rank": 96,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -3173,7 +3173,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -3190,11 +3190,11 @@
       "name": "府中市",
       "population": 260998,
       "rank": 97,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -3206,7 +3206,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -3223,11 +3223,11 @@
       "name": "八尾市",
       "population": 259158,
       "rank": 98,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -3239,7 +3239,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -3256,11 +3256,11 @@
       "name": "つくば市",
       "population": 259000,
       "rank": 99,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -3272,7 +3272,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",
@@ -3289,11 +3289,11 @@
       "name": "加古川市",
       "population": 257203,
       "rank": 100,
-      "research_status": "not_started",
+      "research_status": "partial",
       "tasks": [
         {
           "domain": "budget",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "council",
@@ -3305,7 +3305,7 @@
         },
         {
           "domain": "dx",
-          "status": "not_started"
+          "status": "partial"
         },
         {
           "domain": "procurement",

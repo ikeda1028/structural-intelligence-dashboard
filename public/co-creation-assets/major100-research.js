@@ -87,6 +87,9 @@
     indicators.forEach(indicator => {
       const item = el('section', undefined, 'indicator');
       item.append(el('h4', indicator.name), el('p', indicator.definition));
+      if (indicator.measurement_status === 'definition_only') {
+        item.append(el('p', '測定項目の指定のみ確認：数値目標・実績は未確認。効果が確認された指標ではありません。', 'tag'));
+      }
       const values = el('dl', undefined, 'indicator-values');
       [['baseline', '基準値'], ['target', '目標値'], ['actual', '実績値']].forEach(([key, label]) => {
         const group = el('div');
@@ -150,9 +153,11 @@
     const docs = cities.reduce((count, city) => count + city.documents.length, 0);
     const withIndicators = cities.filter(city => city.non_financial_indicators?.length);
     const indicatorCount = withIndicators.reduce((count, city) => count + city.non_financial_indicators.length, 0);
+    const definitionOnly = withIndicators.reduce((count, city) => count + city.non_financial_indicators.filter(i => i.measurement_status === 'definition_only').length, 0);
     const container = document.getElementById('review-status');
     container.append(el('p', total + '自治体中 ' + cities.length + '自治体を一部確認・' + docs + '資料を本文レビュー。調査完了ではありません。', 'tag'));
     if (indicatorCount) container.append(el('p', '金額以外の評価指標：' + withIndicators.length + '自治体・' + indicatorCount + '指標。数値の年度・定義が異なるため、単純な自治体ランキングには使いません。', 'tag'));
+    if (definitionOnly) container.append(el('p', 'うち ' + definitionOnly + '項目は測定項目の指定のみを確認。数値付き指標とは区別しています。', 'small'));
     container.append(el('p', research.scope_note), el('p', research.corrections_note, 'note'));
     container.append(el('p', '更新：' + research.updated_at + ' ／ ' + research.method, 'small'));
   }

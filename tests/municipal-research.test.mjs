@@ -22,7 +22,7 @@ test('every reviewed document has bounded review scope, source locators and expl
       assert.ok(!ids.has(doc.id)); ids.add(doc.id);
       assert.equal(doc.review_status, 'body_reviewed');
       const hostname = new URL(doc.source_url).hostname;
-      assert.ok(/^www\d?\.city\./.test(hostname) || ['www.nishi.or.jp', 'www.machidoor.tokyo.jp'].includes(hostname), hostname);
+      assert.ok(/^www\d?\.city\./.test(hostname) || ['www.nishi.or.jp', 'www.machidoor.tokyo.jp', 'www.info.city.tsu.mie.jp'].includes(hostname), hostname);
       for (const key of ['title','source_period','checked_at','review_scope','summary']) assert.ok(doc[key]);
       assert.ok(doc.findings.length && doc.limits.length);
       if (doc.source_url.endsWith('.pdf')) assert.ok(doc.pdf_pages.length);
@@ -87,7 +87,7 @@ test('cohort status agrees with published partial reviews without marking remain
 });
 
 test('next fifty ranks have substantive partial reports with domain-specific status', () => {
-  assert.equal(cities.length, 65);
+  assert.equal(cities.length, 100);
   const next = cohort.municipalities.slice(15, 65);
   assert.equal(next.length, 50);
   assert.equal(next[0].code, '22130');
@@ -102,7 +102,20 @@ test('next fifty ranks have substantive partial reports with domain-specific sta
       assert.equal(task.status, city.reviewed_domains.includes(task.domain) ? 'partial' : 'not_started');
     }
   }
-  assert.ok(cohort.municipalities.slice(65).every(m => !data.municipalities[m.code]));
+});
+
+test('remaining 35 ranks have bounded primary reviews and honest domain coverage', () => {
+  const remaining = cohort.municipalities.slice(65);
+  assert.equal(remaining.length, 35);
+  assert.equal(remaining[0].code, '30201');
+  assert.equal(remaining.at(-1).code, '28210');
+  for (const m of remaining) {
+    const city = data.municipalities[m.code];
+    assert.equal(city.name, m.name);
+    assert.ok(city.documents.length >= 2, m.name);
+    assert.equal(city.research_status, 'partial');
+    for (const task of m.tasks) assert.equal(task.status, city.reviewed_domains.includes(task.domain) ? 'partial' : 'not_started');
+  }
 });
 
 test('non-financial indicators keep source, scope, target and actual separate', () => {
@@ -110,7 +123,9 @@ test('non-financial indicators keep source, scope, target and actual separate', 
     assert.ok(i.name && i.unit && i.definition && i.locator);
     assert.ok(city.documents.some(doc => doc.id === i.source_document_id));
     assert.ok(Array.isArray(i.limitations) && i.limitations.length);
-    assert.ok(['baseline','target','actual'].some(key => i[key] !== null));
+    if (i.measurement_status === 'definition_only') {
+      assert.ok(['baseline','target','actual'].every(key => i[key] === null));
+    } else assert.ok(['baseline','target','actual'].some(key => i[key] !== null));
     for (const key of ['baseline','target','actual']) {
       const v = i[key];
       assert.ok(v === null || (v.value !== null && v.value !== undefined && v.period));
@@ -128,6 +143,32 @@ test('non-financial indicators keep source, scope, target and actual separate', 
   assert.equal(h.find(b => b.label === 'デジタル・スマートシティ推進').amount, 22314);
   assert.match(data.municipalities['15100'].opportunity.status, /^E：/);
   assert.equal(data.municipalities['13121'].documents[0].budgets[0].stage, '当初予算案の増額分');
+});
+
+test('final-batch budgets distinguish total, components and estimated effects', () => {
+  const tok = data.municipalities['11208'].documents[0].budgets;
+  assert.equal(tok[0].amount, 11113);
+  assert.equal(tok.slice(1).reduce((n,b) => n + b.amount, 0), 11113);
+  assert.equal(tok.find(b => b.label === '生成AIサービス使用料').amount, 660);
+  const nara = data.municipalities['29201'].non_financial_indicators;
+  assert.equal(nara[0].actual.value, 17200);
+  assert.equal(nara[0].actual.label, '公表算定値');
+  assert.equal(nara[1].actual.value, 572);
+  assert.equal(nara[1].actual.period, '2026年3月');
+  assert.match(data.municipalities['30201'].opportunity.status, /期限経過/);
+  assert.ok(data.municipalities['30201'].non_financial_indicators.every(i => i.measurement_status === 'definition_only'));
+  const tsu = data.municipalities['24201'].documents[0].budgets;
+  assert.equal(tsu[0].amount, 1951714);
+  assert.equal(tsu[1].amount, 810590);
+  assert.match(tsu[1].label, /3事業合計/);
+  const ichihara = data.municipalities['12219'].non_financial_indicators.find(i => i.name === '行政手続に係るオンライン利用件数');
+  assert.equal(ichihara.actual.value, 638610);
+  assert.equal(ichihara.actual.period, '2024年度');
+  assert.match(ichihara.limitations.join(' '), /2025年度実績.*未確定/);
+  const mito = data.municipalities['08201'].non_financial_indicators;
+  assert.equal(mito.find(i => i.name === 'RPAによる業務削減時間').actual.value, 2739);
+  assert.equal(mito.find(i => i.name === 'RPAによる業務削減時間').target, null);
+  assert.equal(mito.find(i => i.name === 'AI議事録作成支援による業務削減時間').actual.value, 223);
 });
 
 async function page(mode, {fail = false, research = data} = {}) {
@@ -181,6 +222,18 @@ test('HTTP failures do not produce a success or complete state', async () => {
   finally { dom.window.close(); }
 });
 
+test('missing research remains unreviewed even after all 100 cohort entries gain coverage', async () => {
+  const copy = structuredClone(data);
+  delete copy.municipalities['30201'];
+  const dom = await page('cohort', {research: copy});
+  try {
+    const d = dom.window.document;
+    [...d.querySelectorAll('button')][65].click();
+    assert.match(d.getElementById('detail').textContent, /未着手/);
+    assert.equal(d.getElementById('detail').querySelectorAll('.document').length, 0);
+  } finally { dom.window.close(); }
+});
+
 test('indicator values and honest unknowns are visible without opening document details', async () => {
   const dom = await page('reports');
   try {
@@ -195,6 +248,8 @@ test('indicator values and honest unknowns are visible without opening document 
     assert.match(d.querySelector('#city-14100 .indicators').textContent, /存在しないという意味ではありません/);
     assert.ok(!d.querySelector('.indicator').closest('details'));
     assert.ok(d.querySelector('#city-14150 .indicator a[href*="#page=6"]'));
+    assert.match(d.querySelector('#city-30201 .indicators').textContent, /測定項目の指定のみ確認/);
+    assert.match(d.querySelector('#city-29201 .indicators').textContent, /公表算定値約17,200/);
   } finally { dom.window.close(); }
 });
 
