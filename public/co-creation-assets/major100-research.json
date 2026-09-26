@@ -1,0 +1,19 @@
+{
+  "updated_at": "2026-09-26",
+  "municipalities": {
+    "14100": {
+      "name": "横浜市",
+      "research_status": "partial",
+      "dx_stage": {"overall": 3, "basis": "DX戦略、AI活用方針、デジタル人材・実証の公式資料を確認。分野別の網羅判定は継続調査。"},
+      "facts": [
+        {"domain":"dx","label":"横浜DX戦略","value":"令和4年策定、令和6年4月改定。民間人材活用と多様な主体との連携を明記。","status":"verified","source_url":"https://www.city.yokohama.lg.jp/city-info/gyosei-kansa/yokohamadx/dx-strategy/dx-strategy.html"},
+        {"domain":"dx","label":"AI・データ活用","value":"2026〜2029年度の新たな中期計画の基本的方向で、データ経営とAI活用を基本姿勢として掲げる。","status":"verified","source_url":"https://www.city.yokohama.lg.jp/city-info/seisaku/hoshin/4kanen/2026-2029/kihon2026.html"},
+        {"domain":"dx","label":"デジタル人材・実証","value":"令和6年度の研修受講者5,500人、ICT資格取得支援累計206件、DX民間人材活用の短期支援15件、先端技術実証・調査3件。","status":"verified","source_url":"https://www.city.yokohama.lg.jp/city-info/yokohamashi/org/R07izen/digital/jigyokeikaku/r8jigyoukeikaku.files/0004_20260123.pdf"},
+        {"domain":"procurement","label":"民間参入入口","value":"実証実験支援、テック系スタートアップ支援拠点、IT・デジタル技術活用科、中小企業デジタル人材育成・伴走支援等の委託・プロポーザルを確認。","status":"verified","source_url":"https://www.city.yokohama.lg.jp/business/nyusatsu/kakukukyoku/2026/itaku/keizai/"},
+        {"domain":"dx","label":"道路・河川DX","value":"道路・河川行政にデジタル通信技術を実装し、働き方改革を進めるDX戦略を公開。","status":"verified","source_url":"https://www.city.yokohama.lg.jp/kurashi/machizukuri-kankyo/doro/jigyo_kikaku/dxsuishin.html"},
+        {"domain":"council","label":"議会資料","value":"市会の会議録・速報版・議案関連資料を公開。DX・AI施策の質疑と議決結果を継続確認する。","status":"partial","source_url":"https://www.city.yokohama.lg.jp/shikai/kiroku/kaigiroku.html"}
+      ],
+      "next_tasks": ["令和8年度予算書からDX・AI関連事業費を特定", "最新会議録からAI・データ・行政手続の質疑を抽出", "契約期間・次回公募時期を個別案件ごとに確認", "オンライン手続・オープンデータ/APIの利用実績を確認"]
+    }
+  }
+}
