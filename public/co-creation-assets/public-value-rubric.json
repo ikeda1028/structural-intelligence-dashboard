@@ -1,0 +1,202 @@
+{
+  "version": 1,
+  "analyzed_at": "2026-09-27",
+  "evidence_revision": "2026-09-27-major100-dx-evidence-classification-1",
+  "title": "行政価値ルーブリック",
+  "scope_note": "既存214資料を使ったTLAの分析・未来提案です。新規の網羅的実態調査や自治体の公式評価ではありません。現在の価値と将来の仮説を分け、未確認は0点にしません。",
+  "level_labels": [
+    "個別負担を軽減",
+    "一連のサービスを改善",
+    "先回り・個別対応",
+    "地域の成果につなぐ"
+  ],
+  "axes": [
+    {
+      "id": "burden",
+      "name": "住民の時間・手続負担",
+      "levels": [
+        {
+          "level": 1,
+          "criterion": "検索・記入・待ち時間の負担を減らす"
+        },
+        {
+          "level": 2,
+          "criterion": "複数部署にまたがる手続を一度で済ませる"
+        },
+        {
+          "level": 3,
+          "criterion": "必要手続を先に案内し再入力を減らす"
+        },
+        {
+          "level": 4,
+          "criterion": "制度・業務を見直し不要な申請・来庁自体を減らす"
+        }
+      ]
+    },
+    {
+      "id": "inclusion",
+      "name": "公平性・利用しやすさ",
+      "levels": [
+        {
+          "level": 1,
+          "criterion": "多言語・音声・操作支援で利用の障壁を減らす"
+        },
+        {
+          "level": 2,
+          "criterion": "対面・電話・オンラインのどれでも手続を完了できる"
+        },
+        {
+          "level": 3,
+          "criterion": "利用を断念した人にも適切な支援が届く"
+        },
+        {
+          "level": 4,
+          "criterion": "属性・地域による支援到達の格差が縮小する"
+        }
+      ]
+    },
+    {
+      "id": "prevention",
+      "name": "個別支援・予防",
+      "levels": [
+        {
+          "level": 1,
+          "criterion": "必要な制度や相談先を探しやすくする"
+        },
+        {
+          "level": 2,
+          "criterion": "福祉・教育等の支援をつなぐ"
+        },
+        {
+          "level": 3,
+          "criterion": "本人の意向に沿って深刻化前に支援を提案する"
+        },
+        {
+          "level": 4,
+          "criterion": "支援の継続によって孤立・重症化・生活上の危機を減らす"
+        }
+      ]
+    },
+    {
+      "id": "quality",
+      "name": "判断の品質・説明責任",
+      "levels": [
+        {
+          "level": 1,
+          "criterion": "回答の根拠を示す"
+        },
+        {
+          "level": 2,
+          "criterion": "判断の不一致や確認漏れを減らす"
+        },
+        {
+          "level": 3,
+          "criterion": "誤りや不利益の兆候を検知して人が点検する"
+        },
+        {
+          "level": 4,
+          "criterion": "異議申立てや誤り分析を運用・制度改善に反映する"
+        }
+      ]
+    },
+    {
+      "id": "workforce",
+      "name": "職員の対応能力",
+      "levels": [
+        {
+          "level": 1,
+          "criterion": "記録・転記・検索の負担を減らす"
+        },
+        {
+          "level": 2,
+          "criterion": "部署間の引継ぎや二重入力を減らす"
+        },
+        {
+          "level": 3,
+          "criterion": "繁忙・案件の複雑さに応じて支援や人員を配分する"
+        },
+        {
+          "level": 4,
+          "criterion": "生まれた時間を相談・訪問等に再配分しサービス品質を高める"
+        }
+      ]
+    },
+    {
+      "id": "sustainability",
+      "name": "財政・公共資産の持続性",
+      "levels": [
+        {
+          "level": 1,
+          "criterion": "運用で費用・資産の状態を把握する"
+        },
+        {
+          "level": 2,
+          "criterion": "維持・更新・運営の選択肢を比較する"
+        },
+        {
+          "level": 3,
+          "criterion": "故障・需要変化を予測して予防的に対応する"
+        },
+        {
+          "level": 4,
+          "criterion": "将来負担と事故・停止リスクを抑え必要なサービスを維持する"
+        }
+      ]
+    },
+    {
+      "id": "participation",
+      "name": "住民参加・政策学習",
+      "levels": [
+        {
+          "level": 1,
+          "criterion": "住民の意見を収集・整理する"
+        },
+        {
+          "level": 2,
+          "criterion": "意見への回答・採否理由を返す"
+        },
+        {
+          "level": 3,
+          "criterion": "住民・企業と選択肢や影響を検討する"
+        },
+        {
+          "level": 4,
+          "criterion": "実施後の成果に基づいて施策・予算を継続・変更・中止する"
+        }
+      ]
+    }
+  ],
+  "evidence_types": {
+    "estimated": "推計・システム算定（実測ではない）",
+    "self_report": "利用者・職員の自己申告",
+    "reported": "自治体等の報告（算定方法未確認）",
+    "operational": "対象機能・運用の確認（効果量の測定とは別）"
+  },
+  "rules": [
+    "現在レベルは対象業務・資料の期間内だけの判定。自治体全体の到達度ではありません。",
+    "導入済み・利用件数・予算だけから、住民負担軽減などの成果を認定しません。",
+    "未来のLはTLAが提案する条件付き目標。自治体が採用した公式目標でも、実現確率でもありません。",
+    "7軸の総合点・順位やレベル差は算出しません。すべての業務にL4を求めず、AIなしの改善も評価します。",
+    "自治体の公表目標・実績は別欄の『金額以外で見る成果・評価指標』に保持します。"
+  ],
+  "gates": [
+    "情報共有の適法性、必要性、本人への説明、利用目的・権限・保存期間を確認する。",
+    "誤案内・偏り・機微情報漏えいを点検し、不利益な判断をAI単独に委ねない。",
+    "住民の選択、対面・電話等の代替、人への引継ぎ・異議申立ての手段を確保する。",
+    "運用責任者、停止・復旧手順、セキュリティ、継続費用、既存契約との整合を確認する。"
+  ],
+  "sources": [
+    {
+      "title": "OECD Digital Government Policy Framework（設計の参考。TLAのレベルを認定するものではありません）",
+      "url": "https://www.oecd.org/en/publications/the-oecd-digital-government-policy-framework_f64fed2a-en.html"
+    },
+    {
+      "title": "デジタル庁・自治体窓口DX",
+      "url": "https://www.digital.go.jp/policies/cs-dx"
+    },
+    {
+      "title": "デジタル庁・地域幸福度（Well-Being）",
+      "url": "https://www.digital.go.jp/policies/digital_garden_city_nation/well-being"
+    }
+  ]
+}

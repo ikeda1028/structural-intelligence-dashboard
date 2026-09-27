@@ -3,6 +3,7 @@
   'use strict';
   const base = '/co-creation-assets/';
   let dxMethod;
+  let valueRubric;
   const el = (tag, text, className) => {
     const node = document.createElement(tag);
     if (text !== undefined) node.textContent = text;
@@ -159,6 +160,90 @@
     section.append(el('p', '分類対象：' + total + '自治体 ／ 分類日：' + dxMethod.classified_at + ' ／ 収録資料の対象年度・確認日は各根拠を参照。0件は、この調査で確認できた例がないという意味です。', 'small'));
     return section;
   }
+  function valueEvidence(city, refs, summary) {
+    const detail = el('details', undefined, 'value-evidence');
+    detail.append(el('summary', summary));
+    refs.forEach(ref => {
+      const doc = city.documents.find(d => d.id === ref.document_id);
+      const finding = doc?.findings[ref.finding_index];
+      if (!finding) return;
+      detail.append(el('p', '【' + finding.state + '】' + finding.text));
+      detail.append(el('p', doc.title + ' ／ 対象：' + doc.source_period + ' ／ 資料確認日：' + doc.checked_at, 'small'), citation(doc, finding.locator));
+    });
+    return detail;
+  }
+  function valueOverview(research) {
+    const section = el('section', undefined, 'value-overview'); section.id = 'value-rubric';
+    section.append(el('h2', '行政価値を7軸で見る'), el('p', valueRubric.scope_note, 'note'));
+    const cards = Object.values(research.municipalities).filter(c => c.public_value);
+    const known = cards.flatMap(c => c.public_value.assessments).filter(a => a.current.level !== null).length;
+    section.append(el('p', '未来提案 ' + cards.length + '自治体 ／ 現在レベルを記録できた範囲 ' + known + '軸分（' + cards.length * valueRubric.axes.length + '軸分中）。未確認の多さは自治体の低評価を意味しません。', 'small'));
+    const details = el('details');
+    details.append(el('summary', '7軸・L1〜L4の判定基準を開く'), list(valueRubric.rules));
+    valueRubric.axes.forEach(axis => {
+      const group = el('section', undefined, 'rubric-axis');
+      group.append(el('h3', axis.name), list(axis.levels.map(l => 'L' + l.level + '：' + l.criterion)));
+      details.append(group);
+    });
+    details.append(el('h3', '参考にした枠組み（この評価はTLA独自案）'));
+    valueRubric.sources.forEach(source => { const p = el('p'); p.append(link(source.title, source.url)); details.append(p); });
+    const download = el('p'); download.append(link('ルーブリック定義JSON', base + 'public-value-rubric.json')); details.append(download);
+    section.append(details); return section;
+  }
+  function publicValueReport(city) {
+    const section = el('section', undefined, 'public-value');
+    section.append(el('h3', '行政価値：現在の確認と未来の提案'));
+    const value = city.public_value;
+    if (!value || !valueRubric) {
+      section.append(el('p', '行政価値の個別分析は未収録です。未達成という意味ではありません。', 'small')); return section;
+    }
+    section.append(el('p', 'TLA独自の分析・構想。現在レベルは対象業務・資料の期間内だけの判定です。未来目標は自治体の公式目標ではなく、実現・採択を保証しません。', 'note'));
+    section.append(link('7軸の判定基準を見る', '#value-rubric'));
+    const wrapper = el('div', undefined, 'table-scroll');
+    const table = el('table', undefined, 'value-matrix');
+    table.append(el('caption', '未確認は0点ではありません。総合点・順位・レベル差は算出しません。'));
+    const head = el('thead'), tr = el('tr');
+    ['価値の軸', '現在：証拠がある範囲', '未来：TLAの提案目標'].forEach(t => tr.append(el('th', t))); head.append(tr); table.append(head);
+    const body = el('tbody');
+    valueRubric.axes.forEach(axis => {
+      const current = value.assessments.find(a => a.axis_id === axis.id)?.current;
+      const target = value.future.targets.find(t => t.axis_id === axis.id);
+      const row = el('tr'); row.dataset.valueAxis = axis.id;
+      const now = el('td', undefined, 'value-current');
+      if (current?.level !== null && current?.level !== undefined) {
+        now.append(el('strong', 'L' + current.level), el('p', valueRubric.evidence_types[current.evidence_type], 'small'), el('p', current.scope, 'small'));
+        const reasons = valueEvidence(city, current.evidence, '現在レベルの理由・出典');
+        reasons.prepend(el('p', current.basis));
+        // Keep the summary first so native details remains keyboard-accessible.
+        reasons.prepend(reasons.querySelector('summary'));
+        now.append(reasons);
+      } else now.append(el('span', '未確認'), el('p', current?.basis || 'この軸の判定根拠は未収録です。', 'small'));
+      const future = el('td', undefined, 'value-target');
+      if (target) {
+        future.append(el('strong', '提案 L' + target.level), el('p', axis.levels.find(l => l.level === target.level)?.criterion || '', 'small'));
+        const why = el('details'); why.append(el('summary', '目標の理由（仮説）'), el('p', target.rationale)); future.append(why);
+      } else future.append(el('span', '未設定'), el('p', '今回の重点提案の対象外。価値がないという意味ではありません。', 'small'));
+      row.append(el('th', axis.name), now, future); body.append(row);
+    });
+    table.append(body); wrapper.append(table); section.append(wrapper);
+    const f = value.future, card = el('section', undefined, 'future-value-card');
+    card.append(el('p', 'TLA未来提案・未実証の仮説', 'tag'), el('h4', f.title), el('p', f.hypothesis));
+    card.append(valueEvidence(city, f.evidence, '構想の出発点となった資料（実現の証明ではありません）'));
+    card.append(el('h4', '実現に必要な条件（充足状況は未確認）'), list(f.conditions));
+    card.append(el('h4', '企業・NPO等が担える役割の仮説'), list(f.partners));
+    card.append(el('p', '既存調査の参入情報（この未来提案そのものの募集情報ではありません）：' + city.opportunity.status, 'small'), el('p', '参入前の確認：' + city.opportunity.next_check, 'small'));
+    const measurement = el('details', undefined, 'future-measurement');
+    measurement.append(el('summary', '検証指標・小さな実証・停止条件を見る'));
+    f.metrics.forEach(m => {
+      measurement.append(el('h4', m.name), el('p', '対象・定義：' + m.definition), el('p', '測定案：' + m.method, 'small'));
+    });
+    measurement.append(el('h4', '小さく検証する範囲'), el('p', f.pilot), el('h4', '停止・見直し条件'), el('p', f.stop_rule));
+    card.append(measurement);
+    const gates = el('details', undefined, 'value-safeguards');
+    gates.append(el('summary', '必須の安全・権利保護条件（充足未確認）'), list(valueRubric.gates));
+    card.append(gates, el('p', '指標は測定方法の提案です。未実測の数値・削減額は補っていません。自治体公表の目標・実績は、別欄の「金額以外で見る成果・評価指標」を参照してください。', 'small'));
+    section.append(card); return section;
+  }
   function cityReport(code, city) {
     const article = el('article', undefined, 'city');
     article.id = 'city-' + code;
@@ -172,6 +257,7 @@
     statistics.append(link('人口・産業・財政などの基礎統計と比較を見る', '/co-creation?municipality=' + code));
     article.append(statistics);
     article.append(dxReport(city));
+    article.append(publicValueReport(city));
     article.append(nonFinancialIndicators(city));
     city.documents.forEach(doc => article.append(sourceReport(doc)));
     const opportunity = el('section', undefined, 'hypothesis');
@@ -213,21 +299,25 @@
   }
   function focusHash() {
     const id = decodeURIComponent(window.location.hash.slice(1));
-    if (!/^city-\d{5}$/.test(id)) return;
+    if (!/^city-\d{5}$/.test(id) && !['value-rubric', 'dx-filter'].includes(id)) return;
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView?.();
       const heading = section.querySelector('h2');
-      heading.tabIndex = -1;
-      heading.focus({ preventScroll: true });
+      if (heading) {
+        heading.tabIndex = -1;
+        heading.focus({ preventScroll: true });
+      }
     }
   }
   async function start() {
     const mode = document.body.dataset.mode;
     const [research, cohort] = await Promise.all([json('major100-research.json'), json('major-municipalities-100.json')]);
     dxMethod = research.dx_classification;
+    valueRubric = research.public_value_rubric;
     stats(research, cohort.municipalities.length);
     if (dxMethod) document.getElementById('review-status').append(dxOverview(research, cohort.municipalities.length));
+    if (valueRubric) document.getElementById('review-status').append(valueOverview(research));
     const root = document.getElementById('app');
     root.replaceChildren();
     if (mode === 'reports') {
@@ -256,6 +346,7 @@
       const city = research.municipalities[m.code];
       const row = el('tr'), name = el('td');
       row.dataset.dxStage = city?.dx_evidence?.stage || 'U';
+      row.dataset.valueAxes = (city?.public_value?.future.targets || []).map(t => t.axis_id).join(' ');
       const button = el('button', m.name);
       button.type = 'button';
       button.setAttribute('aria-controls', 'detail');
@@ -270,6 +361,7 @@
         heading.tabIndex = -1; heading.focus(); heading.scrollIntoView?.({ behavior: 'smooth' });
       });
       name.append(button);
+      if (city?.public_value) name.append(el('p', '未来提案：' + city.public_value.future.title, 'small future-title'));
       row.append(el('td', String(m.rank)), name, el('td', m.code), el('td', m.population.toLocaleString('ja-JP') + '人', 'num'), el('td', city ? '一部確認・' + city.documents.length + '資料' : '未着手'));
       const stage = dxMethod?.stages.find(s => s.code === city?.dx_evidence?.stage);
       const dx = el('td', undefined, 'dx-cell');
@@ -287,16 +379,30 @@
       const all = el('option', 'すべての自治体'); all.value = ''; select.append(all);
       dxMethod.stages.forEach(stage => { const option = el('option', stage.label); option.value = stage.code; select.append(option); });
       const count = el('p', cohort.municipalities.length + '自治体を表示', 'small'); count.id = 'dx-filter-count'; count.setAttribute('aria-live', 'polite');
-      select.addEventListener('change', () => {
+      const valueSelect = el('select'); valueSelect.id = 'value-filter';
+      const valueAll = el('option', 'すべての行政価値'); valueAll.value = ''; valueSelect.append(valueAll);
+      (valueRubric?.axes || []).forEach(axis => { const option = el('option', axis.name); option.value = axis.id; valueSelect.append(option); });
+      const applyFilters = () => {
         let visible = 0;
-        [...tbody.children].forEach(row => { row.hidden = Boolean(select.value && row.dataset.dxStage !== select.value); if (!row.hidden) visible++; });
+        [...tbody.children].forEach(row => {
+          row.hidden = Boolean((select.value && row.dataset.dxStage !== select.value) || (valueSelect.value && !row.dataset.valueAxes.split(' ').includes(valueSelect.value)));
+          if (!row.hidden) visible++;
+        });
         count.textContent = visible + '自治体を表示';
         detail.replaceChildren();
-      });
-      filters.append(label, select, count); root.append(filters);
+      };
+      select.addEventListener('change', applyFilters);
+      valueSelect.addEventListener('change', applyFilters);
+      filters.append(label, select);
+      if (valueRubric) {
+        const valueLabel = el('label', '未来提案の重点価値で絞り込む'); valueLabel.htmlFor = 'value-filter';
+        filters.append(valueLabel, valueSelect, el('p', '現在の到達度ではなく、TLAが提案した重点軸で絞り込みます。DX確認段階と組み合わせて検索できます。', 'small'));
+      }
+      filters.append(count); root.append(filters);
     }
     const wrapper = el('div', undefined, 'table-scroll');
     wrapper.append(table); root.append(wrapper);
+    focusHash();
   }
   start().catch(() => {
     document.getElementById('app').replaceChildren(el('p', '調査データを読み込めませんでした。再読み込みしてください。', 'note'));
