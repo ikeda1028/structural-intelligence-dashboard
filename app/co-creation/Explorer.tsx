@@ -1,5 +1,6 @@
 'use client';
 import {useEffect,useMemo,useState} from 'react';
+import {ArrowUpRight, ArrowRight, Building2, Landmark, Network, Search, Bookmark, ShieldCheck, Database, FileText} from 'lucide-react';
 import {lookup,match,safeUrl} from '../../lib/co-creation/core.mjs';
 import styles from './explorer.module.css';
 import MunicipalityStatistics from './MunicipalityStatistics';
@@ -56,21 +57,54 @@ export default function Explorer() {
   }
   const tagName=(t:string)=>data?.tags[t]?.name||t;
   return <main className={styles.root}>
-    <header className={styles.header}><a href="/" className={styles.brand}><span className={styles.mark}>TLA</span><span>共創OS<small>牧山式インテリジェンス基盤</small></span></a><span className={styles.beta}>公開β · v0.2</span></header>
-    <section className={styles.hero}><p className={styles.eyebrow}>RESOURCES → CONNECTIONS → PROJECTS</p><h1>つながりを、<br/>次のプロジェクトへ。</h1><p>企業の公開リソースと、地域の公開資料を照合。<br/>共創の接点・補完する役割・最初の一歩を見つけます。</p></section>
-    <section className={styles.metrics} aria-label="データ収録状況">
-      {[[data?Number(data.municipalities.length).toLocaleString():'—','名称・コード台帳'],[data?new Set(data.evidence.map((e:RecordData)=>e.municipality_code)).size:'—','資料を収録した自治体'],[data?.companies.length??'—','企業・NPO'],[baselineCount??'—','基礎統計の項目／自治体']].map(([n,label])=><div key={String(label)}><strong>{n}</strong><span>{label}</span></div>)}
+    <a href="#explore" className={styles.skipLink}>検索・データ閲覧へスキップ</a>
+    <header className={styles.header}>
+      <a href="/co-creation" className={styles.brand}><span className={styles.mark}>TLA<span>↗</span></span><span>共創OS<small>CO-CREATION INTELLIGENCE</small></span></a>
+      <div className={styles.headerNav}><a href="/co-creation-assets/major-municipalities-100.html">自治体リサーチ <ArrowUpRight size={14} aria-hidden="true"/></a><span className={styles.beta}><i aria-hidden="true"/> PUBLIC BETA</span></div>
+    </header>
+    <section className={styles.hero} aria-labelledby="hero-title">
+      <div className={styles.heroCopy}>
+        <p className={styles.eyebrow}><span aria-hidden="true"/> LOCAL POTENTIAL, SHARED FUTURE.</p>
+        <h1 id="hero-title">地域の可能性を、<br/><em>共創の力</em>に。</h1>
+        <p className={styles.heroDescription}>自治体の課題と、企業の強み。<br/>公開情報から接点を読み解き、<br className={styles.mobileBreak}/>次のプロジェクトを構想する。</p>
+        <div className={styles.heroActions}><a href="#explore" onClick={()=>setTab('match')} className={styles.heroCta}>企業から可能性を探す <ArrowRight size={18} aria-hidden="true"/></a><a href="/co-creation-assets/major-municipalities-100.html" className={styles.heroSecondary}>自治体の調査を見る <ArrowUpRight size={17} aria-hidden="true"/></a></div>
+        <p className={styles.heroNote}><ShieldCheck size={14} aria-hidden="true"/> ログイン不要 · 出典付きの公開情報を使用</p>
+      </div>
+      <div className={styles.constellation} aria-label="自治体の公開資料と企業のリソースを照合し、共創の仮説を検討する流れ">
+        <div className={styles.diagramLabel}>THE CO-CREATION FIELD <span>概念図</span></div>
+        <div className={styles.orbit} aria-hidden="true"/><div className={styles.orbitInner} aria-hidden="true"/>
+        <svg className={styles.connections} viewBox="0 0 480 350" fill="none" aria-hidden="true"><path d="M103 94L240 178L380 84M240 178L132 276M240 178L376 274" stroke="currentColor" strokeDasharray="4 5"/><circle cx="240" cy="178" r="7" fill="currentColor"/></svg>
+        <div className={`${styles.fieldNode} ${styles.cityNode}`}><Landmark size={19} aria-hidden="true"/><span>地域の公開資料<small>計画 / 予算 / 統計</small></span></div>
+        <div className={`${styles.fieldNode} ${styles.companyNode}`}><Building2 size={19} aria-hidden="true"/><span>企業のリソース<small>技術 / 知見 / 実績</small></span></div>
+        <div className={styles.fieldCore}><Network size={26} aria-hidden="true"/><strong>共創の接点</strong><small>CO-CREATION OS</small></div>
+        <div className={`${styles.fieldNode} ${styles.roleNode}`}><span className={styles.nodeDot} aria-hidden="true"/><span>役割を補完する<small>企業・NPOの候補</small></span></div>
+        <div className={`${styles.fieldNode} ${styles.projectNode}`}><ArrowUpRight size={20} aria-hidden="true"/><span>次の構想へ<small>仮説 / 対話 / 検証</small></span></div>
+        <p className={styles.diagramFoot}>公開情報の接点から、実行前の問いをつくる。</p>
+      </div>
     </section>
-    <div className={styles.scope}>全国の名称・コード台帳と基礎統計を収録しています。統計の対象年は項目ごとに異なり、全国の当年度予算・議事録の本文を調査済みという意味ではありません。{data?.registryError&&<strong>{data.registryError}</strong>} <a href="/co-creation-assets/major-municipalities-100.html">主要100自治体の調査を見る →</a></div>
-    <nav className={styles.tabs} aria-label="共創OSの機能">{[['match','企業から探す'],['municipalities','自治体台帳'],['saved',`保存した構想 (${saved.length})`],['about','データ・利用上の注意']].map(([id,label])=><button key={id} type="button" onClick={()=>setTab(id)} aria-current={tab===id?'page':undefined}>{label}</button>)}</nav>
+    <section className={styles.metrics} aria-label="データ収録状況">
+      {[[data?Number(data.municipalities.length).toLocaleString():'—','自治体','全国の名称・コード台帳'],[baselineCount??'—','項目','自治体ごとの基礎統計'],['100','自治体','主要自治体リサーチの対象'],[data?Object.keys(data.tags).length:'—','分野','企業と地域をつなぐ照合タグ']].map(([n,unit,label])=><div key={String(label)}><div><strong>{n}</strong><span>{unit}</span></div><small>{label}</small></div>)}
+    </section>
+    <section className={styles.discover} aria-labelledby="discover-title">
+      <div className={styles.discoverHeading}><p className={styles.eyebrow}>EXPLORE THE INTELLIGENCE</p><h2 id="discover-title">情報をつなぐ。可能性が見えてくる。</h2></div>
+      <div className={styles.entryGrid}>
+        <a className={styles.entryCard} href="/co-creation-assets/major-municipalities-100.html"><span className={styles.entryTop}><Landmark size={23} aria-hidden="true"/><span>01 / MUNICIPALITIES</span><ArrowUpRight size={19} aria-hidden="true"/></span><h3>100自治体の現在地</h3><p>予算、政策、DXの進捗。資料の要約と根拠から、地域の実態を読む。</p><span className={styles.entryLink}>自治体リサーチ <ArrowRight size={16} aria-hidden="true"/></span></a>
+        <a className={styles.entryCard} href="/co-creation-assets/municipal-companies.html"><span className={styles.entryTop}><Building2 size={23} aria-hidden="true"/><span>02 / COMPANIES</span><ArrowUpRight size={19} aria-hidden="true"/></span><h3>地域を支える企業を知る</h3><p>受託・選定・実証の関係を区別。自治体との実績から企業の強みを探る。</p><span className={styles.entryLink}>企業・実績の一覧 <ArrowRight size={16} aria-hidden="true"/></span></a>
+        <a className={styles.entryCard} href="#explore" onClick={()=>setTab('municipalities')}><span className={styles.entryTop}><Database size={23} aria-hidden="true"/><span>03 / OPEN DATA</span><ArrowUpRight size={19} aria-hidden="true"/></span><h3>数字から地域を読み解く</h3><p>人口・産業・財政・暮らし。全国の基礎統計を、年度と出典付きで確認。</p><span className={styles.entryLink}>全国の自治体台帳 <ArrowRight size={16} aria-hidden="true"/></span></a>
+      </div>
+    </section>
+    <section id="explore" className={styles.workbench} aria-labelledby="workbench-title" tabIndex={-1}>
+    <div className={styles.workbenchHeading}><div><p className={styles.eyebrow}>YOUR CO-CREATION WORKSPACE</p><h2 id="workbench-title">共創のきっかけを探す</h2></div><span><ShieldCheck size={15} aria-hidden="true"/> 公開情報から、根拠をたどる</span></div>
+    <nav className={styles.tabs} aria-label="共創OSの機能">{[{id:'match',label:'企業から探す',icon:Search},{id:'municipalities',label:'自治体台帳',icon:Landmark},{id:'saved',label:`保存した構想 (${saved.length})`,icon:Bookmark},{id:'about',label:'データ・利用上の注意',icon:FileText}].map(({id,label,icon:Icon})=><button key={id} type="button" onClick={()=>setTab(id)} aria-current={tab===id?'page':undefined}><Icon size={16} aria-hidden="true"/>{label}</button>)}</nav>
     {error&&<div className={styles.error} role="alert">{error}</div>}{notice&&<div className={styles.notice} role="status">{notice}</div>}
     {!data&&<section className={styles.panel} role="status">{error?'取得に失敗しました。ページを再読込してください。':'公開データを読み込んでいます…'}</section>}
     {data&&tab==='match'&&<>
-      <section className={styles.panel}><p className={styles.eyebrow}>01 / ORGANIZATION</p><h2>企業・団体を入力する</h2>
+      <section className={`${styles.panel} ${styles.searchPanel}`}><p className={styles.eyebrow}>01 / ORGANIZATION</p><h2>その強みが、地域の力になる。</h2><p className={styles.searchIntro}>企業・団体名から、公開リソースと自治体資料の接点を探します。</p>
         <form onSubmit={e=>{e.preventDefault();selectCompany(name);}} className={styles.search}>
-          <label className={styles.grow}><span>企業・団体名</span><input value={name} onChange={e=>setName(e.target.value)} maxLength={120} placeholder="例：フォーバル、ベネッセ、クボタ" required disabled={busy}/></label><button className={styles.primary} disabled={busy}>照合する →</button>
+          <label className={styles.grow}><span>企業・団体名</span><input value={name} onChange={e=>setName(e.target.value)} maxLength={120} placeholder="例：フォーバル、ベネッセ、クボタ" required disabled={busy}/></label><button className={styles.primary} disabled={busy}><Search size={17} aria-hidden="true"/> 照合する <ArrowRight size={17} aria-hidden="true"/></button>
         </form>
-        <div className={styles.chips}>{data.companies.map((c:RecordData)=><button disabled={busy} key={c.id} onClick={()=>selectCompany(c.name)}>{c.aliases[0]||c.name}</button>)}</div>
+        <div className={styles.chips}><span className={styles.chipLabel}>収録企業で試す</span>{data.companies.map((c:RecordData)=><button disabled={busy} key={c.id} onClick={()=>selectCompany(c.name)}>{c.aliases[0]||c.name}<ArrowUpRight size={12} aria-hidden="true"/></button>)}</div>
+        <p className={styles.matchScope}>この照合で使うデータ：企業・NPO {data.companies.length}組織 / 自治体 {new Set(data.evidence.map((e:RecordData)=>e.municipality_code)).size}団体の資料。上の100自治体リサーチ・企業実績一覧とは収録範囲が異なります。</p>
         {unknown&&<div className={styles.additional}><h3>未収録企業の追加調査</h3><p>{data.researchConfigured?'外部AIで公開情報を調査します。検索結果に含まれた出典を照合し、暫定プロフィールとして表示します。':'追加AI調査は管理者の設定待ちです。上の6組織は、APIキーを入力せずに照合できます。'}</p>
           <label>公式URL（同名企業の識別に使用）<input type="url" value={url} onChange={e=>setUrl(e.target.value)} placeholder="https://..." maxLength={2048} disabled={busy}/></label>
           <label className={styles.check}><input type="checkbox" checked={consent} onChange={e=>setConsent(e.target.checked)} disabled={busy}/>企業名と公式URLをOpenAIに送信することに同意する。個人名・非公開情報は入力しない。</label>
@@ -92,6 +126,8 @@ export default function Explorer() {
     {data&&tab==='municipalities'&&<section className={styles.panel}><p className={styles.eyebrow}>NATIONWIDE REGISTRY</p><h2>自治体台帳</h2><div className={styles.search}><label>都道府県<select value={pref} onChange={e=>{setPref(e.target.value);setPage(0);}}><option value="">すべて</option>{prefectures.map(([code,label])=><option key={code} value={code}>{label}</option>)}</select></label><label className={styles.grow}>自治体名・コード<input value={query} onChange={e=>{setQuery(e.target.value);setPage(0);}} placeholder="例：三浦市、うるま市、14210"/></label></div><p className={styles.small}>{municipalities.length.toLocaleString()}件。自治体名をクリックすると、統計・収録資料を確認できます。資料未収録は「課題なし」ではありません。政令市の行政区は市全体との重複を避けて除外し、東京23区を含みます。</p>{selectedMunicipality&&<section className={styles.hypothesis} aria-label="自治体の詳細"><div className={styles.sectionTitle}><div><p className={styles.eyebrow}>MUNICIPALITY DETAIL</p><h3>{selectedMunicipality.prefecture} / {selectedMunicipality.name}</h3></div><button type="button" onClick={()=>setSelectedMunicipality(null)}>閉じる</button></div><p><strong>自治体コード：</strong>{selectedMunicipality.code}</p>{(()=>{const items=data.evidence.filter((e:RecordData)=>e.municipality_code===selectedMunicipality.code);return <><MunicipalityStatistics code={selectedMunicipality.code} dataset={stats}/> {items.length?<><p><strong>収録資料：</strong>{items.length}件</p>{items.map((e:RecordData)=><div key={e.id} className={styles.saved}><span className={styles.tag}>{e.status==='existing'?'既存の取組':e.status==='closed'?'終了した募集':'公表された計画'}</span><h3>{e.title}</h3><p>{e.summary}</p><p className={styles.small}>対象：{e.period||'原資料で確認'} · 分野：{e.tags.map((t:string)=>tagName(t)).join('・')}</p><SourceLink source={sources.get(e.source_id)}/></div>)}</>:<><p><strong>企業照合用の詳細資料：</strong>現在の公開β版には未収録</p><p className={styles.small}>上の資料レビューとは別に、企業とのタグ照合へ組み込んだ資料の有無を示しています。未収録は課題や事業がないという意味ではありません。</p></>}</>})()}</section>}<div className={styles.tableWrap}><table><thead><tr><th>コード</th><th>都道府県</th><th>自治体</th><th>資料の収録</th></tr></thead><tbody>{municipalities.slice(page*50,page*50+50).map((m:RecordData)=>{const n=data.evidence.filter((e:RecordData)=>e.municipality_code===m.code).length;return <tr key={m.code}><td>{m.code}</td><td>{m.prefecture}</td><td><button type="button" onClick={()=>setSelectedMunicipality(m)}>{m.name}</button></td><td>{n?`${n}件 · 全文調査ではありません`:'未収録'}</td></tr>;})}</tbody></table></div><div className={styles.pagination}><button disabled={page===0} onClick={()=>setPage(page-1)}>前へ</button><span>{page+1} / {Math.max(1,Math.ceil(municipalities.length/50))}</span><button disabled={(page+1)*50>=municipalities.length} onClick={()=>setPage(page+1)}>次へ</button></div><SourceLink source={sources.get('gsi-master')}/><p className={styles.small}>元データの最終変更：2024年1月9日。2026年の最新台帳との完全突合は未実施。統計出典：総務省統計局「統計でみる市区町村のすがた2026」。</p></section>}
     {data&&tab==='saved'&&<section className={styles.panel}><h2>保存した構想</h2><p>このブラウザだけに保存されます。DAOへの提案・団体への紹介依頼は送信されていません。</p>{saved.length?<><div className={styles.chips}><button onClick={exportIdeas}>JSONで書き出す</button><button onClick={()=>{if(window.confirm('このブラウザの構想をすべて削除しますか？')){try{localStorage.removeItem(STORE);setSaved([]);}catch{setError('削除できませんでした');}}}}>この端末の構想をすべて削除</button></div>{saved.map((x:RecordData)=><article key={x.id} className={styles.saved}><span className={styles.tag}>構想・未合意</span><h3>{x.company} × {x.municipality}</h3><p>{x.title}</p><SourceLink source={{url:x.sourceUrl,title:'根拠となる資料'}}/><small>{x.created.slice(0,10)}</small></article>)}</>:<div className={styles.hypothesis}>企業を照合し、接点のカードから構想を保存してください。</div>}</section>}
     {data&&tab==='about'&&<section className={styles.panel}><h2>データと利用上の注意</h2><h3>公開している範囲</h3><p>自治体名称台帳、全国基礎統計と計算式付きの読み取り、公開資料の要約、企業・NPOの公開プロフィールを使用しています。TLAの非公開人脈、連絡先、牧山式インテリジェンスの内部調査履歴は読み出しません。</p><h3>照合の意味</h3><p>13分野のタグ接点を表示するルールベースの照合です。政策・自治体・担当者の優劣や成功確率は評価しません。終了した募集は照合から除外し、既存協定は既存と表示します。</p><h3>追加AI調査と保存</h3><p>追加調査時のみ、入力した企業名・公式URLをOpenAIへ送信します。APIキーはサーバーの環境変数で管理します。調査結果を他の利用者に自動公開しません。構想の保存先はこのブラウザです。</p><p>追加調査の回数管理には日次の接続元識別子を使用します。生のIPアドレスを本機能のDBに保存せず、日ごとに変わるHMAC値を使用します。回数記録は後続の調査時に8日前以前を削除します。ホスティング事業者のアクセスログは別管理です。</p><h3>公開資料の確認</h3><p>公表日、対象年度、取得日は別項目です。全文PDFや全国の議事録を網羅的に調査したものではありません。予算・調達・現地の状況・参加意思は原資料と当事者に確認してください。</p><h3>出典</h3><div className={styles.sourceList}>{data.sources.map((s:RecordData)=><p key={s.id}><SourceLink source={s}/></p>)}</div><p className={styles.small}>本サービスは原資料の発行者による公式サービス・保証・提携表明ではありません。掲載組織はTLA会員・DAO参加者であることを意味しません。</p></section>}
-    <footer className={styles.footer}>TLA 共創OS · Public Beta / 公開情報から可能性を探し、実行は当事者の合意から。</footer>
+    </section>
+    <div className={styles.scope}><ShieldCheck size={18} aria-hidden="true"/><div><strong>データの範囲を明確に。</strong><p>統計の対象年は項目ごとに異なります。全国の当年度予算・議事録の本文を調査済みという意味ではありません。照合は共創の仮説であり、事業成立や相手の参加意思を保証しません。</p>{data?.registryError&&<p className={styles.error}>{data.registryError}</p>}</div></div>
+    <footer className={styles.footer}><div><strong>TLA 共創OS<span>PUBLIC BETA</span></strong><p>公開情報から可能性を探し、実行は当事者の合意から。</p></div><span><a href="/">牧山式インテリジェンス基盤 ↗</a><br/>RESOURCES. CONNECTIONS. POSSIBILITIES.</span></footer>
   </main>;
 }
