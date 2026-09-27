@@ -787,6 +787,7 @@ function Header() {
           <Link href="/">ダッシュボード</Link>
           <Link href="/sources">情報源管理</Link>
           <Link href="/research-history">調査履歴</Link>
+          <a href="/reports/michinoeki-20260927.html">道の駅レポート</a>
         </nav>
       </div>
     </header>

@@ -33,6 +33,18 @@ export default async function ResearchHistoryPage() {
           <p>インテリジェンスリサーチとリスク対応調査を、対象ごと・日付ごとに保存して比較できるようにします。</p>
         </section>
 
+        <section className="card section history-section" aria-labelledby="michinoeki-report-title">
+          <div className="section-head"><h2 id="michinoeki-report-title">独立調査レポート</h2><span className="pill">地域経済</span></div>
+          <article className="history-item">
+            <div><span className="history-date">2026年9月27日調査 · 64施設 · Word版36ページ</span>
+              <h3>道の駅64施設 勝因分析レポート</h3>
+              <p>集客・売上高・地域インパクト・持続性を施設別に分析。確認済みの取り組みと勝因仮説を分け、年度・集計範囲・出典を掲載しています。</p>
+              <p>全国の統一年度ランキングではありません。</p>
+            </div>
+            <div className="history-actions"><a className="button primary" href="/reports/michinoeki-20260927.html">レポートを読む</a><a className="button ghost-button" href="/reports/michinoeki-20260927.docx" download>Wordを保存</a></div>
+          </article>
+        </section>
+
         <section className="history-grid">
           <article className="card history-stat">
             <span><FileText size={17} /> 構造レポート</span>
