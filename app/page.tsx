@@ -788,6 +788,7 @@ function Header() {
           <Link href="/sources">情報源管理</Link>
           <Link href="/research-history">調査履歴</Link>
           <a href="/reports/michinoeki-20260927.html">道の駅レポート</a>
+          <a href="/reports/michinoeki-visitors-20260927.html">集客50駅</a>
         </nav>
       </div>
     </header>

@@ -41,7 +41,7 @@ export default async function ResearchHistoryPage() {
               <p>集客・売上高・地域インパクト・持続性を施設別に分析。確認済みの取り組みと勝因仮説を分け、年度・集計範囲・出典を掲載しています。</p>
               <p>全国の統一年度ランキングではありません。</p>
             </div>
-            <div className="history-actions"><a className="button primary" href="/reports/michinoeki-20260927.html">レポートを読む</a><a className="button ghost-button" href="/reports/michinoeki-20260927.docx" download>Wordを保存</a><a className="button ghost-button" href="/reports/michinoeki-ranking-20260927.xlsx" download="道の駅_集客50駅・売上高50候補_20260927.xlsx">Excelを保存</a></div>
+            <div className="history-actions"><a className="button primary" href="/reports/michinoeki-20260927.html">レポートを読む</a><a className="button ghost-button" href="/reports/michinoeki-visitors-20260927.html">集客50駅を見る</a><a className="button ghost-button" href="/reports/michinoeki-20260927.docx" download>Wordを保存</a><a className="button ghost-button" href="/reports/michinoeki-ranking-20260927.xlsx" download="道の駅_集客50駅・売上高50候補_20260927.xlsx">Excelを保存</a></div>
           </article>
         </section>
 
