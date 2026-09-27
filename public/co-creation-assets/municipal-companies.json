@@ -1,0 +1,2501 @@
+{
+  "version": 1,
+  "updated_at": "2026-09-27",
+  "scope_note": "主要100自治体の既存214資料の収録要約・抽出本文を入口に企業の関与を点検し、採用した事例は該当箇所の本文で確認。一部は関連公式ページを追加確認しました。全契約・全分野の網羅調査ではありません。過去の実績を含み、現在の受託状況を保証しません。",
+  "strength_note": "強みは掲載案件から読み取れる対応領域・実務経験についてのTLAの分析です。企業全体の競争優位、品質、導入効果を保証する評価ではありません。選定・実証・協定だけの企業については受託実績とは表現しません。",
+  "statuses": [
+    {
+      "code": "contracted",
+      "label": "委託先・構築実績確認",
+      "definition": "自治体資料に委託先・契約先・構築事業者として明記。現在の契約継続を保証しません。"
+    },
+    {
+      "code": "designated_operator",
+      "label": "指定管理者確認",
+      "definition": "施設の指定管理者として実施を確認。一般の業務委託と区別します。"
+    },
+    {
+      "code": "selected",
+      "label": "候補者・優先交渉権者",
+      "definition": "選定のみ確認。契約締結・履行は未確認です。"
+    },
+    {
+      "code": "operating_provider",
+      "label": "サービス提供・協働実績",
+      "definition": "サービスの提供・協働を確認。直接の有償契約相手とは限りません。"
+    },
+    {
+      "code": "pilot_partner",
+      "label": "実証の提供企業",
+      "definition": "実証参加・提供を確認。本番稼働や通常受託とは別です。"
+    },
+    {
+      "code": "agreement_partner",
+      "label": "協定相手",
+      "definition": "協定の締結を確認。個別契約・実証完了・稼働を意味しません。"
+    },
+    {
+      "code": "planned_provider",
+      "label": "提供予定企業",
+      "definition": "採用・提供予定の発表。開始予定日が過ぎても稼働確認に置き換えません。"
+    }
+  ],
+  "companies": {
+    "fujifilm-system": {
+      "id": "fujifilm-system",
+      "name": "富士フイルムシステムサービス株式会社",
+      "kind": "company",
+      "official_url": "https://www.fujifilm.com/fbss/ja/about/company-profile",
+      "identity_source": {
+        "url": "https://www.fujifilm.com/fbss/ja/about/company-profile",
+        "title": "企業公式情報・会社概要",
+        "note": "企業公式サイトの法人名を確認。グループ内の別法人と分けて掲載。",
+        "checked_at": "2026-09-27"
+      },
+      "aliases": [
+        "富士フイルムシステムサービス株式会社"
+      ]
+    },
+    "global-design": {
+      "id": "global-design",
+      "name": "グローバルデザイン株式会社",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "グローバルデザイン株式会社"
+      ]
+    },
+    "human-academy": {
+      "id": "human-academy",
+      "name": "ヒューマンアカデミー株式会社",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "ヒューマンアカデミー株式会社"
+      ]
+    },
+    "nec": {
+      "id": "nec",
+      "name": "日本電気株式会社",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "NEC（日本電気株式会社）"
+      ]
+    },
+    "bot-express": {
+      "id": "bot-express",
+      "name": "株式会社Bot Express",
+      "kind": "company",
+      "official_url": "https://www.bot-express.com/",
+      "identity_source": {
+        "url": "https://www.bot-express.com/",
+        "title": "企業公式情報・会社概要",
+        "note": "企業公式サイトの法人名を確認。グループ内の別法人と分けて掲載。",
+        "checked_at": "2026-09-27"
+      },
+      "aliases": [
+        "株式会社Bot Express"
+      ]
+    },
+    "shift": {
+      "id": "shift",
+      "name": "株式会社SHIFT",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "株式会社SHIFT"
+      ]
+    },
+    "microsoft-japan": {
+      "id": "microsoft-japan",
+      "name": "日本マイクロソフト株式会社",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "日本マイクロソフト株式会社"
+      ]
+    },
+    "ntt-data": {
+      "id": "ntt-data",
+      "name": "株式会社NTTデータ",
+      "kind": "company",
+      "official_url": "https://www.nttdata.com/jp/ja/about-us",
+      "identity_source": {
+        "url": "https://www.nttdata.com/jp/ja/about-us",
+        "title": "企業公式情報・会社概要",
+        "note": "企業公式サイトの法人名を確認。グループ内の別法人と分けて掲載。",
+        "checked_at": "2026-09-27"
+      },
+      "aliases": [
+        "NTTデータ",
+        "株式会社NTTデータ"
+      ]
+    },
+    "rjs": {
+      "id": "rjs",
+      "name": "合同会社RJ’s リサーチ・アンド・アドバイザリー",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "合同会社RJ’s リサーチ・アンド・アドバイザリー"
+      ]
+    },
+    "shiftplus": {
+      "id": "shiftplus",
+      "name": "シフトプラス株式会社",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "シフトプラス株式会社"
+      ]
+    },
+    "allganize": {
+      "id": "allganize",
+      "name": "Allganize Japan株式会社",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "Allganize Japan株式会社"
+      ]
+    },
+    "asia-air-survey": {
+      "id": "asia-air-survey",
+      "name": "アジア航測株式会社",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "アジア航測株式会社 名古屋支店"
+      ]
+    },
+    "persol-bpd": {
+      "id": "persol-bpd",
+      "name": "パーソルビジネスプロセスデザイン株式会社",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "パーソルビジネスプロセスデザイン株式会社 BPO事業本部"
+      ]
+    },
+    "bengo4": {
+      "id": "bengo4",
+      "name": "弁護士ドットコム株式会社",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "弁護士ドットコム株式会社"
+      ]
+    },
+    "avilen": {
+      "id": "avilen",
+      "name": "株式会社AVILEN",
+      "kind": "company",
+      "official_url": "https://corp.avilen.co.jp/",
+      "identity_source": {
+        "url": "https://corp.avilen.co.jp/",
+        "title": "京都市の実証結果ページに掲載された企業リンク",
+        "note": "自治体の当該実証ページから企業への外部リンクを確認。",
+        "checked_at": "2026-09-27"
+      },
+      "aliases": [
+        "AVILEN"
+      ]
+    },
+    "acechild": {
+      "id": "acechild",
+      "name": "エースチャイルド株式会社",
+      "kind": "company",
+      "official_url": "https://www.as-child.com/corp_info/",
+      "identity_source": {
+        "url": "https://www.as-child.com/corp_info/",
+        "title": "企業公式情報・会社概要",
+        "note": "企業公式サイトの法人名を確認。グループ内の別法人と分けて掲載。",
+        "checked_at": "2026-09-27"
+      },
+      "aliases": [
+        "エースチャイルド株式会社"
+      ]
+    },
+    "ambirise": {
+      "id": "ambirise",
+      "name": "株式会社AmbiRise",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "株式会社AmbiRise"
+      ]
+    },
+    "code-for-japan": {
+      "id": "code-for-japan",
+      "name": "一般社団法人コード・フォー・ジャパン",
+      "kind": "nonprofit",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "一般社団法人コード・フォー・ジャパン"
+      ]
+    },
+    "future-in": {
+      "id": "future-in",
+      "name": "株式会社フューチャーイン",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "株式会社フューチャーイン 関西支店"
+      ]
+    },
+    "denwaha": {
+      "id": "denwaha",
+      "name": "株式会社電話放送局",
+      "kind": "company",
+      "official_url": "https://www.dhk-net.co.jp/company/profile/",
+      "identity_source": {
+        "url": "https://www.dhk-net.co.jp/company/profile/",
+        "title": "企業公式情報・会社概要",
+        "note": "企業公式サイトの法人名を確認。グループ内の別法人と分けて掲載。",
+        "checked_at": "2026-09-27"
+      },
+      "aliases": [
+        "株式会社電話放送局"
+      ]
+    },
+    "kawaguchi-hiroyuki": {
+      "id": "kawaguchi-hiroyuki",
+      "name": "川口弘行合同会社",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "川口弘行合同会社"
+      ]
+    },
+    "bespoke": {
+      "id": "bespoke",
+      "name": "株式会社ビースポーク",
+      "kind": "company",
+      "official_url": "https://www.be-spoke.io/about",
+      "identity_source": {
+        "url": "https://www.be-spoke.io/about",
+        "title": "企業公式情報・会社概要",
+        "note": "企業公式サイトの法人名を確認。グループ内の別法人と分けて掲載。",
+        "checked_at": "2026-09-27"
+      },
+      "aliases": [
+        "株式会社ビースポーク"
+      ]
+    },
+    "dentsu-soken": {
+      "id": "dentsu-soken",
+      "name": "株式会社電通総研",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "株式会社電通総研"
+      ]
+    },
+    "kcb": {
+      "id": "kcb",
+      "name": "株式会社北見コンピューター・ビジネス",
+      "kind": "company",
+      "official_url": "https://k-cb.co.jp/company-profile/profile/",
+      "identity_source": {
+        "url": "https://k-cb.co.jp/company-profile/profile/",
+        "title": "会社概要",
+        "note": "企業公式ページの法人名を確認。",
+        "checked_at": "2026-09-27"
+      },
+      "aliases": [
+        "株式会社北見コンピューター・ビジネス"
+      ]
+    },
+    "iac": {
+      "id": "iac",
+      "name": "株式会社茨城計算センター",
+      "kind": "company",
+      "official_url": "https://iacnet.co.jp/company.html",
+      "identity_source": {
+        "url": "https://iacnet.co.jp/company.html",
+        "title": "事業内容・会社概要",
+        "note": "企業公式ページの法人名を確認。",
+        "checked_at": "2026-09-27"
+      },
+      "aliases": [
+        "株式会社茨城計算センター"
+      ]
+    },
+    "hpe-japan": {
+      "id": "hpe-japan",
+      "name": "日本ヒューレット・パッカード合同会社",
+      "kind": "company",
+      "official_url": "https://www.hpe.com/jp/ja/about.html",
+      "identity_source": {
+        "url": "https://www.hpe.com/jp/ja/about.html",
+        "title": "日本ヒューレット・パッカード合同会社 会社情報",
+        "note": "企業公式ページの法人名を確認。",
+        "checked_at": "2026-09-27"
+      },
+      "aliases": [
+        "日本ヒューレット・パッカード合同会社"
+      ]
+    },
+    "hyperdyne": {
+      "id": "hyperdyne",
+      "name": "ハイパーダイン株式会社",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "ハイパーダイン株式会社"
+      ]
+    },
+    "ziai": {
+      "id": "ziai",
+      "name": "株式会社ZIAI",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "株式会社ZIAI"
+      ]
+    },
+    "assured": {
+      "id": "assured",
+      "name": "株式会社アシュアード",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "株式会社アシュアード"
+      ]
+    },
+    "murc": {
+      "id": "murc",
+      "name": "三菱UFJリサーチ＆コンサルティング株式会社",
+      "kind": "company",
+      "official_url": "https://www.murc.jp/corporate/",
+      "identity_source": {
+        "url": "https://www.murc.jp/corporate/",
+        "title": "企業情報",
+        "note": "企業公式ページの法人名を確認。",
+        "checked_at": "2026-09-27"
+      },
+      "aliases": [
+        "三菱ＵＦＪリサーチ＆コンサルティング株式会社"
+      ]
+    },
+    "miyakoh": {
+      "id": "miyakoh",
+      "name": "宮崎交通株式会社",
+      "kind": "company",
+      "official_url": "https://www.miyakoh.co.jp/corp/",
+      "identity_source": {
+        "url": "https://www.miyakoh.co.jp/corp/",
+        "title": "企業情報",
+        "note": "企業公式ページの法人名を確認。",
+        "checked_at": "2026-09-27"
+      },
+      "aliases": [
+        "宮崎交通(株)"
+      ]
+    },
+    "trygroup": {
+      "id": "trygroup",
+      "name": "株式会社トライグループ",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "株式会社トライグループ"
+      ]
+    },
+    "adishplus": {
+      "id": "adishplus",
+      "name": "アディッシュプラス株式会社",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "アディッシュプラス株式会社"
+      ]
+    },
+    "mrt-ad": {
+      "id": "mrt-ad",
+      "name": "株式会社MRTアド",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "株式会社MRTアド"
+      ]
+    },
+    "himuka-eco": {
+      "id": "himuka-eco",
+      "name": "株式会社ひむかエコサービス",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "(株)ひむかエコサービス"
+      ]
+    },
+    "shidax-sdh": {
+      "id": "shidax-sdh",
+      "name": "シダックス大新東ヒューマンサービス株式会社",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "シダックス大新東ヒューマンサービス(株)"
+      ]
+    },
+    "funabashi-e": {
+      "id": "funabashi-e",
+      "name": "株式会社ふなばしEサービス",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "株式会社ふなばしEサービス"
+      ]
+    },
+    "ines": {
+      "id": "ines",
+      "name": "株式会社アイネス",
+      "kind": "company",
+      "official_url": "https://www.ines.co.jp/company/profile.html",
+      "identity_source": {
+        "url": "https://www.ines.co.jp/company/profile.html",
+        "title": "企業公式情報・会社概要",
+        "note": "企業公式サイトの法人名を確認。グループ内の別法人と分けて掲載。",
+        "checked_at": "2026-09-27"
+      },
+      "aliases": [
+        "株式会社アイネス"
+      ]
+    },
+    "otsuka": {
+      "id": "otsuka",
+      "name": "株式会社大塚商会",
+      "kind": "company",
+      "official_url": null,
+      "identity_source": null,
+      "aliases": [
+        "株式会社大塚商会"
+      ]
+    },
+    "ntt-data-kansai": {
+      "id": "ntt-data-kansai",
+      "name": "株式会社NTTデータ関西",
+      "kind": "company",
+      "official_url": "https://www.nttdata-kansai.co.jp/company/outline.aspx",
+      "identity_source": {
+        "url": "https://www.nttdata-kansai.co.jp/company/outline.aspx",
+        "title": "企業公式情報・会社概要",
+        "note": "企業公式サイトの法人名を確認。グループ内の別法人と分けて掲載。",
+        "checked_at": "2026-09-27"
+      },
+      "aliases": [
+        "株式会社NTTデータ関西"
+      ]
+    }
+  },
+  "municipalities": {
+    "10201": {
+      "name": "前橋市",
+      "screened_document_ids": [
+        "maebashi-r8-budget",
+        "maebashi-dx2-202603"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "10202": {
+      "name": "高崎市",
+      "screened_document_ids": [
+        "takasaki-budget-r8",
+        "takasaki-counter-selection-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "fujifilm-system-10202-1"
+      ]
+    },
+    "11100": {
+      "name": "さいたま市",
+      "screened_document_ids": [
+        "saitama-dx-budget-r8",
+        "saitama-policy-r8-dx"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "ines-11100-1"
+      ]
+    },
+    "11201": {
+      "name": "川越市",
+      "screened_document_ids": [
+        "kawagoe-budget-r8-payments",
+        "kawagoe-reform-r8-r12"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "11203": {
+      "name": "川口市",
+      "screened_document_ids": [
+        "kawaguchi-budget-r8",
+        "kawaguchi-ai-phone-proposal-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "11208": {
+      "name": "所沢市",
+      "screened_document_ids": [
+        "tokorozawa-budget-r8-ai",
+        "tokorozawa-goals-r8-dx"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "11222": {
+      "name": "越谷市",
+      "screened_document_ids": [
+        "koshigaya-r8-project-budget",
+        "koshigaya-action-2026",
+        "koshigaya-dx-training-procurement-2026",
+        "koshigaya-dx-training-result-20260810"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "global-design-11222-1"
+      ]
+    },
+    "12100": {
+      "name": "千葉市",
+      "screened_document_ids": [
+        "chiba-budget-r8-digital-workforce",
+        "chiba-workforce-proposal-r8",
+        "chiba-workforce-selection-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "human-academy-12100-1"
+      ]
+    },
+    "12203": {
+      "name": "市川市",
+      "screened_document_ids": [
+        "ichikawa-r8-disaster-budget",
+        "ichikawa-dx-history"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "12204": {
+      "name": "船橋市",
+      "screened_document_ids": [
+        "funabashi-policy-r8",
+        "funabashi-results-r6"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "funabashi-e-12204-1"
+      ]
+    },
+    "12207": {
+      "name": "松戸市",
+      "screened_document_ids": [
+        "matsudo-policy-r8",
+        "matsudo-nec-agreement-2026"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "nec-12207-1",
+        "nec-12207-2"
+      ]
+    },
+    "12217": {
+      "name": "柏市",
+      "screened_document_ids": [
+        "kashiwa-budget-r8-dx",
+        "kashiwa-dx-progress-2024"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "assured-12217-1"
+      ]
+    },
+    "12219": {
+      "name": "市原市",
+      "screened_document_ids": [
+        "ichihara-budget-r8",
+        "ichihara-reform-results-2025"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "13103": {
+      "name": "港区",
+      "screened_document_ids": [
+        "minato-budget-r8",
+        "minato-line-ai-operation",
+        "minato-challenge-r8",
+        "minato-challenge-guide-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "bot-express-13103-1"
+      ]
+    },
+    "13104": {
+      "name": "新宿区",
+      "screened_document_ids": [
+        "shinjuku-budget-r8-chatbot",
+        "shinjuku-chatbot-live-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "13107": {
+      "name": "墨田区",
+      "screened_document_ids": [
+        "sumida-budget-r8",
+        "sumida-dx-results-202603"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "13108": {
+      "name": "江東区",
+      "screened_document_ids": [
+        "koto-dx-budget-r8",
+        "koto-audit-measures-r7"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "hpe-japan-13108-1"
+      ]
+    },
+    "13109": {
+      "name": "品川区",
+      "screened_document_ids": [
+        "shinagawa-ai-budget-r8",
+        "shinagawa-ai-phone-pilot"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "shift-13109-1"
+      ]
+    },
+    "13110": {
+      "name": "目黒区",
+      "screened_document_ids": [
+        "meguro-budget-r8",
+        "meguro-digital-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "13111": {
+      "name": "大田区",
+      "screened_document_ids": [
+        "ota-budget-dx-r8",
+        "ota-dx-plan-v2"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "13112": {
+      "name": "世田谷区",
+      "screened_document_ids": [
+        "setagaya-dx-roadmap-r8",
+        "setagaya-budget-r8-overview"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "13114": {
+      "name": "中野区",
+      "screened_document_ids": [
+        "nakano-r8-budget-support",
+        "nakano-dx-plan-2026"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "13115": {
+      "name": "杉並区",
+      "screened_document_ids": [
+        "suginami-budget-proposal-r8",
+        "suginami-ai-transport-extension-2026"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "13116": {
+      "name": "豊島区",
+      "screened_document_ids": [
+        "toshima-budget-r8-sme",
+        "toshima-dx-subsidy-202608",
+        "toshima-dx-subsidy-guideline-r8",
+        "toshima-line-ai-202606"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "13117": {
+      "name": "北区",
+      "screened_document_ids": [
+        "kita-ai-rfi-r8",
+        "kita-supplement4-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "ines-13117-1",
+        "otsuka-13117-1",
+        "ntt-data-kansai-13117-1"
+      ]
+    },
+    "13119": {
+      "name": "板橋区",
+      "screened_document_ids": [
+        "itabashi-budget-r8",
+        "itabashi-genai-start-2024"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "13120": {
+      "name": "練馬区",
+      "screened_document_ids": [
+        "nerima-budget-r8-main",
+        "nerima-kpi-r6"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "13121": {
+      "name": "足立区",
+      "screened_document_ids": [
+        "adachi-budget-r8-feature",
+        "adachi-administration-policy-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "13122": {
+      "name": "葛飾区",
+      "screened_document_ids": [
+        "katsushika-r8-ai-budget",
+        "katsushika-window-ai-design-202509"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "13123": {
+      "name": "江戸川区",
+      "screened_document_ids": [
+        "edogawa-dx-grant-r8",
+        "edogawa-reform-r8-ai"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "13201": {
+      "name": "八王子市",
+      "screened_document_ids": [
+        "hachioji-dx-budget-r8",
+        "hachioji-chatbot-service"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "13206": {
+      "name": "府中市",
+      "screened_document_ids": [
+        "fuchu-tokyo-budget-r8",
+        "fuchu-tokyo-microsoft-202603"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "microsoft-japan-13206-1"
+      ]
+    },
+    "13209": {
+      "name": "町田市",
+      "screened_document_ids": [
+        "machida-digital-budget-r8",
+        "machida-ai-navigation"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "ntt-data-13209-1"
+      ]
+    },
+    "14100": {
+      "name": "横浜市",
+      "screened_document_ids": [
+        "yokohama-digital-r8",
+        "yokohama-road-dx"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "14130": {
+      "name": "川崎市",
+      "screened_document_ids": [
+        "kawasaki-budget-r8",
+        "kawasaki-ai-proposal-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "14150": {
+      "name": "相模原市",
+      "screened_document_ids": [
+        "sagamihara-dx-projects-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "14201": {
+      "name": "横須賀市",
+      "screened_document_ids": [
+        "yokosuka-welfare-ai-budget-r8",
+        "yokosuka-hot-ai-results-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "ziai-14201-1"
+      ]
+    },
+    "14205": {
+      "name": "藤沢市",
+      "screened_document_ids": [
+        "fujisawa-r8-digital-budget",
+        "fujisawa-dxplan-202604"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "15100": {
+      "name": "新潟市",
+      "screened_document_ids": [
+        "niigata-budget-ai-r8",
+        "niigata-ai-selection-r8",
+        "niigata-ai-construction-september"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "rjs-15100-1"
+      ]
+    },
+    "16201": {
+      "name": "富山市",
+      "screened_document_ids": [
+        "toyama-budget-r8-smartcity",
+        "toyama-ainori-oyama-service"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "17201": {
+      "name": "金沢市",
+      "screened_document_ids": [
+        "kanazawa-budget-r8",
+        "kanazawa-dx-202606"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "20201": {
+      "name": "長野市",
+      "screened_document_ids": [
+        "nagano-budget-dx-r8",
+        "nagano-counter-hours-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "21201": {
+      "name": "岐阜市",
+      "screened_document_ids": [
+        "gifu-budget-r8-policy",
+        "gifu-generative-ai-guideline-html"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "22100": {
+      "name": "静岡市",
+      "screened_document_ids": [
+        "shizuoka-reform-plan-r8",
+        "shizuoka-ai-rollout-june"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "shiftplus-22100-1",
+        "allganize-22100-1"
+      ]
+    },
+    "22130": {
+      "name": "浜松市",
+      "screened_document_ids": [
+        "hamamatsu-policy-digital-r8",
+        "hamamatsu-ai-english-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "23100": {
+      "name": "名古屋市",
+      "screened_document_ids": [
+        "nagoya-budget-process-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "23201": {
+      "name": "豊橋市",
+      "screened_document_ids": [
+        "toyohashi-building-dx-spec-r8",
+        "toyohashi-building-selection-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "asia-air-survey-23201-1"
+      ]
+    },
+    "23202": {
+      "name": "岡崎市",
+      "screened_document_ids": [
+        "okazaki-budget-r8",
+        "okazaki-contact-selection-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "persol-bpd-23202-1"
+      ]
+    },
+    "23203": {
+      "name": "一宮市",
+      "screened_document_ids": [
+        "ichinomiya-policy-r8",
+        "ichinomiya-ai-use-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "23206": {
+      "name": "春日井市",
+      "screened_document_ids": [
+        "kasugai-budget-r8-digital",
+        "kasugai-econtract-20260917"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "bengo4-23206-1"
+      ]
+    },
+    "23211": {
+      "name": "豊田市",
+      "screened_document_ids": [
+        "toyota-budget-r8",
+        "toyota-ai-search-transition"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "24201": {
+      "name": "津市",
+      "screened_document_ids": [
+        "tsu-budget-r8",
+        "tsu-dx-status-202602",
+        "tsu-dx-meetings-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "24202": {
+      "name": "四日市市",
+      "screened_document_ids": [
+        "yokkaichi-budget-r8-ai",
+        "yokkaichi-dx-plan2-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "25201": {
+      "name": "大津市",
+      "screened_document_ids": [
+        "otsu-industry-budget-r8",
+        "otsu-digital-seminar-grant-r8",
+        "otsu-dx-evaluation-framework-r6"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "26100": {
+      "name": "京都市",
+      "screened_document_ids": [
+        "kyoto-smartward-budget-r8",
+        "kyoto-voice-ai-poc"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "avilen-26100-1"
+      ]
+    },
+    "27100": {
+      "name": "大阪市",
+      "screened_document_ids": [
+        "osaka-dx-budget-r8",
+        "osaka-budget-decision",
+        "osaka-digital-policy-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "ntt-data-27100-1",
+        "ntt-data-kansai-27100-1"
+      ]
+    },
+    "27140": {
+      "name": "堺市",
+      "screened_document_ids": [
+        "sakai-budget-r8-reform"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "27203": {
+      "name": "豊中市",
+      "screened_document_ids": [
+        "toyonaka-budget-r8-obligation",
+        "toyonaka-ai-proposal-result-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "acechild-27203-1"
+      ]
+    },
+    "27205": {
+      "name": "吹田市",
+      "screened_document_ids": [
+        "suita-budget-r8",
+        "suita-security-rfi-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "27207": {
+      "name": "高槻市",
+      "screened_document_ids": [
+        "takatsuki-budget-r8-dx",
+        "takatsuki-dx-roadmap-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "27210": {
+      "name": "枚方市",
+      "screened_document_ids": [
+        "hirakata-budget-r8",
+        "hirakata-department-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "27211": {
+      "name": "茨木市",
+      "screened_document_ids": [
+        "ibaraki-budget-r8",
+        "ibaraki-online-results-r7",
+        "ibaraki-chatbot-ended-202604"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "27212": {
+      "name": "八尾市",
+      "screened_document_ids": [
+        "yao-budget-r8",
+        "yao-management-r8",
+        "yao-dx-plan-r8-r10"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "27227": {
+      "name": "東大阪市",
+      "screened_document_ids": [
+        "higashiosaka-r8-mobility-budget",
+        "higashiosaka-policy-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "28100": {
+      "name": "神戸市",
+      "screened_document_ids": [
+        "kobe-budget-r8",
+        "kobe-generative-ai-operation"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "28201": {
+      "name": "姫路市",
+      "screened_document_ids": [
+        "himeji-major-budget-r8",
+        "himeji-reform-results-r6"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "28202": {
+      "name": "尼崎市",
+      "screened_document_ids": [
+        "amagasaki-r8-einvoice-budget",
+        "amagasaki-haratte-release-20260625"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "ambirise-28202-1"
+      ]
+    },
+    "28203": {
+      "name": "明石市",
+      "screened_document_ids": [
+        "akashi-budget-r8-dx",
+        "akashi-action-2026"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "28204": {
+      "name": "西宮市",
+      "screened_document_ids": [
+        "nishinomiya-rag-trial-2024",
+        "nishinomiya-policy-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "hyperdyne-28204-1"
+      ]
+    },
+    "28210": {
+      "name": "加古川市",
+      "screened_document_ids": [
+        "kakogawa-budget-r8",
+        "kakogawa-decidim-202608"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "code-for-japan-28210-1"
+      ]
+    },
+    "29201": {
+      "name": "奈良市",
+      "screened_document_ids": [
+        "nara-budget-r8-ai",
+        "nara-ai-results-r7"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "30201": {
+      "name": "和歌山市",
+      "screened_document_ids": [
+        "wakayama-ai-pilot-call-r8",
+        "wakayama-ai-pilot-guidelines-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "33100": {
+      "name": "岡山市",
+      "screened_document_ids": [
+        "okayama-budget-dx-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "33202": {
+      "name": "倉敷市",
+      "screened_document_ids": [
+        "kurashiki-r8-budget-contact",
+        "kurashiki-ai-selection-r8",
+        "kurashiki-contact-guide-202609"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "future-in-33202-1"
+      ]
+    },
+    "34100": {
+      "name": "広島市",
+      "screened_document_ids": [
+        "hiroshima-budget-r8-dx",
+        "hiroshima-dx-progress-r6"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "34207": {
+      "name": "福山市",
+      "screened_document_ids": [
+        "fukuyama-r8-budget",
+        "fukuyama-ai-camp-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "37201": {
+      "name": "高松市",
+      "screened_document_ids": [
+        "takamatsu-budget-r8",
+        "takamatsu-ai-phone-briefing",
+        "takamatsu-ai-phone-service"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "denwaha-37201-1"
+      ]
+    },
+    "38201": {
+      "name": "松山市",
+      "screened_document_ids": [
+        "matsuyama-r8-budget-digital",
+        "matsuyama-dx-results-20260428"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "39201": {
+      "name": "高知市",
+      "screened_document_ids": [
+        "kochi-r8-budget-outline",
+        "kochi-dx-policy-20260224",
+        "kochi-admin-dx-evaluation-r6"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "40100": {
+      "name": "北九州市",
+      "screened_document_ids": [
+        "kitakyushu-tax-budget-r8",
+        "kitakyushu-construction-budget-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "40130": {
+      "name": "福岡市",
+      "screened_document_ids": [
+        "fukuoka-general-affairs-r8",
+        "fukuoka-budget-overview-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "40203": {
+      "name": "久留米市",
+      "screened_document_ids": [
+        "kurume-budget-r8-dx",
+        "kurume-digital-policy-202402"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "42201": {
+      "name": "長崎市",
+      "screened_document_ids": [
+        "nagasaki-budget-assessment-r8",
+        "nagasaki-ebidding-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "43100": {
+      "name": "熊本市",
+      "screened_document_ids": [
+        "kumamoto-budget-ai-r8",
+        "kumamoto-rag-proposal-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "44201": {
+      "name": "大分市",
+      "screened_document_ids": [
+        "oita-r8-ai-budget",
+        "oita-genai-announcement-20260918"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "kawaguchi-hiroyuki-44201-1"
+      ]
+    },
+    "45201": {
+      "name": "宮崎市",
+      "screened_document_ids": [
+        "miyazaki-budget-r8-digital",
+        "miyazaki-results-fy2024"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "murc-45201-1",
+        "murc-45201-2",
+        "miyakoh-45201-1",
+        "trygroup-45201-1",
+        "adishplus-45201-1",
+        "mrt-ad-45201-1",
+        "himuka-eco-45201-1",
+        "shidax-sdh-45201-1"
+      ]
+    },
+    "46201": {
+      "name": "鹿児島市",
+      "screened_document_ids": [
+        "kagoshima-budget-r8",
+        "kagoshima-reform-results-r6"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "47201": {
+      "name": "那覇市",
+      "screened_document_ids": [
+        "naha-r8-budget",
+        "naha-dx-annual-r6"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "04100": {
+      "name": "仙台市",
+      "screened_document_ids": [
+        "sendai-budget-r8",
+        "sendai-ai-proposal-result-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "bespoke-04100-1"
+      ]
+    },
+    "01100": {
+      "name": "札幌市",
+      "screened_document_ids": [
+        "sapporo-major-projects-r8"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "09201": {
+      "name": "宇都宮市",
+      "screened_document_ids": [
+        "utsunomiya-policy-r8",
+        "utsunomiya-dx-implementation-2026"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "01204": {
+      "name": "旭川市",
+      "screened_document_ids": [
+        "asahikawa-r8-budget-proposal",
+        "asahikawa-nextwindow-procurement-2026",
+        "asahikawa-nextwindow-result-202604",
+        "asahikawa-nextwindow-kpi-spec"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "dentsu-soken-01204-1"
+      ]
+    },
+    "07203": {
+      "name": "郡山市",
+      "screened_document_ids": [
+        "koriyama-r8-budget-bill",
+        "koriyama-dx-hq-20260717"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "07204": {
+      "name": "いわき市",
+      "screened_document_ids": [
+        "iwaki-budget-r8-contract",
+        "iwaki-econtract-202604"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "05201": {
+      "name": "秋田市",
+      "screened_document_ids": [
+        "akita-budget-r8-office",
+        "akita-digital-plan22-202603"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "03201": {
+      "name": "盛岡市",
+      "screened_document_ids": [
+        "morioka-budget-r8",
+        "morioka-dx-plan2-202603"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "08201": {
+      "name": "水戸市",
+      "screened_document_ids": [
+        "mito-budget-r8",
+        "mito-reform-results-r7"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "07201": {
+      "name": "福島市",
+      "screened_document_ids": [
+        "fukushima-budget-r8",
+        "fukushima-mayor-dx-202603"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "02201": {
+      "name": "青森市",
+      "screened_document_ids": [
+        "aomori-budget-proposal-r8",
+        "aomori-genai-plan-202511"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": []
+    },
+    "08220": {
+      "name": "つくば市",
+      "screened_document_ids": [
+        "tsukuba-budget-r8",
+        "tsukuba-counter-grant-r7",
+        "tsukuba-smart-application-202609"
+      ],
+      "review_note": "既存資料の収録要約・抽出本文を企業名と役割の観点で点検。全ページの精読・全調達の照合を意味しません。",
+      "relation_ids": [
+        "kcb-08220-1",
+        "iac-08220-1"
+      ]
+    }
+  },
+  "relations": [
+    {
+      "id": "fujifilm-system-10202-1",
+      "company_id": "fujifilm-system",
+      "municipality_code": "10202",
+      "source_name": "富士フイルムシステムサービス株式会社",
+      "status": "selected",
+      "business": "窓口DXSaaS導入・窓口業務設計",
+      "period": "2026年6月26日審査／対象は2026年度",
+      "capability": "窓口・申請",
+      "strength_note": "窓口システム導入と業務設計を合わせた提案領域で選定された点。実装能力の実測評価とは別。",
+      "limitation": "受託候補者・優先交渉権者の選定まで確認。契約締結日、契約実額、履行・稼働は未確認。",
+      "evidence": [
+        {
+          "document_id": "takasaki-counter-selection-r8",
+          "url": "https://www.city.takasaki.gunma.jp/page/89352.html",
+          "title": "令和8年度高崎市窓口支援システム導入業務委託プロポーザル",
+          "locator": "HTML「選定結果」「主たる委託内容」",
+          "observation": "4社の審査から優先交渉権者に選定。窓口DXSaaSの環境整備と業務設計を対象とする。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "global-design-11222-1",
+      "company_id": "global-design",
+      "municipality_code": "11222",
+      "source_name": "グローバルデザイン株式会社",
+      "status": "selected",
+      "business": "実践・伴走型DX人材育成研修",
+      "period": "2026年8月10日公表",
+      "capability": "研修・人材",
+      "strength_note": "実践と伴走支援を組み合わせる職員向けDX研修の提案領域。",
+      "limitation": "受託候補者・優先交渉権者の選定まで確認。契約締結日、契約実額、履行・稼働は未確認。",
+      "evidence": [
+        {
+          "document_id": "koshigaya-dx-training-result-20260810",
+          "url": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/jigyosha/dejitaru/files/sinsakekka.pdf",
+          "title": "実践・伴走型DX人材育成研修業務委託・候補者選定結果",
+          "locator": "PDF1ページ・候補者名",
+          "observation": "実践・伴走型DX人材育成研修業務の候補者として記載。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "human-academy-12100-1",
+      "company_id": "human-academy",
+      "municipality_code": "12100",
+      "source_name": "ヒューマンアカデミー株式会社",
+      "status": "selected",
+      "business": "女性デジタル人材育成",
+      "period": "2026年度",
+      "capability": "研修・人材",
+      "strength_note": "女性のデジタル人材育成を扱う提案領域で選定。研修実施や就業成果は別途確認が必要。",
+      "limitation": "受託候補者・優先交渉権者の選定まで確認。契約締結日、契約実額、履行・稼働は未確認。",
+      "evidence": [
+        {
+          "document_id": "chiba-workforce-selection-r8",
+          "url": "https://www.city.chiba.jp/shimin/seikatsubunka/danjo/documents/sinsakekkanituite.pdf",
+          "title": "女性デジタル人材育成事業業務委託・企画提案審査結果",
+          "locator": "PDF1ページ・審査結果表",
+          "observation": "女性デジタル人材育成事業の優先交渉権者として公表。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "nec-12207-1",
+      "company_id": "nec",
+      "municipality_code": "12207",
+      "source_name": "NEC（日本電気株式会社）",
+      "status": "contracted",
+      "business": "情報ネットワーク・住民基本台帳システム等の構築",
+      "period": "2026年2月4日の市説明／構築・契約の期間未確認",
+      "capability": "基幹・データ連携",
+      "strength_note": "自治体のネットワークと住民情報を扱う基幹システムの構築経験。",
+      "limitation": "個別契約書・構築時期・現在の保守範囲は未確認。ポータルやAIアバターの稼働を意味しない。",
+      "evidence": [
+        {
+          "document_id": "matsudo-nec-agreement-2026",
+          "url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/digital/nec_kyotei.html",
+          "title": "NECと「デジタルまつど共創協定」を締結しました",
+          "locator": "HTML「NEC社と協定を締結する理由」",
+          "observation": "市はNECを既存の情報ネットワーク・住民基本台帳システム等の構築事業者と説明。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "nec-12207-2",
+      "company_id": "nec",
+      "municipality_code": "12207",
+      "source_name": "NEC（日本電気株式会社）",
+      "status": "agreement_partner",
+      "business": "デジタルまつど共創協定",
+      "period": "2026年2月4日締結",
+      "capability": "基幹・データ連携",
+      "strength_note": "既存基幹基盤を踏まえたポータル・EBPM・AI受付の協働検討領域。",
+      "limitation": "個別契約や予定サービスの稼働は未確認。",
+      "evidence": [
+        {
+          "document_id": "matsudo-nec-agreement-2026",
+          "url": "https://www.city.matsudo.chiba.jp/shisei/keikaku-kousou/digital/nec_kyotei.html",
+          "title": "NECと「デジタルまつど共創協定」を締結しました",
+          "locator": "HTML「協定の概要」「本協定により進めていく取組」",
+          "observation": "共創協定を締結し、ポータルやEBPM支援等の予定を公表。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "bot-express-13103-1",
+      "company_id": "bot-express",
+      "municipality_code": "13103",
+      "source_name": "株式会社Bot Express",
+      "status": "operating_provider",
+      "business": "港区LINE生成AIチャットボット",
+      "period": "2024年10月18日本格運用開始の区説明",
+      "capability": "電話・相談",
+      "strength_note": "住民が使うLINE上で、自治体HPを参照した回答を届ける協働経験。",
+      "limitation": "有償契約の相手方・範囲・費用は未確認。掲載文に試行中の注意も残る。",
+      "evidence": [
+        {
+          "document_id": "minato-line-ai-operation",
+          "url": "https://www.city.minato.tokyo.jp/dejitarukaikakutan/line-chatbot-release.html",
+          "title": "港区LINE公式アカウントに生成AIを活用したチャットボットの本格運用を開始しました",
+          "locator": "HTML冒頭・機能の概要",
+          "observation": "区は同社との協定、利用者向け実証を経た本格運用開始を説明。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "shift-13109-1",
+      "company_id": "shift",
+      "municipality_code": "13109",
+      "source_name": "株式会社SHIFT",
+      "status": "pilot_partner",
+      "business": "転入届に関するAI電話問い合わせ",
+      "period": "2026年8月24日～9月25日の実証案内",
+      "capability": "電話・相談",
+      "strength_note": "特定手続に絞った音声AI案内と、開庁時間内の職員への取次ぎを組み合わせる実証領域。",
+      "limitation": "恒久導入・契約費用・実証結果は未確認。掲載期間は終了済み。",
+      "evidence": [
+        {
+          "document_id": "shinagawa-ai-phone-pilot",
+          "url": "https://www.city.shinagawa.tokyo.jp/PC/procedure/procedure-zyuumin_inkan/procedure-zyuumin_inkan-zyuumin/procedure-zyuumin_inkan-zyuumin-todoke/tennyu20241020.html",
+          "title": "転入届・転入についてAI電話で問い合わせる",
+          "locator": "HTML見出し6「実証実験の概要」",
+          "observation": "転入手続のAI電話実証の提供事業者として記載。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "microsoft-japan-13206-1",
+      "company_id": "microsoft-japan",
+      "municipality_code": "13206",
+      "source_name": "日本マイクロソフト株式会社",
+      "status": "agreement_partner",
+      "business": "生成AI等の利活用・人材育成・業務改善の協働",
+      "period": "2026年3月4日協定締結式",
+      "capability": "研修・人材",
+      "strength_note": "生成AIの市民サービス活用と職員育成を一体で検討する協働領域。",
+      "limitation": "調達・ライセンス販売先や具体的な導入効果は未確認。米国Microsoft製品の利用から日本法人の受託とは推定しない。",
+      "evidence": [
+        {
+          "document_id": "fuchu-tokyo-microsoft-202603",
+          "url": "https://www.city.fuchu.tokyo.jp/closeup/r7/ai-rikatuyou.html",
+          "title": "日本マイクロソフト株式会社と生成AIを含むデジタル技術の利活用に関する協働協定を締結",
+          "locator": "HTML冒頭・主な協定内容",
+          "observation": "生成AIを含むデジタル技術の活用に関する協働協定の締結を市が報告。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "ntt-data-13209-1",
+      "company_id": "ntt-data",
+      "municipality_code": "13209",
+      "source_name": "NTTデータ",
+      "status": "operating_provider",
+      "business": "AIナビゲーターによる市のオンライン手続・HP案内",
+      "period": "2025年4月1日掲載のサービス説明",
+      "capability": "窓口・申請",
+      "strength_note": "自治体サイトとオンライン手続への導線をAI案内でつなぐ共創経験。",
+      "limitation": "契約書・費用・回答精度・実利用件数は未確認。NTTデータ関西とは別法人。",
+      "evidence": [
+        {
+          "document_id": "machida-ai-navigation",
+          "url": "https://www.machidoor.tokyo.jp/news/ainavi/",
+          "title": "AIナビゲーターが市のホームページもご案内！（公式まちドア）",
+          "locator": "HTML「町田市のオンライン手続を案内する新しいサービス」",
+          "observation": "NTTデータとの連携協定に基づく共創で実現したAI案内と説明。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "rjs-15100-1",
+      "company_id": "rjs",
+      "municipality_code": "15100",
+      "source_name": "合同会社RJ’s リサーチ・アンド・アドバイザリー",
+      "status": "selected",
+      "business": "生成AIビジネスリサーチ・システム作成",
+      "period": "2026年5月15日審査／5月18日公表",
+      "capability": "生成AI・文書検索",
+      "strength_note": "生成AIを用いたビジネスリサーチシステムの提案領域で選定。",
+      "limitation": "受託候補者・優先交渉権者の選定まで確認。契約締結日、契約実額、履行・稼働は未確認。",
+      "evidence": [
+        {
+          "document_id": "niigata-ai-selection-r8",
+          "url": "https://www.city.niigata.lg.jp/jigyo/seiseiAIpuropo.files/sennteikekka.pdf",
+          "title": "生成AIビジネスリサーチ・システム作成業務：選定結果",
+          "locator": "PDF1ページ・候補者／審査日",
+          "observation": "3者の提案審査を経た候補者として公表。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "shiftplus-22100-1",
+      "company_id": "shiftplus",
+      "municipality_code": "22100",
+      "source_name": "シフトプラス株式会社",
+      "status": "planned_provider",
+      "business": "自治体AI zevoの全職員向け展開",
+      "period": "2026年6月23日発表／7月1日開始予定",
+      "capability": "生成AI・文書検索",
+      "strength_note": "LGWAN上で公文書の作成・校正などに使う汎用生成AIの提供予定領域。",
+      "limitation": "発表は開始前の予告。実際の稼働、直接契約先、削減効果の個社別寄与は未確認。",
+      "evidence": [
+        {
+          "document_id": "shizuoka-ai-rollout-june",
+          "url": "https://www.city.shizuoka.lg.jp/documents/58797/20260623001_1.pdf",
+          "title": "全職員向け生成AIサービスの運用開始に伴う説明会・報道発表",
+          "locator": "PDF1ページ・サービス概要",
+          "observation": "全職員向け生成AIの開始予告でサービス提供企業と機能を明記。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "allganize-22100-1",
+      "company_id": "allganize",
+      "municipality_code": "22100",
+      "source_name": "Allganize Japan株式会社",
+      "status": "planned_provider",
+      "business": "庁内資料を根拠付きで回答するFAQ基盤",
+      "period": "2026年6月23日発表／7月1日開始予定",
+      "capability": "生成AI・文書検索",
+      "strength_note": "庁内マニュアルの検索・回答に、根拠の提示を組み合わせる基盤提供予定領域。",
+      "limitation": "発表は開始前の予告。実際の稼働、直接契約先、削減効果の個社別寄与は未確認。",
+      "evidence": [
+        {
+          "document_id": "shizuoka-ai-rollout-june",
+          "url": "https://www.city.shizuoka.lg.jp/documents/58797/20260623001_1.pdf",
+          "title": "全職員向け生成AIサービスの運用開始に伴う説明会・報道発表",
+          "locator": "PDF1ページ・サービス概要",
+          "observation": "全職員向け生成AIの開始予告でサービス提供企業と機能を明記。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "asia-air-survey-23201-1",
+      "company_id": "asia-air-survey",
+      "municipality_code": "23201",
+      "source_name": "アジア航測株式会社 名古屋支店",
+      "status": "selected",
+      "business": "建築行政DX推進業務",
+      "period": "2026年度／予定履行終期2027年3月19日",
+      "capability": "地理空間・インフラ",
+      "strength_note": "建築行政の情報整備・デジタル化に関する提案領域で選定。",
+      "limitation": "受託候補者・優先交渉権者の選定まで確認。契約締結日、契約実額、履行・稼働は未確認。",
+      "evidence": [
+        {
+          "document_id": "toyohashi-building-selection-r8",
+          "url": "https://www.city.toyohashi.lg.jp/secure/123543/%E6%A7%98%E5%BC%8F7_%E5%A5%91%E7%B4%84%E5%80%99%E8%A3%9C%E8%80%85%E3%81%AE%E7%89%B9%E5%AE%9A%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6.pdf",
+          "title": "令和8年度豊橋市建築行政DX推進業務 プロポーザル契約候補者の特定について",
+          "locator": "PDF1ページ・契約候補者、特定方法",
+          "observation": "2者の提案から名古屋支店を契約候補者に特定。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "persol-bpd-23202-1",
+      "company_id": "persol-bpd",
+      "municipality_code": "23202",
+      "source_name": "パーソルビジネスプロセスデザイン株式会社 BPO事業本部",
+      "status": "selected",
+      "business": "総合コンタクトセンター導入",
+      "period": "2026年7月29日選定",
+      "capability": "電話・相談",
+      "strength_note": "電話・メール等の一元対応と、対応知見のナレッジ還元を組み合わせる業務運営の提案領域。",
+      "limitation": "受託候補者・優先交渉権者の選定まで確認。契約締結日、契約実額、履行・稼働は未確認。",
+      "evidence": [
+        {
+          "document_id": "okazaki-contact-selection-r8",
+          "url": "https://www.city.okazaki.lg.jp/business/nyusatsu/1005015/1014195/1016549.html",
+          "title": "総合コンタクトセンター導入業務の業者選定結果",
+          "locator": "HTML「選定結果」「業務概要」",
+          "observation": "BPO事業本部を優先交渉権者として公表。既存ナレッジを活用した多チャネル対応が業務範囲。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "bengo4-23206-1",
+      "company_id": "bengo4",
+      "municipality_code": "23206",
+      "source_name": "弁護士ドットコム株式会社",
+      "status": "planned_provider",
+      "business": "クラウドサインによる電子契約",
+      "period": "2026年10月1日運用開始予定",
+      "capability": "電子契約・会計",
+      "strength_note": "自治体と取引先の契約手続をオンライン化するサービス提供領域。",
+      "limitation": "確認日9月27日時点では開始前。直接契約先・実績件数・効果は未確認。",
+      "evidence": [
+        {
+          "document_id": "kasugai-econtract-20260917",
+          "url": "https://www.city.kasugai.lg.jp/business/nyusatsu/1009810/1039748.html",
+          "title": "電子契約・電子契約サービスの導入について",
+          "locator": "HTML「電子契約サービス」",
+          "observation": "市は弁護士ドットコム提供のクラウドサイン採用と開始予定を案内。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "avilen-26100-1",
+      "company_id": "avilen",
+      "municipality_code": "26100",
+      "source_name": "AVILEN",
+      "status": "pilot_partner",
+      "business": "持込ごみ問い合わせをモデルにしたAIボイスボット",
+      "period": "2025年6～7月実証／10月15日結果公表",
+      "capability": "電話・相談",
+      "strength_note": "行政の内部マニュアルと想定シナリオを使い、電話応対AIを検証する経験。",
+      "limitation": "正答率97.8％は職員の想定シナリオによる検証で、住民の本番利用精度ではない。本番契約は未確認。",
+      "evidence": [
+        {
+          "document_id": "kyoto-voice-ai-poc",
+          "url": "https://www.city.kyoto.lg.jp/sogo/page/0000346757.html",
+          "title": "電話応対業務のAIボイスボット活用に係る実証実験の結果",
+          "locator": "HTML「PoCの概要」「PoCの結果」",
+          "observation": "連携協定に基づく実証の相手企業。職員によるシナリオ検証を実施。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "acechild-27203-1",
+      "company_id": "acechild",
+      "municipality_code": "27203",
+      "source_name": "エースチャイルド株式会社",
+      "status": "selected",
+      "business": "生成AI子育て相談チャットボット構築・運用",
+      "period": "2026年7月選定／予定履行終期2028年3月31日",
+      "capability": "電話・相談",
+      "strength_note": "自治体の選定理由は、子育て相談の経験、AIと有人対応の運営体制、広報を組み合わせる提案。",
+      "limitation": "受託候補者・優先交渉権者の選定まで確認。契約締結日、契約実額、履行・稼働は未確認。",
+      "evidence": [
+        {
+          "document_id": "toyonaka-ai-proposal-result-r8",
+          "url": "https://www.city.toyonaka.osaka.jp/jigyosya/proposal/kekka/reiwa8/seiseiaikoubo.files/sennteikekka2.pdf",
+          "title": "生成AI子育て相談チャットボット構築・運用業務委託の受託候補者選定結果",
+          "locator": "PDF1ページ・受託候補者／PDF2ページ・選定理由",
+          "observation": "7者応募から候補者に選定。有人対応と広報を含む運営提案が評価された。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "ambirise-28202-1",
+      "company_id": "ambirise",
+      "municipality_code": "28202",
+      "source_name": "株式会社AmbiRise",
+      "status": "planned_provider",
+      "business": "Haratteによる電子請求・財務会計への転記",
+      "period": "2026年6月25日発表／7月1日開始予定",
+      "capability": "電子契約・会計",
+      "strength_note": "事業者からの電子請求と自治体財務会計への転記を接続する提供予定領域。",
+      "limitation": "開始予告を確認。実稼働・契約相手方の原文・費用・転記削減の実測は未確認。",
+      "evidence": [
+        {
+          "document_id": "amagasaki-haratte-release-20260625",
+          "url": "https://www.city.amagasaki.hyogo.jp/_res/projects/default_project/_page_/001/035/658/kaikeiDXrelease.pdf",
+          "title": "電子請求サービスHaratte導入の報道発表",
+          "locator": "PDF1～2ページ・サービス概要／PDF4ページ・業務の流れ",
+          "observation": "Haratteの提供企業として明記。請求書を受け、連携ツールで財務会計に転記する構成。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "code-for-japan-28210-1",
+      "company_id": "code-for-japan",
+      "municipality_code": "28210",
+      "source_name": "一般社団法人コード・フォー・ジャパン",
+      "status": "operating_provider",
+      "business": "加古川市版Decidimによる市民参加",
+      "period": "2020年10月運用開始／2025年1月リニューアル",
+      "capability": "住民参加",
+      "strength_note": "市民の意見を集めるオンライン参加基盤の協働運営経験。",
+      "limitation": "一般社団法人であり会社数には含めない。有償契約・利用効果・現在の担当範囲は未確認。",
+      "evidence": [
+        {
+          "document_id": "kakogawa-decidim-202608",
+          "url": "https://www.city.kakogawa.lg.jp/soshikikarasagasu/kikakubu/jouhouseisakuka/ict_1/36257.html",
+          "title": "加古川市版Decidim（デシディム）で意見募集中",
+          "locator": "HTML冒頭・リニューアル説明",
+          "observation": "同法人と協働して運用を開始した市民参加基盤として市が説明。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "future-in-33202-1",
+      "company_id": "future-in",
+      "municipality_code": "33202",
+      "source_name": "株式会社フューチャーイン 関西支店",
+      "status": "selected",
+      "business": "AIチャットボット導入",
+      "period": "2026年4月28日更新",
+      "capability": "電話・相談",
+      "strength_note": "住民向けAIチャットボットの導入提案領域で選定。",
+      "limitation": "受託候補者・優先交渉権者の選定まで確認。契約締結日、契約実額、履行・稼働は未確認。 自動音声電話の受託者と混同しない。",
+      "evidence": [
+        {
+          "document_id": "kurashiki-ai-selection-r8",
+          "url": "https://www.city.kurashiki.okayama.jp/business/contract/1013065/1017643/1025593.html",
+          "title": "令和8年度倉敷市AIチャットボット導入事業公募型プロポーザルの選考結果",
+          "locator": "HTML「優先交渉権者」",
+          "observation": "関西支店を優先交渉権者として掲載。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "denwaha-37201-1",
+      "company_id": "denwaha",
+      "municipality_code": "37201",
+      "source_name": "株式会社電話放送局",
+      "status": "selected",
+      "business": "市民課AI電話案内",
+      "period": "2026年7月22日の市説明",
+      "capability": "電話・相談",
+      "strength_note": "担当窓口への案内を担うAI電話の提案領域で選定。",
+      "limitation": "受託候補者・優先交渉権者の選定まで確認。契約締結日、契約実額、履行・稼働は未確認。 先行実証の転送精度をこの企業の実績に転用しない。",
+      "evidence": [
+        {
+          "document_id": "takamatsu-ai-phone-briefing",
+          "url": "https://www.city.takamatsu.kagawa.jp/smph/kurashi/shichoushitsu/hatsugen/teirei/r8teirei/r8-7-22.html",
+          "title": "市長定例会見・市民課AI電話の実証結果と選定",
+          "locator": "HTML「記者質問」選定事業者についての市民課回答",
+          "observation": "公募型プロポーザルで同社を選定。先行実証とは異なる事業者だと市民課が説明。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "kawaguchi-hiroyuki-44201-1",
+      "company_id": "kawaguchi-hiroyuki",
+      "municipality_code": "44201",
+      "source_name": "川口弘行合同会社",
+      "status": "selected",
+      "business": "Oita GENAI（源内を基にした生成AI）",
+      "period": "2026年8月候補者選定／10月1日開始予定",
+      "capability": "生成AI・文書検索",
+      "strength_note": "LGWAN対応の生成AIと、例規・議会答弁等を参照するRAGの提供予定領域。",
+      "limitation": "契約締結・稼働は未確認。クラウド基盤のブランドから別会社の直接受託を推定しない。",
+      "evidence": [
+        {
+          "document_id": "oita-genai-announcement-20260918",
+          "url": "https://www.city.oita.oita.jp/o252/seiseiai/hodo/hodo.html",
+          "title": "源内を活用した生成AIサービスの導入発表",
+          "locator": "HTML「生成AIサービス『Oita GENAI』の概要」",
+          "observation": "市は同社を候補者に選定し、10月開始予定サービスの提供事業者として公表。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "bespoke-04100-1",
+      "company_id": "bespoke",
+      "municipality_code": "04100",
+      "source_name": "株式会社ビースポーク",
+      "status": "selected",
+      "business": "内部事務向け生成AIサービス導入",
+      "period": "2026年6月3日審査",
+      "capability": "生成AI・文書検索",
+      "strength_note": "会計・人事給与等の内部事務で自治体情報を参照する生成AIの提案領域。",
+      "limitation": "受託候補者・優先交渉権者の選定まで確認。契約締結日、契約実額、履行・稼働は未確認。",
+      "evidence": [
+        {
+          "document_id": "sendai-ai-proposal-result-r8",
+          "url": "https://www.city.sendai.jp/rikatsuyou/propo/generative-ai.html",
+          "title": "仙台市生成AIサービス導入業務・受託候補者特定結果と公募概要",
+          "locator": "HTML「受託候補者の特定結果」「業務の目的」",
+          "observation": "8者の応募から候補者を特定。RAG等を備えた生成AIを内部事務へ導入する業務。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "dentsu-soken-01204-1",
+      "company_id": "dentsu-soken",
+      "municipality_code": "01204",
+      "source_name": "株式会社電通総研",
+      "status": "selected",
+      "business": "次世代窓口「旭川モデル」構築",
+      "period": "2026年4月22日審査",
+      "capability": "窓口・申請",
+      "strength_note": "次世代窓口モデルの構築に関する提案領域で選定。",
+      "limitation": "受託候補者・優先交渉権者の選定まで確認。契約締結日、契約実額、履行・稼働は未確認。",
+      "evidence": [
+        {
+          "document_id": "asahikawa-nextwindow-result-202604",
+          "url": "https://www.city.asahikawa.hokkaido.jp/10013/10015/d083612_d/fil/sinsakekka.pdf",
+          "title": "次世代窓口「旭川モデル」構築業務委託・審査結果",
+          "locator": "PDF1ページ・審査結果／特定理由",
+          "observation": "次世代窓口構築業務の受託候補者に特定。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "kcb-08220-1",
+      "company_id": "kcb",
+      "municipality_code": "08220",
+      "source_name": "株式会社北見コンピューター・ビジネス",
+      "status": "contracted",
+      "business": "窓口DXSaaS導入時の構築",
+      "period": "2025年度交付金使途",
+      "capability": "窓口・申請",
+      "strength_note": "ワンストップ窓口を支える窓口DXSaaSの構築担当としての関与。",
+      "limitation": "委託先公表までの確認。契約原本・検収・実支払・本番稼働は未確認。",
+      "evidence": [
+        {
+          "document_id": "tsukuba-counter-grant-r7",
+          "url": "https://www.city.tsukuba.lg.jp/material/files/group/15/digital03_R7.pdf",
+          "title": "行政窓口のデジタル化（窓口DXSaaSの導入）・交付金事業の具体的使途と実施体制",
+          "locator": "PDF1ページ・具体的使途／窓口DXSaaS構築委託",
+          "observation": "市が交付金事業の構築委託先として明示。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "iac-08220-1",
+      "company_id": "iac",
+      "municipality_code": "08220",
+      "source_name": "株式会社茨城計算センター",
+      "status": "contracted",
+      "business": "窓口DXSaaSとの基幹系連携改修・保守",
+      "period": "2025年度交付金使途",
+      "capability": "基幹・データ連携",
+      "strength_note": "窓口フロントと既存基幹システムをつなぐ改修・保守の担当領域。",
+      "limitation": "委託先公表までの確認。契約原本・検収・稼働は未確認。SaaS全体の提供企業とは区別する。",
+      "evidence": [
+        {
+          "document_id": "tsukuba-counter-grant-r7",
+          "url": "https://www.city.tsukuba.lg.jp/material/files/group/15/digital03_R7.pdf",
+          "title": "行政窓口のデジタル化（窓口DXSaaSの導入）・交付金事業の具体的使途と実施体制",
+          "locator": "PDF1ページ・基幹系改修費／保守管理委託",
+          "observation": "連携に伴う基幹系改修・保守の委託先として明示。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "hpe-japan-13108-1",
+      "company_id": "hpe-japan",
+      "municipality_code": "13108",
+      "source_name": "日本ヒューレット・パッカード合同会社",
+      "status": "contracted",
+      "business": "Microsoft365導入・全庁展開・運用支援",
+      "period": "導入2023年度／全庁展開2024年7月～2025年3月／運用支援2023年9月～2024年3月",
+      "capability": "基幹・データ連携",
+      "strength_note": "庁内の業務基盤を導入し、全庁展開と運用を支援する受託経験。",
+      "limitation": "過去の契約を確認。現契約は未確認。監査は見積の詳細把握・再委託先確認等にも言及しており、品質の優良認定ではない。",
+      "evidence": [
+        {
+          "document_id": "koto-audit-measures-r7",
+          "url": "https://www.city.koto.lg.jp/051101/kuse/kansa/kansanitsuite/documents/r7sochigaiyou.pdf",
+          "title": "令和7年度包括外部監査結果報告・措置概要",
+          "locator": "PDF1ページ・見積詳細分析、再委託先確認の項目",
+          "observation": "監査措置概要が全庁展開の委託先、運用支援の契約先を明記。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "hyperdyne-28204-1",
+      "company_id": "hyperdyne",
+      "municipality_code": "28204",
+      "source_name": "ハイパーダイン株式会社",
+      "status": "pilot_partner",
+      "business": "DocumentSeekerによる庁内文書RAG実証",
+      "period": "2024年2月9日～3月31日",
+      "capability": "生成AI・文書検索",
+      "strength_note": "庁内文書を参照する質問応答・文書検索の実証経験。",
+      "limitation": "職員アンケートの正しい回答約59％は当時の検証値。本番契約・現在精度・費用削減は未確認。",
+      "evidence": [
+        {
+          "document_id": "nishinomiya-rag-trial-2024",
+          "url": "https://www.nishi.or.jp/shisei/seisaku/johokasuishin/08782024020614564.files/jissho.pdf",
+          "title": "庁内文書を用いた文章生成AIの実証実験 報告書",
+          "locator": "PDF2ページ・利用製品／実証内容",
+          "observation": "同社のDocumentSeekerを用い、庁内文書参照と汎用生成AI利用を実証。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "ziai-14201-1",
+      "company_id": "ziai",
+      "municipality_code": "14201",
+      "source_name": "株式会社ZIAI",
+      "status": "pilot_partner",
+      "business": "ほっとAI相談",
+      "period": "2025年10月9日～12月31日の実証",
+      "capability": "電話・相談",
+      "strength_note": "開庁時間外の相談を受ける傾聴AIを検証した経験。市は実証から担当部署への支援接続18件を報告しており、回答だけでなく人の支援へつなぐ設計を検討する材料となる。",
+      "limitation": "通常の委託契約・現在の本番提供・個別の相談改善効果は未確認。",
+      "evidence": [
+        {
+          "document_id": "yokosuka-hot-ai-results-r8",
+          "url": "https://www.city.yokosuka.kanagawa.jp/0835/nagekomi/20260512_ai_soudankekka.html",
+          "title": "生成AI相談サービス「ほっとAI相談」実証実験の結果について",
+          "locator": "HTML・実証概要／事業者",
+          "observation": "市の実証結果ページで、ほっとAI相談を提供した企業として記載。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "assured-12217-1",
+      "company_id": "assured",
+      "municipality_code": "12217",
+      "source_name": "株式会社アシュアード",
+      "status": "operating_provider",
+      "business": "クラウドサービスのセキュリティ評価",
+      "period": "2024年度進捗",
+      "capability": "基幹・データ連携",
+      "strength_note": "行政がクラウドを採用する前のリスク評価を支えるサービス領域。",
+      "limitation": "利用を確認したもので、直接契約先・契約期間は未確認。7件は評価対象サービス数で導入自治体数ではない。",
+      "evidence": [
+        {
+          "document_id": "kashiwa-dx-progress-2024",
+          "url": "https://www.city.kashiwa.lg.jp/documents/28866/2024_dxpromotionguidelines_progressreport.pdf",
+          "title": "柏市DX推進ガイドライン2024年度進捗報告",
+          "locator": "PDF8ページ・クラウドリスク評価",
+          "observation": "市はアシュアードの利用を説明し、2024年度に7件のクラウドサービスを評価したと報告。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "murc-45201-1",
+      "company_id": "murc",
+      "municipality_code": "45201",
+      "source_name": "三菱ＵＦＪリサーチ＆コンサルティング株式会社",
+      "status": "contracted",
+      "business": "第六次宮崎市総合計画の策定支援",
+      "period": "2023年7月26日～2025年3月31日",
+      "capability": "行政計画",
+      "strength_note": "若者・職員との対話設計から基本構想・計画素案へまとめる政策形成支援の受託経験。",
+      "limitation": "過去の受託実績。現在の契約継続・政策の効果は未確認。",
+      "evidence": [
+        {
+          "document_id": "miyazaki-results-fy2024",
+          "url": "https://www.city.miyazaki.miyazaki.jp/fs/8/6/0/2/4/0/_/860240.pdf",
+          "title": "令和6年度主要施策の成果等説明書・コールセンター／ホームページ／デジタル支援",
+          "locator": "PDF42ページ・業務委託の概要",
+          "observation": "受託者と契約期間を記載。ワークショップ、素案策定、冊子作成を担当。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "murc-45201-2",
+      "company_id": "murc",
+      "municipality_code": "45201",
+      "source_name": "三菱ＵＦＪリサーチ＆コンサルティング株式会社",
+      "status": "contracted",
+      "business": "（仮称）みやざきこどもセンター基本計画策定",
+      "period": "2024年9月1日～2025年3月31日",
+      "capability": "行政計画",
+      "strength_note": "福祉施設の整備方針・必要諸室・概算費用・事業手法を計画へ落とす受託経験。",
+      "limitation": "過去の計画業務であり、施設整備工事の受注や運営を意味しない。",
+      "evidence": [
+        {
+          "document_id": "miyazaki-results-fy2024",
+          "url": "https://www.city.miyazaki.miyazaki.jp/fs/8/6/0/2/4/0/_/860240.pdf",
+          "title": "令和6年度主要施策の成果等説明書・コールセンター／ホームページ／デジタル支援",
+          "locator": "PDF150ページ・業務委託の概要",
+          "observation": "基本計画策定の受注者として明記。施設方針等を具体化した計画を策定。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "miyakoh-45201-1",
+      "company_id": "miyakoh",
+      "municipality_code": "45201",
+      "source_name": "宮崎交通(株)",
+      "status": "contracted",
+      "business": "敬老バスカの委託",
+      "period": "2024年度決算",
+      "capability": "交通",
+      "strength_note": "高齢者向け交通利用支援を既存のバスサービスにつなぐ業務経験。",
+      "limitation": "現在の委託継続・利用者個々の移動改善は未確認。補助金の受領だけで受託判定していない。",
+      "evidence": [
+        {
+          "document_id": "miyazaki-results-fy2024",
+          "url": "https://www.city.miyazaki.miyazaki.jp/fs/8/6/0/2/4/0/_/860240.pdf",
+          "title": "令和6年度主要施策の成果等説明書・コールセンター／ホームページ／デジタル支援",
+          "locator": "PDF111ページ・敬老バス事業",
+          "observation": "敬老バスカの委託先として記載。隣接する悠々パス購入補助とは区別。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "trygroup-45201-1",
+      "company_id": "trygroup",
+      "municipality_code": "45201",
+      "source_name": "株式会社トライグループ",
+      "status": "contracted",
+      "business": "生活保護・生活困窮世帯等の進学支援",
+      "period": "2024年5月1日～2025年3月31日",
+      "capability": "教育・福祉支援",
+      "strength_note": "福祉施策の対象者に個別の進学支援を届ける受託経験。",
+      "limitation": "対象業務は進学支援部分。居場所事業全体の元請としない。現在の契約・進学成果は未確認。",
+      "evidence": [
+        {
+          "document_id": "miyazaki-results-fy2024",
+          "url": "https://www.city.miyazaki.miyazaki.jp/fs/8/6/0/2/4/0/_/860240.pdf",
+          "title": "令和6年度主要施策の成果等説明書・コールセンター／ホームページ／デジタル支援",
+          "locator": "PDF135ページ・子どもの居場所づくり事業／進学支援",
+          "observation": "進学支援の委託先・委託期間を明記。居場所運営は別団体。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "adishplus-45201-1",
+      "company_id": "adishplus",
+      "municipality_code": "45201",
+      "source_name": "アディッシュプラス株式会社",
+      "status": "contracted",
+      "business": "こころつなぐライン相談・LINE相談窓口",
+      "period": "2024年度決算",
+      "capability": "電話・相談",
+      "strength_note": "住民の相談を受ける有人オンライン窓口の運営経験。AI導入時の人への接続先を検討する材料になる。",
+      "limitation": "対応件数は利用量で、相談改善の成果ではない。AI運用の実績を示すものでもない。現契約は未確認。",
+      "evidence": [
+        {
+          "document_id": "miyazaki-results-fy2024",
+          "url": "https://www.city.miyazaki.miyazaki.jp/fs/8/6/0/2/4/0/_/860240.pdf",
+          "title": "令和6年度主要施策の成果等説明書・コールセンター／ホームページ／デジタル支援",
+          "locator": "PDF185ページ・LINE相談窓口の開設",
+          "observation": "市はLINE相談窓口の委託先として記載。1,477件・実人数347人の対応を報告。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "mrt-ad-45201-1",
+      "company_id": "mrt-ad",
+      "municipality_code": "45201",
+      "source_name": "株式会社MRTアド",
+      "status": "contracted",
+      "business": "LINE相談窓口を周知するSNS広告配信",
+      "period": "2024年8月1日～2025年3月31日",
+      "capability": "広報・利用促進",
+      "strength_note": "相談サービスを必要な人へ知らせる複数SNSでの広報配信の受託経験。",
+      "limitation": "広告の表示・クリックを相談支援の成果に置換しない。相談窓口運営会社とは別。",
+      "evidence": [
+        {
+          "document_id": "miyazaki-results-fy2024",
+          "url": "https://www.city.miyazaki.miyazaki.jp/fs/8/6/0/2/4/0/_/860240.pdf",
+          "title": "令和6年度主要施策の成果等説明書・コールセンター／ホームページ／デジタル支援",
+          "locator": "PDF185ページ・SNS広告の配信",
+          "observation": "SNS広告の委託先として記載。LINE、Instagram、TikTokで配信。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "himuka-eco-45201-1",
+      "company_id": "himuka-eco",
+      "municipality_code": "45201",
+      "source_name": "(株)ひむかエコサービス",
+      "status": "contracted",
+      "business": "エコクリーンプラザみやざき運転管理等",
+      "period": "2024年度決算／15年の長期包括委託と記載",
+      "capability": "施設運営・環境",
+      "strength_note": "一般廃棄物処理施設の長期包括運転管理を担う受託経験。",
+      "limitation": "本掲載では契約の始期・終期を未照合。施設のAI化や現時点の追加発注余地は未確認。",
+      "evidence": [
+        {
+          "document_id": "miyazaki-results-fy2024",
+          "url": "https://www.city.miyazaki.miyazaki.jp/fs/8/6/0/2/4/0/_/860240.pdf",
+          "title": "令和6年度主要施策の成果等説明書・コールセンター／ホームページ／デジタル支援",
+          "locator": "PDF206ページ・事業費内訳",
+          "observation": "契約相手方を明記し、15年の長期包括委託と説明。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "shidax-sdh-45201-1",
+      "company_id": "shidax-sdh",
+      "municipality_code": "45201",
+      "source_name": "シダックス大新東ヒューマンサービス(株)",
+      "status": "contracted",
+      "business": "市立図書館業務",
+      "period": "2023年4月～2026年3月",
+      "capability": "施設運営・環境",
+      "strength_note": "貸出・選書・資料管理・イベントを含む図書館の継続運営業務の受託経験。",
+      "limitation": "記載の受託期間は終了済み。更新契約・現商号は別途未確認。資料当時の法人表記を保持。",
+      "evidence": [
+        {
+          "document_id": "miyazaki-results-fy2024",
+          "url": "https://www.city.miyazaki.miyazaki.jp/fs/8/6/0/2/4/0/_/860240.pdf",
+          "title": "令和6年度主要施策の成果等説明書・コールセンター／ホームページ／デジタル支援",
+          "locator": "PDF383ページ・業務委託",
+          "observation": "受託者と期間を明記。貸出や資料整理・保存、催事等が業務内容。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "funabashi-e-12204-1",
+      "company_id": "funabashi-e",
+      "municipality_code": "12204",
+      "source_name": "株式会社ふなばしEサービス",
+      "status": "designated_operator",
+      "business": "北部清掃工場余熱利用施設の運営・維持管理",
+      "period": "2024年度決算",
+      "capability": "施設運営・環境",
+      "strength_note": "余熱を利用する温浴・健康浴施設の管理運営経験。",
+      "limitation": "現在の指定期間・現契約は未確認。同じ頁上段の清掃工場本体の受託者とは断定しない。",
+      "evidence": [
+        {
+          "document_id": "funabashi-results-r6",
+          "url": "https://www.city.funabashi.lg.jp/shisei/zaisei/002/p141123_d/fil/R6shuyouippankaikei.pdf",
+          "title": "令和6年度主要な施策の成果に関する説明書・一般会計（情報システム関連導入費）",
+          "locator": "PDF147ページ（冊子195頁）・北部清掃工場余熱利用施設管理運営費",
+          "observation": "余熱利用施設の指定管理者として明記。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "ines-13117-1",
+      "company_id": "ines",
+      "municipality_code": "13117",
+      "source_name": "株式会社アイネス",
+      "status": "agreement_partner",
+      "business": "生成AIを活用した相談業務支援",
+      "period": "2025年10月22日締結",
+      "capability": "生成AI・文書検索",
+      "strength_note": "相談記録の作成と相談中の情報補助を結び付ける協働検討領域。",
+      "limitation": "確認は協定の締結と対象範囲。本番受託・実証完了・効果は未確認。",
+      "evidence": [
+        {
+          "document_id": null,
+          "url": "https://www.city.kita.lg.jp/city-information/pr/1011994/1020828/1021964.html",
+          "title": "株式会社アイネスとの実証に関する協定締結",
+          "locator": "HTML本文冒頭・協定の目的",
+          "observation": "区が同社との実証に関する協定締結と対象機能を公表。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "otsuka-13117-1",
+      "company_id": "otsuka",
+      "municipality_code": "13117",
+      "source_name": "株式会社大塚商会",
+      "status": "agreement_partner",
+      "business": "Office内の生成AIによる日常業務効率化",
+      "period": "2025年10月31日締結",
+      "capability": "生成AI・文書検索",
+      "strength_note": "既存のOffice作業に生成AIを組み込む資料作成・データ整理の協働検討領域。",
+      "limitation": "確認は協定の締結と対象範囲。本番受託・実証完了・効果は未確認。",
+      "evidence": [
+        {
+          "document_id": null,
+          "url": "https://www.city.kita.lg.jp/city-information/pr/1011994/1023464/1023466.html",
+          "title": "株式会社大塚商会との実証に関する協定締結",
+          "locator": "HTML本文冒頭・協定の目的",
+          "observation": "区が同社との実証に関する協定締結と対象機能を公表。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "ntt-data-kansai-13117-1",
+      "company_id": "ntt-data-kansai",
+      "municipality_code": "13117",
+      "source_name": "株式会社NTTデータ関西",
+      "status": "agreement_partner",
+      "business": "生成AIを活用した面談業務支援",
+      "period": "2026年1月7日締結",
+      "capability": "生成AI・文書検索",
+      "strength_note": "面談記録に加えて、聞くべき内容を面談担当者へ示す協働検討領域。",
+      "limitation": "確認は協定の締結と対象範囲。本番受託・実証完了・効果は未確認。",
+      "evidence": [
+        {
+          "document_id": null,
+          "url": "https://www.city.kita.lg.jp/city-information/pr/1011994/1025207/1025220.html",
+          "title": "株式会社NTTデータ関西との実証に関する協定締結",
+          "locator": "HTML本文冒頭・協定の目的",
+          "observation": "区が同社との実証に関する協定締結と対象機能を公表。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "ntt-data-27100-1",
+      "company_id": "ntt-data",
+      "municipality_code": "27100",
+      "source_name": "株式会社NTTデータ",
+      "status": "agreement_partner",
+      "business": "引越し手続き・マイナンバーカード利活用の事業連携",
+      "period": "2026年3月締結",
+      "capability": "窓口・申請",
+      "strength_note": "引越し手続とパーソナルデータ流通基盤を連携して普及させる協働領域。",
+      "limitation": "協定相手であり、市からの有償委託を確認したものではない。両社の個別作業分担は未確認。",
+      "evidence": [
+        {
+          "document_id": null,
+          "url": "https://www.city.osaka.lg.jp/ictsenryakushitsu/page/0000675792.html",
+          "title": "引越し手続きワンストップサービスのご案内",
+          "locator": "HTML「6．本取組について」",
+          "observation": "大阪市はNTTデータとNTTデータ関西との事業連携協定の締結を公表。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "ntt-data-kansai-27100-1",
+      "company_id": "ntt-data-kansai",
+      "municipality_code": "27100",
+      "source_name": "株式会社NTTデータ関西",
+      "status": "agreement_partner",
+      "business": "引越し手続き・マイナンバーカード利活用の事業連携",
+      "period": "2026年3月締結",
+      "capability": "窓口・申請",
+      "strength_note": "引越し手続とパーソナルデータ流通基盤を連携して普及させる協働領域。",
+      "limitation": "協定相手であり、市からの有償委託を確認したものではない。両社の個別作業分担は未確認。",
+      "evidence": [
+        {
+          "document_id": null,
+          "url": "https://www.city.osaka.lg.jp/ictsenryakushitsu/page/0000675792.html",
+          "title": "引越し手続きワンストップサービスのご案内",
+          "locator": "HTML「6．本取組について」",
+          "observation": "大阪市はNTTデータとNTTデータ関西との事業連携協定の締結を公表。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "id": "ines-11100-1",
+      "company_id": "ines",
+      "municipality_code": "11100",
+      "source_name": "株式会社アイネス",
+      "status": "agreement_partner",
+      "business": "AI相談パートナー実証の協定",
+      "period": "2023年9月4日／実証予定9月5日～12月11日",
+      "capability": "電話・相談",
+      "strength_note": "福祉相談の記録・情報補助を検証する協働領域。",
+      "limitation": "実証前の公表。結果・本番契約・現行サービスは未確認。三菱総合研究所もサービス共同提供者として記載されるが、市との協定相手とは分ける。",
+      "evidence": [
+        {
+          "document_id": null,
+          "url": "https://www.city.saitama.lg.jp/006/014/008/003/012/006/p098897.html",
+          "title": "AI相談パートナーの実証実験を行います",
+          "locator": "HTML「実証実験の概要」「協定の締結」",
+          "observation": "西区役所の一部相談を対象に、アイネスと実証の協定を締結すると市が公表。",
+          "checked_at": "2026-09-27"
+        }
+      ]
+    }
+  ]
+}

@@ -4,6 +4,7 @@
   const base = '/co-creation-assets/';
   let dxMethod;
   let valueRubric;
+  let companyData;
   const el = (tag, text, className) => {
     const node = document.createElement(tag);
     if (text !== undefined) node.textContent = text;
@@ -257,6 +258,7 @@
     statistics.append(link('人口・産業・財政などの基礎統計と比較を見る', '/co-creation?municipality=' + code));
     article.append(statistics);
     article.append(dxReport(city));
+    if (window.MunicipalCompanies) article.append(window.MunicipalCompanies.section(code, companyData));
     article.append(publicValueReport(city));
     article.append(nonFinancialIndicators(city));
     city.documents.forEach(doc => article.append(sourceReport(doc)));
@@ -313,6 +315,7 @@
   async function start() {
     const mode = document.body.dataset.mode;
     const [research, cohort] = await Promise.all([json('major100-research.json'), json('major-municipalities-100.json')]);
+    companyData = await window.MunicipalCompanies?.load();
     dxMethod = research.dx_classification;
     valueRubric = research.public_value_rubric;
     stats(research, cohort.municipalities.length);

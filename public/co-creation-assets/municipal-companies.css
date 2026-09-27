@@ -1,0 +1,24 @@
+.municipality-companies{margin:24px 0;padding:18px;border:1px solid #b4cdbf;border-radius:10px;background:#f6faf8}
+.municipality-companies>h3{margin-top:0}
+.company-case{padding:16px 0;border-top:1px solid #c8d3da;margin-top:16px;overflow-wrap:anywhere}
+.company-case h4{font-size:1.05rem;margin:0 0 6px}
+.company-case p{margin:8px 0}
+.company-business{font-weight:700}
+.company-strength{border-left:3px solid #268266;padding:8px 12px;background:#edf6f1}
+.company-profile:not(:empty){margin:32px 0;padding:24px;background:white;border:1px solid #b4cdbf;border-radius:10px}
+.company-profile h2{scroll-margin-top:20px}
+.company-counts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.company-counts>div{padding:16px;border:1px solid #c8d3da;border-radius:8px;background:white}
+.company-counts strong{display:block;font-size:1.8rem;color:#176751}
+.company-counts span{display:block;font-size:.85rem}
+.company-filters{display:grid;grid-template-columns:1fr;gap:8px;margin:24px 0}
+.company-filters label{font-weight:600}
+.company-filters input,.company-filters select{font:inherit;width:100%;min-width:0;padding:10px;border:1px solid #8fa5bf;border-radius:6px;color:#172033;background:#fff}
+.company-filters button{justify-self:start;margin-top:8px}
+.company-capabilities{font-weight:600;color:#176751}
+.company-coverage li{break-inside:avoid}
+.company-coverage ul{columns:2;column-gap:30px}
+#company-results th[scope=row]{min-width:180px;background:#f3f8f5}
+#company-results td{min-width:170px}
+@media(max-width:600px){.company-counts{grid-template-columns:repeat(2,minmax(0,1fr))}.company-counts>div{padding:10px}.company-profile:not(:empty),.municipality-companies{padding:14px}.company-coverage ul{columns:1}}
+@media print{.company-filters{display:none}.company-profile:not(:empty){border:0;padding:0}.company-case{break-inside:avoid}}
