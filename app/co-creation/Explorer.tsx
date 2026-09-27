@@ -1,6 +1,7 @@
 'use client';
 import {useEffect,useMemo,useState} from 'react';
-import {ArrowUpRight, ArrowRight, Building2, Landmark, Network, Search, Bookmark, ShieldCheck, Database, FileText} from 'lucide-react';
+import {ArrowUpRight, ArrowRight, Building2, Landmark, Search, Bookmark, ShieldCheck, Database, FileText} from 'lucide-react';
+import BrandNetwork from './BrandNetwork';
 import {lookup,match,safeUrl} from '../../lib/co-creation/core.mjs';
 import styles from './explorer.module.css';
 import MunicipalityStatistics from './MunicipalityStatistics';
@@ -59,28 +60,19 @@ export default function Explorer() {
   return <main className={styles.root}>
     <a href="#explore" className={styles.skipLink}>検索・データ閲覧へスキップ</a>
     <header className={styles.header}>
-      <a href="/co-creation" className={styles.brand}><span className={styles.mark}>TLA<span>↗</span></span><span>共創OS<small>CO-CREATION INTELLIGENCE</small></span></a>
+      <a href="/co-creation" className={styles.brand}><span className={styles.brandLogo}><img src="/co-creation-assets/brand/tla-logo-canonical.png" alt="TLA" width="368" height="198"/></span><span className={styles.brandProduct}>共創OS<small>CO-CREATION INTELLIGENCE</small></span></a>
       <div className={styles.headerNav}><a href="/co-creation-assets/major-municipalities-100.html">自治体リサーチ <ArrowUpRight size={14} aria-hidden="true"/></a><span className={styles.beta}><i aria-hidden="true"/> PUBLIC BETA</span></div>
     </header>
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.heroCopy}>
-        <p className={styles.eyebrow}><span aria-hidden="true"/> LOCAL POTENTIAL, SHARED FUTURE.</p>
-        <h1 id="hero-title">地域の可能性を、<br/><em>共創の力</em>に。</h1>
+        <p className={styles.eyebrow}>TANKYU LEADERSHIP ACADEMY / CO-CREATION OS</p>
+        <h1 id="hero-title"><span>地域の問いを、</span><br/><em>共創の</em><br/>プロジェクトへ。</h1>
         <p className={styles.heroDescription}>自治体の課題と、企業の強み。<br/>公開情報から接点を読み解き、<br className={styles.mobileBreak}/>次のプロジェクトを構想する。</p>
         <div className={styles.heroActions}><a href="#explore" onClick={()=>setTab('match')} className={styles.heroCta}>企業から可能性を探す <ArrowRight size={18} aria-hidden="true"/></a><a href="/co-creation-assets/major-municipalities-100.html" className={styles.heroSecondary}>自治体の調査を見る <ArrowUpRight size={17} aria-hidden="true"/></a></div>
         <p className={styles.heroNote}><ShieldCheck size={14} aria-hidden="true"/> ログイン不要 · 出典付きの公開情報を使用</p>
       </div>
-      <div className={styles.constellation} aria-label="自治体の公開資料と企業のリソースを照合し、共創の仮説を検討する流れ">
-        <div className={styles.diagramLabel}>THE CO-CREATION FIELD <span>概念図</span></div>
-        <div className={styles.orbit} aria-hidden="true"/><div className={styles.orbitInner} aria-hidden="true"/>
-        <svg className={styles.connections} viewBox="0 0 480 350" fill="none" aria-hidden="true"><path d="M103 94L240 178L380 84M240 178L132 276M240 178L376 274" stroke="currentColor" strokeDasharray="4 5"/><circle cx="240" cy="178" r="7" fill="currentColor"/></svg>
-        <div className={`${styles.fieldNode} ${styles.cityNode}`}><Landmark size={19} aria-hidden="true"/><span>地域の公開資料<small>計画 / 予算 / 統計</small></span></div>
-        <div className={`${styles.fieldNode} ${styles.companyNode}`}><Building2 size={19} aria-hidden="true"/><span>企業のリソース<small>技術 / 知見 / 実績</small></span></div>
-        <div className={styles.fieldCore}><Network size={26} aria-hidden="true"/><strong>共創の接点</strong><small>CO-CREATION OS</small></div>
-        <div className={`${styles.fieldNode} ${styles.roleNode}`}><span className={styles.nodeDot} aria-hidden="true"/><span>役割を補完する<small>企業・NPOの候補</small></span></div>
-        <div className={`${styles.fieldNode} ${styles.projectNode}`}><ArrowUpRight size={20} aria-hidden="true"/><span>次の構想へ<small>仮説 / 対話 / 検証</small></span></div>
-        <p className={styles.diagramFoot}>公開情報の接点から、実行前の問いをつくる。</p>
-      </div>
+      <BrandNetwork/>
+      <div className={styles.heroBottom}><span>QUESTION <i aria-hidden="true"/> POSSIBILITY</span><p>公開情報をつなぎ、まだ見ぬ協働へ。</p><small>INQUIRY INTO POSSIBILITY.</small></div>
     </section>
     <section className={styles.metrics} aria-label="データ収録状況">
       {[[data?Number(data.municipalities.length).toLocaleString():'—','自治体','全国の名称・コード台帳'],[baselineCount??'—','項目','自治体ごとの基礎統計'],['100','自治体','主要自治体リサーチの対象'],[data?Object.keys(data.tags).length:'—','分野','企業と地域をつなぐ照合タグ']].map(([n,unit,label])=><div key={String(label)}><div><strong>{n}</strong><span>{unit}</span></div><small>{label}</small></div>)}

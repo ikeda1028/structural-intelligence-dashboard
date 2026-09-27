@@ -1,0 +1,15 @@
+.scene { position: relative; min-width: 0; width: 110%; margin-left: -5%; aspect-ratio: 580 / 500; color: #0b64f4; }
+.scene svg { position: absolute; inset: 4% 0 auto; width: 100%; height: auto; }
+.coordinate { position: absolute; right: 3%; top: 0; font: 10px/1.5 'TLA Geist Mono', monospace; letter-spacing: .045em; color: #616975; }
+.origin { fill: #f2efe7; stroke: currentColor; stroke-width: 1; }
+.question { font: 28px Georgia, serif; }
+.label { position: absolute; padding: 5px 10px 5px 18px; color: #071427; background: #f2efe7e8; font-size: 13px; line-height: 1.6; }
+.label i { position: absolute; width: 5px; height: 5px; background: #0b64f4; border-radius: 50%; top: 13px; left: 4px; }
+.label small { display: block; font: 10px/1.8 'TLA Geist Mono', monospace; color: #616975; letter-spacing: .03em; }
+.region { top: 17%; left: 37%; }
+.resources { top: 47%; right: 0; }
+.possibility { bottom: 15%; left: 57%; }
+.caption { position: absolute; bottom: -3px; right: 3%; margin: 0; color: #071427; font-size: 12px; line-height: 1.8; }
+.caption span { display: block; color: #616975; font: 9px/2 'TLA Geist Mono', monospace; margin-top: 5px; }
+@media(max-width:800px) { .scene { max-width: 540px; width: 100%; margin: 22px auto 0; } }
+@media(max-width:580px) { .label { font-size: 11px; padding-right: 5px; padding-left: 14px; } .label i { left: 2px; top: 12px; width: 4px; height: 4px; } .label small { font-size: 8px; } .coordinate { font-size: 8px; } .caption { font-size: 11px; } .caption span { font-size: 7px; } }
