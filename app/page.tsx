@@ -1,5 +1,6 @@
 import { Activity, ArrowRight, BadgeCheck, Banknote, Brain, Database, Globe2, Landmark, Layers3, Radio, Search, ShieldCheck, Telescope, TrendingUp, Zap } from "lucide-react";
 import Link from "next/link";
+import { TlaHeader } from "@/app/components/TlaHeader";
 import { buildCountryLayer } from "@/lib/country-layer";
 import { getEraMovements, getEraThesis, quadrantTable } from "@/lib/era-map";
 import { buildIntelligenceResearch } from "@/lib/intelligence-research";
@@ -60,9 +61,10 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
 
   return (
     <div className="shell">
-      <Header />
+      <TlaHeader includeReports />
       <main className="main">
         <section className="hero">
+          <span className="hero-kicker">TLA / STRUCTURAL INTELLIGENCE</span>
           <h1>牧山式インテリジェンスリサーチ</h1>
           <p>
             政治・経済・思想・テクノロジー・社会・安全保障・教育の情報を、
@@ -772,26 +774,6 @@ export default async function Home({ searchParams }: { searchParams?: Promise<{ 
         </section>
       </main>
     </div>
-  );
-}
-
-function Header() {
-  return (
-    <header className="topbar">
-      <div className="topbar-inner">
-        <Link className="brand" href="/">
-          <span className="brand-mark"><Activity size={19} /></span>
-          <span>牧山式インテリジェンスリサーチ</span>
-        </Link>
-        <nav className="nav">
-          <Link href="/">ダッシュボード</Link>
-          <Link href="/sources">情報源管理</Link>
-          <Link href="/research-history">調査履歴</Link>
-          <a href="/reports/michinoeki-20260927.html">道の駅レポート</a>
-          <a href="/reports/michinoeki-visitors-20260927.html">集客50駅</a>
-        </nav>
-      </div>
-    </header>
   );
 }
 

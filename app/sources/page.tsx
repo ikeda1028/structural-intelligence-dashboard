@@ -1,5 +1,6 @@
-import { Activity, AlertTriangle, CheckCircle2, PauseCircle, Plus, Save, Search, ShieldAlert } from "lucide-react";
+import { AlertTriangle, CheckCircle2, PauseCircle, Plus, Save, Search, ShieldAlert } from "lucide-react";
 import Link from "next/link";
+import { TlaHeader } from "@/app/components/TlaHeader";
 import { listCrawlLogs, listSources } from "@/lib/repository";
 import { isSupabaseAdminConfigured } from "@/lib/supabase";
 import type { CrawlFrequency, CrawlLogWithSource, SourceType } from "@/lib/types";
@@ -49,22 +50,11 @@ export default async function SourcesPage({ searchParams }: { searchParams?: Pro
 
   return (
     <div className="shell">
-      <header className="topbar">
-        <div className="topbar-inner">
-          <Link className="brand" href="/">
-            <span className="brand-mark"><Activity size={19} /></span>
-            <span>牧山式インテリジェンスリサーチ</span>
-          </Link>
-          <nav className="nav">
-            <Link href="/">ダッシュボード</Link>
-            <Link href="/sources">情報源管理</Link>
-            <Link href="/research-history">調査履歴</Link>
-          </nav>
-        </div>
-      </header>
+      <TlaHeader />
 
       <main className="main">
         <section className="hero">
+          <span className="hero-kicker">SOURCE OPERATIONS</span>
           <h1>情報源管理</h1>
           <p>信頼性、領域、地域、巡回頻度を管理し、不要な情報源は停止できます。</p>
         </section>

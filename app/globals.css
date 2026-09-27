@@ -3478,3 +3478,342 @@ select {
     min-height: auto;
   }
 }
+
+/* TLA integrated visual identity */
+@font-face {
+  font-family: "TLA Geist";
+  src: url("/co-creation-assets/brand/geist-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TLA Geist Mono";
+  src: url("/co-creation-assets/brand/geist-mono-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --bg: #f2efe7;
+  --panel: #faf9f6;
+  --panel-border: #d1d1ce;
+  --ink: #071427;
+  --muted: #616975;
+  --accent: #0b64f4;
+  --accent-soft: #e5edf9;
+  --blue: #0b64f4;
+  --blue-soft: #e5edf9;
+  --shadow: none;
+}
+
+body {
+  background: var(--bg);
+  font-family: "TLA Geist", Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #c4d8fa;
+  color: var(--ink);
+}
+
+.topbar {
+  background: rgba(242, 239, 231, 0.96);
+  border-color: var(--panel-border);
+  backdrop-filter: blur(18px);
+}
+
+.topbar-inner {
+  max-width: 1440px;
+  min-height: 92px;
+  padding: 14px clamp(20px, 5vw, 80px);
+}
+
+.brand {
+  gap: 22px;
+  min-width: 0;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 520;
+  line-height: 1.25;
+}
+
+.tla-brand-logo {
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 50px;
+  flex: none;
+  overflow: hidden;
+}
+
+.tla-brand-logo img {
+  display: block;
+  width: 92px;
+  height: auto;
+}
+
+.tla-brand-product {
+  display: grid;
+  gap: 6px;
+  padding-left: 22px;
+  border-left: 1px solid var(--panel-border);
+}
+
+.tla-brand-product small {
+  color: var(--muted);
+  font-family: "TLA Geist Mono", monospace;
+  font-size: 8px;
+  font-weight: 450;
+  letter-spacing: 0.08em;
+}
+
+.nav {
+  gap: 24px;
+  overflow-x: auto;
+}
+
+.nav a {
+  min-height: 40px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 520;
+  white-space: nowrap;
+}
+
+.nav a:hover {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+.main {
+  max-width: 1440px;
+  padding: 40px clamp(20px, 5vw, 80px) 80px;
+}
+
+.hero {
+  gap: 14px;
+  padding: 28px 0 50px;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.hero h1 {
+  max-width: 980px;
+  font-size: clamp(36px, 4.8vw, 68px);
+  font-weight: 560;
+  line-height: 1.2;
+}
+
+.hero p {
+  max-width: 880px;
+  color: #424c59;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.hero-kicker,
+.hotspot-head span,
+.overview-copy > span {
+  color: var(--accent);
+  font-family: "TLA Geist Mono", monospace;
+  font-size: 9px;
+  font-weight: 520;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card,
+.overview-nav,
+.overview-item,
+.item,
+.source-summary-grid article,
+.source-filter-form,
+.history-item,
+.field input,
+.field select {
+  border-color: var(--panel-border);
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.card {
+  background: var(--panel);
+}
+
+.overview-nav {
+  margin-top: 28px;
+  background: transparent;
+}
+
+.overview-item,
+.item,
+.source-summary-grid article,
+.source-filter-form,
+.history-item {
+  background: rgba(250, 249, 246, 0.78);
+}
+
+.overview-item:hover,
+.item:hover,
+.history-item:hover {
+  border-color: var(--accent);
+  background: #e9e9e5;
+}
+
+.button,
+.nav a,
+button {
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.button {
+  min-height: 42px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 560;
+}
+
+.button.primary {
+  border-color: var(--ink);
+  background: var(--ink);
+}
+
+.button.primary:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.pill,
+.status-pill {
+  border-radius: 2px;
+}
+
+.metrics {
+  gap: 0;
+  margin: 30px 0 0;
+  border-top: 1px solid var(--panel-border);
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.metric {
+  border-width: 0 1px 0 0;
+  background: transparent;
+}
+
+.metric:last-child {
+  border-right: 0;
+}
+
+.metric strong,
+.source-summary-grid strong,
+.history-stat strong,
+.risk-score-dial strong,
+.history-score {
+  font-weight: 430;
+  font-variant-numeric: tabular-nums;
+}
+
+.section {
+  padding: 28px;
+}
+
+.section h2 {
+  font-size: 21px;
+  font-weight: 560;
+}
+
+.source-table th,
+.quadrant-table th,
+.competitor-table th,
+.risk-table th {
+  background: #eceff3;
+  color: var(--muted);
+  font-weight: 520;
+}
+
+.source-table tbody tr:hover,
+.quadrant-table tbody tr:hover,
+.competitor-table tbody tr:hover,
+.risk-table tbody tr:hover {
+  background: #e5edf9;
+}
+
+:is(a, button, input, select, summary):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1080px) {
+  .topbar-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .nav {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .topbar-inner {
+    min-height: 0;
+    padding: 12px 16px;
+  }
+
+  .brand {
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .tla-brand-logo {
+    width: 64px;
+    height: 36px;
+  }
+
+  .tla-brand-logo img {
+    width: 64px;
+  }
+
+  .tla-brand-product {
+    gap: 3px;
+    padding-left: 10px;
+  }
+
+  .tla-brand-product small {
+    font-size: 6px;
+  }
+
+  .nav {
+    gap: 18px;
+  }
+
+  .nav a {
+    font-size: 10px;
+  }
+
+  .main {
+    padding: 24px 16px 56px;
+  }
+
+  .hero {
+    padding: 18px 0 34px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .section {
+    padding: 20px 16px;
+  }
+}

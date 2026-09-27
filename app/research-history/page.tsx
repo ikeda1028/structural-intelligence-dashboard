@@ -1,5 +1,6 @@
-import { Activity, Database, FileText, ShieldCheck } from "lucide-react";
+import { Database, FileText, ShieldCheck } from "lucide-react";
 import Link from "next/link";
+import { TlaHeader } from "@/app/components/TlaHeader";
 import { listIntelligenceResearchReports, listRiskResponseResearchReports } from "@/lib/repository";
 
 export const dynamic = "force-dynamic";
@@ -12,19 +13,7 @@ export default async function ResearchHistoryPage() {
 
   return (
     <div className="shell">
-      <header className="topbar">
-        <div className="topbar-inner">
-          <Link className="brand" href="/">
-            <span className="brand-mark"><Activity size={19} /></span>
-            <span>牧山式インテリジェンスリサーチ</span>
-          </Link>
-          <nav className="nav">
-            <Link href="/">ダッシュボード</Link>
-            <Link href="/sources">情報源管理</Link>
-            <Link href="/research-history">調査履歴</Link>
-          </nav>
-        </div>
-      </header>
+      <TlaHeader />
 
       <main className="main">
         <section className="hero compact-hero">
