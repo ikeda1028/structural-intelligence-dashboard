@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const primaryLinks = [
   { href: "/", label: "ダッシュボード" },
+  { href: "/co-creation", label: "自治体共創" },
   { href: "/sources", label: "情報源管理" },
   { href: "/research-history", label: "調査履歴" }
 ];
